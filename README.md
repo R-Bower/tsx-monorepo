@@ -1,4 +1,4 @@
-## Qualcomm UI (QUI)
+## TSX-monorepo
 
 <!--suppress HtmlDeprecatedAttribute -->
 <div align="center">
