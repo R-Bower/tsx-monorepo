@@ -16,7 +16,6 @@ const Flex = styled.div.withConfig({shouldForwardProp})<IFlexProps>`
 `
 
 Flex.defaultProps = {
-  backgroundColor: "green",
   display: "flex",
 }
 

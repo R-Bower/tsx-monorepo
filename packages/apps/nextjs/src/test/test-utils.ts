@@ -1,14 +1,18 @@
+import React from "react"
+
+import {render, RenderOptions, RenderResult} from "@testing-library/react"
+
+import Providers from "../components/page/Providers"
+
 // test-utils.js
-import {render} from "@testing-library/react"
 
 // Add in any providers here if necessary:
 // (ReduxProvider, ThemeProvider, etc)
-const Providers = ({children}) => {
-  return children
-}
 
-const customRender = (ui, options = {}) =>
-  render(ui, {wrapper: Providers, ...options})
+const customRender = (
+  ui: React.ReactElement,
+  options: RenderOptions = {},
+): RenderResult => render(ui, {wrapper: Providers, ...options})
 
 // re-export everything
 export * from "@testing-library/react"

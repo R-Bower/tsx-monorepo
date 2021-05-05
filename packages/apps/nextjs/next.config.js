@@ -1,4 +1,7 @@
 module.exports = {
+  future: {
+    webpack5: false,
+  },
   /**
    * You can use the following experimental flag if you're on Next >= 10.1.0.
    * Note that this can change/break without warning.
@@ -7,9 +10,7 @@ module.exports = {
   // experimental: {
   //   externalDir: true,
   // },
-  future: {
-    webpack5: false,
-  },
+  reactStrictMode: true,
   webpack: (config) => {
     // Let Babel compile outside of src/.
     const tsRule = config.module.rules.find(

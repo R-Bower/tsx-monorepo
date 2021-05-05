@@ -8,8 +8,8 @@ export default function Home(): JSX.Element {
   return (
     <>
       <NextSeo
-        description={"Ryan Bower - Full Stack Web Developer"}
-        title={"Rarely Ryan"}
+        description={"Big monorepo"}
+        title={"Ryan Bower - Full Stack Web Developer"}
       />
       <HomePage />
     </>
