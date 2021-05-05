@@ -3,7 +3,7 @@
 <!--suppress HtmlDeprecatedAttribute -->
 <div align="center">
 
-This project is a collection of tools, apps, and libraries intended for supporting React application development.
+This project is a collection of tools, apps, and libraries intended for supporting React development.
 
 </div>
 

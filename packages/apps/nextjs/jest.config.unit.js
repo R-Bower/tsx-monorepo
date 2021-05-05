@@ -1,7 +1,7 @@
 module.exports = {
   globals: {
     "babel-jest": {
-      babelrcFile: "./babel.jest.config.json",
+      babelrcFile: "./babel.config.jest.json",
     },
   },
   moduleDirectories: ["node_modules", "src"],
@@ -18,6 +18,6 @@ module.exports = {
   roots: ["<rootDir>"],
   setupFilesAfterEnv: ["<rootDir>/jest.setup.js"],
   transform: {
-    "^.+\\.[tj]sx?$": ["babel-jest", {configFile: "./babel.jest.config.json"}],
+    "^.+\\.[tj]sx?$": ["babel-jest", {configFile: "./babel.config.jest.json"}],
   },
 }
