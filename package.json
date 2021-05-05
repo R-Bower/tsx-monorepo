@@ -1,0 +1,38 @@
+{
+  "name": "@rb/monorepo",
+  "description": "Main monorepo for all @rb apps and libs",
+  "private": true,
+  "workspaces": [
+    "packages/apps/*",
+    "packages/libs/*"
+  ],
+  "scripts": {
+    "dev": "lerna run dev",
+    "build": "lerna run build",
+    "clean": "lerna run clean",
+    "install": "yarn audit",
+    "lint": "eslint --ext js,ts,tsx .",
+    "pub": "lerna publish",
+    "react-dev-unix": "node scripts/react-dev-unix.js",
+    "test": "lerna run test"
+  },
+  "dependencies": {
+    "rambda": "^6.7.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.14.0",
+    "@babel/node": "^7.13.13",
+    "@babel/preset-env": "^7.14.1",
+    "@babel/preset-react": "^7.13.13",
+    "@babel/preset-typescript": "^7.13.0",
+    "@octokit/core": "^3.4.0",
+    "@rb/eslint-config": "*",
+    "@types/jest": "^26.0.23",
+    "jest": "^26.6.3",
+    "jest-dom": "^4.0.0",
+    "lerna": "^4.0.0",
+    "open-terminal": "^0.1.11",
+    "ts-jest": "^26.5.5",
+    "typescript": "^4.2.4"
+  }
+}

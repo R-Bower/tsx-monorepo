@@ -1,0 +1,27 @@
+{
+  // https://www.typescriptlang.org/tsconfig#Basic_Options_6172
+  "extends": "./tsconfig.build.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
+    "paths": {
+      "@rb/*": ["packages/libs/*"]
+    },
+    "resolveJsonModule": true,
+    "typeRoots": ["node_modules/@types"]
+  },
+  "references": [
+    {
+      "path": "packages/apps/nextjs"
+    },
+    {
+      "path": "packages/libs/eslint-config"
+    },
+    {
+      "path": "packages/libs/react-components"
+    },
+    {
+      "path": "packages/libs/react-primitives"
+    }
+  ]
+}

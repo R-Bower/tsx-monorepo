@@ -1,0 +1,31 @@
+{
+  "name": "@rb/react-components",
+  "version": "0.0.1",
+  "main": "dist/index",
+  "types": "dist/index",
+  "scripts": {
+    "build": "yarn run clean && yarn run compile",
+    "clean": "rimraf -rf ./dist",
+    "compile": "tsc -p tsconfig.build.json",
+    "dev": "yarn run clean && yarn run watch",
+    "show-config": "tsc --showConfig",
+    "prepublishOnly": "yarn run build",
+    "watch": "tsc -p tsconfig.build.json -w"
+  },
+  "dependencies": {
+    "react-spring": "npm:@react-spring/web@^9.1.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-is": "^17.0.2",
+    "react-select": "^4.3.0",
+    "styled-components": "^5.2.3",
+    "styled-system": "^5.1.5"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.4",
+    "@types/react-dom": "^17.0.3",
+    "@types/styled-components": "^5.1.9",
+    "@types/styled-system": "^5.1.11",
+    "csstype": "^3.0.8"
+  }
+}
