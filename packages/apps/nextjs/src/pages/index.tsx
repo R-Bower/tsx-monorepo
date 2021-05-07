@@ -2,7 +2,7 @@ import React from "react"
 
 import {NextSeo} from "next-seo"
 
-import HomePage from "../routes/home/HomePage"
+import HomePage from "~routes/home/HomePage"
 
 export default function Home(): JSX.Element {
   return (

@@ -1,4 +1,1 @@
-// TODO: implement
-export const Placeholder = () => {
-  throw new Error("Implement me")
-}
+export {default as Card} from "./layout/card/Card"

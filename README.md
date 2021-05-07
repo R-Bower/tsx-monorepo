@@ -48,10 +48,39 @@ yarn install
 - Shared libraries and utilities are located within `packages/libs`.
 - Data fetching APIs and libraries are located within `packages/apis`.
     - Note: it's perfectly fine for isolated apps to include their own data fetching apis within their respective package folders.
+  
+### Conventions
+- Every package must contain at least the following:
+  - a `package.json` file.
+  - a `src` folder with code specific to the package's library or framework.
+  - a `tsconfig.json` (TypeScript projects only).
+- Within a TypeScript project, it's recommended that path aliasing be setup such that local packages start with `~`.
+  - The base ESLint configuration is set up to split import groups based on external, internal, and sibling/parent/child.  A 4th grouping is configured for apps-specific internal files.  This is done for organizational purposes, as it's much easier to distinguish at a glance the origins of the imported code.
+  - Ex for a project with `src/components` and `src/pages` folder:
+  ```typescript jsx
+  // src/components/simple-div/SimpleDiv.tsx
+  import React from "react"
+  
+  export default function SimpleDiv(): JSX.Element {
+    return <div />
+  }
+  ```
+  ```typescript jsx
+  // src/pages/about.tsx
+  import React from "react"
+  
+  import SimpleDiv from "~components/simple-div/SimpleDiv.tsx"
+  
+  import {localUtilityFunc} from "./utils"
+  
+  export default function AboutPage(): JSX.Element {
+    return <SimpleDiv />
+  }
+  ```
 
 ## References
 
-See the following blog posts. This guy is pretty good. I used his monorepo as a base for this project:
+See the following blog posts. This guy is pretty good. I used his monorepo as a base for this repository:
 
 - [How to set up a TypeScript monorepo and make Go to definition work](https://medium.com/@NiGhTTraX/how-to-set-up-a-typescript-monorepo-with-lerna-c6acda7d4559)
 - [Making TypeScript monorepos play nice with other tools](https://medium.com/@NiGhTTraX/making-typescript-monorepos-play-nice-with-other-tools-a8d197fdc680)
