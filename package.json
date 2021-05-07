@@ -4,16 +4,17 @@
   "private": true,
   "workspaces": [
     "packages/apps/*",
+    "packages/data/*",
     "packages/libs/*"
   ],
   "scripts": {
     "dev": "lerna run dev",
     "build": "lerna run build",
     "clean": "lerna run clean",
-    "install": "yarn audit",
     "lint": "eslint --ext js,ts,tsx .",
     "pub": "lerna publish",
-    "react-dev-unix": "node scripts/react-dev-unix.js",
+    "next-dev": "lerna run dev --parallel --stream",
+    "start": "lerna run start",
     "test": "lerna run test"
   },
   "dependencies": {
@@ -30,7 +31,7 @@
     "@types/jest": "^26.0.23",
     "jest": "^26.6.3",
     "jest-dom": "^4.0.0",
-    "lerna": "^4.0.0",
+    "lerna": "^3.22.1",
     "open-terminal": "^0.1.11",
     "ts-jest": "^26.5.5",
     "typescript": "^4.2.4"

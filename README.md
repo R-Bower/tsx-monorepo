@@ -36,10 +36,11 @@ This project is a collection of tools, apps, and libraries intended for supporti
 yarn install
 ```
 
-### Hot reloading
-- Currently WIP.  The current implementation spawns terminals that use `tsc` to watch each independent workspace and recompile on change.
-  - `Linux/MacOS`: to hot reload the `libs/react-*` workspaces, run `yarn react-dev-unix` at the root of this repo.
-  - `Windows`: WIP
+### NextJS Development
+- Currently WIP.
+- run `yarn next-dev`.  Executes `yarn run dev --parallel --stream` which does the following:
+  - starts `@rb/nextjs-template` in dev mode using `next dev`
+  - runs `@rb/react-primitives` and `@rb/react-components` in watch mode which triggers a recompile on change.
 
 ### Projects
 

@@ -7,7 +7,7 @@
     "build": "yarn run clean && yarn run compile",
     "clean": "rimraf -rf ./dist",
     "compile": "tsc -p tsconfig.build.json",
-    "dev": "yarn run clean && yarn run watch",
+    "dev": "yarn run watch",
     "show-config": "tsc --showConfig",
     "prepublishOnly": "yarn run build",
     "watch": "tsc -p tsconfig.build.json -w"

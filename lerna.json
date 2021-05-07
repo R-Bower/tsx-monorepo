@@ -1,6 +1,7 @@
 {
   "packages": [
     "packages/apps/*",
+    "packages/data/*",
     "packages/libs/*"
   ],
   "version": "independent",

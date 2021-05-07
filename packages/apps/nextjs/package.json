@@ -5,10 +5,11 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "test": "jest --config jest.config.unit.js",
     "e2e": "cross-env CONFIG_STAGE=dev node node_modules/.bin/jest.js --config jest.config.e2e.js",
     "e2e:spec": "cross-env CONFIG_STAGE=dev node node_modules/.bin/jest.js --verbose --config jest.config.e2e.js -t",
-    "show-config": "tsc --showConfig"
+    "show-config": "tsc --showConfig",
+    "start": "next",
+    "test": "jest --config jest.config.unit.js"
   },
   "dependencies": {
     "@rb/react-primitives": "*",
