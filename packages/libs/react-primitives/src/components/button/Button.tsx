@@ -3,18 +3,18 @@ import {flexbox, FlexboxProps, typography, TypographyProps} from "styled-system"
 
 import {
   ISharedSystemProps,
-  sharedSystemProps,
+  commonSystemProps,
   shouldForwardProp,
-} from "../system/shared"
+} from "~system/shared"
 
-export interface QButtonProps
+export interface IButtonProps
   extends ISharedSystemProps,
     FlexboxProps,
     TypographyProps {}
 
 const Button = styled.button.withConfig({
   shouldForwardProp,
-})<QButtonProps>`
+})<IButtonProps>`
   display: flex;
   /* Remove outline for non-keyboard :focus */
 
@@ -27,7 +27,7 @@ const Button = styled.button.withConfig({
   }
 
   will-change: transform;
-  ${sharedSystemProps};
+  ${commonSystemProps};
   ${flexbox};
   ${typography};
 `

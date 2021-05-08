@@ -4,15 +4,16 @@
   "main": "dist/index",
   "types": "dist/index",
   "scripts": {
-    "build": "yarn run clean && yarn run compile",
+    "build": "npm run clean && npm run compile",
     "clean": "rimraf -rf ./dist",
     "compile": "tsc -p tsconfig.build.json",
-    "dev": "yarn run watch",
+    "dev": "npm run watch",
     "show-config": "tsc --showConfig",
-    "prepublishOnly": "yarn run build",
+    "prepublishOnly": "npm run build",
     "watch": "tsc -p tsconfig.build.json -w"
   },
   "dependencies": {
+    "@primer/styled-octicons": "^13.0.0",
     "@rb/react-primitives": "*",
     "react-spring": "npm:@react-spring/web@^9.1.2",
     "react": "^17.0.2",

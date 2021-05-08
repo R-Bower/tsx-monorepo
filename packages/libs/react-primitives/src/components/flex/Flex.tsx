@@ -3,16 +3,16 @@ import {flexbox, FlexboxProps} from "styled-system"
 
 import {
   ISharedSystemProps,
-  sharedSystemProps,
+  commonSystemProps,
   shouldForwardProp,
-} from "../system/shared"
+} from "~system/shared"
 
 export interface IFlexProps extends ISharedSystemProps, FlexboxProps {}
 
 const Flex = styled.div.withConfig({shouldForwardProp})<IFlexProps>`
   box-sizing: border-box;
   ${flexbox};
-  ${sharedSystemProps};
+  ${commonSystemProps};
 `
 
 Flex.defaultProps = {

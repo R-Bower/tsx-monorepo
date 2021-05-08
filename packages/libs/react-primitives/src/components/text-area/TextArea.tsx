@@ -3,9 +3,9 @@ import {typography, TypographyProps} from "styled-system"
 
 import {
   ISharedSystemProps,
-  sharedSystemProps,
+  commonSystemProps,
   shouldForwardProp,
-} from "../system/shared"
+} from "~system/shared"
 
 export interface ITextAreaProps extends ISharedSystemProps, TypographyProps {}
 
@@ -30,7 +30,7 @@ const TextArea = styled.textarea.withConfig({
     opacity: 0;
   }
   ${typography};
-  ${sharedSystemProps};
+  ${commonSystemProps};
 `
 
 TextArea.defaultProps = {

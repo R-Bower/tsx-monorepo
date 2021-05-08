@@ -3,9 +3,9 @@ import {typography, TypographyProps} from "styled-system"
 
 import {
   ISharedSystemProps,
-  sharedSystemProps,
+  commonSystemProps,
   shouldForwardProp,
-} from "../system/shared"
+} from "~system/shared"
 
 interface IInputProps extends ISharedSystemProps, TypographyProps {}
 
@@ -13,7 +13,7 @@ const Input = styled.input.withConfig({
   shouldForwardProp,
 })<IInputProps>`
   ${typography};
-  ${sharedSystemProps};
+  ${commonSystemProps};
   outline: none;
   // Safari placeholder centering fix
   box-sizing: border-box;

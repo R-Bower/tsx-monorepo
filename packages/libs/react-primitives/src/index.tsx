@@ -1,7 +1,11 @@
-export {default as AnimatedBox} from "./components/AnimatedBox"
-export {default as Box} from "./components/Box"
-export {default as Button} from "./components/Button"
-export {default as Flex, IFlexProps} from "./components/Flex"
-export {default as Svg} from "./components/Svg"
-export {default as Text} from "./components/Text"
-export {default as TextArea} from "./components/TextArea"
+export {default as AnimatedBox} from "./components/animated-box/AnimatedBox"
+export {default as Box, IBoxProps} from "./components/box/Box"
+export {default as Button, IButtonProps} from "./components/button/Button"
+export {default as Flex, IFlexProps} from "./components/flex/Flex"
+export {default as Svg, ISvgProps} from "./components/svg/Svg"
+export {default as Text, ITextProps} from "./components/text/Text"
+export {
+  default as TextArea,
+  ITextAreaProps,
+} from "./components/text-area/TextArea"
+export * from "./components/position/Position"

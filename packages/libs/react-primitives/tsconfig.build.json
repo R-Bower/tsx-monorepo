@@ -2,6 +2,7 @@
   // https://json.schemastore.org/tsconfig
   "extends": "../../../tsconfig.build.json",
   "compilerOptions": {
+    "baseUrl": ".",
     "declaration": true,
     "declarationDir": "dist",
     "declarationMap": true,
@@ -9,7 +10,12 @@
     "jsx": "react",
     "module": "ESNext",
     "esModuleInterop": true,
-    "target": "esnext"
+    "sourceMap": false,
+    "target": "esnext",
+    "paths": {
+      "@rb/*": ["../../libs/*"],
+      "~*": ["./src/*"]
+    }
   },
   "include": [
     "src/**/*"

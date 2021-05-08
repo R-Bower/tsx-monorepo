@@ -2,14 +2,14 @@ import styled from "styled-components"
 
 import {
   ISharedSystemProps,
-  sharedSystemProps,
+  commonSystemProps,
   shouldForwardProp,
-} from "../system/shared"
+} from "~system/shared"
 
 export type ISvgProps = ISharedSystemProps
 
 const Svg = styled.svg.withConfig({shouldForwardProp})<ISvgProps>`
-  ${sharedSystemProps};
+  ${commonSystemProps};
 `
 
 Svg.displayName = "Primitives.Svg"

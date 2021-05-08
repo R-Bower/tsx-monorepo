@@ -2,14 +2,14 @@ import styled from "styled-components"
 
 import {
   ISharedSystemProps,
-  sharedSystemProps,
+  commonSystemProps,
   shouldForwardProp,
-} from "../system/shared"
+} from "~system/shared"
 
 export type IBoxProps = ISharedSystemProps
 
 const Box = styled.div.withConfig({shouldForwardProp})<IBoxProps>`
-  ${sharedSystemProps};
+  ${commonSystemProps};
 `
 
 export default Box

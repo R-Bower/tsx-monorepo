@@ -1,12 +1,12 @@
 import {animated} from "react-spring"
 import styled from "styled-components"
 
-import {sharedSystemProps, shouldForwardProp} from "../system/shared"
+import {commonSystemProps, shouldForwardProp} from "~system/shared"
 
 const AnimatedBox = styled(animated.div).withConfig({
   shouldForwardProp,
 })`
-  ${sharedSystemProps};
+  ${commonSystemProps};
 `
 
 export default AnimatedBox

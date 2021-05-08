@@ -2,12 +2,7 @@ import React from "react"
 
 import {render, RenderOptions, RenderResult} from "@testing-library/react"
 
-import Providers from "../components/page/Providers"
-
-// test-utils.js
-
-// Add in any providers here if necessary:
-// (ReduxProvider, ThemeProvider, etc)
+import Providers from "~components/page/Providers"
 
 const customRender = (
   ui: React.ReactElement,

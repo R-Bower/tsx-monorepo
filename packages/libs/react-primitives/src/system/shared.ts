@@ -4,27 +4,33 @@ import {has, reduce} from "rambda"
 import {css} from "styled-components"
 import {
   background,
+  BackgroundProps,
   border,
+  BorderProps,
   color,
+  ColorProps,
   compose,
   layout,
-  position,
-  shadow,
-  space,
-  BackgroundProps,
-  BorderProps,
-  ColorProps,
   LayoutProps,
-  PositionProps,
-  ShadowProps,
+  space,
   SpaceProps,
 } from "styled-system"
 
 import customProps, {ICustomSystemProps} from "./custom-props"
 import stylePropsList from "./style-props-list"
 
-export const sharedSystemProps = css`
-  ${compose(background, border, color, layout, position, shadow, space)};
+export interface ISharedSystemProps
+  extends BackgroundProps,
+    BorderProps,
+    ColorProps,
+    LayoutProps,
+    SpaceProps,
+    ICustomSystemProps {
+  as?: React.ElementType
+}
+
+export const commonSystemProps = css`
+  ${compose(background, border, color, layout, space)};
   ${customProps};
 `
 
@@ -46,14 +52,3 @@ const excludedProps = reduce(
 
 export const shouldForwardProp = (prop: any): boolean =>
   !has(prop, excludedProps)
-export interface ISharedSystemProps
-  extends BackgroundProps,
-    BorderProps,
-    ColorProps,
-    LayoutProps,
-    PositionProps,
-    ShadowProps,
-    SpaceProps,
-    ICustomSystemProps {
-  as?: React.ElementType
-}
