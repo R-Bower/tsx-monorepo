@@ -50,5 +50,7 @@ const excludedProps = reduce(
   stylePropsList,
 )
 
-export const shouldForwardProp = (prop: any): boolean =>
+// used exclude style props from the dom
+// https://styled-components.com/docs/api#shouldforwardprop
+export const shouldForwardProp = (prop: string): boolean =>
   !has(prop, excludedProps)

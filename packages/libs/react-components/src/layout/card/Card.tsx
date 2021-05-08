@@ -2,10 +2,10 @@ import React from "react"
 
 import {Flex} from "@rb/react-primitives"
 
-interface ICardProps {
+interface CardProps {
   children: React.ReactNode
 }
 
-export default function Card({children}: ICardProps): JSX.Element {
+export default function Card({children}: CardProps): JSX.Element {
   return <Flex>{children}</Flex>
 }

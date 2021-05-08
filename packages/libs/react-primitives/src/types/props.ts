@@ -19,6 +19,6 @@ export type ComponentPropsWithRef<
   ? React.PropsWithoutRef<P> & React.RefAttributes<InstanceType<T>>
   : React.PropsWithRef<ComponentProps<T>>
 
-export interface IPropsWithChildren {
+export interface PropsWithChildren {
   children: React.ReactNode
 }

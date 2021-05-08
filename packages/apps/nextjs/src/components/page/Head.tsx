@@ -3,12 +3,12 @@ import React from "react"
 import {NextSeo} from "next-seo"
 import NextHead from "next/head"
 
-export interface IHeadProps {
+export interface HeadProps {
   description: string
   title: string
 }
 
-export default function AppHead({description, title}: IHeadProps): JSX.Element {
+export default function AppHead({description, title}: HeadProps): JSX.Element {
   return (
     <>
       <NextSeo description={description} title={title} />
