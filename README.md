@@ -24,6 +24,7 @@ This project is a collection of tools, apps, and libraries intended for supporti
 - Hot reloading adjacent packages in the repo.
 - Optional publishing support.
 - [Tree shaking](https://webpack.js.org/guides/tree-shaking/) for every React library.
+  - This is accomplished using webpack's side effects.  If you're unfamiliar with side effects, [read more here](https://sgom.es/posts/2020-06-15-everything-you-never-wanted-to-know-about-side-effects/) for a good explanation.
 - Working "go to definition" feature in IDEs for every package.
 - E2E testing with [playwright](https://playwright.dev).
 - Testing support via Jest (still requires per-project config but this might be good enough)

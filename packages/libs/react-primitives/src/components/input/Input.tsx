@@ -5,11 +5,11 @@ import {
   ISharedSystemProps,
   commonSystemProps,
   shouldForwardProp,
-} from "~system/shared"
+} from "../../system/shared"
 
 interface IInputProps extends ISharedSystemProps, TypographyProps {}
 
-const Input = styled.input.withConfig({
+export const Input = styled.input.withConfig({
   shouldForwardProp,
 })<IInputProps>`
   ${typography};
@@ -19,5 +19,3 @@ const Input = styled.input.withConfig({
   box-sizing: border-box;
   line-height: normal;
 `
-
-export default Input

@@ -2,7 +2,7 @@ import React from "react"
 
 import {render, RenderOptions, RenderResult} from "@testing-library/react"
 
-import Providers from "~components/page/Providers"
+import Providers from "../components/page/Providers"
 
 const customRender = (
   ui: React.ReactElement,

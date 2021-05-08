@@ -2,14 +2,6 @@ module.exports = {
   future: {
     webpack5: false,
   },
-  /**
-   * You can use the following experimental flag if you're on Next >= 10.1.0.
-   * Note that this can change/break without warning.
-   * @see https://github.com/vercel/next.js/pull/22867
-   */
-  // experimental: {
-  //   externalDir: true,
-  // },
   reactStrictMode: true,
   webpack: (config) => {
     // Let Babel compile outside of src/.

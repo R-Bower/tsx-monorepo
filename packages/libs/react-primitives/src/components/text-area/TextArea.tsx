@@ -5,7 +5,7 @@ import {
   ISharedSystemProps,
   commonSystemProps,
   shouldForwardProp,
-} from "~system/shared"
+} from "../../system/shared"
 
 export interface ITextAreaProps extends ISharedSystemProps, TypographyProps {}
 
