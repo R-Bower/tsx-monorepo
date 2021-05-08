@@ -16,16 +16,16 @@ import {
   SpaceProps,
 } from "styled-system"
 
-import customProps, {ICustomSystemProps} from "./customProps"
+import customProps, {CustomSystemProps} from "./customProps"
 import stylePropsList from "./stylePropsList"
 
-export interface ISharedSystemProps
+export interface CommonSystemProps
   extends BackgroundProps,
     BorderProps,
     ColorProps,
     LayoutProps,
     SpaceProps,
-    ICustomSystemProps {
+    CustomSystemProps {
   as?: React.ElementType
 }
 

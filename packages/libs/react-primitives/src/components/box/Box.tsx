@@ -1,15 +1,24 @@
+import React from "react"
+
 import styled from "styled-components"
 
 import {
-  ISharedSystemProps,
+  CommonSystemProps,
   commonSystemProps,
   shouldForwardProp,
 } from "../../system/shared"
+import {ComponentProps} from "../../types/props"
 
-export type IBoxProps = ISharedSystemProps
-
-const Box = styled.div.withConfig({shouldForwardProp})<IBoxProps>`
+const BoxStyled = styled.div.withConfig({
+  shouldForwardProp,
+})<CommonSystemProps>`
   ${commonSystemProps};
 `
+
+export type BoxProps = ComponentProps<typeof BoxStyled>
+
+const Box = React.forwardRef((props: BoxProps, ref) => {
+  return <BoxStyled ref={ref} {...props} />
+})
 
 export default Box
