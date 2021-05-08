@@ -1,3 +1,5 @@
+import React from "react"
+
 import styled from "styled-components"
 import {flexbox, FlexboxProps} from "styled-system"
 
@@ -6,14 +8,21 @@ import {
   commonSystemProps,
   shouldForwardProp,
 } from "../../system/shared"
+import {ComponentProps} from "../../types/props"
 
-export interface IFlexProps extends ISharedSystemProps, FlexboxProps {}
+interface FlexProps extends ISharedSystemProps, FlexboxProps {}
 
-const Flex = styled.div.withConfig({shouldForwardProp})<IFlexProps>`
+const FlexStyled = styled.div.withConfig({shouldForwardProp})<FlexProps>`
   box-sizing: border-box;
   ${flexbox};
   ${commonSystemProps};
 `
+
+export type IFlexProps = ComponentProps<typeof FlexStyled>
+
+const Flex = React.forwardRef((props: IFlexProps, ref) => {
+  return <FlexStyled ref={ref} display={"flex"} {...props} />
+})
 
 Flex.defaultProps = {
   display: "flex",

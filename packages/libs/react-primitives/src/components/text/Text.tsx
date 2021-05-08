@@ -1,15 +1,17 @@
 import styled, {css} from "styled-components"
 import {typography, TypographyProps} from "styled-system"
 
+import {ICustomTextProps} from "../../system/customProps"
 import {
-  ISharedSystemProps,
   commonSystemProps,
+  ISharedSystemProps,
   shouldForwardProp,
 } from "../../system/shared"
 
-export interface ITextProps extends ISharedSystemProps, TypographyProps {
-  tag?: "h1" | "h2" | "h3" | "p" | "span"
-}
+export interface ITextProps
+  extends ISharedSystemProps,
+    TypographyProps,
+    ICustomTextProps {}
 
 const textProps = css`
   margin: 0;

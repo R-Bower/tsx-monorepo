@@ -16,8 +16,8 @@ import {
   SpaceProps,
 } from "styled-system"
 
-import customProps, {ICustomSystemProps} from "./custom-props"
-import stylePropsList from "./style-props-list"
+import customProps, {ICustomSystemProps} from "./customProps"
+import stylePropsList from "./stylePropsList"
 
 export interface ISharedSystemProps
   extends BackgroundProps,

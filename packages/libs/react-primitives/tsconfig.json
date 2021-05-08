@@ -4,6 +4,7 @@
   "compilerOptions": {
     "importHelpers": true,
     "jsx": "react",
-    "esModuleInterop": true,
-  }
+    "esModuleInterop": true
+  },
+  "exclude": ["dist"]
 }

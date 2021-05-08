@@ -1,9 +1,10 @@
 import React from "react"
 
+import {IPropsWithChildren} from "@rb/react-primitives"
+
 import {styledSystemTheme} from "~theme/config"
 import GlobalStyle from "~theme/global"
 import ThemeProvider from "~theme/provider"
-import {IPropsWithChildren} from "~types/props"
 
 import Layout from "./Layout"
 

@@ -1,6 +1,6 @@
 import {keys} from "rambda"
 
-import {customProps} from "./custom-props"
+import {customProps, customTextProps} from "./customProps"
 
 const styledSystemProps = [
   "alignContent",
@@ -115,6 +115,10 @@ const styledSystemProps = [
   "zIndex",
 ]
 
-const customStyleProps = [...keys(customProps), "variant"]
+const customStyleProps = [
+  ...keys(customProps),
+  ...keys(customTextProps),
+  "variant",
+]
 
 export default [...styledSystemProps, ...customStyleProps]

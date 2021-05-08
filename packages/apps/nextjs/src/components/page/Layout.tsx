@@ -1,8 +1,6 @@
 import React from "react"
 
-import {Flex} from "@rb/react-primitives"
-
-import {IPropsWithChildren} from "~types/props"
+import {Flex, IPropsWithChildren} from "@rb/react-primitives"
 
 import Footer from "./components/Footer"
 import Header from "./components/Header"

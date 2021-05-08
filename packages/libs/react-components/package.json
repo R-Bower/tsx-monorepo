@@ -10,7 +10,7 @@
     "dev": "npm run watch",
     "show-config": "tsc --showConfig",
     "prepublishOnly": "npm run build",
-    "watch": "tsc -p tsconfig.build.json -w"
+    "watch": "tsc -p tsconfig.build.json -w --preserveWatchOutput"
   },
   "dependencies": {
     "@primer/styled-octicons": "^13.0.0",

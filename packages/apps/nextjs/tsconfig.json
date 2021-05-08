@@ -15,12 +15,7 @@
     "skipLibCheck": true,
     "paths": {
       "@rb/*": ["../../libs/*"],
-      "~components/*": ["./src/components/*"],
-      "~pages/*": ["./src/pages/*"],
-      "~routes/*": ["./src/routes/*"],
-      "~test/*": ["./src/test/*"],
-      "~theme/*": ["./src/theme/*"],
-      "~types/*": ["./src/types/*"]
+      "~*": ["./src/*"]
     }
   },
   "exclude": [

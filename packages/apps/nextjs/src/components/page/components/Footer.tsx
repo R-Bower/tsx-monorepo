@@ -1,6 +1,6 @@
 import React from "react"
 
-import {Flex} from "@rb/react-primitives"
+import {Flex, Text} from "@rb/react-primitives"
 
 export default function Footer(): JSX.Element {
   return (
@@ -8,6 +8,8 @@ export default function Footer(): JSX.Element {
       backgroundColor={"tertiary"}
       height={[100, 100, 200]}
       justifyContent={"space-between"}
-    ></Flex>
+    >
+      <Text as={"h3"}>Footer</Text>
+    </Flex>
   )
 }

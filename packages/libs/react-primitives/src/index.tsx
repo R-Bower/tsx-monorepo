@@ -9,3 +9,5 @@ export {
   ITextAreaProps,
 } from "./components/text-area/TextArea"
 export * from "./components/position/Position"
+
+export * from "./types/props"

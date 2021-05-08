@@ -12,7 +12,7 @@
     "dev": "npm run watch",
     "show-config": "tsc --showConfig",
     "prepublishOnly": "npm run build",
-    "watch": "tsc -p tsconfig.build.json -w"
+    "watch": "tsc -p tsconfig.build.json -w --preserveWatchOutput"
   },
   "dependencies": {
     "react-spring": "npm:@react-spring/web@^9.1.2",

@@ -18,3 +18,7 @@ export type ComponentPropsWithRef<
 > = T extends React.ComponentClass<infer P>
   ? React.PropsWithoutRef<P> & React.RefAttributes<InstanceType<T>>
   : React.PropsWithRef<ComponentProps<T>>
+
+export interface IPropsWithChildren {
+  children: React.ReactNode
+}
