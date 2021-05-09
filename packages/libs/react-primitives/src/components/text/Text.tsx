@@ -1,4 +1,4 @@
-import React from "react"
+import React, {ComponentProps} from "react"
 
 import styled, {css} from "styled-components"
 import {typography, TypographyProps} from "styled-system"
@@ -9,9 +9,8 @@ import {
   CommonSystemProps,
   shouldForwardProp,
 } from "../../system/shared"
-import {ComponentProps} from "../../types/props"
 
-interface SystemTextProps
+export interface TextProps
   extends CommonSystemProps,
     TypographyProps,
     CustomTextProps {
@@ -23,13 +22,14 @@ const textProps = css`
   ${commonSystemProps};
 `
 
-const TextStyled = styled.p.withConfig({shouldForwardProp})<SystemTextProps>`
+const TextStyled = styled.p.withConfig({shouldForwardProp})<TextProps>`
   ${textProps};
 `
 
-export type TextProps = ComponentProps<typeof TextStyled>
-
-const Text = React.forwardRef((props: TextProps, ref) => {
+const Text = React.forwardRef<
+  HTMLParagraphElement,
+  TextProps | ComponentProps<typeof TextStyled>
+>((props: TextProps, ref) => {
   return <TextStyled ref={ref} {...props} />
 })
 

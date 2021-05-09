@@ -9,9 +9,11 @@ import {
 } from "../../system/shared"
 import {ComponentProps} from "../../types/props"
 
+export type ButtonProps = CommonSystemProps
+
 const ButtonStyled = styled.button.withConfig({
   shouldForwardProp,
-})<CommonSystemProps>`
+})<ButtonProps>`
   &:active {
     outline: none;
   }
@@ -24,9 +26,10 @@ const ButtonStyled = styled.button.withConfig({
   ${commonSystemProps};
 `
 
-export type ButtonProps = ComponentProps<typeof ButtonStyled>
-
-const Button = React.forwardRef((props: ButtonProps, ref) => {
+const Button = React.forwardRef<
+  HTMLButtonElement,
+  ButtonProps | ComponentProps<typeof ButtonStyled>
+>((props: ButtonProps, ref) => {
   return <ButtonStyled ref={ref} {...props} />
 })
 

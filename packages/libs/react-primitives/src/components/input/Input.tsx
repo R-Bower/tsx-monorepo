@@ -10,11 +10,11 @@ import {
 } from "../../system/shared"
 import {ComponentProps} from "../../types/props"
 
-interface SystemInputProps extends CommonSystemProps, TypographyProps {}
+export interface InputProps extends CommonSystemProps, TypographyProps {}
 
 const InputStyled = styled.input.withConfig({
   shouldForwardProp,
-})<SystemInputProps>`
+})<InputProps>`
   ${typography};
   ${commonSystemProps};
   outline: none;
@@ -23,9 +23,10 @@ const InputStyled = styled.input.withConfig({
   line-height: normal;
 `
 
-export type InputProps = ComponentProps<typeof InputStyled>
-
-const Input = React.forwardRef((props: SystemInputProps, ref) => {
+const Input = React.forwardRef<
+  HTMLInputElement,
+  InputProps | ComponentProps<typeof InputStyled>
+>((props: InputProps, ref) => {
   return <InputStyled ref={ref} {...props} />
 })
 

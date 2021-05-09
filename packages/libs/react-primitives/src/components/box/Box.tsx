@@ -9,15 +9,18 @@ import {
 } from "../../system/shared"
 import {ComponentProps} from "../../types/props"
 
+export type BoxProps = CommonSystemProps
+
 const BoxStyled = styled.div.withConfig({
   shouldForwardProp,
-})<CommonSystemProps>`
+})<BoxProps>`
   ${commonSystemProps};
 `
 
-export type BoxProps = ComponentProps<typeof BoxStyled>
-
-const Box = React.forwardRef((props: BoxProps, ref) => {
+const Box = React.forwardRef<
+  HTMLDivElement,
+  BoxProps | ComponentProps<typeof BoxStyled>
+>((props: BoxProps, ref) => {
   return <BoxStyled ref={ref} {...props} />
 })
 

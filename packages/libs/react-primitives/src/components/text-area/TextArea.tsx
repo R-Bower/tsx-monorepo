@@ -11,14 +11,14 @@ import {
 } from "../../system/shared"
 import {ComponentProps} from "../../types/props"
 
-interface SystemTextAreaProps
+export interface TextAreaProps
   extends CommonSystemProps,
     TypographyProps,
     CustomTextProps {}
 
 const TextAreaStyled = styled.textarea.withConfig({
   shouldForwardProp,
-})<SystemTextAreaProps>`
+})<TextAreaProps>`
   box-sizing: border-box;
   outline: none;
   resize: none;
@@ -26,9 +26,10 @@ const TextAreaStyled = styled.textarea.withConfig({
   ${commonSystemProps};
 `
 
-export type TextAreaProps = ComponentProps<typeof TextAreaStyled>
-
-const TextArea = React.forwardRef((props: TextAreaProps, ref) => {
+const TextArea = React.forwardRef<
+  HTMLTextAreaElement,
+  TextAreaProps | ComponentProps<typeof TextAreaStyled>
+>((props: TextAreaProps, ref) => {
   return <TextAreaStyled ref={ref} {...props} />
 })
 

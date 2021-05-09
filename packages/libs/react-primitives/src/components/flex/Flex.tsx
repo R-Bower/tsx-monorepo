@@ -1,4 +1,4 @@
-import React from "react"
+import React, {PropsWithChildren} from "react"
 
 import styled from "styled-components"
 import {flexbox, FlexboxProps} from "styled-system"
@@ -10,17 +10,18 @@ import {
 } from "../../system/shared"
 import {ComponentProps} from "../../types/props"
 
-interface SystemFlexProps extends CommonSystemProps, FlexboxProps {}
+export interface FlexProps extends CommonSystemProps, FlexboxProps {}
 
-const FlexStyled = styled.div.withConfig({shouldForwardProp})<SystemFlexProps>`
+const FlexStyled = styled.div.withConfig({shouldForwardProp})<FlexProps>`
   box-sizing: border-box;
   ${flexbox};
   ${commonSystemProps};
 `
 
-export type FlexProps = ComponentProps<typeof FlexStyled>
-
-const Flex = React.forwardRef((props: IFlexProps, ref) => {
+const Flex = React.forwardRef<
+  HTMLDivElement,
+  FlexProps | ComponentProps<typeof FlexStyled>
+>((props: FlexProps, ref) => {
   return <FlexStyled ref={ref} {...props} />
 })
 

@@ -9,13 +9,16 @@ import {
 } from "../../system/shared"
 import {ComponentProps} from "../../types/props"
 
-const SvgStyled = styled.svg.withConfig({shouldForwardProp})<CommonSystemProps>`
+export type SvgProps = CommonSystemProps
+
+const SvgStyled = styled.svg.withConfig({shouldForwardProp})<SvgProps>`
   ${commonSystemProps};
 `
 
-export type SvgProps = ComponentProps<typeof SvgStyled>
-
-const Svg = React.forwardRef((props: SvgProps, ref) => {
+const Svg = React.forwardRef<
+  SVGSVGElement,
+  SvgProps | ComponentProps<typeof SvgStyled>
+>((props: SvgProps, ref) => {
   return <SvgStyled ref={ref} {...props} />
 })
 
