@@ -21,7 +21,7 @@ const FlexStyled = styled.div.withConfig({shouldForwardProp})<FlexProps>`
 export type IFlexProps = ComponentProps<typeof FlexStyled>
 
 const Flex = React.forwardRef((props: IFlexProps, ref) => {
-  return <FlexStyled ref={ref} display={"flex"} {...props} />
+  return <FlexStyled ref={ref} {...props} />
 })
 
 Flex.defaultProps = {
