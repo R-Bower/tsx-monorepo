@@ -1,37 +1,36 @@
+import React from "react"
+
 import styled from "styled-components"
 import {typography, TypographyProps} from "styled-system"
 
+import {CustomTextProps} from "../../system/customProps"
 import {
-  ISharedSystemProps,
+  CommonSystemProps,
   commonSystemProps,
   shouldForwardProp,
 } from "../../system/shared"
+import {ComponentProps} from "../../types/props"
 
-export interface ITextAreaProps extends ISharedSystemProps, TypographyProps {}
+interface SystemTextAreaProps
+  extends CommonSystemProps,
+    TypographyProps,
+    CustomTextProps {}
 
-const TextArea = styled.textarea.withConfig({
+const TextAreaStyled = styled.textarea.withConfig({
   shouldForwardProp,
-})<ITextAreaProps>`
+})<SystemTextAreaProps>`
   box-sizing: border-box;
   outline: none;
   resize: none;
-
-  ::-webkit-scrollbar {
-    background-color: ${(props) => props.theme.colors["background-primary"]};
-    cursor: pointer;
-    opacity: 0;
-    width: 6px;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background-color: ${(props) => props.theme.colors.grey};
-    cursor: pointer;
-    border-radius: 0;
-    opacity: 0;
-  }
   ${typography};
   ${commonSystemProps};
 `
+
+export type TextAreaProps = ComponentProps<typeof TextAreaStyled>
+
+const TextArea = React.forwardRef((props: TextAreaProps, ref) => {
+  return <TextAreaStyled ref={ref} {...props} />
+})
 
 TextArea.defaultProps = {
   fontSize: "16px",

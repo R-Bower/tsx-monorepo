@@ -3,7 +3,7 @@ import {ConfigStyle, system, ResponsiveValue} from "styled-system"
 
 import {pixelSizeTransformer} from "./transformers"
 
-export interface ICustomSystemProps {
+export interface CustomSystemProps {
   appearance?: ResponsiveValue<CSS.Property.Appearance>
   boxSizing?: ResponsiveValue<CSS.Property.BoxSizing>
   clip?: ResponsiveValue<CSS.Property.Clip>
@@ -21,7 +21,7 @@ export interface ICustomSystemProps {
   wordBreak?: ResponsiveValue<CSS.Property.WordBreak>
 }
 
-export interface ICustomTextProps {
+export interface CustomTextProps {
   textDecoration?: ResponsiveValue<CSS.Property.TextDecoration>
   textOverflow?: ResponsiveValue<CSS.Property.TextOverflow>
   textShadow?: ResponsiveValue<CSS.Property.TextShadow>

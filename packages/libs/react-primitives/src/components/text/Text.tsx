@@ -1,27 +1,37 @@
+import React from "react"
+
 import styled, {css} from "styled-components"
 import {typography, TypographyProps} from "styled-system"
 
-import {ICustomTextProps} from "../../system/customProps"
+import {CustomTextProps} from "../../system/customProps"
 import {
   commonSystemProps,
-  ISharedSystemProps,
+  CommonSystemProps,
   shouldForwardProp,
 } from "../../system/shared"
+import {ComponentProps} from "../../types/props"
 
-export interface ITextProps
-  extends ISharedSystemProps,
+interface SystemTextProps
+  extends CommonSystemProps,
     TypographyProps,
-    ICustomTextProps {}
+    CustomTextProps {
+  as: React.ElementType
+}
 
 const textProps = css`
-  margin: 0;
   ${typography};
   ${commonSystemProps};
 `
 
-const Text = styled.p.withConfig({shouldForwardProp})<ITextProps>`
+const TextStyled = styled.p.withConfig({shouldForwardProp})<SystemTextProps>`
   ${textProps};
 `
+
+export type TextProps = ComponentProps<typeof TextStyled>
+
+const Text = React.forwardRef((props: TextProps, ref) => {
+  return <TextStyled ref={ref} {...props} />
+})
 
 Text.defaultProps = {
   fontSize: "16px",

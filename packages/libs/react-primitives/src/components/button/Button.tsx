@@ -1,23 +1,17 @@
+import React from "react"
+
 import styled from "styled-components"
-import {flexbox, FlexboxProps, typography, TypographyProps} from "styled-system"
 
 import {
-  ISharedSystemProps,
+  CommonSystemProps,
   commonSystemProps,
   shouldForwardProp,
 } from "../../system/shared"
+import {ComponentProps} from "../../types/props"
 
-export interface IButtonProps
-  extends ISharedSystemProps,
-    FlexboxProps,
-    TypographyProps {}
-
-const Button = styled.button.withConfig({
+const ButtonStyled = styled.button.withConfig({
   shouldForwardProp,
-})<IButtonProps>`
-  display: flex;
-  /* Remove outline for non-keyboard :focus */
-
+})<CommonSystemProps>`
   &:active {
     outline: none;
   }
@@ -28,14 +22,15 @@ const Button = styled.button.withConfig({
 
   will-change: transform;
   ${commonSystemProps};
-  ${flexbox};
-  ${typography};
 `
 
+export type ButtonProps = ComponentProps<typeof ButtonStyled>
+
+const Button = React.forwardRef((props: ButtonProps, ref) => {
+  return <ButtonStyled ref={ref} {...props} />
+})
+
 Button.defaultProps = {
-  alignItems: "center",
   cursor: "pointer",
-  justifyContent: "center",
-  px: "16px",
 }
 export default Button

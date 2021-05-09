@@ -1,17 +1,20 @@
+import React from "react"
+
 import styled from "styled-components"
 import {typography, TypographyProps} from "styled-system"
 
 import {
-  ISharedSystemProps,
+  CommonSystemProps,
   commonSystemProps,
   shouldForwardProp,
 } from "../../system/shared"
+import {ComponentProps} from "../../types/props"
 
-interface IInputProps extends ISharedSystemProps, TypographyProps {}
+interface SystemInputProps extends CommonSystemProps, TypographyProps {}
 
-export const Input = styled.input.withConfig({
+const InputStyled = styled.input.withConfig({
   shouldForwardProp,
-})<IInputProps>`
+})<SystemInputProps>`
   ${typography};
   ${commonSystemProps};
   outline: none;
@@ -19,3 +22,11 @@ export const Input = styled.input.withConfig({
   box-sizing: border-box;
   line-height: normal;
 `
+
+export type InputProps = ComponentProps<typeof InputStyled>
+
+const Input = React.forwardRef((props: SystemInputProps, ref) => {
+  return <InputStyled ref={ref} {...props} />
+})
+
+export default Input

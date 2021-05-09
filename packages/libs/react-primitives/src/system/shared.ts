@@ -16,16 +16,16 @@ import {
   SpaceProps,
 } from "styled-system"
 
-import customProps, {ICustomSystemProps} from "./customProps"
+import customProps, {CustomSystemProps} from "./customProps"
 import stylePropsList from "./stylePropsList"
 
-export interface ISharedSystemProps
+export interface CommonSystemProps
   extends BackgroundProps,
     BorderProps,
     ColorProps,
     LayoutProps,
     SpaceProps,
-    ICustomSystemProps {
+    CustomSystemProps {
   as?: React.ElementType
 }
 
@@ -50,5 +50,7 @@ const excludedProps = reduce(
   stylePropsList,
 )
 
-export const shouldForwardProp = (prop: any): boolean =>
+// used exclude style props from the dom
+// https://styled-components.com/docs/api#shouldforwardprop
+export const shouldForwardProp = (prop: string): boolean =>
   !has(prop, excludedProps)

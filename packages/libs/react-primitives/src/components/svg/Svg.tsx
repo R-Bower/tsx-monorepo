@@ -1,16 +1,23 @@
+import React from "react"
+
 import styled from "styled-components"
 
 import {
-  ISharedSystemProps,
+  CommonSystemProps,
   commonSystemProps,
   shouldForwardProp,
 } from "../../system/shared"
+import {ComponentProps} from "../../types/props"
 
-export type ISvgProps = ISharedSystemProps
-
-const Svg = styled.svg.withConfig({shouldForwardProp})<ISvgProps>`
+const SvgStyled = styled.svg.withConfig({shouldForwardProp})<CommonSystemProps>`
   ${commonSystemProps};
 `
+
+export type SvgProps = ComponentProps<typeof SvgStyled>
+
+const Svg = React.forwardRef((props: SvgProps, ref) => {
+  return <SvgStyled ref={ref} {...props} />
+})
 
 Svg.displayName = "Primitives.Svg"
 

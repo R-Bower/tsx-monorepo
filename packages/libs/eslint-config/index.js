@@ -35,6 +35,17 @@ module.exports = {
   ],
   rules: {
     "@typescript-eslint/ban-ts-comment": "off",
+    "@typescript-eslint/naming-convention": [
+      "error",
+      {
+        custom: {
+          match: false,
+          regex: "^I[A-Z]",
+        },
+        format: ["PascalCase"],
+        selector: "interface",
+      },
+    ],
     "@typescript-eslint/no-unused-vars": [
       "error",
       {
