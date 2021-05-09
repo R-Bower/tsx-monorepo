@@ -1,4 +1,4 @@
-import React from "react"
+import React, {ButtonHTMLAttributes} from "react"
 
 import styled from "styled-components"
 
@@ -7,9 +7,10 @@ import {
   commonSystemProps,
   shouldForwardProp,
 } from "../../system/shared"
-import {ComponentProps} from "../../types/props"
 
-export type ButtonProps = CommonSystemProps
+export interface ButtonProps
+  extends CommonSystemProps,
+    Omit<ButtonHTMLAttributes<HTMLButtonElement>, "color"> {}
 
 const ButtonStyled = styled.button.withConfig({
   shouldForwardProp,
@@ -26,12 +27,11 @@ const ButtonStyled = styled.button.withConfig({
   ${commonSystemProps};
 `
 
-const Button = React.forwardRef<
-  HTMLButtonElement,
-  ButtonProps | ComponentProps<typeof ButtonStyled>
->((props: ButtonProps, ref) => {
-  return <ButtonStyled ref={ref} {...props} />
-})
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  (props: ButtonProps, ref) => {
+    return <ButtonStyled ref={ref} {...props} />
+  },
+)
 
 Button.defaultProps = {
   cursor: "pointer",

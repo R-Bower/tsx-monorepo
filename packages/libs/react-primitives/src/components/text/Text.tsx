@@ -1,4 +1,4 @@
-import React, {ComponentProps} from "react"
+import React from "react"
 
 import styled, {css} from "styled-components"
 import {typography, TypographyProps} from "styled-system"
@@ -26,12 +26,11 @@ const TextStyled = styled.p.withConfig({shouldForwardProp})<TextProps>`
   ${textProps};
 `
 
-const Text = React.forwardRef<
-  HTMLParagraphElement,
-  TextProps | ComponentProps<typeof TextStyled>
->((props: TextProps, ref) => {
-  return <TextStyled ref={ref} {...props} />
-})
+const Text = React.forwardRef<HTMLParagraphElement, TextProps>(
+  (props: TextProps, ref) => {
+    return <TextStyled ref={ref} {...props} />
+  },
+)
 
 Text.defaultProps = {
   fontSize: "16px",

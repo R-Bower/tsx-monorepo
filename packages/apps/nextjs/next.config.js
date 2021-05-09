@@ -13,10 +13,10 @@ module.exports = {
     tsRule.include = undefined
     tsRule.exclude = /node_modules/
 
-    const {dev} = options
+    const {dev, isServer} = options
 
     // Do not run type checking twice:
-    if (dev) {
+    if (dev && isServer) {
       config.plugins.push(new ForkTsCheckerWebpackPlugin())
     }
 

@@ -1,4 +1,4 @@
-import React from "react"
+import React, {HTMLAttributes, TextareaHTMLAttributes} from "react"
 
 import styled from "styled-components"
 import {typography, TypographyProps} from "styled-system"
@@ -9,12 +9,12 @@ import {
   commonSystemProps,
   shouldForwardProp,
 } from "../../system/shared"
-import {ComponentProps} from "../../types/props"
 
 export interface TextAreaProps
   extends CommonSystemProps,
     TypographyProps,
-    CustomTextProps {}
+    CustomTextProps,
+    Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "color"> {}
 
 const TextAreaStyled = styled.textarea.withConfig({
   shouldForwardProp,
@@ -26,12 +26,11 @@ const TextAreaStyled = styled.textarea.withConfig({
   ${commonSystemProps};
 `
 
-const TextArea = React.forwardRef<
-  HTMLTextAreaElement,
-  TextAreaProps | ComponentProps<typeof TextAreaStyled>
->((props: TextAreaProps, ref) => {
-  return <TextAreaStyled ref={ref} {...props} />
-})
+const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
+  (props: TextAreaProps, ref) => {
+    return <TextAreaStyled ref={ref} {...props} />
+  },
+)
 
 TextArea.defaultProps = {
   fontSize: "16px",

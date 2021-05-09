@@ -1,4 +1,4 @@
-import React from "react"
+import React, {HTMLAttributes} from "react"
 
 import styled from "styled-components"
 
@@ -7,9 +7,10 @@ import {
   commonSystemProps,
   shouldForwardProp,
 } from "../../system/shared"
-import {ComponentProps} from "../../types/props"
 
-export type BoxProps = CommonSystemProps
+export interface BoxProps
+  extends CommonSystemProps,
+    Omit<HTMLAttributes<HTMLDivElement>, "color"> {}
 
 const BoxStyled = styled.div.withConfig({
   shouldForwardProp,
@@ -17,11 +18,10 @@ const BoxStyled = styled.div.withConfig({
   ${commonSystemProps};
 `
 
-const Box = React.forwardRef<
-  HTMLDivElement,
-  BoxProps | ComponentProps<typeof BoxStyled>
->((props: BoxProps, ref) => {
-  return <BoxStyled ref={ref} {...props} />
-})
+const Box = React.forwardRef<HTMLDivElement, BoxProps>(
+  (props: BoxProps, ref) => {
+    return <BoxStyled ref={ref} {...props} />
+  },
+)
 
 export default Box

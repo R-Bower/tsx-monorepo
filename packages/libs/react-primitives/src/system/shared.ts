@@ -27,6 +27,8 @@ export interface CommonSystemProps
     SpaceProps,
     CustomSystemProps {
   as?: React.ElementType
+  children?: React.ReactNode
+  "data-test-id"?: string
 }
 
 export const commonSystemProps = css`

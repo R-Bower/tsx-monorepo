@@ -1,4 +1,4 @@
-import React from "react"
+import React, {InputHTMLAttributes} from "react"
 
 import styled from "styled-components"
 import {typography, TypographyProps} from "styled-system"
@@ -8,9 +8,14 @@ import {
   commonSystemProps,
   shouldForwardProp,
 } from "../../system/shared"
-import {ComponentProps} from "../../types/props"
 
-export interface InputProps extends CommonSystemProps, TypographyProps {}
+export interface InputProps
+  extends CommonSystemProps,
+    TypographyProps,
+    Omit<
+      InputHTMLAttributes<HTMLInputElement>,
+      "color" | "height" | "size" | "width"
+    > {}
 
 const InputStyled = styled.input.withConfig({
   shouldForwardProp,
@@ -23,11 +28,10 @@ const InputStyled = styled.input.withConfig({
   line-height: normal;
 `
 
-const Input = React.forwardRef<
-  HTMLInputElement,
-  InputProps | ComponentProps<typeof InputStyled>
->((props: InputProps, ref) => {
-  return <InputStyled ref={ref} {...props} />
-})
+const Input = React.forwardRef<HTMLInputElement, InputProps>(
+  (props: InputProps, ref) => {
+    return <InputStyled ref={ref} {...props} />
+  },
+)
 
 export default Input
