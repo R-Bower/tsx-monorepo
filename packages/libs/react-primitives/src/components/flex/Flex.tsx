@@ -15,7 +15,6 @@ export interface FlexProps
     Omit<HTMLAttributes<HTMLDivElement>, "color"> {}
 
 const FlexStyled = styled.div.withConfig({shouldForwardProp})<FlexProps>`
-  box-sizing: border-box;
   ${flexbox};
   ${commonSystemProps};
 `

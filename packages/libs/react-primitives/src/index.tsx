@@ -1,6 +1,10 @@
 export {default as AnimatedBox} from "./components/animated-box/AnimatedBox"
 export {default as Box, BoxProps} from "./components/box/Box"
 export {default as Button, ButtonProps} from "./components/button/Button"
+export {
+  default as Elevation,
+  ElevationProps,
+} from "./components/elevation/Elevation"
 export {default as Flex, FlexProps} from "./components/flex/Flex"
 export {default as Input, InputProps} from "./components/input/Input"
 export {default as Svg, SvgProps} from "./components/svg/Svg"

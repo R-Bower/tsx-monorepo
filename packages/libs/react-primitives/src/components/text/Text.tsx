@@ -1,9 +1,9 @@
 import React from "react"
 
 import styled, {css} from "styled-components"
-import {typography, TypographyProps} from "styled-system"
+import {TypographyProps} from "styled-system"
 
-import {CustomTextProps} from "../../system/customProps"
+import {systemTextProps, SystemTextProps} from "../../system/customProps"
 import {
   commonSystemProps,
   CommonSystemProps,
@@ -13,13 +13,13 @@ import {
 export interface TextProps
   extends CommonSystemProps,
     TypographyProps,
-    CustomTextProps {
+    SystemTextProps {
   as: React.ElementType
 }
 
 const textProps = css`
-  ${typography};
   ${commonSystemProps};
+  ${systemTextProps};
 `
 
 const TextStyled = styled.p.withConfig({shouldForwardProp})<TextProps>`

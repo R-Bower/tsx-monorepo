@@ -1,9 +1,8 @@
-import React, {HTMLAttributes, TextareaHTMLAttributes} from "react"
+import React, {TextareaHTMLAttributes} from "react"
 
 import styled from "styled-components"
-import {typography, TypographyProps} from "styled-system"
 
-import {CustomTextProps} from "../../system/customProps"
+import {SystemTextProps, systemTextProps} from "../../system/customProps"
 import {
   CommonSystemProps,
   commonSystemProps,
@@ -12,8 +11,7 @@ import {
 
 export interface TextAreaProps
   extends CommonSystemProps,
-    TypographyProps,
-    CustomTextProps,
+    SystemTextProps,
     Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "color"> {}
 
 const TextAreaStyled = styled.textarea.withConfig({
@@ -22,7 +20,7 @@ const TextAreaStyled = styled.textarea.withConfig({
   box-sizing: border-box;
   outline: none;
   resize: none;
-  ${typography};
+  ${systemTextProps};
   ${commonSystemProps};
 `
 

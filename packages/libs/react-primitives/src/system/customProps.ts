@@ -1,5 +1,12 @@
 import * as CSS from "csstype"
-import {ConfigStyle, system, ResponsiveValue} from "styled-system"
+import {css} from "styled-components"
+import {
+  ConfigStyle,
+  system,
+  ResponsiveValue,
+  typography,
+  TypographyProps,
+} from "styled-system"
 
 import {pixelSizeTransformer} from "./transformers"
 
@@ -21,7 +28,7 @@ export interface CustomSystemProps {
   wordBreak?: ResponsiveValue<CSS.Property.WordBreak>
 }
 
-export interface CustomTextProps {
+export interface SystemTextProps extends TypographyProps {
   textDecoration?: ResponsiveValue<CSS.Property.TextDecoration>
   textOverflow?: ResponsiveValue<CSS.Property.TextOverflow>
   textShadow?: ResponsiveValue<CSS.Property.TextShadow>
@@ -34,6 +41,11 @@ export const customTextProps = {
   textShadow: true,
   textTransform: true,
 }
+
+export const systemTextProps = css`
+  ${typography};
+  ${system(customTextProps)};
+`
 
 export const customProps = {
   appearance: true,

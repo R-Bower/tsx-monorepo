@@ -1,7 +1,7 @@
-## TSX-monorepo
-
 <!--suppress HtmlDeprecatedAttribute -->
 <div align="center">
+
+## TSX-monorepo
 
 This project is a collection of tools, apps, and libraries intended for supporting React development.
 
@@ -20,14 +20,14 @@ This project is a collection of tools, apps, and libraries intended for supporti
 ## Goals
 
 - Consistent code formatting in every package.  [ESLint](https://eslint.org/docs/user-guide/getting-started) is used for identifying and reporting on patterns found in ECMAScript/JavaScript code, with the goal of making code more consistent and avoiding bugs.
-- [TypeScript](https://www.typescriptlang.org/) support.
+- First class [TypeScript](https://www.typescriptlang.org/) support.
 - Hot reloading adjacent packages in the repo.
 - Optional publishing support.
 - [Tree shaking](https://webpack.js.org/guides/tree-shaking/) for every React library.
   - This is accomplished using webpack's side effects.  If you're unfamiliar with side effects, [read more here](https://sgom.es/posts/2020-06-15-everything-you-never-wanted-to-know-about-side-effects/) for a good explanation.
 - Working "go to definition" feature in IDEs for every package.
-- E2E testing with [playwright](https://playwright.dev).
-- Testing support via Jest (still requires per-project config but this might be good enough)
+- Unit Testing support via Jest.
+- E2E testing with [Playwright](https://playwright.dev) + Jest.
 
 
 ## Setup
@@ -37,24 +37,23 @@ This project is a collection of tools, apps, and libraries intended for supporti
 npm install
 ```
 
-### NextJS Development
+#### NextJS Development
 - Currently WIP.
 - run `npm run next-dev`.  Executes `npm run dev --parallel --stream` which does the following:
   - starts `@rb/nextjs-template` in dev mode using `next dev`
   - runs `@rb/react-primitives` and `@rb/react-components` in watch mode (using `tsc`) which triggers a recompile on change.
   
 
-### Linter
+#### Linter
 - `npm run lint`
 - To modify rules, edit `packages/libs/eslint-config/index.js`
-- 
 
 
 ## Projects
 
 - Standalone Front End applications are located within `packages/apps`.
 - Shared libraries and utilities are located within `packages/libs`.
-- Data fetching APIs and libraries are located within `packages/apis`.
+- Data fetching APIs and libraries are located within `packages/data`.
     - Note: it's perfectly fine for isolated apps to include their own data fetching apis within their respective package folders.
   
 ## Conventions
@@ -62,7 +61,7 @@ npm install
   - a `package.json` file.
   - either a `src` folder with code specific to the package's library or framework or an `index.js/index.ts` that exports the code or configuration of the package (JS/TS packages only).
   - a `tsconfig.json` (TypeScript projects only).
-- Within a TypeScript project, it's recommended that path aliasing be setup such that directories from the local package starts with `~`.
+- Within a TypeScript React app, it's recommended that path aliasing be setup such that directories from the local package starts with `~`.
   - The base ESLint configuration is set up to split import groups based on external, internal, and sibling/parent/child.  A 4th grouping is configured for apps-specific internal files.  This is done for organizational purposes, as it's much easier to determine the origin of the imported code.
   - Example for a package with `src/components` and `src/pages` folder:
   ```typescript jsx
@@ -86,8 +85,21 @@ npm install
   }
   ```
   
-#### React-specific conventions:
-- 
+#### React-specific conventions and project structure:
+- Follow Feature Driven Development (FDD).  
+  -  This is a lightweight Agile technique, manifest in a project structure where your code is organized by what it accomplishes (i.e. features), rather than lumping all modules of like types into separate blobs of components, routes, logic, actions, etc. 
+  - There is a direct correlation between the problem space (the requirements) and the implementation (the code)
+  
+For a given application:
+  - For a given featured name `<feature-name>`, place all related code in `src/features/<feature-name>`.
+    - For large features, split the feature folder into multiple subfolders.
+    ![](.README_images/7a5ad2f7.png)
+  - Reusable components that are specific to an application but not a feature should reside in `src/components`.
+  - Reusable components without a specific application should be placed in the `react-components` package.
+
+#### packages/libs/react-*
+- Should not include code specific to project. 
+- They should not rely on project specific code, constants, router, etc.
 
 ## References
 

@@ -1,8 +1,8 @@
 import React, {InputHTMLAttributes} from "react"
 
 import styled from "styled-components"
-import {typography, TypographyProps} from "styled-system"
 
+import {systemTextProps, SystemTextProps} from "../../system/customProps"
 import {
   CommonSystemProps,
   commonSystemProps,
@@ -11,7 +11,7 @@ import {
 
 export interface InputProps
   extends CommonSystemProps,
-    TypographyProps,
+    SystemTextProps,
     Omit<
       InputHTMLAttributes<HTMLInputElement>,
       "color" | "height" | "size" | "width"
@@ -20,7 +20,7 @@ export interface InputProps
 const InputStyled = styled.input.withConfig({
   shouldForwardProp,
 })<InputProps>`
-  ${typography};
+  ${systemTextProps};
   ${commonSystemProps};
   outline: none;
   // Safari placeholder centering fix
