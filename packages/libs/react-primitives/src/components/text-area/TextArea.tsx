@@ -2,12 +2,9 @@ import React, {TextareaHTMLAttributes} from "react"
 
 import styled from "styled-components"
 
-import {SystemTextProps, systemTextProps} from "../../system/customProps"
-import {
-  CommonSystemProps,
-  commonSystemProps,
-  shouldForwardProp,
-} from "../../system/shared"
+import {systemTextProps} from "../../system/customProps"
+import {commonSystemProps, shouldForwardProp} from "../../system/shared"
+import {CommonSystemProps, SystemTextProps} from "../../types/props"
 
 export interface TextAreaProps
   extends CommonSystemProps,

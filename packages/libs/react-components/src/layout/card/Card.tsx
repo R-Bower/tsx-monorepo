@@ -1,11 +1,16 @@
 import React from "react"
 
-import {Flex} from "@rb/react-primitives"
+import {
+  Elevation,
+  ElevationProps,
+  PropsWithChildren,
+  ShadowsType,
+} from "@rb/react-primitives"
 
-interface CardProps {
-  children: React.ReactNode
+export interface CardProps extends ElevationProps {
+  boxShadow: ShadowsType
 }
 
-export default function Card({children}: CardProps): JSX.Element {
-  return <Flex>{children}</Flex>
+export function Card({boxShadow, children}: CardProps): JSX.Element {
+  return <Elevation boxShadow={boxShadow}>{children}</Elevation>
 }

@@ -1,17 +1,31 @@
-import React from "react"
+import React, {ChangeEventHandler} from "react"
 
-import {Flex, Input, InputProps} from "@rb/react-primitives"
+import {Flex, FlexProps, Input, InputProps} from "@rb/react-primitives"
 
-export type TextInputProps = InputProps
+const flexWrapperStyle = {
+  as: "span",
+  className: "TextInput-FlexWrapper",
+  display: "inline-flex",
+  outline: "none",
+} as FlexProps
 
-const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(
-  (props: TextInputProps, ref) => {
+const inputStyle = {
+  width: 1,
+} as InputProps
+
+export interface TextInputProps {
+  onChange: ChangeEventHandler<HTMLInputElement>
+  value: string
+}
+
+export const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(
+  ({onChange, value}: TextInputProps, ref) => {
     return (
-      <Flex as={"span"} display={"inline-flex"} outline={"none"} {...props}>
-        <Input ref={ref} className={"TextInput-Wrapper"} width={1} />
+      <Flex {...flexWrapperStyle}>
+        <Input ref={ref} onChange={onChange} value={value} {...inputStyle} />
       </Flex>
     )
   },
 )
 
-export default TextInput
+TextInput.displayName = "Components.TextInput"

@@ -1,6 +1,88 @@
-import {grey} from "./palette"
+export interface ThemeColors {
+  primary: string
+  secondary: string
+  tertiary: string
+  bg: {
+    backdrop: string
+    canvas: string
+    canvasInset: string
+    canvasInverse: string
+    canvasMobile: string
+    danger: string
+    dangerInverse: string
+    info: string
+    infoInverse: string
+    overlay: string
+    primary: string
+    secondary: string
+    success: string
+    successInverse: string
+    tertiary: string
+    warning: string
+    warningInverse: string
+  }
+  border: {
+    danger: string
+    info: string
+    inverse: string
+    overlay: string
+    primary: string
+    secondary: string
+    success: string
+    tertiary: string
+    warning: string
+  }
+  icon: {
+    danger: string
+    info: string
+    primary: string
+    secondary: string
+    success: string
+    tertiary: string
+    warning: string
+  }
+  input: {
+    bg: string
+    border: string
+    contrastBg: string
+    disabledBg: string
+    disabledBorder: string
+    errorBorder: string
+    tooltip: {
+      error: {
+        bg: string
+        border: string
+        text: string
+      }
+      success: {
+        bg: string
+        border: string
+        text: string
+      }
+      warning: {
+        bg: string
+        border: string
+        text: string
+      }
+    }
+    warningBorder: string
+  }
+  text: {
+    danger: string
+    disabled: string
+    inverse: string
+    link: string
+    placeholder: string
+    primary: string
+    secondary: string
+    success: string
+    tertiary: string
+    warning: string
+    white: string
+  }
+}
 
-export const colors = {
+export const colors: ThemeColors = {
   bg: {
     backdrop: "rgba(27,31,35,0.5)",
     canvas: "#ffffff",
@@ -40,6 +122,7 @@ export const colors = {
     tertiary: "#959da5",
     warning: "#b08800",
   },
+
   input: {
     bg: "#ffffff",
     border: "#e1e4e8",
@@ -66,7 +149,6 @@ export const colors = {
     },
     warningBorder: "#f9c513",
   },
-
   primary: "#425664",
   secondary: "#C6AD8F",
 
@@ -84,5 +166,4 @@ export const colors = {
     warning: "#b08800",
     white: "#ffffff",
   },
-  textLight: grey.A700,
 }

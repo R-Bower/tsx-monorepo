@@ -3,12 +3,9 @@ import React from "react"
 import styled, {css} from "styled-components"
 import {TypographyProps} from "styled-system"
 
-import {systemTextProps, SystemTextProps} from "../../system/customProps"
-import {
-  commonSystemProps,
-  CommonSystemProps,
-  shouldForwardProp,
-} from "../../system/shared"
+import {systemTextProps} from "../../system/customProps"
+import {commonSystemProps, shouldForwardProp} from "../../system/shared"
+import {CommonSystemProps, SystemTextProps} from "../../types/props"
 
 export interface TextProps
   extends CommonSystemProps,

@@ -6,7 +6,7 @@ import {
   CommonSystemProps,
   commonSystemProps,
   shouldForwardProp,
-} from "../../system/shared"
+} from "@rb/react-primitives"
 
 export interface ButtonProps
   extends CommonSystemProps,
@@ -27,7 +27,7 @@ const ButtonStyled = styled.button.withConfig({
   ${commonSystemProps};
 `
 
-const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   (props: ButtonProps, ref) => {
     return <ButtonStyled ref={ref} {...props} />
   },
@@ -36,4 +36,3 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 Button.defaultProps = {
   cursor: "pointer",
 }
-export default Button

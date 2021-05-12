@@ -1,35 +1,9 @@
-import React from "react"
-
 import {has, reduce} from "rambda"
 import {css} from "styled-components"
-import {
-  background,
-  BackgroundProps,
-  border,
-  BorderProps,
-  color,
-  ColorProps,
-  compose,
-  layout,
-  LayoutProps,
-  space,
-  SpaceProps,
-} from "styled-system"
+import {background, border, color, compose, layout, space} from "styled-system"
 
-import customProps, {CustomSystemProps} from "./customProps"
+import customProps from "./customProps"
 import stylePropsList from "./stylePropsList"
-
-export interface CommonSystemProps
-  extends BackgroundProps,
-    BorderProps,
-    ColorProps,
-    LayoutProps,
-    SpaceProps,
-    CustomSystemProps {
-  as?: React.ElementType
-  children?: React.ReactNode
-  "data-test-id"?: string
-}
 
 export const commonSystemProps = css`
   ${compose(background, border, color, layout, space)};

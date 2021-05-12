@@ -3,7 +3,7 @@
 
 ## TSX-monorepo
 
-This project is a collection of tools, apps, and libraries intended for supporting React development.
+This project is an opinionated collection of tools, apps, and libraries intended for supporting React development.
 
 </div>
 
@@ -22,6 +22,7 @@ This project is a collection of tools, apps, and libraries intended for supporti
 - Consistent code formatting in every package.  [ESLint](https://eslint.org/docs/user-guide/getting-started) is used for identifying and reporting on patterns found in ECMAScript/JavaScript code, with the goal of making code more consistent and avoiding bugs.
 - First class [TypeScript](https://www.typescriptlang.org/) support.
 - Hot reloading adjacent packages in the repo.
+- Consistent styling by use of `styled-components` and `styled-system`.  
 - Optional publishing support.
 - [Tree shaking](https://webpack.js.org/guides/tree-shaking/) for every React library.
   - This is accomplished using webpack's side effects.  If you're unfamiliar with side effects, [read more here](https://sgom.es/posts/2020-06-15-everything-you-never-wanted-to-know-about-side-effects/) for a good explanation.
@@ -55,6 +56,13 @@ npm install
 - Shared libraries and utilities are located within `packages/libs`.
 - Data fetching APIs and libraries are located within `packages/data`.
     - Note: it's perfectly fine for isolated apps to include their own data fetching apis within their respective package folders.
+
+## Shared Theme (see `packages/libs/react-primitives`)
+- By designing components around a shared theme, colors and styles* can be swapped with ease without fear of breaking the codebase.  Every React component is designed with this theme in mind.  
+- Recommendations:
+  - The ThemeProvider in the `react-primitives` package accepts two props:
+  - `colors`, an object that maps to the ThemeColors interface in `react-primitives/src/theme/colors`
+  - `box shadows`
   
 ## Conventions
 - Every package must contain at least the following:

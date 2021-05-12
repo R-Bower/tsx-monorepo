@@ -2,12 +2,9 @@ import React, {InputHTMLAttributes} from "react"
 
 import styled from "styled-components"
 
-import {systemTextProps, SystemTextProps} from "../../system/customProps"
-import {
-  CommonSystemProps,
-  commonSystemProps,
-  shouldForwardProp,
-} from "../../system/shared"
+import {systemTextProps} from "../../system/customProps"
+import {commonSystemProps, shouldForwardProp} from "../../system/shared"
+import {CommonSystemProps, SystemTextProps} from "../../types/props"
 
 export interface InputProps
   extends CommonSystemProps,
@@ -23,8 +20,6 @@ const InputStyled = styled.input.withConfig({
   ${systemTextProps};
   ${commonSystemProps};
   outline: none;
-  // Safari placeholder centering fix
-  box-sizing: border-box;
   line-height: normal;
 `
 

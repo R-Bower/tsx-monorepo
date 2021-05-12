@@ -1,6 +1,6 @@
+// UI Primitives
 export {default as AnimatedBox} from "./components/animated-box/AnimatedBox"
 export {default as Box, BoxProps} from "./components/box/Box"
-export {default as Button, ButtonProps} from "./components/button/Button"
 export {
   default as Elevation,
   ElevationProps,
@@ -15,4 +15,11 @@ export {
 } from "./components/text-area/TextArea"
 export * from "./components/position/Position"
 
+// Theme
+export {default as StyledThemeProvider} from "./theme/Provider"
+export {default as DefaultGlobalStyle} from "./theme/GlobalStyle"
+export * from "./theme/config"
+
+export * from "./system/customProps"
+export * from "./system/shared"
 export * from "./types/props"

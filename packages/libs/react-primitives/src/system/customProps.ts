@@ -1,39 +1,7 @@
-import * as CSS from "csstype"
 import {css} from "styled-components"
-import {
-  ConfigStyle,
-  system,
-  ResponsiveValue,
-  typography,
-  TypographyProps,
-} from "styled-system"
+import {ConfigStyle, system, typography} from "styled-system"
 
 import {pixelSizeTransformer} from "./transformers"
-
-export interface CustomSystemProps {
-  appearance?: ResponsiveValue<CSS.Property.Appearance>
-  boxSizing?: ResponsiveValue<CSS.Property.BoxSizing>
-  clip?: ResponsiveValue<CSS.Property.Clip>
-  cursor?: ResponsiveValue<CSS.Property.Cursor>
-  fill?: ResponsiveValue<string>
-  listStyle?: ResponsiveValue<CSS.Property.ListStyle>
-  listStyleType?: ResponsiveValue<CSS.Property.ListStyleType>
-  outline?: ResponsiveValue<CSS.Property.Outline>
-  pointerEvents?: ResponsiveValue<CSS.Property.PointerEvents>
-  transform?: ResponsiveValue<CSS.Property.Transform>
-  transition?: ResponsiveValue<CSS.Property.Transition>
-  userSelect?: ResponsiveValue<CSS.Property.UserSelect>
-  whiteSpace?: ResponsiveValue<CSS.Property.WhiteSpace>
-  willChange?: ResponsiveValue<CSS.Property.WillChange>
-  wordBreak?: ResponsiveValue<CSS.Property.WordBreak>
-}
-
-export interface SystemTextProps extends TypographyProps {
-  textDecoration?: ResponsiveValue<CSS.Property.TextDecoration>
-  textOverflow?: ResponsiveValue<CSS.Property.TextOverflow>
-  textShadow?: ResponsiveValue<CSS.Property.TextShadow>
-  textTransform?: ResponsiveValue<CSS.Property.TextTransform>
-}
 
 export const customTextProps = {
   textDecoration: true,
@@ -48,9 +16,7 @@ export const systemTextProps = css`
 `
 
 export const customProps = {
-  appearance: true,
   boxSizing: true,
-  clip: true,
   cursor: true,
   fill: {
     property: "fill",
@@ -60,17 +26,12 @@ export const customProps = {
     property: "height",
     transform: pixelSizeTransformer,
   } as ConfigStyle,
-  listStyle: true,
-  listStyleType: true,
   maxWidth: {
     property: "maxWidth",
     transform: pixelSizeTransformer,
   } as ConfigStyle,
   outline: true,
   pointerEvents: true,
-  transform: true,
-  transition: true,
-  userDrag: true,
   userSelect: true,
   whiteSpace: true,
   willChange: true,

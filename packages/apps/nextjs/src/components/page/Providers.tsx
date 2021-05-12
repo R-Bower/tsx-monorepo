@@ -1,20 +1,20 @@
 import React from "react"
 
-import {PropsWithChildren} from "@rb/react-primitives"
-
-import {styledSystemTheme} from "~theme/config"
-import GlobalStyle from "~theme/global"
-import ThemeProvider from "~theme/provider"
+import {
+  DefaultGlobalStyle,
+  PropsWithChildren,
+  StyledThemeProvider,
+} from "@rb/react-primitives"
 
 import Layout from "./Layout"
 
 export default function Providers({children}: PropsWithChildren): JSX.Element {
   return (
-    <ThemeProvider theme={styledSystemTheme}>
-      <GlobalStyle />
+    <StyledThemeProvider>
+      <DefaultGlobalStyle />
       <main>
         <Layout>{children}</Layout>
       </main>
-    </ThemeProvider>
+    </StyledThemeProvider>
   )
 }

@@ -1,18 +1,16 @@
 import React, {HTMLAttributes} from "react"
 
 import styled from "styled-components"
-import {BoxShadowProps, shadow} from "styled-system"
+import {shadow} from "styled-system"
 
-import {
-  CommonSystemProps,
-  commonSystemProps,
-  shouldForwardProp,
-} from "../../system/shared"
+import {commonSystemProps, shouldForwardProp} from "../../system/shared"
+import {CommonSystemProps, ShadowsType} from "../../types/props"
 
 export interface ElevationProps
   extends CommonSystemProps,
-    BoxShadowProps,
-    Omit<HTMLAttributes<HTMLDivElement>, "color"> {}
+    Omit<HTMLAttributes<HTMLDivElement>, "color"> {
+  boxShadow: ShadowsType
+}
 
 const ElevationStyled = styled.div.withConfig({
   shouldForwardProp,

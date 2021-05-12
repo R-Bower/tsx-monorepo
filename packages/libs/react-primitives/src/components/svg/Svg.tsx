@@ -2,11 +2,8 @@ import React, {HTMLAttributes} from "react"
 
 import styled from "styled-components"
 
-import {
-  CommonSystemProps,
-  commonSystemProps,
-  shouldForwardProp,
-} from "../../system/shared"
+import {commonSystemProps, shouldForwardProp} from "../../system/shared"
+import {CommonSystemProps} from "../../types/props"
 
 export interface SvgProps
   extends CommonSystemProps,

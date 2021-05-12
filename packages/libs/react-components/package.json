@@ -8,9 +8,11 @@
     "clean": "rimraf -rf ./dist",
     "compile": "tsc -p tsconfig.build.json",
     "dev": "npm run watch",
+    "docs": "docz dev",
     "show-config": "tsc --showConfig",
     "prepublishOnly": "npm run build",
-    "watch": "tsc -p tsconfig.build.json -w --preserveWatchOutput"
+    "watch": "tsc -p tsconfig.build.json -w --preserveWatchOutput",
+    "storybook": "start-storybook -p 6006"
   },
   "dependencies": {
     "@primer/styled-octicons": "^13.0.0",
@@ -26,9 +28,12 @@
   "devDependencies": {
     "@types/react": "^17.0.4",
     "@types/react-dom": "^17.0.3",
+    "@types/react-helmet": "^6.1.1",
+    "@types/react-router-dom": "^5.1.7",
     "@types/styled-components": "^5.1.9",
     "@types/styled-system": "^5.1.11",
     "csstype": "^3.0.8",
-    "typescript": "^4.2.4"
+    "ts-loader": "^9.1.2",
+    "webpack": "^5.37.0"
   }
 }

@@ -1,4 +1,5 @@
 import {colors} from "./colors/colors"
+import {shadows} from "./shadows/shadows"
 
 export const breakpoints = [
   // 0-360 is 0
@@ -14,38 +15,12 @@ const breakpointsPx = breakpoints.map((breakpoint: number) => `${breakpoint}px`)
 
 const lineHeights = [1, 1.15, 1.25, 1.5]
 
-// each array index corresponds to a multiple of 4
+// no config means an integer value maps 1:1 to a pixel.
+// 1 = 1px, 2 = 2px, and so on.
 // used for margin, padding, and top/right/bottom/left
-export const themeSpacing = [
-  0,
-  4,
-  8,
-  12,
-  16,
-  20,
-  24,
-  28,
-  32,
-  36,
-  40,
-  44,
-  48,
-  52,
-  56,
-  60,
-  64,
-  68,
-  72,
-  76,
-  80,
-]
+export const themeSpacing = []
 
-const shadows = {
-  inner: "",
-  none: "none",
-}
-
-export const styledSystemTheme = {
+export const defaultTheme = {
   breakpoints: breakpointsPx,
   colors,
   fontFamily: `Open Sans`,
