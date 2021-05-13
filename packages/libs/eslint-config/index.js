@@ -113,7 +113,11 @@ module.exports = {
         "no-const-assign": "error",
         "no-duplicate-imports": "error",
         "no-invalid-this": "error",
-        "no-restricted-imports": ["error", {paths: ["@rb/react-*/src/**/*"]}],
+        "no-restricted-imports": [
+          "error",
+          // awaiting https://github.com/eslint/eslint/pull/14580 to provide suggestion
+          {patterns: ["@rb/react-*/src/**/*"]},
+        ],
         "no-undef": "error",
         "no-unused-vars": "off",
         "prettier/prettier": "error",

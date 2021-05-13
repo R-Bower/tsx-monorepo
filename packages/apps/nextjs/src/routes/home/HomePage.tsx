@@ -1,18 +1,21 @@
 import React from "react"
 
-import {Box, Input} from "@rb/react-primitives"
+import {TruncatedText} from "@rb/react-components"
+import {Box} from "@rb/react-primitives"
+
+import {pagePaddingX, pagePaddingY} from "~components/page/config"
 
 export default function HomePage(): JSX.Element {
   return (
-    <Box>
-      <Input
-        aria-label={"test"}
-        onChange={(e: React.ChangeEvent<HTMLInputElement>) => console.debug(e)}
-        onClick={(e) => {
-          console.debug((e.target as HTMLInputElement).value)
-        }}
-        value={"test"}
-      />
+    <Box height={500} width={500} {...pagePaddingX} {...pagePaddingY}>
+      <TruncatedText as={"h3"} maxLines={["2"]}>
+        Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+        accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab
+        illo inventore veritatis et quasi architecto beatae vitae dicta sunt
+        explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut
+        odit aut fugit, sed quia consequuntur magni dolores eos qui ratione
+        voluptatem sequi nesciunt.
+      </TruncatedText>
     </Box>
   )
 }

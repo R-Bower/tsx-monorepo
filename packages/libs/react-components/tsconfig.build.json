@@ -2,6 +2,7 @@
   // https://json.schemastore.org/tsconfig
   "extends": "../../../tsconfig.build.json",
   "compilerOptions": {
+    "baseUrl": ".",
     "declaration": true,
     "declarationDir": "dist",
     "declarationMap": true,
@@ -9,7 +10,11 @@
     "jsx": "react",
     "module": "ESNext",
     "esModuleInterop": true,
-    "target": "esnext"
+    "target": "esnext",
+    "paths": {
+      "@rb/react-primitives": ["../libs/react-primitives"],
+      "~test/*": ["./src/test/*"]
+    }
   },
   "include": [
     "src/**/*"
