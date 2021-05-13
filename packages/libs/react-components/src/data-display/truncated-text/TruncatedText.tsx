@@ -7,7 +7,7 @@ import {Text, TextProps} from "@rb/react-primitives"
 
 const textTruncateProp = system({
   lineClamp: {
-    // this needs to be -webkit-line-clamp in order for the code to work
+    // this needs to be -webkit-line-clamp in order for the css to apply.
     // @ts-ignore
     property: "-webkit-line-clamp",
   },
