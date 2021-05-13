@@ -165,7 +165,7 @@ export default function ExampleData(): JSX.Element {
 }
 ```
 
-Now we're more flexible.  We've eliminated the API coupling by keeping the styles contained within a separate component.  This doesn't come without a tradeoff.
+Now we're more flexible.  We've eliminated the API coupling by keeping the styles contained within a separate component.  However, this presents with a tradeoff.
 
 Pros:
 - More flexible and likely more accurate tests.
