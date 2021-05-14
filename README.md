@@ -26,8 +26,7 @@ This project is an opinionated collection of tools, apps, and libraries intended
 - Consistent styling by use of `styled-components` and `styled-system`.
 - Optional publishing support.
 - [Tree shaking](https://webpack.js.org/guides/tree-shaking/) for every React library.
-    - This is accomplished using webpack's side effects. If you're unfamiliar with side
-      effects, [read more here](https://sgom.es/posts/2020-06-15-everything-you-never-wanted-to-know-about-side-effects/) for a good explanation.
+  - This is accomplished using webpack's side effects. If you're unfamiliar with side effects, [read more here](https://sgom.es/posts/2020-06-15-everything-you-never-wanted-to-know-about-side-effects/) for a good explanation.
 - Working "go to definition" feature in IDEs for every package.
 - Unit Testing support via Jest.
 - E2E testing with [Playwright](https://playwright.dev) + Jest.
@@ -62,10 +61,9 @@ npm install
 
 ## Shared Theme (see `packages/libs/react-primitives`)
 
-- By designing components around a shared theme, colors and styles* can be swapped with ease without fear of breaking the codebase. Every React component is designed
-  with this theme in mind.
+- By designing components around a shared theme, colors and styles* can be swapped with ease without fear of breaking the codebase. The `styled-components` and `styled-system` packages utilize this theme and makes common variables like color, spacing, breakpoints available as props for every component. Every React component in this library is designed around this theme.
 - Recommendations:
-    - The ThemeProvider in the `react-primitives` package accepts two props:
+  - The ThemeProvider in the `react-primitives` package accepts two props:
     - `colors`, an object that maps to the ThemeColors interface in `react-primitives/src/theme/colors`
     - `box shadows`
 
