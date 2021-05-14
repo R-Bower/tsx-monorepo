@@ -5,14 +5,14 @@
   "workspaces": [
     "packages/apps/*",
     "packages/data/*",
-    "packages/libs/*",
-    "packages/libs/react-components/docs"
+    "packages/libs/react-components/docs",
+    "packages/libs/*"
   ],
   "scripts": {
     "dev": "lerna run dev",
     "build": "lerna run build",
     "clean": "lerna run clean",
-    "docs": "npm --workspace @rb/react-components run docs",
+    "docs": "npm --workspace @rb/react-components-docs run dev",
     "lint": "eslint --ext js,ts,tsx,mdx .",
     "lint:mdx": "eslint -c .eslintrc.js --ext mdx .",
     "pub": "lerna publish",

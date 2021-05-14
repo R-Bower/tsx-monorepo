@@ -46,3 +46,6 @@ temp/
 .temp/
 
 .certs/
+
+.next
+.vercel
