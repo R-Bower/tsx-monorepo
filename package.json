@@ -5,7 +5,8 @@
   "workspaces": [
     "packages/apps/*",
     "packages/data/*",
-    "packages/libs/*"
+    "packages/libs/*",
+    "packages/libs/react-components/docs"
   ],
   "scripts": {
     "dev": "lerna run dev",
@@ -18,7 +19,7 @@
     "reset": "node scripts/node-reset.js",
     "next-dev": "lerna run dev --parallel --stream",
     "storybook": "npm --workspace @rb/react-components run storybook",
-    "styleguide": "npm --workspace @rb/react-components run styleguidist:dev",
+    "styleguide": "npm --workspace @rb/react-components run styleguide",
     "start": "lerna run start",
     "test": "lerna run test"
   },

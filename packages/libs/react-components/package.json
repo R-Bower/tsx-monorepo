@@ -13,7 +13,9 @@
     "prepublishOnly": "npm run build",
     "watch": "tsc -p tsconfig.build.json -w --preserveWatchOutput",
     "storybook": "start-storybook -p 6006",
-    "jest:unit": "jest --config jest.config.unit.js"
+    "jest:unit": "jest --config jest.config.unit.js",
+    "styleguide": "styleguidist server",
+    "styleguide:build": "styleguidist build"
   },
   "dependencies": {
     "@primer/styled-octicons": "^13.0.0",
@@ -38,6 +40,7 @@
     "@types/react-router-dom": "^5.1.7",
     "@types/styled-components": "^5.1.9",
     "@types/styled-system": "^5.1.11",
+    "react-view": "^2.3.7",
     "csstype": "^3.0.8",
     "ts-loader": "^9.1.2",
     "webpack": "^5.37.0"

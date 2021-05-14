@@ -12,23 +12,6 @@ module.exports = {
   ignorePatterns: ["node_modules"],
   overrides: [
     {
-      extends: ["plugin:mdx/recommended"],
-      files: ["*.mdx"],
-      parser: "eslint-mdx",
-      parserOptions: {
-        ecmaFeatures: {
-          jsx: true,
-        },
-        ecmaVersion: 2020,
-        sourceType: "module",
-      },
-      plugins: ["import", "prettier"],
-      rules: {
-        "no-unused-expressions": ["error"],
-        "prettier/prettier": ["error", {parser: "mdx"}],
-      },
-    },
-    {
       extends: [
         "eslint:recommended",
         "plugin:@typescript-eslint/recommended",
@@ -94,7 +77,7 @@ module.exports = {
             pathGroups: [
               {
                 group: "external",
-                pattern: "react",
+                pattern: "(react)|(react-dom)",
                 position: "before",
               },
               {
