@@ -1,5 +1,5 @@
 // stubs/chalk.js
-const stub = (...args) => args;
+const stub = (...args) => args
 
 module.exports = {
   grey: stub,
@@ -7,4 +7,4 @@ module.exports = {
     bold: stub,
   },
   reset() {},
-};
+}

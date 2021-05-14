@@ -6,12 +6,12 @@
   "types": "dist/index",
   "sideEffects": false,
   "scripts": {
-    "build": "npm run clean && npm run compile",
+    "build": "yarn run clean && yarn run compile",
     "clean": "rimraf -rf ./dist",
     "compile": "tsc -p tsconfig.build.json",
-    "dev": "npm run watch",
+    "dev": "yarn run watch",
     "show-config": "tsc --showConfig",
-    "prepublishOnly": "npm run build",
+    "prepublishOnly": "yarn run build",
     "watch": "tsc -p tsconfig.build.json -w --preserveWatchOutput"
   },
   "dependencies": {

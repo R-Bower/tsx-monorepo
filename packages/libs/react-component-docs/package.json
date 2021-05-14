@@ -1,12 +1,11 @@
 {
-  "name": "@rb/nextjs-template",
+  "name": "@rb/react-components-docs",
   "private": true,
   "version": "1.0.0",
   "scripts": {
     "dev": "next dev",
+    "docs": "npm run dev",
     "build": "next build",
-    "e2e": "cross-env CONFIG_STAGE=dev node node_modules/.bin/jest.js --config jest.config.e2e.js",
-    "e2e:spec": "cross-env CONFIG_STAGE=dev node node_modules/.bin/jest.js --verbose --config jest.config.e2e.js -t",
     "show-config": "tsc --showConfig",
     "start": "next",
     "test": "jest --config jest.config.unit.js"
@@ -14,10 +13,10 @@
   "dependencies": {
     "@rb/react-components": "*",
     "@rb/react-primitives": "*",
+    "buffer": "^6.0.3",
     "next": "^10.2.0",
     "next-seo": "^4.24.0",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "path-browserify": "^1.0.1",
     "react-is": "^17.0.2",
     "react-view": "^2.3.7",
     "styled-components": "^5.2.3",
@@ -26,8 +25,10 @@
   "devDependencies": {
     "@types/react": "^17.0.4",
     "@types/react-dom": "^17.0.3",
-    "babel-jest": "^26.6.3",
-    "jest": "^26.6.3",
     "typescript": "^4.2.4"
+  },
+  "peerDependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   }
 }

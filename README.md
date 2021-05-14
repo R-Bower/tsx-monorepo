@@ -43,13 +43,13 @@ npm install
 #### NextJS Development
 
 - Currently WIP.
-- run `npm run next-dev`. Executes `npm run dev --parallel --stream` which does the following:
+- run `yarn next-dev`. Executes `yarn run dev --parallel --stream` which does the following:
     - starts `@rb/nextjs-template` in dev mode using `next dev`
     - runs `@rb/react-primitives` and `@rb/react-components` in watch mode (using `tsc`) which triggers a recompile on change.
 
 #### Linter
 
-- `npm run lint`
+- `yarn lint`
 - To modify rules, edit `packages/libs/eslint-config/index.js`
 
 ## Projects

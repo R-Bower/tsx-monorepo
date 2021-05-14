@@ -14,14 +14,11 @@
     "jsx": "preserve",
     "skipLibCheck": true,
     "paths": {
-      "@rb/*": ["../../libs/*"],
+      "@rb/react-components": ["../react-components"],
+      "@rb/react-primitives": ["../react-primitives"],
       "~components/*": ["./src/components/*"],
-      "~features/*": ["./src/features/*"],
-      "~lib/*": ["./src/lib/*"],
       "~pages/*": ["./src/pages/*"],
-      "~redux/*": ["./src/redux/*"],
-      "~routes/*": ["./src/routes/*"],
-      "~test/*": ["./src/test/*"]
+      "~props/*": ["./src/props/*"]
     }
   },
   "exclude": [

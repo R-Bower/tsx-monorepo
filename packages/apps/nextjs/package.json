@@ -12,6 +12,7 @@
     "test": "jest --config jest.config.unit.js"
   },
   "dependencies": {
+    "@rb/react-components": "*",
     "@rb/react-primitives": "*",
     "next": "^10.2.0",
     "next-seo": "^4.24.0",

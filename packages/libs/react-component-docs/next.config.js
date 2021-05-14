@@ -1,8 +1,10 @@
 const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin")
+const webpack = require("webpack")
 
+/** @type {import('next/dist/next-server/server/config').NextConfig} */
 module.exports = {
   future: {
-    webpack5: false,
+    webpack5: true,
   },
   reactStrictMode: true,
   webpack: (config, options) => {
@@ -19,6 +21,19 @@ module.exports = {
     if (dev && isServer) {
       config.plugins.push(new ForkTsCheckerWebpackPlugin())
     }
+
+    if (!isServer) {
+      config.node = {global: true}
+      config.resolve.fallback.fs = false
+    }
+    // setup for docs
+
+    config.plugins.push(
+      new webpack.ProvidePlugin({
+        Buffer: require.resolve("buffer/"),
+        process: require.resolve("./stubs/process.js"),
+      }),
+    )
 
     return config
   },
