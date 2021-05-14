@@ -77,7 +77,7 @@ module.exports = {
             pathGroups: [
               {
                 group: "external",
-                pattern: "(react)|(react-dom)",
+                pattern: "react",
                 position: "before",
               },
               {
