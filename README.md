@@ -23,12 +23,13 @@ This project is an opinionated collection of tools, apps, and libraries intended
   in ECMAScript/JavaScript code, with the goal of making code more consistent and avoiding bugs.
 - First class [TypeScript](https://www.typescriptlang.org/) support.
 - Hot reloading adjacent packages in the repo.
+- First class documentation support via [Bit](https://harmony-docs.bit.dev/).
 - Consistent styling by use of `styled-components` and `styled-system`.
 - Optional publishing support.
 - [Tree shaking](https://webpack.js.org/guides/tree-shaking/) for every React library.
   - This is accomplished using webpack's side effects. If you're unfamiliar with side effects, [read more here](https://sgom.es/posts/2020-06-15-everything-you-never-wanted-to-know-about-side-effects/) for a good explanation.
 - Working "go to definition" feature in IDEs for every package.
-- Unit Testing support via Jest.
+- Unit Testing support via Jest and [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/).
 - E2E testing with [Playwright](https://playwright.dev) + Jest.
 
 ## Setup
@@ -43,13 +44,13 @@ npm install
 #### NextJS Development
 
 - Currently WIP.
-- run `npm run next-dev`. Executes `npm run dev --parallel --stream` which does the following:
+- run `yarn next-dev`. Executes `yarn run dev --parallel --stream` which does the following:
     - starts `@rb/nextjs-template` in dev mode using `next dev`
     - runs `@rb/react-primitives` and `@rb/react-components` in watch mode (using `tsc`) which triggers a recompile on change.
 
 #### Linter
 
-- `npm run lint`
+- `yarn lint`
 - To modify rules, edit `packages/libs/eslint-config/index.js`
 
 ## Projects
