@@ -1,5 +1,5 @@
 {
-  "extends": "../../../../tsconfig.json",
+  "extends": "../../../tsconfig.json",
   "compilerOptions": {
     "baseUrl": ".",
     "allowJs": true,
@@ -26,8 +26,6 @@
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx",
-    "../../../node_modules/@types/jest/index.d.ts",
-    "../../../node_modules/jest-dom"
+    "**/*.tsx"
   ]
 }

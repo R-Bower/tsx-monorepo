@@ -3,7 +3,6 @@
     "packages/apps/*",
     "packages/data/*",
     "packages/libs/*",
-    "packages/libs/react-components/docs"
   ],
   "version": "independent",
   "useWorkspaces": true,

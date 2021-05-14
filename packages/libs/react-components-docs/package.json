@@ -1,0 +1,36 @@
+{
+  "name": "@rb/react-components-docs",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "gatsby develop",
+    "clean": "gatsby clean",
+    "build": "gatsby build"
+  },
+  "dependencies": {
+    "@rb/react-components": "*",
+    "@rb/react-primitives": "*",
+    "@artsy/fresnel": "^1.5.0",
+    "babel-plugin-styled-components": "^1.10.7",
+    "babel-preset-gatsby": "^0.10.0",
+    "buffer": "^6.0.3",
+    "dotenv": "^8.2.0",
+    "gatsby": "^3.5.0",
+    "gatsby-alias-imports": "^1.0.6",
+    "gatsby-cli": "^3.5.0",
+    "gatsby-plugin-brotli": "^2.0.0",
+    "gatsby-plugin-image": "^1.5.0",
+    "gatsby-plugin-manifest": "^3.5.0",
+    "gatsby-plugin-react-helmet": "^4.5.0",
+    "gatsby-plugin-sharp": "^3.5.0",
+    "gatsby-source-filesystem": "^3.5.0",
+    "gatsby-transformer-sharp": "^3.5.0",
+    "path-browserify": "^1.0.1",
+    "process": "^0.11.10",
+    "rambda": "^6.7.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-view": "^2.3.7",
+    "webpack": "^5.37.0"
+  }
+}

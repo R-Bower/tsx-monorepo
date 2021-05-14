@@ -40,7 +40,6 @@
     "@types/react-router-dom": "^5.1.7",
     "@types/styled-components": "^5.1.9",
     "@types/styled-system": "^5.1.11",
-    "react-view": "^2.3.7",
     "csstype": "^3.0.8",
     "ts-loader": "^9.1.2",
     "webpack": "^5.37.0"

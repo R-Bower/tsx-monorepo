@@ -5,7 +5,6 @@
   "workspaces": [
     "packages/apps/*",
     "packages/data/*",
-    "packages/libs/react-components/docs",
     "packages/libs/*"
   ],
   "scripts": {
