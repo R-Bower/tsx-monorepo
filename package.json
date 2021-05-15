@@ -9,7 +9,7 @@
     "packages/libs/*"
   ],
   "scripts": {
-    "docs:dev": "",
+    "docs:dev": "bbit start",
     "build": "lerna run build",
     "clean": "lerna run clean",
     "lint": "eslint --ext js,ts,tsx,mdx .",

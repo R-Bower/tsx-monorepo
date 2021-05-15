@@ -26,7 +26,7 @@
     /**
      * default scope for all components in workspace.
      **/
-    "defaultScope": "my-scope"
+    "defaultScope": "bit-local-scope"
   },
   /**
    * main configuration for component dependency resolution.
@@ -35,7 +35,7 @@
     /**
      * choose the package manager for Bit to use. you can choose between 'yarn', 'pnpm'
      */
-    "packageManager": "teambit.dependencies/pnpm",
+    "packageManager": "teambit.dependencies/yarn",
     "policy": {
       "dependencies": {},
       "peerDependencies": {
@@ -60,6 +60,10 @@
        * uncomment to apply the react environment on all components.
        **/
       // "teambit.react/react": { }
+    },
+    "{react-tsx}": {
+      "teambit.harmony/aspect": {
+      }
     }
   }
 }
