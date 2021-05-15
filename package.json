@@ -8,16 +8,13 @@
     "packages/libs/*"
   ],
   "scripts": {
-    "docs": "lerna run --parallel --stream docs",
+    "docs:dev": "",
     "build": "lerna run build",
     "clean": "lerna run clean",
     "lint": "eslint --ext js,ts,tsx,mdx .",
     "lint:mdx": "eslint -c .eslintrc.js --ext mdx .",
-    "pub": "lerna publish",
     "reset": "node scripts/node-reset.js",
     "next-dev": "lerna run --parallel --stream dev",
-    "storybook": "npm --workspace @rb/react-components run storybook",
-    "styleguide": "npm --workspace @rb/react-components run styleguide",
     "start": "lerna run start",
     "test": "lerna run test"
   },
@@ -41,8 +38,5 @@
     "ts-jest": "^26.5.5",
     "typescript": "^4.2.4"
   },
-  "resolutions": {
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
-  }
+  "version": "0.0.0"
 }
