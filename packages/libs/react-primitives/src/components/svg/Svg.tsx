@@ -7,7 +7,10 @@ import {CommonSystemProps} from "../../types/props"
 
 export interface SvgProps
   extends CommonSystemProps,
-    Omit<HTMLAttributes<SVGSVGElement>, "color"> {}
+    Omit<HTMLAttributes<SVGSVGElement>, "color"> {
+  viewBox?: string
+  xmlns?: string
+}
 
 const SvgStyled = styled.svg.withConfig({shouldForwardProp})<SvgProps>`
   ${commonSystemProps};

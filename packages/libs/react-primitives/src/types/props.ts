@@ -1,6 +1,7 @@
 import React from "react"
 
 import * as CSS from "csstype"
+import {FlattenSimpleInterpolation} from "styled-components"
 import {
   BackgroundProps,
   BorderProps,
@@ -89,6 +90,7 @@ export interface CommonSystemProps
   backgroundColor?: ColorsType
   bg?: ColorsType
   color?: ColorsType
+  css?: FlattenSimpleInterpolation
   children?: React.ReactNode
   "data-test-id"?: string
 }

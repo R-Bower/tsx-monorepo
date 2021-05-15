@@ -18,7 +18,7 @@ const lineHeights = [1, 1.15, 1.25, 1.5]
 // no config means an integer value maps 1:1 to a pixel.
 // 1 = 1px, 2 = 2px, and so on.
 // used for margin, padding, and top/right/bottom/left
-export const themeSpacing = []
+export const themeSpacing = [0, 1]
 
 export const defaultTheme = {
   breakpoints: breakpointsPx,

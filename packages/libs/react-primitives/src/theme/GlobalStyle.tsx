@@ -1,16 +1,10 @@
 import {createGlobalStyle, css} from "styled-components"
 
 const fontFamily = css`
-  font-family: "Open Sans", sans-serif;
+  font-family: "Quicksand", sans-serif;
 `
 
-export const DefaultGlobalStyle = createGlobalStyle`
-  @font-face {
-    font-family: "Open Sans";
-    font-weight: 400;
-    font-style: normal;
-    font-display: auto;
-  }
+export const DefaultGlobalStyle = createGlobalStyle`  
   html {
     ${fontFamily};
   }

@@ -84,7 +84,7 @@ export interface ThemeColors {
 
 export const colors: ThemeColors = {
   bg: {
-    backdrop: "rgba(27,31,35,0.5)",
+    backdrop: "#EDEDED",
     canvas: "#ffffff",
     canvasInset: "#f6f8fa",
     canvasInverse: "#24292e",

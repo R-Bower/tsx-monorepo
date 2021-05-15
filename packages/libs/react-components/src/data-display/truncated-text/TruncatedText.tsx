@@ -21,7 +21,7 @@ const SystemTextTruncate = styled(Text)`
 `
 
 export interface TruncatedTextProps extends TextProps {
-  maxLines: number[]
+  maxLines: number | number[]
 }
 
 interface StyledTextTruncateProps extends TruncatedTextProps {

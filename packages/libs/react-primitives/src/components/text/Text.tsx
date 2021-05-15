@@ -1,5 +1,6 @@
 import React from "react"
 
+import {is} from "rambda"
 import styled, {css} from "styled-components"
 import {TypographyProps} from "styled-system"
 
@@ -23,14 +24,38 @@ const TextStyled = styled.p.withConfig({shouldForwardProp})<TextProps>`
   ${textProps};
 `
 
+const defaultStyles: {[key: string]: Partial<TextProps>} = {
+  h1: {fontSize: 24, fontWeight: 400},
+  h2: {
+    fontSize: 18,
+    fontWeight: 600,
+  },
+  h3: {
+    fontSize: 16,
+    fontWeight: 600,
+  },
+  p: {
+    fontSize: 16,
+    fontWeight: 400,
+  },
+}
+
 export const Text = React.forwardRef<HTMLParagraphElement, TextProps>(
-  (props: TextProps, ref) => {
-    return <TextStyled ref={ref} {...props} />
+  ({as, color = "text.primary", fontSize = 16, ...props}: TextProps, ref) => {
+    // cast as to string to satisfy the TS compiler
+    const transformer: string = is(String, as) ? (as as string) : "p"
+    const styles = is(String, as)
+      ? defaultStyles[transformer]
+      : defaultStyles["p"]
+    return (
+      <TextStyled
+        ref={ref}
+        as={as}
+        color={color}
+        fontSize={fontSize}
+        {...styles}
+        {...props}
+      />
+    )
   },
 )
-
-Text.defaultProps = {
-  fontSize: "16px",
-  fontWeight: 300,
-  letterSpacing: "normal",
-}
