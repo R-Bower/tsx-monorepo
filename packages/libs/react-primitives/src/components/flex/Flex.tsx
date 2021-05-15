@@ -16,7 +16,7 @@ const FlexStyled = styled.div.withConfig({shouldForwardProp})<FlexProps>`
   ${commonSystemProps};
 `
 
-const Flex = React.forwardRef<HTMLDivElement, FlexProps>(
+export const Flex = React.forwardRef<HTMLDivElement, FlexProps>(
   (props: FlexProps, ref) => {
     return <FlexStyled ref={ref} {...props} />
   },
@@ -25,5 +25,4 @@ const Flex = React.forwardRef<HTMLDivElement, FlexProps>(
 Flex.defaultProps = {
   display: "flex",
 }
-
-export default Flex
+Flex.displayName = "Flex"

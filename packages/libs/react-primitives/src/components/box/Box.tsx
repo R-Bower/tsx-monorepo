@@ -15,10 +15,10 @@ const BoxStyled = styled.div.withConfig({
   ${commonSystemProps};
 `
 
-const Box = React.forwardRef<HTMLDivElement, BoxProps>(
+export const Box = React.forwardRef<HTMLDivElement, BoxProps>(
   (props: BoxProps, ref) => {
     return <BoxStyled ref={ref} {...props} />
   },
 )
 
-export default Box
+Box.displayName = "Box"

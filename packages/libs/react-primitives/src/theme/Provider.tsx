@@ -1,28 +1,28 @@
 import React, {useMemo} from "react"
 
-import {ThemeProvider as StyledThemeProvider} from "styled-components"
+import {ThemeProvider} from "styled-components"
 import {Theme} from "styled-system"
 
 import {ThemeColors} from "./colors/colors"
 import {defaultTheme} from "./config"
 import {ThemeShadows} from "./shadows/shadows"
 
-interface ThemeProp extends Omit<Theme, "colors" | "shadows"> {
+export interface ThemeProp extends Omit<Theme, "colors" | "shadows"> {
   colors: ThemeColors
   shadows: ThemeShadows
 }
 
-interface ThemeProviderProps {
+export interface ThemeProviderProps {
   children: JSX.Element | JSX.Element[]
   colors?: ThemeColors
   shadows?: ThemeShadows
 }
 
-export default function ThemeProvider({
+export const StyledThemeProvider: React.FC = ({
   children,
   colors = defaultTheme.colors,
   shadows = defaultTheme.shadows,
-}: ThemeProviderProps): JSX.Element {
+}: ThemeProviderProps) => {
   const mergedTheme: ThemeProp = useMemo(
     () => ({
       ...defaultTheme,
@@ -31,7 +31,5 @@ export default function ThemeProvider({
     }),
     [colors, shadows],
   )
-  return (
-    <StyledThemeProvider theme={mergedTheme}>{children}</StyledThemeProvider>
-  )
+  return <ThemeProvider theme={mergedTheme}>{children}</ThemeProvider>
 }

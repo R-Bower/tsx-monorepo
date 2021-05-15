@@ -13,12 +13,10 @@ const SvgStyled = styled.svg.withConfig({shouldForwardProp})<SvgProps>`
   ${commonSystemProps};
 `
 
-const Svg = React.forwardRef<SVGSVGElement, SvgProps>(
+export const Svg = React.forwardRef<SVGSVGElement, SvgProps>(
   (props: SvgProps, ref) => {
     return <SvgStyled ref={ref} {...props} />
   },
 )
 
-Svg.displayName = "Primitives.Svg"
-
-export default Svg
+Svg.displayName = "Svg"

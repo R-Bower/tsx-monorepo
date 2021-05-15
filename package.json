@@ -1,5 +1,6 @@
 {
   "name": "@rb/monorepo",
+  "version": "0.1.0",
   "description": "Main monorepo for all @rb apps and libs",
   "private": true,
   "workspaces": [
@@ -37,6 +38,5 @@
     "lerna": "^3.22.1",
     "ts-jest": "^26.5.5",
     "typescript": "^4.2.4"
-  },
-  "version": "0.0.0"
+  }
 }

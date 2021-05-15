@@ -14,7 +14,7 @@ function resetNodeModules(currentDir) {
       } else {
         resetNodeModules(currentFilePath)
       }
-    } else if (file === "package-lock.json") {
+    } else if (file === "package-lock.json" || file === "yarn.lock") {
       fs.rmSync(currentFilePath)
     }
   })

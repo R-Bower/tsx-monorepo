@@ -23,10 +23,10 @@ const InputStyled = styled.input.withConfig({
   line-height: normal;
 `
 
-const Input = React.forwardRef<HTMLInputElement, InputProps>(
+export const Input = React.forwardRef<HTMLInputElement, InputProps>(
   (props: InputProps, ref) => {
     return <InputStyled ref={ref} {...props} />
   },
 )
 
-export default Input
+Input.displayName = "Input"

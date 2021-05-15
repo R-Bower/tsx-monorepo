@@ -4,7 +4,7 @@ const fontFamily = css`
   font-family: "Open Sans", sans-serif;
 `
 
-const GlobalStyles = createGlobalStyle`
+export const DefaultGlobalStyle = createGlobalStyle`
   @font-face {
     font-family: "Open Sans";
     font-weight: 400;
@@ -20,5 +20,3 @@ const GlobalStyles = createGlobalStyle`
     ${fontFamily};
   }
 `
-
-export default GlobalStyles

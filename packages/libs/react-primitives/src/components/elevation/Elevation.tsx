@@ -19,7 +19,7 @@ const ElevationStyled = styled.div.withConfig({
   ${commonSystemProps};
 `
 
-const Elevation = React.forwardRef<HTMLDivElement, ElevationProps>(
+export const Elevation = React.forwardRef<HTMLDivElement, ElevationProps>(
   (props: ElevationProps, ref) => {
     return <ElevationStyled ref={ref} {...props} />
   },
@@ -28,5 +28,4 @@ const Elevation = React.forwardRef<HTMLDivElement, ElevationProps>(
 Elevation.defaultProps = {
   boxShadow: "sm",
 }
-
-export default Elevation
+Elevation.displayName = "Elevation"

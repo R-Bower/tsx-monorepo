@@ -23,7 +23,7 @@ This project is an opinionated collection of tools, apps, and libraries intended
   in ECMAScript/JavaScript code, with the goal of making code more consistent and avoiding bugs.
 - First class [TypeScript](https://www.typescriptlang.org/) support.
 - Hot reloading adjacent packages in the repo.
-- First class documentation support via [Bit](https://harmony-docs.bit.dev/).
+- First class documentation support via [Bit](https://harmony-docs.bit.dev/essentials/what-is-bit).
 - Consistent styling by use of `styled-components` and `styled-system`.
 - Optional publishing support.
 - [Tree shaking](https://webpack.js.org/guides/tree-shaking/) for every React library.
@@ -34,21 +34,18 @@ This project is an opinionated collection of tools, apps, and libraries intended
 
 ## Setup
 
-- You'll need [Node](https://nodejs.org/en/) and npm v7+ to work with this repository.
+- Ensure that you have [Node](https://nodejs.org/en/) and [Yarn](https://yarnpkg.com/) installed.
     - I run Node v14+ and haven't tried any lesser versions. Your mileage may vary if you're not on v14+.
+- To run the React component playground locally you'll need to install [Bit](https://harmony-docs.bit.dev/getting-started/installing-bit/)
 
-```
-npm install
-```
+### NextJS Development
 
-#### NextJS Development
-
-- Currently WIP.
+- run `yarn install`
 - run `yarn next-dev`. Executes `yarn run dev --parallel --stream` which does the following:
     - starts `@rb/nextjs-template` in dev mode using `next dev`
-    - runs `@rb/react-primitives` and `@rb/react-components` in watch mode (using `tsc`) which triggers a recompile on change.
+    - runs `@rb/react-primitives` and `@rb/react-components` in watch mode (using `tsc`) which triggers a recompile on change (hot reloading).
 
-#### Linter
+### Linter
 
 - `yarn lint`
 - To modify rules, edit `packages/libs/eslint-config/index.js`

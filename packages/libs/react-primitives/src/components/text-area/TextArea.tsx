@@ -21,7 +21,7 @@ const TextAreaStyled = styled.textarea.withConfig({
   ${commonSystemProps};
 `
 
-const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
+export const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
   (props: TextAreaProps, ref) => {
     return <TextAreaStyled ref={ref} {...props} />
   },
@@ -30,5 +30,4 @@ const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
 TextArea.defaultProps = {
   fontSize: "16px",
 }
-
-export default TextArea
+TextArea.displayName = "TextArea"

@@ -23,7 +23,7 @@ const TextStyled = styled.p.withConfig({shouldForwardProp})<TextProps>`
   ${textProps};
 `
 
-const Text = React.forwardRef<HTMLParagraphElement, TextProps>(
+export const Text = React.forwardRef<HTMLParagraphElement, TextProps>(
   (props: TextProps, ref) => {
     return <TextStyled ref={ref} {...props} />
   },
@@ -34,5 +34,3 @@ Text.defaultProps = {
   fontWeight: 300,
   letterSpacing: "normal",
 }
-
-export default Text
