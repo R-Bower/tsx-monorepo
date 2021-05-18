@@ -2,8 +2,8 @@ import React from "react"
 
 import {MDXProvider} from "@mdx-js/react"
 import MDX from "@mdx-js/runtime"
+import fm from "front-matter"
 import fs from "fs"
-import matter from "gray-matter"
 import humps from "humps"
 import path from "path"
 import {last} from "rambda"
@@ -35,6 +35,6 @@ export async function getServerSideProps(context) {
     ...slug,
     `${componentName}.docs.mdx`,
   )
-  const parsedMdx = matter(fs.readFileSync(mdxSource, "utf-8").toString())
-  return {props: {code: parsedMdx.content, frontmatter: parsedMdx.data}}
+  const parsedMdx = fm(fs.readFileSync(mdxSource, "utf-8").toString())
+  return {props: {code: parsedMdx.body, frontmatter: parsedMdx.frontmatter}}
 }

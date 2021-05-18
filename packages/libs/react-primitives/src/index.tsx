@@ -1,13 +1,13 @@
 // UI Primitives
-export * from "./components/animated-box/AnimatedBox"
-export * from "./components/box/Box"
-export * from "./components/elevation/Elevation"
-export * from "./components/flex/Flex"
-export * from "./components/input/Input"
-export * from "./components/svg/Svg"
-export * from "./components/text/Text"
-export * from "./components/text-area/TextArea"
-export * from "./components/position/Position"
+export * from "./primitives/animated-box/AnimatedBox"
+export * from "./primitives/box/Box"
+export * from "./primitives/elevation/Elevation"
+export * from "./primitives/flex/Flex"
+export * from "./primitives/input/Input"
+export * from "./primitives/svg/Svg"
+export * from "./primitives/text/Text"
+export * from "./primitives/text-area/TextArea"
+export * from "./primitives/position/Position"
 
 // Theme
 export * from "./theme/Provider"

@@ -4,6 +4,7 @@ import {useRouter} from "next/router"
 
 import {Flex} from "@rb/react-primitives"
 
+import ComponentSearch from "./component-search/ComponentSearch"
 import {sidebarConfig} from "./config"
 import SidebarItem from "./SidebarItem"
 
@@ -39,6 +40,7 @@ export default function Sidebar({headerHeight}: SidebarProps): JSX.Element {
           borderTopColor={"border.light"}
           width={1}
         />
+        <ComponentSearch />
       </Flex>
     </Flex>
   )

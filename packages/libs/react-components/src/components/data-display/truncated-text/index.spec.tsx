@@ -4,7 +4,7 @@ import "@testing-library/jest-dom/extend-expect"
 
 import {Box} from "@rb/react-primitives"
 
-import {render, screen} from "../../test/test-utils"
+import {render, screen} from "../../../test/test-utils"
 import {TruncatedText} from "./TruncatedText"
 
 const loremIpsum =

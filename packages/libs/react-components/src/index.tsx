@@ -1,6 +1,6 @@
 // Layout
-export * from "./layout/card/Card"
-export * from "./layout/separator/Separator"
+export * from "./components/layout/card/Card"
+export * from "./components/layout/separator/Separator"
 
 // Data Display
-export * from "./data-display/truncated-text/TruncatedText"
+export * from "./components/data-display/truncated-text/TruncatedText"
