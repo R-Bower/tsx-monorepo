@@ -6,6 +6,7 @@
   "workspaces": [
     "packages/apps/*",
     "packages/data/*",
+    "packages/docs",
     "packages/libs/*"
   ],
   "scripts": {
@@ -13,6 +14,7 @@
     "docs:prod": "lerna run docs:prod",
     "build": "lerna run build",
     "clean": "lerna run clean",
+    "lerna:run": "lerna run",
     "lint": "eslint --ext js,ts,tsx,mdx .",
     "lint:mdx": "eslint -c .eslintrc.js --ext mdx .",
     "reset": "node scripts/node-reset.js",

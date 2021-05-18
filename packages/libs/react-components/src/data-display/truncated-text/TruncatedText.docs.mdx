@@ -1,22 +1,23 @@
----
-description: 'A component used to truncate text with an ellipsis.'
-labels: ['react-components', 'data-display']
----
+A component used to truncate text with an ellipsis.
 
-import { TruncatedText } from './TruncatedText';
 
 ## Feedback / Snackbar
 
 Snackbars provide brief messages about app processes.  The component is also known as a toast.
 
 ### Component usage
-```js
-<Snackbar text="hello from Snackbar" />
+```jsx
+<TruncatedText text="hello from Snackbar" />
 ```
 
 ### Customization
 
-Modify the text to see it change live:
-```jsx live
-<Snackbar text="hello from Snackbar" />
+```jsx
+<TruncatedText maxLines={2} width={300}>
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+</TruncatedText>
 ```
+
+<TruncatedText maxLines={2} width={300}>
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+</TruncatedText>

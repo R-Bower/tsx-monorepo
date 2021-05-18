@@ -1,11 +1,13 @@
 import React from "react"
 
-import {Flex, PropsWithChildren} from "@rb/react-primitives"
+import {Flex} from "@rb/react-primitives"
 
 import Footer from "./components/Footer"
 import Header from "./components/Header"
 
-export default function Layout({children}: PropsWithChildren): JSX.Element {
+export default function Layout({
+  children,
+}: React.PropsWithChildren<unknown>): JSX.Element {
   return (
     <Flex
       flexDirection={"column"}

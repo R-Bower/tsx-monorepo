@@ -32,6 +32,7 @@ export const customProps = {
   } as ConfigStyle,
   outline: true,
   pointerEvents: true,
+  transition: true,
   userSelect: true,
   whiteSpace: true,
   willChange: true,

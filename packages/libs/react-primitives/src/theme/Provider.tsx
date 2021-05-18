@@ -7,6 +7,7 @@ import {ThemeColors} from "./colors/colors"
 import {defaultTheme} from "./config"
 import {ThemeShadows} from "./shadows/shadows"
 
+// inject our own colors/shadows here.
 export interface ThemeProp extends Omit<Theme, "colors" | "shadows"> {
   colors: ThemeColors
   shadows: ThemeShadows

@@ -1,5 +1,6 @@
 import React from "react"
 
+import {SystemCssProperties} from "@styled-system/css"
 import * as CSS from "csstype"
 import {FlattenSimpleInterpolation} from "styled-components"
 import {
@@ -9,6 +10,7 @@ import {
   LayoutProps,
   ResponsiveValue,
   SpaceProps,
+  Theme,
   TypographyProps,
 } from "styled-system"
 
@@ -35,10 +37,6 @@ export type ComponentPropsWithRef<T extends React.ElementType> =
     ? React.PropsWithoutRef<P> & React.RefAttributes<InstanceType<T>>
     : React.PropsWithRef<ComponentProps<T>>
 
-export interface PropsWithChildren {
-  children: React.ReactNode
-}
-
 export interface CustomSystemProps {
   boxSizing?: ResponsiveValue<CSS.Property.BoxSizing>
   clip?: ResponsiveValue<CSS.Property.Clip>
@@ -46,6 +44,7 @@ export interface CustomSystemProps {
   fill?: ColorsType
   outline?: ResponsiveValue<CSS.Property.Outline>
   pointerEvents?: ResponsiveValue<CSS.Property.PointerEvents>
+  transition?: ResponsiveValue<CSS.Property.Transition>
   userSelect?: ResponsiveValue<CSS.Property.UserSelect>
   whiteSpace?: ResponsiveValue<CSS.Property.WhiteSpace>
   willChange?: ResponsiveValue<CSS.Property.WillChange>
@@ -63,7 +62,46 @@ export type ShadowsType = ResponsiveValue<keyof ThemeShadows>
 
 export type ColorsType = ResponsiveValue<DeepObjectKeys<ThemeColors>>
 
+export type SystemTheme = Theme
+
+export type SystemCSSReturnType = (
+  props?: SystemTheme | {theme: SystemTheme},
+) => any
+
+interface BaseSystemStyleObject
+  extends Omit<
+      SystemCssProperties,
+      | "backgroundColor"
+      | "bg"
+      | "borderColor"
+      | "borderTopColor"
+      | "borderRightColor"
+      | "borderBottomColor"
+      | "borderLeftColor"
+      | "color"
+    >,
+    CSSPseudoSelectorProps {}
+
+type CSSPseudoSelectorProps = {
+  [K in CSS.Pseudos]?: SystemStyleObject
+}
+
+export interface SystemStyleObject
+  extends BaseSystemStyleObject,
+    CSSPseudoSelectorProps {
+  backgroundColor?: ColorsType
+  bg?: ColorsType
+  borderColor?: ColorsType
+  borderTopColor?: ColorsType
+  borderRightColor?: ColorsType
+  borderBottomColor?: ColorsType
+  borderLeftColor?: ColorsType
+  color?: ColorsType
+  variant?: string
+}
+
 export interface SystemBorderProps
+  // override color props with the values matching the ThemeColors interface
   extends Omit<
     BorderProps,
     | "borderColor"
@@ -90,7 +128,7 @@ export interface CommonSystemProps
   backgroundColor?: ColorsType
   bg?: ColorsType
   color?: ColorsType
-  css?: FlattenSimpleInterpolation
+  // compatibility with @styled-system/css and `styled-components css`
+  css?: SystemCSSReturnType | FlattenSimpleInterpolation
   children?: React.ReactNode
-  "data-test-id"?: string
 }
