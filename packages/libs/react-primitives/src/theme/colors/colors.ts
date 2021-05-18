@@ -17,7 +17,7 @@ const bg: BgColors = {
   header: "#EDEDED",
 }
 
-export interface ThemeColors {
+export interface SystemThemeColors {
   bg: BgColors
   border: BorderColors
   btn: BtnColors
@@ -31,7 +31,7 @@ export interface ThemeColors {
   toast: ToastColors
 }
 
-export const colors: ThemeColors = {
+export const colors: SystemThemeColors = {
   bg,
   border,
   btn,

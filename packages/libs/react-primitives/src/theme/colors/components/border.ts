@@ -1,4 +1,5 @@
 export interface BorderColors {
+  [key: string]: string
   dark: string
   default: string
   light: string

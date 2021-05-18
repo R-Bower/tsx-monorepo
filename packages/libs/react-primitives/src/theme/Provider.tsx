@@ -3,19 +3,19 @@ import React, {useMemo} from "react"
 import {ThemeProvider} from "styled-components"
 import {Theme} from "styled-system"
 
-import {ThemeColors} from "./colors/colors"
+import {SystemThemeColors} from "./colors/colors"
 import {defaultTheme} from "./config"
 import {ThemeShadows} from "./shadows/shadows"
 
 // inject our own colors/shadows here.
 export interface ThemeProp extends Omit<Theme, "colors" | "shadows"> {
-  colors: ThemeColors
+  colors: SystemThemeColors
   shadows: ThemeShadows
 }
 
 export interface ThemeProviderProps {
   children: JSX.Element | JSX.Element[]
-  colors?: ThemeColors
+  colors?: SystemThemeColors
   shadows?: ThemeShadows
 }
 

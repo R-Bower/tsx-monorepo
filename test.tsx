@@ -1,5 +1,5 @@
-import {x} from "@xstyled/styled-components"
+import {th, x} from "@xstyled/styled-components"
 
 const test = x.a({
-  color:
+  color: th.color("")
 })

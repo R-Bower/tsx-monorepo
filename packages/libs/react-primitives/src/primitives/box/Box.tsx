@@ -2,23 +2,24 @@ import React, {HTMLAttributes} from "react"
 
 import styled from "styled-components"
 
-import {commonSystemProps, shouldForwardProp} from "../../system/shared"
-import {CommonSystemProps} from "../../types/props"
+import {commonSystemProps, SystemCommonProps} from "../../system/common"
 
 export interface BoxProps
-  extends CommonSystemProps,
+  extends SystemCommonProps,
     Omit<HTMLAttributes<HTMLDivElement>, "color"> {}
 
-const BoxStyled = styled.div.withConfig({
-  shouldForwardProp,
-})<BoxProps>`
+const StyledBox = styled.div<BoxProps>`
   ${commonSystemProps};
 `
 
 export const Box = React.forwardRef<HTMLDivElement, BoxProps>(
   (props: BoxProps, ref) => {
-    return <BoxStyled ref={ref} {...props} />
+    return <StyledBox ref={ref} {...props} />
   },
 )
 
 Box.displayName = "Box"
+
+function ReactElement() {
+  return <Box color={"text.primary"}></Box>
+}

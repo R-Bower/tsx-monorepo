@@ -18,7 +18,6 @@
     "styleguide:build": "styleguidist build"
   },
   "dependencies": {
-    "@primer/styled-octicons": "^13.0.0",
     "@rb/react-primitives": "*",
     "humps": "^2.0.1",
     "react-spring": "npm:@react-spring/web@^9.1.2",

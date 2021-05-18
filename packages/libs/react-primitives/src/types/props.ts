@@ -14,7 +14,7 @@ import {
   TypographyProps,
 } from "styled-system"
 
-import {ThemeColors} from "../theme/colors/colors"
+import {SystemThemeColors} from "../theme/colors/colors"
 import {ThemeShadows} from "../theme/shadows/shadows"
 import {DeepObjectKeys} from "./utils"
 
@@ -60,7 +60,7 @@ export interface SystemTextProps extends TypographyProps {
 
 export type ShadowsType = ResponsiveValue<keyof ThemeShadows>
 
-export type ColorsType = ResponsiveValue<DeepObjectKeys<ThemeColors>>
+export type ColorsType = ResponsiveValue<DeepObjectKeys<SystemThemeColors>>
 
 export type SystemTheme = Theme
 
