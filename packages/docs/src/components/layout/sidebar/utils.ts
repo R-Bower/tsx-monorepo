@@ -1,6 +1,7 @@
 import fs from "fs"
 import path from "path"
-import {last, pipe, split, tail} from "rambda"
+import {last, map, pipe, split, tail} from "rambda"
+
 const cwd = process.cwd()
 
 const reactComponents = path.join(cwd, "../libs/react-components/src")
@@ -23,16 +24,22 @@ const collectMdxFiles = (dir: string, componentPaths: string[]) => {
   return componentPaths
 }
 
-interface SidebarConfig {
+export interface SidebarDoc {
   path: string
   hierarchy: readonly string[]
   mdxFileName: string
 }
 
-const generateConfigFromPaths = (paths: string[]): SidebarConfig[] =>
+const generateConfigFromPaths = (paths: string[]): SidebarDoc[] =>
   paths.map((path: string) => {
     const shortPath: string = path.substring(path.indexOf("src"))
-    const segments = pipe(split("/"), (path) => tail<string>(path))(shortPath)
+    const segments = pipe(
+      split("/"),
+      (path) => tail(path),
+      map((pathSegment: string) => {
+        return pathSegment
+      }),
+    )(shortPath)
     return {
       hierarchy: segments,
       mdxFileName: last(segments),
@@ -40,14 +47,9 @@ const generateConfigFromPaths = (paths: string[]): SidebarConfig[] =>
     }
   })
 
-export default function buildSidebar() {
-  collectMdxFiles(reactPrimitives, [])
-
-  fs.writeFileSync(
-    path.join(cwd, "temp/sidebar-config.json"),
-    JSON.stringify({
-      components: generateConfigFromPaths(collectMdxFiles(reactComponents, [])),
-      primitives: generateConfigFromPaths(collectMdxFiles(reactPrimitives, [])),
-    }),
-  )
+export default function buildSidebar(): SidebarDoc[] {
+  return [
+    ...generateConfigFromPaths(collectMdxFiles(reactComponents, [])),
+    ...generateConfigFromPaths(collectMdxFiles(reactPrimitives, [])),
+  ]
 }

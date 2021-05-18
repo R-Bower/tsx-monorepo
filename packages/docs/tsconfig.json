@@ -20,7 +20,8 @@
       "~components/*": ["./src/components/*"],
       "~pages/*": ["./src/pages/*"],
       "~props/*": ["./src/props/*"],
-      "~routes/*": ["./src/routes/*"]
+      "~routes/*": ["./src/routes/*"],
+      "~utils/*": ["./src/utils/*"]
     }
   },
   "exclude": [

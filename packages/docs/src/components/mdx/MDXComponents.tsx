@@ -3,10 +3,16 @@ import React, {PropsWithChildren} from "react"
 import * as ReactComponents from "@rb/react-components"
 import * as ReactPrimitives from "@rb/react-primitives"
 
-//github.com/kentcdodds/mdx-bundler#component-substitution
+// https://mdxjs.com/table-of-components
+/**
+ * We can pass custom components to the provider.
+ */
 export const MDXComponents = {
   ...ReactPrimitives,
   ...ReactComponents,
+  code: ({children}: PropsWithChildren<HTMLElement>): JSX.Element => (
+    <ReactPrimitives.Text as={"code"}>{children}</ReactPrimitives.Text>
+  ),
   h1: ({children}: PropsWithChildren<HTMLHeadingElement>): JSX.Element => (
     <ReactPrimitives.Text as={"h1"}>{children}</ReactPrimitives.Text>
   ),

@@ -1,10 +1,6 @@
 import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin"
 
-import buildSidebar from "./config/collect-components"
-
 import type {NextConfig} from "next/dist/next-server/server/config"
-
-buildSidebar()
 
 const nextConfig: NextConfig = {
   experimental: {

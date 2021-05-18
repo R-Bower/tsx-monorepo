@@ -1,5 +1,8 @@
 // based on https://github.com/styled-system/styled-system/blob/master/packages/css/src/index.js
+import {is, reduce} from "rambda"
+
 import {SystemCSSReturnType, SystemStyleObject} from "../types/props"
+import {pixelSizeTransformer} from "./transformers"
 
 export const get = (obj, key, def?, p?, undef?) => {
   key = key && key.split ? key.split(".") : [key]
@@ -115,6 +118,14 @@ const scales = {
   zIndex: "zIndices",
 }
 
+const layoutTransforms = ["height", "maxHeight", "maxWidth", "width"].reduce(
+  (acc, curr) => ({
+    ...acc,
+    [curr]: pixelSizeTransformer,
+  }),
+  {},
+)
+
 const positiveOrNegative = (scale, value) => {
   if (typeof value !== "number" || value >= 0) {
     return get(scale, value, value)
@@ -127,7 +138,7 @@ const positiveOrNegative = (scale, value) => {
   return n * -1
 }
 
-const transforms = [
+const spaceTransforms = [
   "margin",
   "marginTop",
   "marginRight",
@@ -154,6 +165,8 @@ export const responsive = (styles) => (theme) => {
     null,
     ...breakpoints.map((n) => `@media screen and (min-width: ${n})`),
   ]
+
+  console.debug(styles)
 
   for (const key in styles) {
     const value =
@@ -185,7 +198,7 @@ export const responsive = (styles) => (theme) => {
 
 /*
  * Works similarly to @styled-system/css with an exception:
- * 1. Colors are detected from our custom ThemeColors interface.
+ * Colors are detected from our custom ThemeColors interface.
  */
 export const sx =
   (args: SystemStyleObject) =>
@@ -195,6 +208,8 @@ export const sx =
     // @ts-ignore
     const obj = typeof args === "function" ? args(theme) : args
     const styles = responsive(obj)(theme)
+
+    console.debug(obj)
 
     for (const key in styles) {
       const x = styles[key]
@@ -212,9 +227,16 @@ export const sx =
       }
 
       const prop = get(aliases, key, key)
+
+      // width/height transformer
+      if (layoutTransforms[prop]) {
+        result[prop] = layoutTransforms[prop](val)
+        return result as SystemCSSReturnType
+      }
+
       const scaleName = get(scales, prop)
       const scale = get(theme, scaleName, get(theme, prop, {}))
-      const transform = get(transforms, prop, get)
+      const transform = get(spaceTransforms, prop, get)
       const value = transform(scale, val, val)
 
       if (multiples[prop]) {

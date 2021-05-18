@@ -4,7 +4,7 @@ import Link from "next/link"
 
 import {Flex, Text} from "@rb/react-primitives"
 
-import {pagePadding} from "~components/page/config"
+import {pagePadding} from "~components/layout/config"
 
 export default function NotFoundPage(): JSX.Element {
   return (

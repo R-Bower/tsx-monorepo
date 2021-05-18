@@ -17,7 +17,7 @@ export const commonSystemProps = css`
  * ability to prevent specific props from being passed to the DOM.  This
  * function converts the string list of style props to a map for O(1) lookup.
  */
-const excludedProps = reduce(
+export const styleProps = reduce(
   (acc, current) => ({
     ...acc,
     [current]: true,
@@ -29,4 +29,4 @@ const excludedProps = reduce(
 // used exclude style props from the dom
 // https://styled-components.com/docs/api#shouldforwardprop
 export const shouldForwardProp = (prop: string): boolean =>
-  !has(prop, excludedProps)
+  !has(prop, styleProps)

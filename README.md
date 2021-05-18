@@ -15,7 +15,6 @@ This project is an opinionated collection of tools, apps, and libraries intended
 - [Setup](#setup)
 - [Projects](#projects)
 - [Docs](#docs)
-- [Contributing](#contributing)
 
 ## Goals
 
@@ -38,10 +37,8 @@ This project is an opinionated collection of tools, apps, and libraries intended
 - Ensure that you have [Node](https://nodejs.org/en/) and [Yarn](https://yarnpkg.com/) installed.
     - I run Node v14+ and haven't tried any lesser versions. Your mileage may vary if you're not on v14+.
 
-### Linter
-
-- `yarn lint`
-- To modify rules, edit `packages/libs/eslint-config/index.js`
+## Running projects and libs
+- Unless otherwise noted, run all `yarn` commands from the root of this repository.  This is particularly important for `yarn install`.  For more details on why this is necessary, read up on [yarn workspaces and lerna](https://blog.kintone.io/entry/2020/07/14/103322).
 
 ## Projects
 
@@ -53,8 +50,8 @@ This project is an opinionated collection of tools, apps, and libraries intended
 
 ### NextJS Development
 
-- run `yarn install`
-- run `yarn next-dev`. Executes `yarn run dev --parallel --stream` which does the following:
+- run `yarn install` from the root. 
+- run `yarn next-dev` from the root of this repository. Executes `yarn run dev --parallel --stream` which does the following:
   - starts `@rb/nextjs-template` in dev mode using `next dev`
   - runs `@rb/react-primitives` and `@rb/react-components` in watch mode (using `tsc`) which triggers a recompile on change (hot reloading).
 
@@ -66,6 +63,9 @@ This project is an opinionated collection of tools, apps, and libraries intended
   - The ThemeProvider in the `react-primitives` package accepts two props:
     - `colors`, an object that maps to the ThemeColors interface in `react-primitives/src/theme/colors`
     - `box shadows`
+  
+## Docs
+- see the NextJS application at `packages/docs`.
 
 ## Conventions
 

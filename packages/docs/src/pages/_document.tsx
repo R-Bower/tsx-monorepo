@@ -10,7 +10,7 @@ class MyDocument extends Document {
         <Head>
           <link
             href={
-              "https://fonts.googleapis.com/css?family=Quicksand:400,500,600&display=swap"
+              "https://fonts.googleapis.com/css?family=Nunito:300,400,500,600&family=Source+Code+Pro&display=swap"
             }
             rel={"stylesheet"}
           />

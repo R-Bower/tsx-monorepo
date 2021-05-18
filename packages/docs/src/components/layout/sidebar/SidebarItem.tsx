@@ -27,6 +27,7 @@ export default function SidebarItem({
         css={sx({
           "&:hover": {
             backgroundColor: "btn.secondary.hover.bg",
+            color: "btn.secondary.hover.text",
             transition: "background-color 0.4s",
           } as SystemStyleObject,
           backgroundColor: active

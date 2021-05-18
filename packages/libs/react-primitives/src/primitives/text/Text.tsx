@@ -29,39 +29,39 @@ const TextStyled = styled.p.withConfig({shouldForwardProp})<TextProps>`
 const defaultStyles: {[key: string]: Partial<TextProps>} = {
   h1: {fontSize: 32, fontWeight: 600, lineHeight: "48px"},
   h2: {
-    fontSize: 24,
+    fontSize: 28,
     fontWeight: 600,
-    lineHeight: "36px",
+    lineHeight: "44px",
   },
   h3: {
-    fontSize: 20,
+    fontSize: 24,
     fontWeight: 600,
     lineHeight: "32px",
   },
   h4: {
-    fontSize: 16,
+    fontSize: 20,
     fontWeight: 600,
     lineHeight: "24px",
   },
   h5: {
-    fontSize: 14,
-    fontWeight: 600,
-    lineHeight: "20px",
+    fontSize: 16,
+    fontWeight: 500,
+    lineHeight: "24px",
   },
   h6: {
-    fontSize: 12,
-    fontWeight: 600,
-    lineHeight: "16px",
+    fontSize: 14,
+    fontWeight: 500,
+    lineHeight: "20px",
   },
   p: {
-    fontSize: [12, 12, 14, 16],
+    fontSize: [14, 16],
     fontWeight: 400,
-    lineHeight: ["16px", "16px", "20px", "24px"],
+    lineHeight: ["20px", "24px"],
   },
 }
 
 export const Text = React.forwardRef<HTMLParagraphElement, TextProps>(
-  ({as, color = "text.primary", variant = "", ...props}: TextProps, ref) => {
+  ({as, variant = "", ...props}: TextProps, ref) => {
     // apply styles from mapped value from `as` or `variant`.  This keeps text styles consistent.
     const tag = variant || as
     const transformer: string = is(String, tag) ? (tag as string) : "p"
@@ -69,6 +69,6 @@ export const Text = React.forwardRef<HTMLParagraphElement, TextProps>(
     const styles = is(String, tag)
       ? defaultStyles[transformer]
       : defaultStyles["p"]
-    return <TextStyled ref={ref} as={as} color={color} {...styles} {...props} />
+    return <TextStyled ref={ref} as={as} {...styles} {...props} />
   },
 )

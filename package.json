@@ -23,9 +23,12 @@
     "test": "lerna run test"
   },
   "dependencies": {
+    "change-case": "^4.1.2",
     "rambda": "^6.7.0",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "styled-components": "^5.3.0",
+    "@xstyled/styled-components": "^2.5.0"
   },
   "devDependencies": {
     "@babel/core": "7.14.2",
@@ -35,8 +38,10 @@
     "@babel/preset-typescript": "7.13.0",
     "@babel/plugin-proposal-class-properties": "7.13.0",
     "@octokit/core": "^3.4.0",
+    "@types/fs-extra": "^9.0.11",
     "@types/jest": "^26.0.23",
     "fork-ts-checker-webpack-plugin": "^6.2.6",
+    "fs-extra": "^10.0.0",
     "jest": "^26.6.3",
     "lerna": "^3.22.1",
     "ts-jest": "^26.5.5",

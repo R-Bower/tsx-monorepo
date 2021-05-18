@@ -4,7 +4,7 @@ import {NextSeo} from "next-seo"
 
 import {Flex} from "@rb/react-primitives"
 
-import {pagePadding} from "~components/page/config"
+import {pagePadding} from "~components/layout/config"
 
 export default function Home(): JSX.Element {
   return (
