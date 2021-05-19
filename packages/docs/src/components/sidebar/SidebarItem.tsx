@@ -2,7 +2,7 @@ import React from "react"
 
 import Link from "next/link"
 
-import {css, Flex, Text} from "@rb/react-primitives"
+import {Flex, Text} from "@rb/react-primitives"
 
 import {SidebarConfigEntry} from "./config"
 

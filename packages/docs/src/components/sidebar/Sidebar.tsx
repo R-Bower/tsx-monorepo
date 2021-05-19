@@ -4,21 +4,22 @@ import {useRouter} from "next/router"
 
 import {Flex} from "@rb/react-primitives"
 
+import {useAppSelector} from "~lib/hooks/useSelector"
+
 import {sidebarConfig} from "./config"
 import Search from "./search/Search"
 import SidebarItem from "./SidebarItem"
-import {SidebarDoc} from "./utils"
+import {SidebarDoc} from "./sidebarSlice"
 
 interface SidebarProps {
-  sidebarDocs: SidebarDoc[]
   headerHeight: number
 }
 
-export default function Sidebar({
-  headerHeight,
-  sidebarDocs,
-}: SidebarProps): JSX.Element {
+export default function Sidebar({headerHeight}: SidebarProps): JSX.Element {
   const router = useRouter()
+  const sidebarDocs = useAppSelector<SidebarDoc[]>(
+    (state) => state.sidebar.docs,
+  )
 
   return (
     <Flex

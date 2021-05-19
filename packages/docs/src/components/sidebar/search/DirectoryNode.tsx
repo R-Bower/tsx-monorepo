@@ -2,7 +2,7 @@ import React from "react"
 
 import {Flex, css, Text} from "@rb/react-primitives"
 
-import {SidebarDoc} from "../utils"
+import {SidebarDoc} from "../sidebarSlice"
 
 interface DirectoryNodeProps extends SidebarDoc {
   index: number

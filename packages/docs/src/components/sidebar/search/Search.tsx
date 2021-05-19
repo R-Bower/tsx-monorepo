@@ -2,7 +2,7 @@ import React, {useCallback, useState} from "react"
 
 import {Flex, Input} from "@rb/react-primitives"
 
-import {SidebarDoc} from "../utils"
+import {SidebarDoc} from "../sidebarSlice"
 import DirectoryNode from "./DirectoryNode"
 
 interface SearchProps {

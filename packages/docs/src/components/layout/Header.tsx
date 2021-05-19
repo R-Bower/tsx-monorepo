@@ -3,7 +3,7 @@ import React from "react"
 import Image from "next/image"
 import {css, keyframes} from "styled-components"
 
-import {Fixed, Flex, Sticky, Text} from "@rb/react-primitives"
+import {Flex, Sticky, Text} from "@rb/react-primitives"
 
 const rotate = keyframes`
   from {
