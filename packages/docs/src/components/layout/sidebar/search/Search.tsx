@@ -29,7 +29,7 @@ export default function Search({sidebarDocs}: SearchProps): JSX.Element {
         placeholder={"Search..."}
         value={inputValue}
       />
-      {sidebarDocs.map((doc) => (
+      {sidebarDocs.slice(0, 1).map((doc) => (
         <DirectoryNode
           key={doc.path}
           hierarchy={doc.hierarchy}

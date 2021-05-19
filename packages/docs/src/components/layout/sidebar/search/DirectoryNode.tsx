@@ -28,7 +28,7 @@ export default function DirectoryNode({
       <Text
         as={"a"}
         bg={"btn.secondary.base.bg"}
-        color={"text.primary"}
+        color={["text.primary", "text.secondary"]}
         css={hoverCss}
         cursor={"pointer"}
         fontSize={14}

@@ -3,46 +3,40 @@ import React from "react"
 import {SystemCssProperties} from "@styled-system/css"
 import * as CSS from "csstype"
 import {FlattenSimpleInterpolation} from "styled-components"
-import {
-  BackgroundProps,
-  BorderProps,
-  LayoutProps,
-  ResponsiveValue,
-  SpaceProps,
-  Theme,
-  TypographyProps,
-} from "styled-system"
+import * as SS from "styled-system"
 
 import {ThemeColors} from "../theme/colors/colors"
 import {ThemeShadows} from "../theme/shadows/shadows"
 import {DeepObjectKeys} from "./utils"
 
 export type CustomSystemProps = {
-  boxSizing?: ResponsiveValue<CSS.Property.BoxSizing>
-  clip?: ResponsiveValue<CSS.Property.Clip>
-  cursor?: ResponsiveValue<CSS.Property.Cursor>
+  boxSizing?: SS.ResponsiveValue<CSS.Property.BoxSizing>
+  clip?: SS.ResponsiveValue<CSS.Property.Clip>
+  cursor?: SS.ResponsiveValue<CSS.Property.Cursor>
   fill?: ColorsType
-  outline?: ResponsiveValue<CSS.Property.Outline>
-  pointerEvents?: ResponsiveValue<CSS.Property.PointerEvents>
-  transition?: ResponsiveValue<CSS.Property.Transition>
-  userSelect?: ResponsiveValue<CSS.Property.UserSelect>
-  whiteSpace?: ResponsiveValue<CSS.Property.WhiteSpace>
-  willChange?: ResponsiveValue<CSS.Property.WillChange>
-  wordBreak?: ResponsiveValue<CSS.Property.WordBreak>
+  outline?: SS.ResponsiveValue<CSS.Property.Outline>
+  pointerEvents?: SS.ResponsiveValue<CSS.Property.PointerEvents>
+  transition?: SS.ResponsiveValue<CSS.Property.Transition>
+  userSelect?: SS.ResponsiveValue<CSS.Property.UserSelect>
+  whiteSpace?: SS.ResponsiveValue<CSS.Property.WhiteSpace>
+  willChange?: SS.ResponsiveValue<CSS.Property.WillChange>
+  wordBreak?: SS.ResponsiveValue<CSS.Property.WordBreak>
 }
 
-export interface SystemTextProps extends TypographyProps {
-  textDecoration?: ResponsiveValue<CSS.Property.TextDecoration>
-  textOverflow?: ResponsiveValue<CSS.Property.TextOverflow>
-  textShadow?: ResponsiveValue<CSS.Property.TextShadow>
-  textTransform?: ResponsiveValue<CSS.Property.TextTransform>
+export interface SystemTextProps extends SS.TypographyProps {
+  textDecoration?: SS.ResponsiveValue<CSS.Property.TextDecoration>
+  textOverflow?: SS.ResponsiveValue<CSS.Property.TextOverflow>
+  textShadow?: SS.ResponsiveValue<CSS.Property.TextShadow>
+  textTransform?: SS.ResponsiveValue<CSS.Property.TextTransform>
 }
 
-export type ShadowsType = ResponsiveValue<keyof ThemeShadows>
+export type ShadowsType = SS.ResponsiveValue<keyof ThemeShadows>
 
-export type ColorsType = ResponsiveValue<DeepObjectKeys<ThemeColors>>
+export type ColorsType = SS.ResponsiveValue<DeepObjectKeys<ThemeColors>>
 
-export interface SystemTheme extends Omit<Theme, "colors" | "shadows"> {
+export interface SystemTheme
+  extends Omit<SS.Theme, "breakpoints" | "colors" | "shadows"> {
+  breakpoints: string[]
   colors?: ThemeColors
   shadows?: ThemeShadows
 }
@@ -92,7 +86,7 @@ export type SystemStyleObject =
 export interface SystemBorderProps
   // override color props with the values matching the ThemeColors interface
   extends Omit<
-    BorderProps,
+    SS.BorderProps,
     | "borderColor"
     | "borderTopColor"
     | "borderRightColor"
@@ -107,10 +101,10 @@ export interface SystemBorderProps
 }
 
 export interface CommonSystemProps
-  extends BackgroundProps,
+  extends SS.BackgroundProps,
+    SS.LayoutProps,
+    SS.SpaceProps,
     SystemBorderProps,
-    LayoutProps,
-    SpaceProps,
     CustomSystemProps {
   as?: React.ElementType
   backgroundColor?: ColorsType

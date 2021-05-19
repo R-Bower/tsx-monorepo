@@ -12,11 +12,6 @@ export const get = (obj, key, def?, p?, undef?) => {
   return obj === undef ? def : obj
 }
 
-const cssTheme = {
-  breakpoints: defaultTheme.breakpoints,
-  fontSizes: defaultTheme.fontSizes,
-}
-
 const aliases = {
   bg: "backgroundColor",
   m: "margin",
@@ -159,7 +154,7 @@ const spaceTransforms = [
 export const responsive =
   (styles: SystemStyleObject) => (theme: SystemTheme) => {
     const next = {}
-    const breakpoints = get(theme, "breakpoints", defaultTheme.breakpoints)
+    const breakpoints = theme.breakpoints || defaultTheme.breakpoints
     const mediaQueries = [
       null,
       ...breakpoints.map((n) => `@media screen and (min-width: ${n})`),
@@ -196,8 +191,23 @@ export const responsive =
   }
 
 /*
- * Works similarly to @styled-system/css with an exception:
- * Colors are detected from our custom ThemeColors interface.
+ * styled-system isn't setup to receive pseudo selectors on react components.  Even if it were,
+ * React props can't start with characters like `&`, `>`, and `:`, which are necessary for pseudo selectors.
+ * This helper function bypasses those limitations when used with the styled-components css prop.
+ *
+ * When styled-components receives a css prop it processes the raw css values (which aren't theme aware).
+ * This helper utility transforms our styled-system SystemStyleObject against the configured
+ * theme.  This gives us the ability to use styled-system props as if they were template literal
+ * CSS styles.  Advantage: strongly typed, theme-aware css compositions.
+ *
+ * Example usage:
+ *
+ * <Flex css={css({
+ *   "&:hover": {
+ *     border: "solid 2px",
+ *     color: "text.secondary"
+ *   }
+ * })} />
  */
 export const css =
   (args: SystemStyleObject) =>
@@ -213,13 +223,13 @@ export const css =
       const val = typeof x === "function" ? x(theme) : x
 
       if (key === "variant") {
-        const variant = css(get(theme, val))(cssTheme)
+        const variant = css(get(theme, val))(theme)
         result = {...result, ...variant}
         return
       }
 
       if (val && typeof val === "object") {
-        result[key] = css(val)(cssTheme)
+        result[key] = css(val)(theme)
         return
       }
 
