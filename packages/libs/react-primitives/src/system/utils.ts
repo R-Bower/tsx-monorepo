@@ -25,5 +25,5 @@ export type DeepObjectKeys<T, D extends number = 10> = [D] extends [never]
   ? never
   : // eslint-disable-next-line @typescript-eslint/ban-types
   T extends object
-  ? {[K in keyof T]-?: Join<K, DeepObjectKeys<T[K], Prev[D]>>}[keyof T]
-  : ""
+    ? {[K in keyof T]-?: Join<K, DeepObjectKeys<T[K], Prev[D]>>}[keyof T]
+    : ""

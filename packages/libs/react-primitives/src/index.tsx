@@ -17,5 +17,5 @@ export * from "./theme/config"
 // Style System
 export * from "./system/customProps"
 export * from "./system/shared"
-export * from "./system/sx"
-export * from "./types/props"
+export * from "./system/common"
+export * from "./system/css"

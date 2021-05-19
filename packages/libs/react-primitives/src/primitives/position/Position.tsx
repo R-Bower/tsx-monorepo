@@ -3,7 +3,7 @@ import React from "react"
 import styled from "styled-components"
 import {position, PositionProps as SystemPositionProps} from "styled-system"
 
-import {CommonSystemProps} from "../../types/props"
+import {CommonSystemProps} from "../../system/common"
 import {Box} from "../box/Box"
 
 // Position props

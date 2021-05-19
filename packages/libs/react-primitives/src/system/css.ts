@@ -1,7 +1,7 @@
 // based on https://github.com/styled-system/styled-system/blob/master/packages/css/src/index.js
-import {is, reduce} from "rambda"
-
-import {SystemCSSReturnType, SystemStyleObject} from "../types/props"
+import {defaultTheme} from "../theme/config"
+import {SystemCSS, SystemStyleObject, SystemTheme} from "./common"
+import {shouldForwardProp} from "./shared"
 import {pixelSizeTransformer} from "./transformers"
 
 export const get = (obj, key, def?, p?, undef?) => {
@@ -12,11 +12,9 @@ export const get = (obj, key, def?, p?, undef?) => {
   return obj === undef ? def : obj
 }
 
-const defaultBreakpoints = [40, 52, 64].map((n) => n + "em")
-
-const defaultTheme = {
-  fontSizes: [12, 14, 16, 20, 24, 32, 48, 64, 72],
-  space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
+const cssTheme = {
+  breakpoints: defaultTheme.breakpoints,
+  fontSizes: defaultTheme.fontSizes,
 }
 
 const aliases = {
@@ -126,7 +124,7 @@ const layoutTransforms = ["height", "maxHeight", "maxWidth", "width"].reduce(
   {},
 )
 
-const positiveOrNegative = (scale, value) => {
+const positiveOrNegative = (scale, value: string | number): string | number => {
   if (typeof value !== "number" || value >= 0) {
     return get(scale, value, value)
   }
@@ -158,72 +156,71 @@ const spaceTransforms = [
   {},
 )
 
-export const responsive = (styles) => (theme) => {
-  const next = {}
-  const breakpoints = get(theme, "breakpoints", defaultBreakpoints)
-  const mediaQueries = [
-    null,
-    ...breakpoints.map((n) => `@media screen and (min-width: ${n})`),
-  ]
+export const responsive =
+  (styles: SystemStyleObject) => (theme: SystemTheme) => {
+    const next = {}
+    const breakpoints = get(theme, "breakpoints", defaultTheme.breakpoints)
+    const mediaQueries = [
+      null,
+      ...breakpoints.map((n) => `@media screen and (min-width: ${n})`),
+    ]
 
-  console.debug(styles)
+    Object.keys(styles).forEach((key: string) => {
+      const value =
+        typeof styles[key] === "function" ? styles[key](theme) : styles[key]
 
-  for (const key in styles) {
-    const value =
-      typeof styles[key] === "function" ? styles[key](theme) : styles[key]
-
-    if (value == null) {
-      continue
-    }
-    if (!Array.isArray(value)) {
-      next[key] = value
-      continue
-    }
-    for (let i = 0; i < value.slice(0, mediaQueries.length).length; i++) {
-      const media = mediaQueries[i]
-      if (!media) {
-        next[key] = value[i]
-        continue
+      if (value == null) {
+        return
       }
-      next[media] = next[media] || {}
-      if (value[i] == null) {
-        continue
+      if (!Array.isArray(value)) {
+        next[key] = value
+        return
       }
-      next[media][key] = value[i]
-    }
+      for (let i = 0; i < value.slice(0, mediaQueries.length).length; i++) {
+        const media = mediaQueries[i]
+        if (!media) {
+          next[key] = value[i]
+          continue
+        }
+        next[media] = next[media] || {}
+        if (value[i] == null) {
+          continue
+        }
+        next[media][key] = value[i]
+      }
+    })
+
+    console.debug(next)
+
+    return next
   }
-
-  return next
-}
 
 /*
  * Works similarly to @styled-system/css with an exception:
  * Colors are detected from our custom ThemeColors interface.
  */
-export const sx =
+export const css =
   (args: SystemStyleObject) =>
-  (props: any = {}): SystemCSSReturnType => {
+  (props: any = {}): SystemCSS => {
     const theme = {...defaultTheme, ...(props.theme || props)}
     let result = {}
     // @ts-ignore
     const obj = typeof args === "function" ? args(theme) : args
     const styles = responsive(obj)(theme)
 
-    console.debug(obj)
-
-    for (const key in styles) {
+    Object.keys(styles).forEach((key: string) => {
       const x = styles[key]
       const val = typeof x === "function" ? x(theme) : x
 
       if (key === "variant") {
-        const variant = sx(get(theme, val))(theme)
+        const variant = css(get(theme, val))(cssTheme)
         result = {...result, ...variant}
-        continue
+        return
       }
 
       if (val && typeof val === "object") {
-        result[key] = sx(val)(theme)
-        continue
+        result[key] = css(val)(cssTheme)
+        return
       }
 
       const prop = get(aliases, key, key)
@@ -231,7 +228,7 @@ export const sx =
       // width/height transformer
       if (layoutTransforms[prop]) {
         result[prop] = layoutTransforms[prop](val)
-        return result as SystemCSSReturnType
+        return
       }
 
       const scaleName = get(scales, prop)
@@ -241,14 +238,21 @@ export const sx =
 
       if (multiples[prop]) {
         const dirs = multiples[prop]
-
-        for (let i = 0; i < dirs.length; i++) {
-          result[dirs[i]] = value
-        }
+        dirs.forEach((dir: string) => {
+          result[dir] = value
+        })
       } else {
         result[prop] = value
       }
+    })
+
+    if (!props.colors) {
+      for (const key in props) {
+        // if is style prop
+        if (!shouldForwardProp(key)) {
+        }
+      }
     }
 
-    return result as SystemCSSReturnType
+    return result as SystemCSS
   }

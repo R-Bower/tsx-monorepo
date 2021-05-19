@@ -1,6 +1,6 @@
 import React from "react"
 
-import {Flex, sx, SystemStyleObject, Text} from "@rb/react-primitives"
+import {Flex, css, Text} from "@rb/react-primitives"
 
 import {SidebarDoc} from "../utils"
 
@@ -9,6 +9,14 @@ interface DirectoryNodeProps extends SidebarDoc {
   isExpanded: boolean
   title: string
 }
+
+const hoverCss = css({
+  "&:hover": {
+    bg: "btn.secondary.hover.bg",
+    color: "btn.secondary.hover.text",
+    transition: "background-color 0.3s, color 0.3s",
+  },
+})
 
 export default function DirectoryNode({
   index,
@@ -19,24 +27,18 @@ export default function DirectoryNode({
     <Flex justifyContent={"space-between"} width={1}>
       <Text
         as={"a"}
-        css={sx({
-          "&:hover": {
-            backgroundColor: "btn.secondary.hover.bg",
-            color: "btn.secondary.hover.text",
-            transition: "background-color 0.3s, color 0.3s",
-          } as SystemStyleObject,
-          backgroundColor: "btn.secondary.base.bg",
-          color: "text.primary",
-          cursor: "pointer",
-          fontSize: 14,
-          fontWeight: 600,
-          my: 4,
-          p: 4,
-          pl: 24,
-          textDecoration: "none",
-          transition: "background-color 0.3s, color 0.3s",
-          width: 1,
-        } as SystemStyleObject)}
+        bg={"btn.secondary.base.bg"}
+        color={"text.primary"}
+        css={hoverCss}
+        cursor={"pointer"}
+        fontSize={14}
+        fontWeight={600}
+        my={4}
+        p={4}
+        pl={24}
+        textDecoration={"none"}
+        transition={"background-color 0.3s, color 0.3s"}
+        width={1}
       >
         <Text as={"h5"}>{title}</Text>
       </Text>

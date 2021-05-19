@@ -3,8 +3,8 @@ import React, {HTMLAttributes} from "react"
 import styled from "styled-components"
 import {flexbox, FlexboxProps} from "styled-system"
 
+import {CommonSystemProps} from "../../system/common"
 import {commonSystemProps, shouldForwardProp} from "../../system/shared"
-import {CommonSystemProps} from "../../types/props"
 
 export interface FlexProps
   extends CommonSystemProps,

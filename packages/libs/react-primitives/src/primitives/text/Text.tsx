@@ -4,9 +4,9 @@ import {is} from "rambda"
 import styled, {css} from "styled-components"
 import {TypographyProps} from "styled-system"
 
+import {CommonSystemProps, SystemTextProps} from "../../system/common"
 import {systemTextProps} from "../../system/customProps"
 import {commonSystemProps, shouldForwardProp} from "../../system/shared"
-import {CommonSystemProps, SystemTextProps} from "../../types/props"
 
 export interface TextProps
   extends Omit<CommonSystemProps, "children">,

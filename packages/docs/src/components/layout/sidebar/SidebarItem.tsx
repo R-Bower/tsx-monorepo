@@ -2,7 +2,7 @@ import React from "react"
 
 import Link from "next/link"
 
-import {Flex, sx, SystemStyleObject, Text} from "@rb/react-primitives"
+import {css, Flex, Text} from "@rb/react-primitives"
 
 import {SidebarConfigEntry} from "./config"
 
@@ -24,24 +24,24 @@ export default function SidebarItem({
     <Link href={url} passHref>
       <Text
         as={"a"}
-        css={sx({
-          "&:hover": {
-            backgroundColor: "btn.secondary.hover.bg",
-            color: "btn.secondary.hover.text",
-            transition: "background-color 0.4s",
-          } as SystemStyleObject,
-          backgroundColor: active
-            ? "btn.secondary.hover.bg"
-            : "btn.secondary.base.bg",
-          color: "btn.secondary.base.text",
-          fontSize: 14,
-          fontWeight: 600,
-          pl: 24,
-          pr: 8,
-          py: 8,
-          textDecoration: "none",
-          transition: "background-color 0.2s",
-        } as SystemStyleObject)}
+        // css={css({
+        //   ":hover": {
+        //     backgroundColor: "btn.secondary.hover.bg",
+        //     color: "btn.secondary.hover.text",
+        //     transition: "background-color 0.4s",
+        //   },
+        //   backgroundColor: active
+        //     ? "btn.secondary.hover.bg"
+        //     : "btn.secondary.base.bg",
+        //   color: "btn.secondary.base.text",
+        //   fontSize: 14,
+        //   fontWeight: 600,
+        //   pl: 24,
+        //   pr: 8,
+        //   py: 8,
+        //   textDecoration: "none",
+        //   transition: "background-color 0.2s",
+        // })}
       >
         <Flex pl={index * 4}>
           <Flex
