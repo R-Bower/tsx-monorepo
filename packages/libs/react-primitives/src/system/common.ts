@@ -2,7 +2,7 @@ import React from "react"
 
 import {SystemCssProperties} from "@styled-system/css"
 import * as CSS from "csstype"
-import {FlattenSimpleInterpolation} from "styled-components"
+import {FlattenSimpleInterpolation as StyledComponentsCssProp} from "styled-components"
 import * as SS from "styled-system"
 
 import {ThemeColors} from "../theme/colors/colors"
@@ -41,7 +41,7 @@ export interface SystemTheme
   shadows?: ThemeShadows
 }
 
-export type SystemCSS = (props?: SystemTheme | {theme: SystemTheme}) => any
+export type SystemCssProp = (props?: SystemTheme | {theme: SystemTheme}) => any
 
 interface BaseSystemStyleObject
   extends Omit<
@@ -111,6 +111,6 @@ export interface CommonSystemProps
   bg?: ColorsType
   color?: ColorsType
   // compatibility with @styled-system/css and `styled-components css`
-  css?: SystemCSS | FlattenSimpleInterpolation
+  css?: SystemCssProp | StyledComponentsCssProp
   children?: React.ReactNode
 }

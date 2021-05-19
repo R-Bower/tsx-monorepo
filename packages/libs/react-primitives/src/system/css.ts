@@ -1,6 +1,6 @@
 // based on https://github.com/styled-system/styled-system/blob/master/packages/css/src/index.js
 import {defaultTheme} from "../theme/config"
-import {SystemCSS, SystemStyleObject, SystemTheme} from "./common"
+import {SystemCssProp, SystemStyleObject, SystemTheme} from "./common"
 import {shouldForwardProp} from "./shared"
 import {pixelSizeTransformer} from "./transformers"
 
@@ -131,7 +131,7 @@ const positiveOrNegative = (scale, value: string | number): string | number => {
   return n * -1
 }
 
-const spaceTransforms = [
+const spaceTransforms: {[key: string]: string | number} = [
   "margin",
   "marginTop",
   "marginRight",
@@ -152,7 +152,8 @@ const spaceTransforms = [
 )
 
 export const responsive =
-  (styles: SystemStyleObject) => (theme: SystemTheme) => {
+  (styles: SystemStyleObject) =>
+  (theme: SystemTheme): SystemStyleObject => {
     const next = {}
     const breakpoints = theme.breakpoints || defaultTheme.breakpoints
     const mediaQueries = [
@@ -185,8 +186,6 @@ export const responsive =
       }
     })
 
-    console.debug(next)
-
     return next
   }
 
@@ -211,7 +210,7 @@ export const responsive =
  */
 export const css =
   (args: SystemStyleObject) =>
-  (props: any = {}): SystemCSS => {
+  (props: any = {}): SystemCssProp => {
     const theme = {...defaultTheme, ...(props.theme || props)}
     let result = {}
     // @ts-ignore
@@ -256,13 +255,47 @@ export const css =
       }
     })
 
+    // If props is not the theme, then it's coming from the component.
+    // Apply the styles.
     if (!props.colors) {
-      for (const key in props) {
-        // if is style prop
+      const styles = responsive(props)(theme)
+      Object.keys(styles).forEach((key: string) => {
         if (!shouldForwardProp(key)) {
+          const x = styles[key]
+          if (key === "variant") {
+            const variant = css(get(theme, x))(theme)
+            result = {...result, ...variant}
+            return
+          }
+
+          if (x && typeof x === "object") {
+            result[key] = css(x)(theme)
+            return
+          }
+
+          const prop = get(aliases, key, key)
+          // width/height transformer
+          if (layoutTransforms[prop]) {
+            result[prop] = layoutTransforms[prop](x)
+            return
+          }
+
+          const scaleName = get(scales, prop)
+          const scale = get(theme, scaleName, get(theme, prop, {}))
+          const transform = get(spaceTransforms, prop, get)
+          const value = transform(scale, x, x)
+
+          if (multiples[prop]) {
+            const dirs = multiples[prop]
+            dirs.forEach((dir: string) => {
+              result[dir] = value
+            })
+          } else {
+            result[prop] = value
+          }
         }
-      }
+      })
     }
 
-    return result as SystemCSS
+    return result as SystemCssProp
   }
