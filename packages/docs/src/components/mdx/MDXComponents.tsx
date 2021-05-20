@@ -3,6 +3,8 @@ import React, {PropsWithChildren} from "react"
 import * as ReactComponents from "@rb/react-components"
 import * as ReactPrimitives from "@rb/react-primitives"
 
+import CodeBlock from "./CodeBlock"
+
 // https://mdxjs.com/table-of-components
 /**
  * We can pass custom components to the provider.
@@ -10,9 +12,7 @@ import * as ReactPrimitives from "@rb/react-primitives"
 export const MDXComponents = {
   ...ReactPrimitives,
   ...ReactComponents,
-  code: ({children}: PropsWithChildren<HTMLElement>): JSX.Element => (
-    <ReactPrimitives.Text as={"code"}>{children}</ReactPrimitives.Text>
-  ),
+  code: CodeBlock,
   h1: ({children}: PropsWithChildren<HTMLHeadingElement>): JSX.Element => (
     <ReactPrimitives.Text as={"h1"}>{children}</ReactPrimitives.Text>
   ),

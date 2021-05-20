@@ -20,6 +20,7 @@ export default function Sidebar({headerHeight}: SidebarProps): JSX.Element {
       borderRight={"solid 1px"}
       borderRightColor={"border.light"}
       height={`calc(100vh - ${headerHeight}px)`}
+      minWidth={264}
       width={264}
     >
       <Flex flex={"1 0 auto"} flexDirection={"column"} height={1}>

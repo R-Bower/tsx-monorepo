@@ -9,7 +9,7 @@ compileDocs()
  * Watches all .mdx files and recompiles the docs sidebar on add/remove.
  * This is for hot reloading the docs config on add/remove for a better dev experience.
  */
-const watcher = chokidar.watch(path.resolve(__dirname, "../packages/libs"), {
+const watcher = chokidar.watch(path.resolve(__dirname, "../../libs"), {
   ignoreInitial: true,
   ignored: [
     "node_modules**/*",

@@ -5,13 +5,10 @@ const {reduce} = require("rambda")
 const {replace} = require("rambda")
 const {last, pipe, split, tail} = require("rambda")
 
-const reactComponents = path.join(
-  __dirname,
-  "../packages/libs/react-components/src",
-)
+const reactComponents = path.join(__dirname, "../../libs/react-components/src")
 const reactPrimitives = path.join(
   __dirname,
-  "../packages/libs/react-primitives/src/primitives",
+  "../../libs/react-primitives/src/primitives",
 )
 
 const isMdx = (file) => file.endsWith(".mdx")
@@ -63,10 +60,7 @@ function main() {
     ...generateConfigFromPaths(collectMdxFiles(reactPrimitives, [])),
   }
   fs.writeFileSync(
-    path.resolve(
-      __dirname,
-      "../packages/docs/src/components/sidebar/sidebar-docs.json",
-    ),
+    path.resolve(__dirname, "../src/components/sidebar/sidebar-docs.json"),
     JSON.stringify(
       config,
       null,

@@ -36,6 +36,7 @@ This project is an opinionated collection of tools, apps, and libraries intended
 
 - Ensure that you have [Node](https://nodejs.org/en/) and [Yarn](https://yarnpkg.com/) installed.
     - I run Node v14+ and haven't tried any lesser versions. Your mileage may vary if you're not on v14+.
+    - Yarn 2.0+ currently has an issue with the `&` operator in `package.json` scripts. Use Yarn v1.22.10 until this is resolved.
 
 ## Running projects and libs
 - Unless otherwise noted, run all `yarn` commands from the root of this repository.  This is particularly important for `yarn install`.  For more details on why this is necessary, read up on [yarn workspaces and lerna](https://blog.kintone.io/entry/2020/07/14/103322).

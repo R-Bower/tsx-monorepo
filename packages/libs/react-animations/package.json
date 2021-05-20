@@ -1,0 +1,14 @@
+{
+  "name": "@rb/react-animations",
+  "description": "Animations package placeholder",
+  "version": "0.0.1",
+  "main": "dist/index",
+  "types": "dist/index",
+  "sideEffects": false,
+  "peerDependencies": {
+    "react": "*",
+    "react-dom": "*",
+    "styled-components": "*",
+    "styled-system": "*"
+  }
+}

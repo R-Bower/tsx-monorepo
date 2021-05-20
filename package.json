@@ -10,7 +10,7 @@
     "packages/libs/*"
   ],
   "scripts": {
-    "docs": "node scripts/watch-docs.js & lerna run --parallel --stream docs",
+    "docs": "lerna run --parallel --stream docs",
     "docs:prod": "lerna run docs:prod",
     "build": "lerna run build",
     "clean": "lerna run clean",
@@ -31,21 +31,18 @@
     "styled-system": "^5.1.5"
   },
   "devDependencies": {
-    "@babel/register": "^7.13.16",
     "@babel/core": "7.14.2",
     "@babel/node": "7.14.2",
+    "@babel/plugin-proposal-class-properties": "7.13.0",
     "@babel/preset-env": "7.14.2",
     "@babel/preset-react": "7.13.13",
     "@babel/preset-typescript": "7.13.0",
-    "@babel/plugin-proposal-class-properties": "7.13.0",
-    "@octokit/core": "^3.4.0",
+    "@babel/register": "^7.13.16",
     "@types/fs-extra": "^9.0.11",
+    "@types/jest": "^26.0.23",
     "@types/styled-components": "^5.1.9",
     "@types/styled-system": "^5.1.11",
-    "@types/jest": "^26.0.23",
-    "@types/nodemon": "^1.19.0",
     "chokidar": "^3.5.1",
-    "fork-ts-checker-webpack-plugin": "^6.2.6",
     "fs-extra": "^10.0.0",
     "jest": "^26.6.3",
     "lerna": "^3.22.1",

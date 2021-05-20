@@ -8,6 +8,9 @@ import humps from "humps"
 import path from "path"
 import {last} from "rambda"
 
+import {Flex} from "@rb/react-primitives"
+
+import {pagePadding} from "~components/layout/config"
 import {MDXComponents} from "~components/mdx/MDXComponents"
 import {MDXSource} from "~components/mdx/props"
 
@@ -19,9 +22,11 @@ export default function ThemePage({code, frontmatter}: MDXSource): JSX.Element {
   console.debug(frontmatter)
   return (
     <>
-      <MDXProvider components={MDXComponents}>
-        <MDX>{code}</MDX>
-      </MDXProvider>
+      <Flex flexDirection={"column"} {...pagePadding}>
+        <MDXProvider components={MDXComponents}>
+          <MDX>{code}</MDX>
+        </MDXProvider>
+      </Flex>
     </>
   )
 }

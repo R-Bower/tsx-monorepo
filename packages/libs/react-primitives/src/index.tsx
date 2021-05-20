@@ -1,5 +1,4 @@
 // UI Primitives
-export * from "./primitives/animated-box/AnimatedBox"
 export * from "./primitives/box/Box"
 export * from "./primitives/elevation/Elevation"
 export * from "./primitives/flex/Flex"
