@@ -10,16 +10,15 @@
     "packages/libs/*"
   ],
   "scripts": {
-    "docs": "lerna run --parallel --stream docs",
-    "docs:prod": "lerna run docs:prod",
     "build": "lerna run build",
     "clean": "lerna run clean",
     "lerna:run": "lerna run",
     "lint": "eslint --ext js,ts,tsx,mdx .",
     "lint:mdx": "eslint -c .eslintrc.js --ext mdx .",
     "reset": "node scripts/node-reset.js",
-    "next-dev": "lerna run --parallel --stream dev",
+    "next-dev": "lerna run --parallel --stream next-dev",
     "start": "lerna run start",
+    "storybook": "lerna run --parallel --stream storybook",
     "test": "lerna run test"
   },
   "dependencies": {
@@ -43,6 +42,7 @@
     "@types/styled-components": "^5.1.9",
     "@types/styled-system": "^5.1.11",
     "chokidar": "^3.5.1",
+    "eslint-plugin-prettier": "^3.4.0",
     "fs-extra": "^10.0.0",
     "jest": "^26.6.3",
     "lerna": "^3.22.1",

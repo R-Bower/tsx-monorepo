@@ -12,10 +12,7 @@
     "show-config": "tsc --showConfig",
     "prepublishOnly": "yarn run build",
     "watch": "tsc -p tsconfig.build.json -w --preserveWatchOutput",
-    "storybook": "start-storybook -p 6006",
-    "jest:unit": "jest --config jest.config.unit.js",
-    "styleguide": "styleguidist server",
-    "styleguide:build": "styleguidist build"
+    "jest:unit": "jest --config jest.config.unit.js"
   },
   "dependencies": {
     "@primer/styled-octicons": "^13.0.0",
