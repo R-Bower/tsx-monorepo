@@ -10,6 +10,7 @@ import CodeBlock from "./CodeBlock"
  * We can pass custom components to the provider.
  */
 export const MDXComponents = {
+  React,
   ...ReactPrimitives,
   ...ReactComponents,
   code: CodeBlock,

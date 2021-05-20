@@ -6,7 +6,10 @@ import {mdx} from "@mdx-js/react"
 import Highlight, {defaultProps} from "prism-react-renderer"
 import {LiveProvider, LiveEditor, LiveError, LivePreview} from "react-live"
 
-import {Flex} from "@rb/react-primitives"
+import * as Components from "@rb/react-components"
+import * as Primitives from "@rb/react-primitives"
+
+const mdxScope = {...Components, ...Primitives, mdx}
 
 interface CodeBlockProps {
   children: string
@@ -17,20 +20,28 @@ interface CodeBlockProps {
 
 const language = "tsx"
 
-export default function CodeBlock({children, live, render}: CodeBlockProps) {
+export default function CodeBlock({
+  children,
+  className,
+  live,
+  render,
+}: CodeBlockProps) {
+  if (className === "language-test") {
+    console.debug(children)
+  }
   if (live) {
     return (
-      <Flex bg={"bg.header"}>
+      <Primitives.Flex bg={"bg.header"}>
         <LiveProvider
           code={children.trim()}
-          scope={{mdx}}
+          scope={mdxScope}
           transformCode={(code) => "/** @jsx mdx */" + code}
         >
           <LivePreview />
           <LiveEditor />
           <LiveError />
         </LiveProvider>
-      </Flex>
+      </Primitives.Flex>
     )
   }
 

@@ -19,6 +19,8 @@ interface SidebarState {
   searchValue: string
 }
 
+// TODO: cache sidebar state.
+//  Will need to resolve against active config while loading.
 // Define the initial state for this slice.
 export const sidebarInitialState: SidebarState = {
   docs: [],

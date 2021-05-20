@@ -10,6 +10,8 @@ Snackbars provide brief messages about app processes.  The component is also kno
 
 ### Customization
 
+const test = "blue"
+
 ```jsx
 <TruncatedText maxLines={2} width={300}>
   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -20,3 +22,10 @@ Snackbars provide brief messages about app processes.  The component is also kno
 <TruncatedText maxLines={2} width={300}>
   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 </TruncatedText>
+
+```test
+function Test() {
+  const [value, setValue] = React.useState("")
+  return <input onChange={event => setValue(event.target.value)} />
+}
+```
