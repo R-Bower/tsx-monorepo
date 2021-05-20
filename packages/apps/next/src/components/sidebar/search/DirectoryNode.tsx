@@ -45,10 +45,10 @@ export default function DirectoryNode({
               color: "btn.secondary.hover.text",
               transition: "background-color 0.3s, color 0.3s",
             },
-            width: 1,
           }}
           textDecoration={"none"}
           transition={"background-color 0.3s, color 0.3s"}
+          width={1}
         >
           <Flex alignItems={"center"} flex={"1 0 auto"} width={1}>
             <Flex

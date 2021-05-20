@@ -202,53 +202,51 @@ export const responsive = (styles) => (theme) => {
   return next
 }
 
-export const css =
-  (args) =>
-  (props: any = {}) => {
-    const theme = {...defaultTheme, ...(props.theme || props)}
-    let result = {}
-    const obj = typeof args === "function" ? args(theme) : args
-    const styles = responsive(obj)(theme)
+export const css = (args) => (props: any = {}) => {
+  const theme = {...defaultTheme, ...(props.theme || props)}
+  let result = {}
+  const obj = typeof args === "function" ? args(theme) : args
+  const styles = responsive(obj)(theme)
 
-    for (const key in styles) {
-      const x = styles[key]
-      const val = typeof x === "function" ? x(theme) : x
+  for (const key in styles) {
+    const x = styles[key]
+    const val = typeof x === "function" ? x(theme) : x
 
-      if (key === "variant") {
-        const variant = css(get(theme, val))(theme)
-        result = {...result, ...variant}
-        continue
-      }
-
-      if (val && typeof val === "object") {
-        result[key] = css(val)(theme)
-        continue
-      }
-
-      const prop = get(aliases, key, key)
-      const scaleName = get(scales, prop)
-      const scale = get(theme, scaleName, get(theme, prop, {}))
-      let value
-      if (layoutTransforms[prop]) {
-        value = layoutTransforms[prop](val)
-      } else {
-        const transform = get(spaceTransforms, prop, get)
-        value = transform(scale, val, val)
-      }
-
-      if (multiples[prop]) {
-        const dirs = multiples[prop]
-
-        for (let i = 0; i < dirs.length; i++) {
-          result[dirs[i]] = value
-        }
-      } else {
-        result[prop] = value
-      }
+    if (key === "variant") {
+      const variant = css(get(theme, val))(theme)
+      result = {...result, ...variant}
+      continue
     }
 
-    return result
+    if (val && typeof val === "object") {
+      result[key] = css(val)(theme)
+      continue
+    }
+
+    const prop = get(aliases, key, key)
+    const scaleName = get(scales, prop)
+    const scale = get(theme, scaleName, get(theme, prop, {}))
+    let value
+    if (layoutTransforms[prop]) {
+      value = layoutTransforms[prop](val)
+    } else {
+      const transform = get(spaceTransforms, prop, get)
+      value = transform(scale, val, val)
+    }
+
+    if (multiples[prop]) {
+      const dirs = multiples[prop]
+
+      for (let i = 0; i < dirs.length; i++) {
+        result[dirs[i]] = value
+      }
+    } else {
+      result[prop] = value
+    }
   }
+
+  return result
+}
 
 export interface SxProp {
   sx?: SystemStyleObject

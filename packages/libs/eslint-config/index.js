@@ -12,16 +12,12 @@ module.exports = {
   ignorePatterns: ["node_modules"],
   overrides: [
     {
-      extends: ["plugin:mdx/recommended"],
-      files: ["*.mdx"],
-    },
-    {
       extends: [
         "eslint:recommended",
         "plugin:@typescript-eslint/recommended",
         "plugin:jsx-a11y/recommended",
       ],
-      files: ["*.tsx", "*.ts", "**/*.js", "*.jsx"],
+      files: ["*.tsx", "*.ts", "*.js", "*.jsx", "*.mdx"],
       parser: "@typescript-eslint/parser",
       parserOptions: {
         ecmaFeatures: {
