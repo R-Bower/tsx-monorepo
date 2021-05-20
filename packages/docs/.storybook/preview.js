@@ -1,4 +1,4 @@
-import {DefaultGlobalStyle, defaultTheme} from "@rb/react-primitives"
+import {DefaultGlobalStyle, StyledThemeProvider} from "@rb/react-primitives"
 import {ThemeProvider} from "styled-components"
 import {themes} from "@storybook/theming"
 
@@ -18,10 +18,10 @@ export const parameters = {
 
 const withThemeProvider = (Story, context) => {
   return (
-    <ThemeProvider theme={defaultTheme}>
+    <StyledThemeProvider>
       <DefaultGlobalStyle />
       <Story {...context} />
-    </ThemeProvider>
+    </StyledThemeProvider>
   )
 }
 

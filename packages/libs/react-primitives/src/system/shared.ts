@@ -2,12 +2,14 @@ import {has, reduce} from "rambda"
 import {css} from "styled-components"
 import {background, border, color, compose, layout, space} from "styled-system"
 
+import {sx} from "./css"
 import customProps from "./customProps"
 import stylePropsList from "./stylePropsList"
 
 export const commonSystemProps = css`
   ${compose(background, border, color, layout, space)};
   ${customProps};
+  ${sx};
 `
 
 /*

@@ -2,7 +2,7 @@ import React, {useCallback} from "react"
 
 import {FaCaretRight} from "@react-icons/all-files/fa/FaCaretRight"
 
-import {css, Flex, Text} from "@rb/react-primitives"
+import {Flex, Text} from "@rb/react-primitives"
 
 import {useAppSelector} from "~lib/hooks/useSelector"
 import {useAppDispatch} from "~redux/store"
@@ -29,26 +29,26 @@ export default function DirectoryNode({
       <Flex justifyContent={"space-between"}>
         <Text
           as={"a"}
-          css={css({
+          bg={"btn.secondary.base.bg"}
+          color={["text.primary", "text.secondary"]}
+          cursor={"pointer"}
+          fontSize={14}
+          fontWeight={600}
+          my={4}
+          onClick={onClick}
+          pl={12 + level * 24}
+          pr={24}
+          py={4}
+          sx={{
             "&:hover": {
               bg: "btn.secondary.hover.bg",
               color: "btn.secondary.hover.text",
               transition: "background-color 0.3s, color 0.3s",
             },
-            bg: "btn.secondary.base.bg",
-            color: ["text.primary", "text.secondary"],
-            cursor: "pointer",
-            fontSize: 14,
-            fontWeight: 600,
-            my: 4,
-            pl: 12 + level * 24,
-            pr: 24,
-            py: 4,
-            textDecoration: "none",
-            transition: "background-color 0.3s, color 0.3s",
             width: 1,
-          })}
-          onClick={onClick}
+          }}
+          textDecoration={"none"}
+          transition={"background-color 0.3s, color 0.3s"}
         >
           <Flex alignItems={"center"} flex={"1 0 auto"} width={1}>
             <Flex

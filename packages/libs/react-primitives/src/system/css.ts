@@ -1,7 +1,6 @@
 // based on https://github.com/styled-system/styled-system/blob/master/packages/css/src/index.js
 import {defaultTheme} from "../theme/config"
-import {SystemCssProp, SystemStyleObject, SystemTheme} from "./common"
-import {shouldForwardProp} from "./shared"
+import {SystemStyleObject} from "./common"
 import {pixelSizeTransformer} from "./transformers"
 
 export const get = (obj, key, def?, p?, undef?) => {
@@ -89,10 +88,6 @@ const scales = {
   marginTop: "space",
   marginX: "space",
   marginY: "space",
-  maxHeight: "sizes",
-  maxWidth: "sizes",
-  minHeight: "sizes",
-  minWidth: "sizes",
   outlineColor: "colors",
   padding: "space",
   paddingBottom: "space",
@@ -151,46 +146,6 @@ const spaceTransforms: {[key: string]: string | number} = [
   {},
 )
 
-export const responsive =
-  (styles: SystemStyleObject) =>
-  (theme: SystemTheme): SystemStyleObject => {
-    const next = {}
-    const breakpoints = theme.breakpoints || defaultTheme.breakpoints
-    const mediaQueries = [
-      null,
-      ...breakpoints.map((n) => `@media screen and (min-width: ${n})`),
-    ]
-
-    Object.keys(styles).forEach((key: string) => {
-      const value =
-        typeof styles[key] === "function" ? styles[key](theme) : styles[key]
-
-      if (value == null) {
-        return
-      }
-      if (!Array.isArray(value)) {
-        next[key] = value
-        return
-      }
-      for (let i = 0; i < value.slice(0, mediaQueries.length).length; i++) {
-        const media = mediaQueries[i]
-        if (!media) {
-          next[key] = value[i]
-          continue
-        }
-        next[media] = next[media] || {}
-        if (value[i] == null) {
-          continue
-        }
-        if (next[media]) {
-          next[media][key] = value[i]
-        }
-      }
-    })
-
-    return next
-  }
-
 /*
  * styled-system isn't setup to receive pseudo selectors on react components.  Even if it were,
  * React props can't start with characters like `&`, `>`, and `:`, which are necessary for pseudo selectors.
@@ -201,66 +156,102 @@ export const responsive =
  * theme.  This gives us the ability to use styled-system props as if they were template literal
  * CSS styles.  Advantage: strongly typed, theme-aware css compositions.
  *
- * There are some caveats:
- * 1. When the css prop is used on a component, you must put all styles in the css prop otherwise
- * they won't be applied. Other props will still make it through..
- *
  * Example usage:
  *
- * <Flex css={css({
+ * <Flex sx={{
  *   "&:hover": {
  *     border: "solid 2px",
  *     color: "text.secondary"
  *   }
- * })} />
+ * }} />
  */
+
+export const responsive = (styles) => (theme) => {
+  const next = {}
+  const breakpoints = get(theme, "breakpoints", defaultTheme.breakpoints)
+  const mediaQueries = [
+    null,
+    ...breakpoints.map((n) => `@media screen and (min-width: ${n})`),
+  ]
+
+  for (const key in styles) {
+    const value =
+      typeof styles[key] === "function" ? styles[key](theme) : styles[key]
+
+    if (value == null) {
+      continue
+    }
+    if (!Array.isArray(value)) {
+      next[key] = value
+      continue
+    }
+    for (let i = 0; i < value.slice(0, mediaQueries.length).length; i++) {
+      const media = mediaQueries[i]
+      if (!media) {
+        next[key] = value[i]
+        continue
+      }
+      next[media] = next[media] || {}
+      if (value[i] == null) {
+        continue
+      }
+      next[media][key] = value[i]
+    }
+  }
+
+  return next
+}
+
 export const css =
-  (args: SystemStyleObject) =>
-  (props: any = {}): SystemCssProp => {
+  (args) =>
+  (props: any = {}) => {
     const theme = {...defaultTheme, ...(props.theme || props)}
     let result = {}
-    // @ts-ignore
-
     const obj = typeof args === "function" ? args(theme) : args
     const styles = responsive(obj)(theme)
 
-    Object.keys(styles).forEach((key: string) => {
+    for (const key in styles) {
       const x = styles[key]
       const val = typeof x === "function" ? x(theme) : x
 
       if (key === "variant") {
         const variant = css(get(theme, val))(theme)
         result = {...result, ...variant}
-        return
+        continue
       }
 
       if (val && typeof val === "object") {
         result[key] = css(val)(theme)
-        return
+        continue
       }
 
       const prop = get(aliases, key, key)
-
-      // width/height transformer
-      if (layoutTransforms[prop]) {
-        result[prop] = layoutTransforms[prop](val)
-        return
-      }
-
       const scaleName = get(scales, prop)
       const scale = get(theme, scaleName, get(theme, prop, {}))
-      const transform = get(spaceTransforms, prop, get)
-      const value = transform(scale, val, val)
+      let value
+      if (layoutTransforms[prop]) {
+        value = layoutTransforms[prop](val)
+      } else {
+        const transform = get(spaceTransforms, prop, get)
+        value = transform(scale, val, val)
+      }
 
       if (multiples[prop]) {
         const dirs = multiples[prop]
-        dirs.forEach((dir: string) => {
-          result[dir] = value
-        })
+
+        for (let i = 0; i < dirs.length; i++) {
+          result[dirs[i]] = value
+        }
       } else {
         result[prop] = value
       }
-    })
+    }
 
-    return result as SystemCssProp
+    return result
   }
+
+export interface SxProp {
+  sx?: SystemStyleObject
+}
+
+export const sx = (props: SxProp) => css(props.sx)

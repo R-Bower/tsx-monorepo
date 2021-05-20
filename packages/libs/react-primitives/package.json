@@ -11,6 +11,7 @@
     "compile": "tsc -p tsconfig.build.json",
     "docs": "yarn run watch",
     "dev": "yarn run watch",
+    "next-dev": "yarn run watch",
     "show-config": "tsc --showConfig",
     "prepublishOnly": "yarn run build",
     "watch": "tsc -p tsconfig.build.json -w --preserveWatchOutput"

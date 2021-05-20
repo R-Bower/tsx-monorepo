@@ -9,6 +9,7 @@
     "compile": "tsc -p tsconfig.build.json",
     "dev": "yarn run watch",
     "docs": "yarn run watch",
+    "next-dev": "yarn run watch",
     "show-config": "tsc --showConfig",
     "prepublishOnly": "yarn run build",
     "watch": "tsc -p tsconfig.build.json -w --preserveWatchOutput",

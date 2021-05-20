@@ -106,6 +106,7 @@ export interface CommonSystemProps
     SystemColors {
   as?: React.ElementType
   // compatibility with @styled-system/css and `styled-components css`
-  css?: SystemCssProp | StyledComponentsCssProp
+  css?: StyledComponentsCssProp | any
   children?: React.ReactNode
+  sx?: SystemStyleObject
 }

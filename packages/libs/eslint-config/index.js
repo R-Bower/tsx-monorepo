@@ -16,12 +16,6 @@ module.exports = {
       files: ["*.mdx"],
     },
     {
-      files: ["**/*.stories.*"],
-      rules: {
-        "import/no-anonymous-default-export": "off",
-      },
-    },
-    {
       extends: [
         "eslint:recommended",
         "plugin:@typescript-eslint/recommended",

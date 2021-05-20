@@ -1,7 +1,7 @@
 import React, {HTMLAttributes} from "react"
 
 import {is} from "rambda"
-import styled, {css} from "styled-components"
+import styled from "styled-components"
 import {TypographyProps} from "styled-system"
 
 import {CommonSystemProps, SystemTextProps} from "../../system/common"
@@ -19,13 +19,9 @@ export interface TextProps
   variant?: string
 }
 
-const textProps = css`
+const TextStyled = styled.p.withConfig({shouldForwardProp})<TextProps>`
   ${commonSystemProps};
   ${systemTextProps};
-`
-
-const TextStyled = styled.p.withConfig({shouldForwardProp})<TextProps>`
-  ${textProps};
 `
 
 export const Text = React.forwardRef<HTMLParagraphElement, TextProps>(

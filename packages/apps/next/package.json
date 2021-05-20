@@ -4,6 +4,7 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "FORCE_COLOR=1 next dev",
+    "next-dev": "yarn run dev",
     "build": "next build",
     "show-config": "tsc --showConfig",
     "docs:prod": "next",

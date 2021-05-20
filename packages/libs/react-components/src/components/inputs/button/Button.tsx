@@ -10,7 +10,7 @@ import {
 
 export interface ButtonProps
   extends CommonSystemProps,
-    Omit<ButtonHTMLAttributes<HTMLButtonElement>, "color"> {}
+    Omit<ButtonHTMLAttributes<HTMLButtonElement>, "color" | "css"> {}
 
 const ButtonStyled = styled.button.withConfig({
   shouldForwardProp,

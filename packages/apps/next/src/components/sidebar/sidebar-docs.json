@@ -1,1 +1,12 @@
-{"0":{"hierarchy":["primitives","box","Box.mdx"],"mdxFileName":"Box.mdx","name":"box","path":"/home/rb/code/qc/tsx-monorepo/packages/libs/react-primitives/src/primitives/box/Box.mdx","pathPrefix":"/home/rb/code/qc/tsx-monorepo/packages/libs/react-primitives"},"1":{"hierarchy":["components","layout","card","Card.mdx"],"mdxFileName":"Card.mdx","name":"card","path":"/home/rb/code/qc/tsx-monorepo/packages/libs/react-components/src/components/layout/card/Card.mdx","pathPrefix":"/home/rb/code/qc/tsx-monorepo/packages/libs/react-components"},"2":{"hierarchy":["components","layout","separator","Separator.mdx"],"mdxFileName":"Separator.mdx","name":"separator","path":"/home/rb/code/qc/tsx-monorepo/packages/libs/react-components/src/components/layout/separator/Separator.mdx","pathPrefix":"/home/rb/code/qc/tsx-monorepo/packages/libs/react-components"}}
+[
+  {
+    "id": "primitives",
+    "components": [
+      {
+        "id": "box",
+        "mdxFileName": "Box.mdx",
+        "url": "/primitives/box"
+      }
+    ]
+  }
+]

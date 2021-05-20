@@ -4,7 +4,10 @@ module.exports = {
     "../../libs/react-*/**/*.stories.@(js|jsx|ts|tsx)"
   ],
   addons: [
+    "@storybook/addon-actions",
+    "@storybook/addon-backgrounds",
+    "@storybook/addon-controls",
     "@storybook/addon-links",
-    "@storybook/addon-essentials"
+    "@storybook/addon-viewport",
   ]
 }

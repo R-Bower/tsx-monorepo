@@ -1,4 +1,4 @@
-import sidebarDocs from "~components/sidebar/ideal-docs.json"
+import sidebarDocs from "~components/sidebar/sidebar-docs.json"
 import {
   SidebarDocTree,
   sidebarInitialState,
