@@ -1,0 +1,12 @@
+[
+  {
+    "id": "primitives",
+    "components": [
+      {
+        "id": "box",
+        "mdxFileName": "Box.mdx",
+        "url": "/primitives/box"
+      }
+    ]
+  }
+]

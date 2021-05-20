@@ -17,7 +17,7 @@ module.exports = {
         "plugin:@typescript-eslint/recommended",
         "plugin:jsx-a11y/recommended",
       ],
-      files: ["*.tsx", "*.ts", "*.js", "*.jsx"],
+      files: ["*.tsx", "*.ts", "*.js", "*.jsx", "*.mdx"],
       parser: "@typescript-eslint/parser",
       parserOptions: {
         ecmaFeatures: {

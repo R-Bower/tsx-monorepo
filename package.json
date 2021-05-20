@@ -6,37 +6,49 @@
   "workspaces": [
     "packages/apps/*",
     "packages/data/*",
+    "packages/docs",
     "packages/libs/*"
   ],
   "scripts": {
-    "docs:dev": "",
     "build": "lerna run build",
     "clean": "lerna run clean",
+    "docs": "lerna run --parallel --stream docs",
+    "lerna:run": "lerna run",
     "lint": "eslint --ext js,ts,tsx,mdx .",
     "lint:mdx": "eslint -c .eslintrc.js --ext mdx .",
     "reset": "node scripts/node-reset.js",
-    "next-dev": "lerna run --parallel --stream dev",
+    "next-dev": "lerna run --parallel --stream next-dev",
     "start": "lerna run start",
+    "storybook": "lerna run --parallel --stream storybook",
     "test": "lerna run test"
   },
   "dependencies": {
+    "change-case": "^4.1.2",
     "rambda": "^6.7.0",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "styled-components": "^5.3.0",
+    "styled-system": "^5.1.5"
   },
   "devDependencies": {
-    "@babel/core": "^7.14.0",
-    "@babel/node": "^7.13.13",
-    "@babel/preset-env": "^7.14.1",
-    "@babel/preset-react": "^7.13.13",
-    "@babel/preset-typescript": "^7.13.0",
-    "@octokit/core": "^3.4.0",
-    "@rb/eslint-config": "*",
+    "@babel/core": "7.14.2",
+    "@babel/node": "7.14.2",
+    "@babel/plugin-proposal-class-properties": "7.13.0",
+    "@babel/preset-env": "7.14.2",
+    "@babel/preset-react": "7.13.13",
+    "@babel/preset-typescript": "7.13.0",
+    "@babel/register": "^7.13.16",
+    "@types/fs-extra": "^9.0.11",
     "@types/jest": "^26.0.23",
-    "fork-ts-checker-webpack-plugin": "^6.2.6",
+    "@types/styled-components": "^5.1.9",
+    "@types/styled-system": "^5.1.11",
+    "chokidar": "^3.5.1",
+    "eslint-plugin-prettier": "^3.4.0",
+    "fs-extra": "^10.0.0",
     "jest": "^26.6.3",
     "lerna": "^3.22.1",
     "ts-jest": "^26.5.5",
+    "ts-node": "^9.1.1",
     "typescript": "^4.2.4"
   }
 }

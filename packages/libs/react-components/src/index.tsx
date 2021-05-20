@@ -1,5 +1,6 @@
 // Layout
-export * from "./layout/card/Card"
+export * from "./components/layout/card/Card"
+export * from "./components/layout/separator/Separator"
 
-// Truncated text
-export * from "./data-display/truncated-text/TruncatedText"
+// Data Display
+export * from "./components/data-display/truncated-text/TruncatedText"

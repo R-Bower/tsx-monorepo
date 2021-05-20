@@ -2,6 +2,7 @@
   "packages": [
     "packages/apps/*",
     "packages/data/*",
+    "packages/docs",
     "packages/libs/*"
   ],
   "version": "independent",

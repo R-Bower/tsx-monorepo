@@ -1,3 +1,4 @@
+import {SystemTheme} from "../system/common"
 import {colors} from "./colors/colors"
 import {shadows} from "./shadows/shadows"
 
@@ -11,21 +12,14 @@ export const breakpoints = [
   1800, // 6
 ]
 
-const breakpointsPx = breakpoints.map((breakpoint: number) => `${breakpoint}px`)
-
-const lineHeights = [1, 1.15, 1.25, 1.5]
-
-// no config means an integer value maps 1:1 to a pixel.
-// 1 = 1px, 2 = 2px, and so on.
-// used for margin, padding, and top/right/bottom/left
-export const themeSpacing = []
-
-export const defaultTheme = {
-  breakpoints: breakpointsPx,
+export const defaultTheme: SystemTheme = {
+  breakpoints: breakpoints.map((breakpoint: number) => `${breakpoint}px`),
   colors,
-  fontFamily: `Open Sans`,
+  fontSizes: [],
   fontWeights: [300, 400, 500, 600],
-  lineHeights,
+  lineHeights: [1, 1.15, 1.25, 1.5],
   shadows,
-  space: themeSpacing,
+  // An integer value maps 1:1 to a pixel.
+  // 1 = 1px, 2 = 2px, and so on.
+  space: [0, 1],
 }

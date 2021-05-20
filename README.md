@@ -15,7 +15,6 @@ This project is an opinionated collection of tools, apps, and libraries intended
 - [Setup](#setup)
 - [Projects](#projects)
 - [Docs](#docs)
-- [Contributing](#contributing)
 
 ## Goals
 
@@ -29,6 +28,7 @@ This project is an opinionated collection of tools, apps, and libraries intended
 - [Tree shaking](https://webpack.js.org/guides/tree-shaking/) for every React library.
   - This is accomplished using webpack's side effects. If you're unfamiliar with side effects, [read more here](https://sgom.es/posts/2020-06-15-everything-you-never-wanted-to-know-about-side-effects/) for a good explanation.
 - Working "go to definition" feature in IDEs for every package.
+- Icons by [react-icons](https://react-icons.github.io/react-icons/).
 - Unit Testing support via Jest and [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/).
 - E2E testing with [Playwright](https://playwright.dev) + Jest.
 
@@ -36,19 +36,10 @@ This project is an opinionated collection of tools, apps, and libraries intended
 
 - Ensure that you have [Node](https://nodejs.org/en/) and [Yarn](https://yarnpkg.com/) installed.
     - I run Node v14+ and haven't tried any lesser versions. Your mileage may vary if you're not on v14+.
-- To run the React component playground locally you'll need to install [Bit](https://harmony-docs.bit.dev/getting-started/installing-bit/)
+    - Yarn 2.0+ currently has an issue with the `&` operator in `package.json` scripts. Use Yarn v1.22.10 until this is resolved.
 
-### NextJS Development
-
-- run `yarn install`
-- run `yarn next-dev`. Executes `yarn run dev --parallel --stream` which does the following:
-    - starts `@rb/nextjs-template` in dev mode using `next dev`
-    - runs `@rb/react-primitives` and `@rb/react-components` in watch mode (using `tsc`) which triggers a recompile on change (hot reloading).
-
-### Linter
-
-- `yarn lint`
-- To modify rules, edit `packages/libs/eslint-config/index.js`
+## Running projects and libs
+- Unless otherwise noted, run all `yarn` commands from the root of this repository.  This is particularly important for `yarn install`.  For more details on why this is necessary, read up on [yarn workspaces and lerna](https://blog.kintone.io/entry/2020/07/14/103322).
 
 ## Projects
 
@@ -56,6 +47,20 @@ This project is an opinionated collection of tools, apps, and libraries intended
 - Shared libraries and utilities are located within `packages/libs`.
 - Data fetching APIs and libraries are located within `packages/data`.
     - Note: it's perfectly fine for isolated apps to include their own data fetching apis within their respective package folders.
+- The NextJS application at `packages/docs` is responsible for rendering MDX components.  Shared components that contain a corresponding mdx file are aggregated by this package. For more information, check out `packages/docs`.
+
+### NextJS Development
+
+- run `yarn install` from the root. 
+- run `yarn next-dev` from the root of this repository. Executes `yarn run dev --parallel --stream` which does the following:
+  - starts `@rb/nextjs-template` in dev mode using `next dev`
+  - runs `@rb/react-primitives` and `@rb/react-components` in watch mode (using `tsc`) which triggers a recompile on change (hot reloading).
+  
+### Component docs
+- [Storybook](https://storybook.js.org/docs/react/get-started/introduction) is used for documenting the application.
+  - Known issues:
+  - Hot reloading works but refreshing the browser in storybook's development mode doesn't.  In order to reload, you must exit and restart storybook.
+
 
 ## Shared Theme (see `packages/libs/react-primitives`)
 

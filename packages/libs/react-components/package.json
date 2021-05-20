@@ -9,38 +9,39 @@
     "compile": "tsc -p tsconfig.build.json",
     "dev": "yarn run watch",
     "docs": "yarn run watch",
+    "next-dev": "yarn run watch",
     "show-config": "tsc --showConfig",
     "prepublishOnly": "yarn run build",
     "watch": "tsc -p tsconfig.build.json -w --preserveWatchOutput",
-    "storybook": "start-storybook -p 6006",
-    "jest:unit": "jest --config jest.config.unit.js",
-    "styleguide": "styleguidist server",
-    "styleguide:build": "styleguidist build"
+    "jest:unit": "jest --config jest.config.unit.js"
   },
   "dependencies": {
     "@primer/styled-octicons": "^13.0.0",
     "@rb/react-primitives": "*",
-    "react-spring": "npm:@react-spring/web@^9.1.2",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "humps": "^2.0.1",
     "react-is": "^17.0.2",
-    "react-select": "^4.3.0",
-    "styled-components": "^5.2.3",
-    "styled-system": "^5.1.5"
+    "react-select": "^4.3.0"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.12.0",
     "@testing-library/react": "^11.2.6",
     "@types/jest": "^26.0.23",
-    "@types/testing-library__jest-dom": "^5.9.5",
     "@types/react": "^17.0.4",
     "@types/react-dom": "^17.0.3",
     "@types/react-helmet": "^6.1.1",
     "@types/react-router-dom": "^5.1.7",
     "@types/styled-components": "^5.1.9",
     "@types/styled-system": "^5.1.11",
+    "@types/testing-library__jest-dom": "^5.9.5",
     "csstype": "^3.0.8",
     "ts-loader": "^9.1.2",
+    "typescript": "^4.2.4",
     "webpack": "^5.37.0"
+  },
+  "peerDependencies": {
+    "react": "*",
+    "react-dom": "*",
+    "styled-components": "*",
+    "styled-system": "*"
   }
 }

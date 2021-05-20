@@ -9,18 +9,15 @@
     "build": "yarn run clean && yarn run compile",
     "clean": "rimraf -rf ./dist",
     "compile": "tsc -p tsconfig.build.json",
+    "docs": "yarn run watch",
     "dev": "yarn run watch",
+    "next-dev": "yarn run watch",
     "show-config": "tsc --showConfig",
     "prepublishOnly": "yarn run build",
     "watch": "tsc -p tsconfig.build.json -w --preserveWatchOutput"
   },
   "dependencies": {
-    "react-spring": "npm:@react-spring/web@^9.1.2",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-is": "^17.0.2",
-    "styled-components": "^5.2.3",
-    "styled-system": "^5.1.5"
+    "react-is": "^17.0.2"
   },
   "devDependencies": {
     "@types/react": "^17.0.4",
@@ -29,5 +26,11 @@
     "@types/styled-system": "^5.1.11",
     "csstype": "^3.0.8",
     "tslib": "^2.2.0"
+  },
+  "peerDependencies": {
+    "react": "*",
+    "react-dom": "*",
+    "styled-components": "*",
+    "styled-system": "*"
   }
 }
