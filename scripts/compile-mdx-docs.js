@@ -1,6 +1,9 @@
+const {paramCase} = require("change-case")
 const fs = require("fs")
 const path = require("path")
-const {last, map, pipe, split, tail} = require("rambda")
+const {reduce} = require("rambda")
+const {replace} = require("rambda")
+const {last, pipe, split, tail} = require("rambda")
 
 const reactComponents = path.join(
   __dirname,
@@ -13,50 +16,68 @@ const reactPrimitives = path.join(
 
 const isMdx = (file) => file.endsWith(".mdx")
 
-const collectMdxFiles = (dir, componentPaths) => {
+const collectMdxFiles = (dir, components) => {
   if (fs.readdirSync) {
     fs.readdirSync(dir).forEach((file) => {
       const currentFilePath = path.join(dir, file)
       if (fs.existsSync(currentFilePath)) {
         if (fs.lstatSync(currentFilePath).isDirectory()) {
-          collectMdxFiles(currentFilePath, componentPaths)
+          collectMdxFiles(currentFilePath, components)
         } else if (isMdx(file)) {
-          componentPaths.push(currentFilePath)
+          console.debug(currentFilePath)
+          components.push(currentFilePath)
         }
       }
     })
   }
 
-  return componentPaths
+  return components
 }
+
+const altConfig = reduce(
+  (acc, current) => {
+    const pathPrefix = path.substring(0, path.indexOf("/src"))
+    const shortPath = path.substring(path.indexOf("src"))
+    const hierarchy = pipe(split("/"), (path) => tail(path))(shortPath)
+  },
+  {components: [], primitives: []},
+)
 
 const generateConfigFromPaths = (paths) =>
   paths.map((path) => {
+    const pathPrefix = path.substring(0, path.indexOf("/src"))
     const shortPath = path.substring(path.indexOf("src"))
-    const segments = pipe(
-      split("/"),
-      (path) => tail(path),
-      map((pathSegment) => {
-        return pathSegment
-      }),
-    )(shortPath)
+    const hierarchy = pipe(split("/"), (path) => tail(path))(shortPath)
     return {
-      hierarchy: segments,
-      mdxFileName: last(segments),
+      hierarchy: hierarchy,
+      mdxFileName: last(hierarchy),
+      name: pipe(last, replace(".mdx", ""), paramCase)(hierarchy),
       path,
+      pathPrefix,
     }
   })
 
-module.exports = () => {
-  const config = [
+function main() {
+  const config = {
     ...generateConfigFromPaths(collectMdxFiles(reactComponents, [])),
     ...generateConfigFromPaths(collectMdxFiles(reactPrimitives, [])),
-  ]
+  }
   fs.writeFileSync(
     path.resolve(
       __dirname,
       "../packages/docs/src/components/sidebar/sidebar-docs.json",
     ),
-    JSON.stringify(config),
+    JSON.stringify(
+      config,
+      null,
+      process.env.NODE_ENV === "development" ? 2 : 0,
+    ),
   )
+}
+
+module.exports = main
+
+// if called from CLI
+if (require.main === module) {
+  main()
 }

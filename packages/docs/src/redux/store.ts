@@ -1,23 +1,21 @@
 import {
   configureStore,
-  getDefaultMiddleware,
   EnhancedStore,
+  getDefaultMiddleware,
 } from "@reduxjs/toolkit"
 import {Context, createWrapper, MakeStore} from "next-redux-wrapper"
+import {useDispatch} from "react-redux"
 
-import sidebarDocs from "~components/sidebar/sidebar-docs.json"
-import sidebarReducer, {SidebarDoc} from "~components/sidebar/sidebarSlice"
+import sidebarReducer from "~components/sidebar/sidebarSlice"
+
+import {getPreloadedState} from "./utils"
 
 const devMode = process.env.NODE_ENV === "development"
 
 const store = configureStore({
   devTools: devMode,
   middleware: [...getDefaultMiddleware()],
-  preloadedState: {
-    sidebar: {
-      docs: sidebarDocs as SidebarDoc[],
-    },
-  },
+  preloadedState: getPreloadedState(),
   reducer: {sidebar: sidebarReducer},
 })
 
@@ -34,3 +32,4 @@ export const nextReduxWrapper = createWrapper(makeStore, {
 export type RootState = ReturnType<typeof store.getState>
 // Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
 export type AppDispatch = typeof store.dispatch
+export const useAppDispatch = (): AppDispatch => useDispatch<AppDispatch>() // Export a hook that can be reused to resolve types

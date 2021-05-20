@@ -1,47 +1,85 @@
-import React from "react"
+import React, {useCallback} from "react"
 
-import {Flex, css, Text} from "@rb/react-primitives"
+import {FaCaretRight} from "@react-icons/all-files/fa/FaCaretRight"
 
-import {SidebarDoc} from "../sidebarSlice"
+import {css, Flex, Text} from "@rb/react-primitives"
 
-interface DirectoryNodeProps extends SidebarDoc {
-  index: number
-  isExpanded: boolean
-  title: string
+import {useAppSelector} from "~lib/hooks/useSelector"
+import {useAppDispatch} from "~redux/store"
+
+import {SidebarDocTree, toggleExpanded} from "../sidebarSlice"
+import FileNode from "./FileNode"
+
+interface DirectoryNodeProps extends SidebarDocTree {
+  level?: number
 }
 
-const hoverCss = css({
-  "&:hover": {
-    bg: "btn.secondary.hover.bg",
-    color: "btn.secondary.hover.text",
-    transition: "background-color 0.3s, color 0.3s",
-  },
-})
-
 export default function DirectoryNode({
-  index,
-  isExpanded,
-  title,
+  components,
+  id,
+  level = 0,
 }: DirectoryNodeProps): JSX.Element {
+  const dispatch = useAppDispatch()
+  const isExpanded = useAppSelector((state) => state.sidebar.expanded[id])
+  const onClick = useCallback(() => {
+    dispatch(toggleExpanded(id))
+  }, [dispatch, id])
   return (
-    <Flex justifyContent={"space-between"} width={1}>
-      <Text
-        as={"a"}
-        bg={"btn.secondary.base.bg"}
-        color={["text.primary", "text.secondary"]}
-        css={hoverCss}
-        cursor={"pointer"}
-        fontSize={14}
-        fontWeight={600}
-        my={4}
-        p={4}
-        pl={24}
-        textDecoration={"none"}
-        transition={"background-color 0.3s, color 0.3s"}
-        width={1}
-      >
-        <Text as={"h5"}>{title}</Text>
-      </Text>
+    <Flex flexDirection={"column"}>
+      <Flex justifyContent={"space-between"}>
+        <Text
+          as={"a"}
+          css={css({
+            "&:hover": {
+              bg: "btn.secondary.hover.bg",
+              color: "btn.secondary.hover.text",
+              transition: "background-color 0.3s, color 0.3s",
+            },
+            bg: "btn.secondary.base.bg",
+            color: ["text.primary", "text.secondary"],
+            cursor: "pointer",
+            fontSize: 14,
+            fontWeight: 600,
+            my: 4,
+            pl: 12 + level * 24,
+            pr: 24,
+            py: 4,
+            textDecoration: "none",
+            transition: "background-color 0.3s, color 0.3s",
+            width: 1,
+          })}
+          onClick={onClick}
+        >
+          <Flex alignItems={"center"} flex={"1 0 auto"} width={1}>
+            <Flex
+              alignItems={"center"}
+              mr={4}
+              transform={`rotate(${isExpanded ? "90deg" : 0})`}
+              transformOrigin={"center"}
+              transition={"transform 0.3s"}
+            >
+              <FaCaretRight color={"inherit"} size={16} />
+            </Flex>
+            <Text as={"h5"}>{id}</Text>
+          </Flex>
+        </Text>
+      </Flex>
+      {isExpanded && components ? (
+        <Flex flexDirection={"column"}>
+          {components.map((doc: SidebarDocTree) => {
+            const Component = doc.components ? DirectoryNode : FileNode
+            return (
+              <Component
+                key={doc.id}
+                components={doc.components}
+                id={doc.id}
+                level={level + 1}
+                url={doc.url}
+              />
+            )
+          })}
+        </Flex>
+      ) : null}
     </Flex>
   )
 }

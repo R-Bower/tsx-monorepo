@@ -2,14 +2,15 @@ import React, {useCallback, useState} from "react"
 
 import {Flex, Input} from "@rb/react-primitives"
 
-import {SidebarDoc} from "../sidebarSlice"
+import {useAppSelector} from "~lib/hooks/useSelector"
+
+import {SidebarDocTree} from "../sidebarSlice"
 import DirectoryNode from "./DirectoryNode"
 
-interface SearchProps {
-  sidebarDocs: SidebarDoc[]
-}
-
-export default function Search({sidebarDocs}: SearchProps): JSX.Element {
+export default function Search(): JSX.Element {
+  const sidebarDocs = useAppSelector<SidebarDocTree[]>(
+    (state) => state.sidebar.docs,
+  )
   const [inputValue, setInputValue] = useState<string>()
 
   const onInputChange = useCallback(
@@ -29,16 +30,8 @@ export default function Search({sidebarDocs}: SearchProps): JSX.Element {
         placeholder={"Search..."}
         value={inputValue}
       />
-      {sidebarDocs.slice(0, 1).map((doc) => (
-        <DirectoryNode
-          key={doc.path}
-          hierarchy={doc.hierarchy}
-          index={0}
-          isExpanded={false}
-          mdxFileName={doc.mdxFileName}
-          path={doc.path}
-          title={"test"}
-        />
+      {sidebarDocs.map((doc) => (
+        <DirectoryNode key={doc.id} components={doc.components} id={doc.id} />
       ))}
     </Flex>
   )

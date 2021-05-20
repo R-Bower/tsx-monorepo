@@ -1,0 +1,38 @@
+[
+  {
+    "id": "primitives",
+    "components": [
+      {
+        "id": "box",
+        "mdxFileName": "Box.mdx",
+        "url": "/primitives/box"
+      }
+    ]
+  },
+  {
+    "id": "components",
+    "components": [
+      {
+        "id": "data-display",
+        "components": [
+          {
+            "id": "truncated-text",
+            "mdxFileName": "TruncatedText.mdx",
+            "url": "/components/data-display/truncated-text"
+          }
+        ]
+      },
+      {
+        "id": "layout",
+        "components": [
+          {
+            "id": "card",
+            "mdxFileName": "Card.mdx",
+            "url": "/components/layout/card"
+          }
+        ]
+      }
+    ]
+  }
+
+]

@@ -182,7 +182,9 @@ export const responsive =
         if (value[i] == null) {
           continue
         }
-        next[media][key] = value[i]
+        if (next[media]) {
+          next[media][key] = value[i]
+        }
       }
     })
 
@@ -199,6 +201,10 @@ export const responsive =
  * theme.  This gives us the ability to use styled-system props as if they were template literal
  * CSS styles.  Advantage: strongly typed, theme-aware css compositions.
  *
+ * There are some caveats:
+ * 1. When the css prop is used on a component, you must put all styles in the css prop otherwise
+ * they won't be applied. Other props will still make it through..
+ *
  * Example usage:
  *
  * <Flex css={css({
@@ -214,6 +220,7 @@ export const css =
     const theme = {...defaultTheme, ...(props.theme || props)}
     let result = {}
     // @ts-ignore
+
     const obj = typeof args === "function" ? args(theme) : args
     const styles = responsive(obj)(theme)
 
@@ -254,48 +261,6 @@ export const css =
         result[prop] = value
       }
     })
-
-    // If props is not the theme, then it's coming from the component.
-    // Apply the styles.
-    if (!props.colors) {
-      const styles = responsive(props)(theme)
-      Object.keys(styles).forEach((key: string) => {
-        if (!shouldForwardProp(key)) {
-          const x = styles[key]
-          if (key === "variant") {
-            const variant = css(get(theme, x))(theme)
-            result = {...result, ...variant}
-            return
-          }
-
-          if (x && typeof x === "object") {
-            result[key] = css(x)(theme)
-            return
-          }
-
-          const prop = get(aliases, key, key)
-          // width/height transformer
-          if (layoutTransforms[prop]) {
-            result[prop] = layoutTransforms[prop](x)
-            return
-          }
-
-          const scaleName = get(scales, prop)
-          const scale = get(theme, scaleName, get(theme, prop, {}))
-          const transform = get(spaceTransforms, prop, get)
-          const value = transform(scale, x, x)
-
-          if (multiples[prop]) {
-            const dirs = multiples[prop]
-            dirs.forEach((dir: string) => {
-              result[dir] = value
-            })
-          } else {
-            result[prop] = value
-          }
-        }
-      })
-    }
 
     return result as SystemCssProp
   }

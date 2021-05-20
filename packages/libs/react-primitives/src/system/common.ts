@@ -16,6 +16,8 @@ export type CustomSystemProps = {
   fill?: ColorsType
   outline?: SS.ResponsiveValue<CSS.Property.Outline>
   pointerEvents?: SS.ResponsiveValue<CSS.Property.PointerEvents>
+  transform?: SS.ResponsiveValue<CSS.Property.Transform>
+  transformOrigin?: SS.ResponsiveValue<CSS.Property.TransformOrigin>
   transition?: SS.ResponsiveValue<CSS.Property.Transition>
   userSelect?: SS.ResponsiveValue<CSS.Property.UserSelect>
   whiteSpace?: SS.ResponsiveValue<CSS.Property.WhiteSpace>
@@ -32,7 +34,10 @@ export interface SystemTextProps extends SS.TypographyProps {
 
 export type ShadowsType = SS.ResponsiveValue<keyof ThemeShadows>
 
-export type ColorsType = SS.ResponsiveValue<DeepObjectKeys<ThemeColors>>
+type BaseColorsType = SS.ResponsiveValue<
+  DeepObjectKeys<ThemeColors> | "inherit"
+>
+export type ColorsType = BaseColorsType
 
 export interface SystemTheme
   extends Omit<SS.Theme, "breakpoints" | "colors" | "shadows"> {
@@ -83,33 +88,23 @@ export type SystemStyleObject =
   | SystemColors
   | CSSSelectors
 
-export interface SystemBorderProps
-  // override color props with the values matching the ThemeColors interface
-  extends Omit<
-    SS.BorderProps,
-    | "borderColor"
-    | "borderTopColor"
-    | "borderRightColor"
-    | "borderBottomColor"
-    | "borderLeftColor"
-  > {
-  borderColor?: ColorsType
-  borderTopColor?: ColorsType
-  borderRightColor?: ColorsType
-  borderBottomColor?: ColorsType
-  borderLeftColor?: ColorsType
-}
+export type SystemBorderProps = Omit<
+  SS.BorderProps,
+  | "borderColor"
+  | "borderTopColor"
+  | "borderRightColor"
+  | "borderBottomColor"
+  | "borderLeftColor"
+>
 
 export interface CommonSystemProps
   extends SS.BackgroundProps,
     SS.LayoutProps,
     SS.SpaceProps,
     SystemBorderProps,
-    CustomSystemProps {
+    CustomSystemProps,
+    SystemColors {
   as?: React.ElementType
-  backgroundColor?: ColorsType
-  bg?: ColorsType
-  color?: ColorsType
   // compatibility with @styled-system/css and `styled-components css`
   css?: SystemCssProp | StyledComponentsCssProp
   children?: React.ReactNode

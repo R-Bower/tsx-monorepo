@@ -31,9 +31,9 @@ export async function getServerSideProps(context) {
   const componentName = humps.pascalize(last(slug))
   const mdxSource = path.join(
     process.cwd(),
-    "../libs/react-components/src",
+    "../libs/react-components/src/components",
     ...slug,
-    `${componentName}.docs.mdx`,
+    `${componentName}.mdx`,
   )
   const parsedMdx = fm(fs.readFileSync(mdxSource, "utf-8").toString())
   return {props: {code: parsedMdx.body, frontmatter: parsedMdx.frontmatter}}
