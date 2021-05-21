@@ -35,7 +35,7 @@ export interface SystemTextProps extends SS.TypographyProps {
 export type ShadowsType = SS.ResponsiveValue<keyof ThemeShadows>
 
 type BaseColorsType = SS.ResponsiveValue<
-  DeepObjectKeys<ThemeColors> | "inherit"
+  DeepObjectKeys<ThemeColors> | "inherit" | "white" | "black"
 >
 export type ColorsType = BaseColorsType
 

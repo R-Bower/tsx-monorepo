@@ -1,6 +1,6 @@
 import React from "react"
 
-import {Flex, Relative} from "@rb/react-primitives"
+import {Box, Fixed, Flex, Sticky} from "@rb/react-primitives"
 
 import Sidebar from "~components/sidebar/Sidebar"
 
@@ -10,23 +10,21 @@ interface LayoutProps {
   children: React.ReactNode
 }
 
+const headerHeight = 56
+const sidebarWidth = 232
+
 export default function Layout({children}: LayoutProps): JSX.Element {
   return (
-    <Relative height={"100vh"} width={"100vw"}>
-      <Flex
-        flexDirection={"column"}
-        height={"100vh"}
-        justifyContent={"space-between"}
-        width={"100vw"}
-      >
-        <Header headerHeight={56} />
-        <Flex flex={"1 0 auto"}>
-          <Sidebar headerHeight={56} />
-          <Flex flex={"1 0 auto"} flexDirection={"column"}>
-            {children}
-          </Flex>
-        </Flex>
+    <Flex flexDirection={"column"} justifyContent={"space-between"}>
+      <Sticky height={headerHeight}>
+        <Header headerHeight={headerHeight} />
+      </Sticky>
+      <Flex flex={"1 0 auto"}>
+        <Fixed>
+          <Sidebar headerHeight={headerHeight} width={sidebarWidth} />
+        </Fixed>
+        <Box ml={sidebarWidth}>{children}</Box>
       </Flex>
-    </Relative>
+    </Flex>
   )
 }

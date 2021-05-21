@@ -1,8 +1,8 @@
 import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin"
 
-const withMDX = require("@next/mdx")()
-
 import type {NextConfig} from "next/dist/next-server/server/config"
+
+const withMDX = require("@next/mdx")()
 
 const nextConfig: NextConfig = {
   experimental: {

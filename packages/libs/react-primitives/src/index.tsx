@@ -2,6 +2,7 @@
 export * from "./primitives/box/Box"
 export * from "./primitives/elevation/Elevation"
 export * from "./primitives/flex/Flex"
+export * from "./primitives/grid/Grid"
 export * from "./primitives/input/Input"
 export * from "./primitives/svg/Svg"
 export * from "./primitives/text/Text"

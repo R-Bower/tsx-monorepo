@@ -1,7 +1,7 @@
 import {TextProps} from "./Text"
 
 export const defaultStyles: {[key: string]: Partial<TextProps>} = {
-  code: {fontFamily: "Source Code Pro", fontSize: 16},
+  code: {fontFamily: "Source Code Pro", fontSize: "inherit"},
   h1: {fontSize: 32, fontWeight: 600, lineHeight: "48px"},
   h2: {
     fontSize: 28,

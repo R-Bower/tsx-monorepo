@@ -28,6 +28,9 @@ export const MDXComponents = {
   h6: ({children}: PropsWithChildren<HTMLHeadingElement>): JSX.Element => (
     <ReactPrimitives.Text as={"h6"}>{children}</ReactPrimitives.Text>
   ),
+  inlineCode: ({children}: PropsWithChildren<HTMLElement>): JSX.Element => (
+    <ReactPrimitives.Text as={"inlineCode"}>{children}</ReactPrimitives.Text>
+  ),
   p: ({children}: PropsWithChildren<HTMLParagraphElement>): JSX.Element => (
     <ReactPrimitives.Text as={"p"}>{children}</ReactPrimitives.Text>
   ),

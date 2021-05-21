@@ -13,7 +13,6 @@
   "dependencies": {
     "@mdx-js/loader": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
-    "@mdx-js/runtime": "^1.6.22",
     "@next/mdx": "^10.2.2",
     "@rb/react-components": "*",
     "@rb/react-primitives": "*",
@@ -24,6 +23,7 @@
     "next-redux-wrapper": "^6.0.2",
     "next-seo": "^4.24.0",
     "react-is": "^17.0.2",
+    "react-live": "^2.2.3",
     "react-redux": "^7.2.4",
     "redux": "^4.1.0"
   },

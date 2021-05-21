@@ -33,6 +33,11 @@ export const Text = React.forwardRef<HTMLParagraphElement, TextProps>(
     const styles = is(String, tag)
       ? defaultStyles[transformer]
       : defaultStyles["p"]
+
     return <TextStyled ref={ref} as={as} {...styles} {...props} />
   },
 )
+
+Text.defaultProps = {
+  color: "text.primary",
+}

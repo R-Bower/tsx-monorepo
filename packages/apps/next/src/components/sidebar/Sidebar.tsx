@@ -5,22 +5,27 @@ import {useRouter} from "next/router"
 import {Flex} from "@rb/react-primitives"
 
 import {sidebarConfig} from "./config"
-import Search from "./search/Search"
 import SidebarItem from "./SidebarItem"
 
 interface SidebarProps {
   headerHeight: number
+  width: number
 }
 
-export default function Sidebar({headerHeight}: SidebarProps): JSX.Element {
+export default function Sidebar({
+  headerHeight,
+  width,
+}: SidebarProps): JSX.Element {
   const router = useRouter()
 
   return (
     <Flex
+      bg={"white"}
       borderRight={"solid 1px"}
       borderRightColor={"border.light"}
       height={`calc(100vh - ${headerHeight}px)`}
-      width={264}
+      minWidth={width}
+      width={width}
     >
       <Flex flex={"1 0 auto"} flexDirection={"column"} height={1}>
         <Flex height={16} />
@@ -40,7 +45,6 @@ export default function Sidebar({headerHeight}: SidebarProps): JSX.Element {
           borderTopColor={"border.light"}
           width={1}
         />
-        <Search />
       </Flex>
     </Flex>
   )
