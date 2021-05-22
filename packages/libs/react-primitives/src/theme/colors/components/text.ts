@@ -14,7 +14,7 @@ export const text: TextColors = {
   contrast: "#FFFFFF",
   disabled: "#A1A1A1",
   link: "#2660AA",
-  primary: "#1A1A1A",
+  primary: "#24292E",
   secondary: "#656565",
   success: "#008556",
   warning: "#E86825",

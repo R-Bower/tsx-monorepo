@@ -6,7 +6,7 @@ import {
 import {Context, createWrapper, MakeStore} from "next-redux-wrapper"
 import {useDispatch} from "react-redux"
 
-import sidebarReducer from "~components/sidebar/sidebarSlice"
+import sidebarReducer from "~components/layout/sidebar/sidebarSlice"
 
 import {getPreloadedState} from "./utils"
 

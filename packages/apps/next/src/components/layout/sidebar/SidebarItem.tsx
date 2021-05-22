@@ -14,7 +14,6 @@ interface SidebarItemProps extends SidebarConfigEntry {
 
 export default function SidebarItem({
   label,
-  icon,
   index = 0,
   pathname,
   url,
@@ -24,36 +23,24 @@ export default function SidebarItem({
     <Link href={url} passHref>
       <Text
         as={"a"}
+        backgroundColor={active ? "btn.secondary.hover.bg" : "gray.0"}
+        color={"btn.secondary.base.text"}
+        fontSize={14}
+        fontWeight={500}
+        pl={6}
+        pr={2}
+        py={2}
         sx={{
           ":hover": {
             backgroundColor: "btn.secondary.hover.bg",
             color: "btn.secondary.hover.text",
             transition: "background-color 0.4s",
           },
-          backgroundColor: active
-            ? "btn.secondary.hover.bg"
-            : "btn.secondary.base.bg",
-          color: "btn.secondary.base.text",
-          fontSize: 14,
-          fontWeight: 600,
-          pl: 24,
-          pr: 8,
-          py: 8,
-          textDecoration: "none",
-          transition: "background-color 0.2s",
         }}
+        textDecoration={"none"}
+        transition={"background-color 0.2s"}
       >
-        <Flex pl={index * 4}>
-          <Flex
-            color={
-              active ? "btn.secondary.hover.text" : "btn.secondary.base.bg"
-            }
-            mr={6}
-          >
-            {icon}
-          </Flex>
-          {label}
-        </Flex>
+        <Flex pl={index * 4}>{label}</Flex>
       </Text>
     </Link>
   )

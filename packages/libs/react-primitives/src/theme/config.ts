@@ -1,8 +1,8 @@
-import {SystemTheme} from "../system/common"
+import {SystemTheme} from "../system/types"
 import {colors} from "./colors/colors"
 import {shadows} from "./shadows/shadows"
 
-export const breakpoints = [
+const breakpoints = [
   // 0-360 is 0
   361, // 1
   550, // 2
@@ -13,13 +13,36 @@ export const breakpoints = [
 ]
 
 export const defaultTheme: SystemTheme = {
-  breakpoints: breakpoints.map((breakpoint: number) => `${breakpoint}px`),
+  breakpoints: breakpoints.map(
+    (breakpoint: number) => `${breakpoint}px`,
+  ) as string[],
   colors,
   fontSizes: [],
   fontWeights: [300, 400, 500, 600],
   lineHeights: [1, 1.15, 1.25, 1.5],
   shadows,
-  // An integer value maps 1:1 to a pixel.
-  // 1 = 1px, 2 = 2px, and so on.
-  space: [0, 1],
+  // multiples of 4
+  space: [
+    "0px",
+    "4px",
+    "8px",
+    "12px",
+    "16px",
+    "20px",
+    "24px",
+    "28px",
+    "32px",
+    "36px",
+    "40px",
+    "44px",
+    "48px",
+    "52px",
+    "56px",
+    "60px",
+    "64px",
+    "68px",
+    "72px",
+    "76px",
+    "80px",
+  ],
 }

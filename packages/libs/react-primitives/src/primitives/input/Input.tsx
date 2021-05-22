@@ -2,9 +2,10 @@ import React, {InputHTMLAttributes} from "react"
 
 import styled from "styled-components"
 
-import {CommonSystemProps, SystemTextProps} from "../../system/common"
-import {systemTextProps} from "../../system/customProps"
-import {commonSystemProps, shouldForwardProp} from "../../system/shared"
+import {TEXT} from "../../system/constants"
+import {shouldForwardProp} from "../../system/shouldForwardProp"
+import {sx} from "../../system/sx"
+import {CommonSystemProps, SystemTextProps} from "../../system/types"
 
 export interface InputProps
   extends CommonSystemProps,
@@ -17,8 +18,8 @@ export interface InputProps
 const InputStyled = styled.input.withConfig({
   shouldForwardProp,
 })<InputProps>`
-  ${systemTextProps};
-  ${commonSystemProps};
+  ${TEXT};
+  ${sx};
   outline: none;
   line-height: normal;
 `

@@ -2,13 +2,12 @@ import React from "react"
 
 import {MDXProvider} from "@mdx-js/react"
 
-import {Box, Flex, Text} from "@rb/react-primitives"
+import {Box, Flex, Grid, Text} from "@rb/react-primitives"
 
 import {pagePadding} from "../layout/config"
 import {MDXComponents} from "./MDXComponents"
 
 export interface MDXMeta {
-  description: string
   title: string
 }
 
@@ -23,18 +22,12 @@ export default function MDXPageWrapper({
 }: MDXPageWrapperProps): JSX.Element {
   return (
     <MDXProvider components={MDXComponents}>
-      <Flex flex={"1 0 auto"} flexDirection={"column"} {...pagePadding}>
-        <Text as={"h1"}>{meta.title}</Text>
-        <Box
-          borderBottom={"solid 1px"}
-          borderBottomColor={"border.default"}
-          height={2}
-        />
-        <Text as={"p"} mb={16}>
-          {meta.description}
-        </Text>
+      <Grid gridRowGap={4} {...pagePadding}>
+        <Box borderBottom={"solid 1px"} borderBottomColor={"border.light"}>
+          <Text as={"h1"}>{meta.title}</Text>
+        </Box>
         {children}
-      </Flex>
+      </Grid>
     </MDXProvider>
   )
 }

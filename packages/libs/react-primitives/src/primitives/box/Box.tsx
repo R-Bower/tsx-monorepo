@@ -2,8 +2,9 @@ import React, {HTMLAttributes} from "react"
 
 import styled from "styled-components"
 
-import {CommonSystemProps} from "../../system/common"
-import {commonSystemProps, shouldForwardProp} from "../../system/shared"
+import {COMMON} from "../../system/constants"
+import {shouldForwardProp} from "../../system/shouldForwardProp"
+import {CommonSystemProps} from "../../system/types"
 
 export interface BoxProps
   extends CommonSystemProps,
@@ -12,7 +13,7 @@ export interface BoxProps
 const BoxStyled = styled.div.withConfig({
   shouldForwardProp,
 })<BoxProps>`
-  ${commonSystemProps};
+  ${COMMON};
 `
 
 export const Box = React.forwardRef<HTMLDivElement, BoxProps>(

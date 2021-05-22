@@ -1,8 +1,8 @@
-import sidebarDocs from "~components/sidebar/sidebar-docs.json"
+import sidebarDocs from "~components/layout/sidebar/sidebar-docs.json"
 import {
   SidebarDocTree,
   sidebarInitialState,
-} from "~components/sidebar/sidebarSlice"
+} from "~components/layout/sidebar/sidebarSlice"
 
 const getSidebarState = () => {
   return {

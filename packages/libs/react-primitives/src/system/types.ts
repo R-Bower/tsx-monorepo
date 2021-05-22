@@ -7,7 +7,7 @@ import * as SS from "styled-system"
 
 import {ThemeColors} from "../theme/colors/colors"
 import {ThemeShadows} from "../theme/shadows/shadows"
-import {DeepObjectKeys} from "./utils"
+import {DeepObjectKeys} from "./utils/utils"
 
 export type CustomSystemProps = {
   boxSizing?: SS.ResponsiveValue<CSS.Property.BoxSizing>
@@ -32,7 +32,7 @@ export interface SystemTextProps extends SS.TypographyProps {
   textTransform?: SS.ResponsiveValue<CSS.Property.TextTransform>
 }
 
-export type ShadowsType = SS.ResponsiveValue<keyof ThemeShadows>
+export type SystemShadows = SS.ResponsiveValue<keyof ThemeShadows>
 
 type BaseColorsType = SS.ResponsiveValue<
   DeepObjectKeys<ThemeColors> | "inherit" | "white" | "black"
@@ -41,7 +41,7 @@ export type ColorsType = BaseColorsType
 
 export interface SystemTheme
   extends Omit<SS.Theme, "breakpoints" | "colors" | "shadows"> {
-  breakpoints: string[]
+  breakpoints?: string[]
   colors?: ThemeColors
   shadows?: ThemeShadows
 }
@@ -105,7 +105,6 @@ export interface CommonSystemProps
     CustomSystemProps,
     SystemColors {
   as?: React.ElementType
-  // compatibility with @styled-system/css and `styled-components css`
   css?: StyledComponentsCssProp | any
   children?: React.ReactNode
   sx?: SystemStyleObject

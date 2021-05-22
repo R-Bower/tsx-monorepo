@@ -2,9 +2,13 @@ import React, {TextareaHTMLAttributes} from "react"
 
 import styled from "styled-components"
 
-import {CommonSystemProps, SystemTextProps} from "../../system/common"
-import {systemTextProps} from "../../system/customProps"
-import {commonSystemProps, shouldForwardProp} from "../../system/shared"
+import {
+  CommonSystemProps,
+  shouldForwardProp,
+  sx,
+  SystemTextProps,
+  TEXT,
+} from "@rb/react-primitives"
 
 export interface TextAreaProps
   extends CommonSystemProps,
@@ -17,8 +21,8 @@ const TextAreaStyled = styled.textarea.withConfig({
   box-sizing: border-box;
   outline: none;
   resize: none;
-  ${systemTextProps};
-  ${commonSystemProps};
+  ${TEXT};
+  ${sx};
 `
 
 export const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(

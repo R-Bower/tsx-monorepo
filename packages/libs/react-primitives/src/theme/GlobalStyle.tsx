@@ -1,7 +1,8 @@
 import {createGlobalStyle, css} from "styled-components"
 
 const fontFamily = css`
-  font-family: "Nunito", Source Code Pro, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
 `
 
 // margins must be 0 here but can be adjusted elsewhere.

@@ -3,8 +3,10 @@ import React, {HTMLAttributes} from "react"
 import styled from "styled-components"
 import {GridProps} from "styled-system"
 
-import {CommonSystemProps} from "../../system/common"
-import {commonSystemProps, shouldForwardProp} from "../../system/shared"
+import {GRID} from "../../system/constants"
+import {shouldForwardProp} from "../../system/shouldForwardProp"
+import {sx} from "../../system/sx"
+import {CommonSystemProps} from "../../system/types"
 
 export interface SystemGridProps
   extends CommonSystemProps,
@@ -14,7 +16,8 @@ export interface SystemGridProps
 const GridStyled = styled.div.withConfig({
   shouldForwardProp,
 })<SystemGridProps>`
-  ${commonSystemProps};
+  ${GRID}
+  ${sx}
 `
 
 export const Grid = React.forwardRef<HTMLDivElement, SystemGridProps>(
@@ -26,4 +29,4 @@ export const Grid = React.forwardRef<HTMLDivElement, SystemGridProps>(
 Grid.defaultProps = {
   display: "grid",
 }
-Grid.displayName = "GridProps"
+Grid.displayName = "Grid"

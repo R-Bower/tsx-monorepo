@@ -8,17 +8,9 @@ import {label, LabelColors} from "./components/label"
 import {radio, RadioColors} from "./components/radio"
 import {text, TextColors} from "./components/text"
 import {toast, ToastColors} from "./components/toast"
+import {palette, Palette} from "./palette"
 
-interface BgColors {
-  header: string
-}
-
-const bg: BgColors = {
-  header: "#EDEDED",
-}
-
-export interface ThemeColors {
-  bg: BgColors
+export interface ThemeColors extends Palette {
   border: BorderColors
   btn: BtnColors
   caption: CaptionColors
@@ -32,7 +24,6 @@ export interface ThemeColors {
 }
 
 export const colors: ThemeColors = {
-  bg,
   border,
   btn,
   caption,
@@ -43,4 +34,5 @@ export const colors: ThemeColors = {
   radio,
   text,
   toast,
+  ...palette,
 }

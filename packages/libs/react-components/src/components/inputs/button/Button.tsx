@@ -3,14 +3,14 @@ import React, {ButtonHTMLAttributes} from "react"
 import styled from "styled-components"
 
 import {
+  COMMON,
   CommonSystemProps,
-  commonSystemProps,
   shouldForwardProp,
 } from "@rb/react-primitives"
 
 export interface ButtonProps
   extends CommonSystemProps,
-    Omit<ButtonHTMLAttributes<HTMLButtonElement>, "color" | "css"> {}
+    Omit<ButtonHTMLAttributes<HTMLButtonElement>, "color"> {}
 
 const ButtonStyled = styled.button.withConfig({
   shouldForwardProp,
@@ -24,7 +24,7 @@ const ButtonStyled = styled.button.withConfig({
   }
 
   will-change: transform;
-  ${commonSystemProps};
+  ${COMMON};
 `
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(

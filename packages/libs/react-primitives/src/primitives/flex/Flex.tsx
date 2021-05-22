@@ -1,10 +1,12 @@
 import React, {HTMLAttributes} from "react"
 
 import styled from "styled-components"
-import {flexbox, FlexboxProps} from "styled-system"
+import {FlexboxProps} from "styled-system"
 
-import {CommonSystemProps} from "../../system/common"
-import {commonSystemProps, shouldForwardProp} from "../../system/shared"
+import {FLEX} from "../../system/constants"
+import {shouldForwardProp} from "../../system/shouldForwardProp"
+import {sx} from "../../system/sx"
+import {CommonSystemProps} from "../../system/types"
 
 export interface FlexProps
   extends CommonSystemProps,
@@ -12,8 +14,8 @@ export interface FlexProps
     Omit<HTMLAttributes<HTMLDivElement>, "color"> {}
 
 const FlexStyled = styled.div.withConfig({shouldForwardProp})<FlexProps>`
-  ${flexbox};
-  ${commonSystemProps};
+  ${FLEX}
+  ${sx}
 `
 
 export const Flex = React.forwardRef<HTMLDivElement, FlexProps>(

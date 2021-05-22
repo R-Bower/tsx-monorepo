@@ -1,21 +1,22 @@
 {
-  "name": "@rb/monorepo-docs",
-  "private": true,
-  "version": "1.0.0",
+  "name": "doctocat-template",
+  "repository": "primer/doctocat-template",
+  "version": "1.1.0",
   "scripts": {
-    "storybook": "start-storybook -p 6006 -s public --no-manager-cache"
+    "docs": "gatsby develop",
+    "develop": "gatsby develop",
+    "build": "gatsby build",
+    "now-build": "yarn run build"
   },
   "dependencies": {
-    "@rb/react-primitives": "*"
+    "@primer/gatsby-theme-doctocat": "^1.6.0",
+    "@rb/react-primitives": "*",
+    "@styled-system/prop-types": "^5.1.5",
+    "gatsby": "^3.5.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^6.2.9",
-    "@storybook/addon-backgrounds": "^6.2.9",
-    "@storybook/addon-docs": "^6.2.9",
-    "@storybook/addon-links": "^6.2.9",
-    "@storybook/addon-controls": "^6.2.9",
-    "@storybook/addon-viewport": "^6.2.9",
-    "@storybook/react": "^6.2.9",
-    "@storybook/theming": "^6.2.9"
+    "gatsby-plugin-typescript": "^3.5.0"
   }
 }

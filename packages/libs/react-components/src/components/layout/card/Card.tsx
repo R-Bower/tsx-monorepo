@@ -1,13 +1,9 @@
 import React from "react"
 
-import {Elevation, ElevationProps, ShadowsType} from "@rb/react-primitives"
+import {Elevation, ElevationProps} from "@rb/react-primitives"
 
-export interface CardProps extends ElevationProps {
-  boxShadow: ShadowsType
-}
-
-export const Card = React.forwardRef<HTMLDivElement, CardProps>(
-  ({boxShadow, children}: CardProps, ref) => {
+export const Card = React.forwardRef<HTMLDivElement, ElevationProps>(
+  ({boxShadow, children}: ElevationProps, ref) => {
     return (
       <Elevation ref={ref} boxShadow={boxShadow}>
         {children}

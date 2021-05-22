@@ -1,15 +1,7 @@
 // based on https://github.com/styled-system/styled-system/blob/master/packages/css/src/index.js
-import {defaultTheme} from "../theme/config"
-import {SystemStyleObject} from "./common"
+import {defaultTheme} from "../../theme/config"
+import {get} from "./get"
 import {pixelSizeTransformer} from "./transformers"
-
-export const get = (obj, key, def?, p?, undef?) => {
-  key = key && key.split ? key.split(".") : [key]
-  for (p = 0; p < key.length; p++) {
-    obj = obj ? obj[key[p]] : undef
-  }
-  return obj === undef ? def : obj
-}
 
 const aliases = {
   bg: "backgroundColor",
@@ -202,54 +194,50 @@ export const responsive = (styles) => (theme) => {
   return next
 }
 
-export const css = (args) => (props: any = {}) => {
-  const theme = {...defaultTheme, ...(props.theme || props)}
-  let result = {}
-  const obj = typeof args === "function" ? args(theme) : args
-  const styles = responsive(obj)(theme)
+export const css =
+  (args) =>
+  (props: any = {}) => {
+    const theme = {...defaultTheme, ...(props.theme || props)}
+    let result = {}
+    const obj = typeof args === "function" ? args(theme) : args
+    const styles = responsive(obj)(theme)
 
-  for (const key in styles) {
-    const x = styles[key]
-    const val = typeof x === "function" ? x(theme) : x
+    for (const key in styles) {
+      const x = styles[key]
+      const val = typeof x === "function" ? x(theme) : x
 
-    if (key === "variant") {
-      const variant = css(get(theme, val))(theme)
-      result = {...result, ...variant}
-      continue
-    }
-
-    if (val && typeof val === "object") {
-      result[key] = css(val)(theme)
-      continue
-    }
-
-    const prop = get(aliases, key, key)
-    const scaleName = get(scales, prop)
-    const scale = get(theme, scaleName, get(theme, prop, {}))
-    let value
-    if (layoutTransforms[prop]) {
-      value = layoutTransforms[prop](val)
-    } else {
-      const transform = get(spaceTransforms, prop, get)
-      value = transform(scale, val, val)
-    }
-
-    if (multiples[prop]) {
-      const dirs = multiples[prop]
-
-      for (let i = 0; i < dirs.length; i++) {
-        result[dirs[i]] = value
+      if (key === "variant") {
+        const variant = css(get(theme, val))(theme)
+        result = {...result, ...variant}
+        continue
       }
-    } else {
-      result[prop] = value
+
+      if (val && typeof val === "object") {
+        result[key] = css(val)(theme)
+        continue
+      }
+
+      const prop = get(aliases, key, key)
+      const scaleName = get(scales, prop)
+      const scale = get(theme, scaleName, get(theme, prop, {}))
+      let value
+      if (layoutTransforms[prop]) {
+        value = layoutTransforms[prop](val)
+      } else {
+        const transform = get(spaceTransforms, prop, get)
+        value = transform(scale, val, val)
+      }
+
+      if (multiples[prop]) {
+        const dirs = multiples[prop]
+
+        for (let i = 0; i < dirs.length; i++) {
+          result[dirs[i]] = value
+        }
+      } else {
+        result[prop] = value
+      }
     }
+
+    return result
   }
-
-  return result
-}
-
-export interface SxProp {
-  sx?: SystemStyleObject
-}
-
-export const sx = (props: SxProp) => css(props.sx)
