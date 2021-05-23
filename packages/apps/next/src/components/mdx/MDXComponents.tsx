@@ -51,7 +51,7 @@ export const MDXComponents = {
   p: ({children}: PropsWithChildren<HTMLParagraphElement>): JSX.Element => (
     <Text as={"p"}>{children}</Text>
   ),
-  ul: ({children}: PropsWithChildren<HTMLUListElement>): JSX.Element => (
-    <List>{children}</List>
-  ),
+  ul: ({children}: PropsWithChildren<HTMLUListElement>): JSX.Element => {
+    return <List>{children}</List>
+  },
 }

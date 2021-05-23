@@ -10,6 +10,7 @@
     "module": "esnext",
     "moduleResolution": "node",
     "esModuleInterop": true,
+    "sourceMap": true,
     "target": "esnext"
   },
   "include": [

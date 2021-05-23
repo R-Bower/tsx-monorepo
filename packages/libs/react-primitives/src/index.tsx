@@ -1,5 +1,6 @@
 // UI Primitives
 export * from "./primitives/box/Box"
+export * from "./primitives/element/Element"
 export * from "./primitives/elevation/Elevation"
 export * from "./primitives/flex/Flex"
 export * from "./primitives/grid/Grid"
@@ -17,5 +18,4 @@ export * from "./system/constants"
 export * from "./system/customProps"
 export * from "./system/shouldForwardProp"
 export * from "./system/sx"
-export * from "./system/themeGet"
 export * from "./system/types"

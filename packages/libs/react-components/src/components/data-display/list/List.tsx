@@ -1,25 +1,28 @@
-import styled from "styled-components"
+import React from "react"
 
-import {themeGet} from "@rb/react-primitives"
+import {Element, ElementProps} from "@rb/react-primitives"
 
-export const List = styled.ul`
-  padding-left: 2em;
-
-  ul,
-  ol {
-    margin-top: 0;
-    margin-bottom: 0;
-  }
-
-  li {
-    word-wrap: break-word;
-  }
-
-  li > p {
-    margin-top: ${themeGet("space.3")};
-  }
-
-  li + li {
-    margin-top: ${themeGet("space.1")};
-  }
-`
+export const List = React.forwardRef<HTMLUListElement, ElementProps>(
+  (props, ref) => {
+    return (
+      <Element
+        ref={ref}
+        as={"ul"}
+        {...props}
+        sx={{
+          li: {
+            wordWrap: "break-word",
+          },
+          "li + li": {
+            mt: 1,
+          },
+          "li > p": {
+            mt: 3,
+          },
+          pl: "2em",
+          "ul, ol": {my: 0},
+        }}
+      />
+    )
+  },
+)
