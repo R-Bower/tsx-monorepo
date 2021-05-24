@@ -1,12 +1,10 @@
-import {values} from "rambda"
-
 export interface Palette {
-  alert: readonly string[]
-  blueGray: readonly string[]
-  gray: readonly string[]
-  primary: readonly string[]
-  success: readonly string[]
-  warning: readonly string[]
+  alert: string[]
+  blueGray: string[]
+  gray: string[]
+  primary: string[]
+  success: string[]
+  warning: string[]
   ansi: {
     black: string
     blackBright: string
@@ -28,16 +26,16 @@ export interface Palette {
   }
 }
 
-export const primary = {
-  "0": "#EEF2F8",
-  "5": "#C2D3E7",
-  "10": "#7499C9",
-  "20": "#4D7DB9",
-  "50": "#2660AA",
-  "100": "#191B83",
-}
+export const primary = [
+  "#EEF2F8", // 0
+  "#C2D3E7", // 5
+  "#7499C9", // 10
+  "#4D7DB9", // 20
+  "#2660AA", // 50
+  "#191B83", // 100
+]
 
-export const blueGray: readonly string[] = [
+export const blueGray = [
   "#fafbfc",
   "#f6f8fa",
   "#e1e4e8",
@@ -50,36 +48,36 @@ export const blueGray: readonly string[] = [
   "#24292e",
 ]
 
-export const gray = {
-  "0": "#fafbfc",
-  "5": "#EDEDED",
-  "10": "#E4E4E4",
-  "40": "#C7C7C7",
-  "60": "#A1A1A1",
-  "80": "#656565",
-  "100": "#1F1F1F",
-}
+export const gray = [
+  "#fafbfc", // 0
+  "#EDEDED", // 5
+  "#E4E4E4", // 10
+  "#C7C7C7", // 40
+  "#A1A1A1", // 60
+  "#656565", // 80
+  "#1F1F1F", // 100
+]
 
-export const success = {
-  "5": "#D6F3E2",
-  "50": "#008556",
-  "100": "#086343",
-}
+export const success = [
+  "#D6F3E2", // 5
+  "#008556", // 50
+  "#086343", // 100
+]
 
-export const warning = {
-  0: "#A64F21",
-  1: "#E86825",
-  2: "#FFE1BE",
-}
+export const warning = [
+  "#A64F21", // 0
+  "#E86825", // 1
+  "#FFE1BE", // 2
+]
 
-export const alert = {
-  "5": "#F9D3D4",
-  "50": "#DE1C22",
-  "100": "#9F1B1F",
-}
+export const alert = [
+  "#F9D3D4", // 5
+  "#DE1C22", // 50
+  "#9F1B1F", // 100
+]
 
 export const palette: Palette = {
-  alert: values(gray),
+  alert,
   ansi: {
     black: "#24292e",
     blackBright: "#2f363d",
@@ -100,8 +98,8 @@ export const palette: Palette = {
     yellowBright: "#fff5b1",
   },
   blueGray,
-  gray: values(gray),
-  primary: values(primary),
-  success: values(gray),
-  warning: values(warning),
+  gray,
+  primary,
+  success,
+  warning,
 }
