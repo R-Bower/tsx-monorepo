@@ -1,8 +1,8 @@
 import {createGlobalStyle, css} from "styled-components"
 
 const fontFamily = css`
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
-    sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
 `
 
 // margins must be 0 here but can be adjusted elsewhere.

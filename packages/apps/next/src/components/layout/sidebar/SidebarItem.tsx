@@ -4,16 +4,16 @@ import Link from "next/link"
 
 import {Flex, Text} from "@rb/react-primitives"
 
-import {SidebarConfigEntry} from "./config"
+import {SidebarDoc} from "./sidebarSlice"
 
-interface SidebarItemProps extends SidebarConfigEntry {
+interface SidebarItemProps extends SidebarDoc {
   icon?: React.ReactNode
   index?: number
   pathname: string
 }
 
 export default function SidebarItem({
-  label,
+  id,
   index = 0,
   pathname,
   url,
@@ -23,7 +23,6 @@ export default function SidebarItem({
     <Link href={url} passHref>
       <Text
         as={"a"}
-        backgroundColor={active ? "btn.secondary.hover.bg" : "gray.0"}
         color={"btn.secondary.base.text"}
         fontSize={14}
         fontWeight={500}
@@ -31,16 +30,14 @@ export default function SidebarItem({
         pr={2}
         py={2}
         sx={{
-          ":hover": {
-            backgroundColor: "btn.secondary.hover.bg",
-            color: "btn.secondary.hover.text",
-            transition: "background-color 0.4s",
+          "&:hover": {
+            textDecoration: "underline",
           },
         }}
-        textDecoration={"none"}
+        textDecoration={active ? "underline" : "none"}
         transition={"background-color 0.2s"}
       >
-        <Flex pl={index * 4}>{label}</Flex>
+        <Flex pl={index * 4}>{id}</Flex>
       </Text>
     </Link>
   )

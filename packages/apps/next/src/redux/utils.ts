@@ -1,14 +1,14 @@
-import sidebarDocs from "~components/layout/sidebar/sidebar-docs.json"
+import sidebarComponents from "~components/layout/sidebar/search/components.json"
 import {
-  SidebarDocTree,
+  SidebarDoc,
   sidebarInitialState,
 } from "~components/layout/sidebar/sidebarSlice"
 
 const getSidebarState = () => {
   return {
     ...sidebarInitialState,
-    docs: sidebarDocs as SidebarDocTree[],
-    expanded: sidebarDocs.reduce(
+    docs: sidebarComponents as SidebarDoc[],
+    expanded: sidebarComponents.reduce(
       (acc, current) => ({...acc, [current.id]: true}),
       {},
     ),

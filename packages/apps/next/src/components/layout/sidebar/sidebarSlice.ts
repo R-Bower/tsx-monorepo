@@ -2,20 +2,20 @@ import {createSlice, PayloadAction} from "@reduxjs/toolkit"
 
 import type {RootState} from "~redux/store"
 
-export interface SidebarDocTree {
+export interface SidebarDoc {
   id: string
   mdxFileName?: string
   url?: string
-  components?: SidebarDocTree[]
+  components?: SidebarDoc[]
 }
 
 // Define a type for this slice state.
 interface SidebarState {
-  docs: SidebarDocTree[]
+  docs: SidebarDoc[]
   expanded: {
     [key: string]: boolean
   }
-  filteredDocs: SidebarDocTree[]
+  filteredDocs: SidebarDoc[]
   searchValue: string
 }
 
@@ -34,7 +34,7 @@ export const sidebarSlice = createSlice({
   initialState: sidebarInitialState,
   name: "sidebar",
   reducers: {
-    setDocs: (state: SidebarState, action: PayloadAction<SidebarDocTree[]>) => {
+    setDocs: (state: SidebarState, action: PayloadAction<SidebarDoc[]>) => {
       state.docs = action.payload
     },
     toggleExpanded: (state: SidebarState, action: PayloadAction<string>) => {
@@ -46,9 +46,9 @@ export const sidebarSlice = createSlice({
 export const {setDocs, toggleExpanded} = sidebarSlice.actions
 
 // Other code such as selectors can use the imported `RootState` type
-export const getDocs = (state: RootState): SidebarDocTree[] =>
+export const getDocs = (state: RootState): SidebarDoc[] =>
   state.sidebar.docs
-export const getFilteredDocs = (state: RootState): SidebarDocTree[] =>
+export const getFilteredDocs = (state: RootState): SidebarDoc[] =>
   state.sidebar.filteredDocs
 
 export default sidebarSlice.reducer

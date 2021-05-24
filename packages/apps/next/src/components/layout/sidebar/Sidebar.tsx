@@ -1,13 +1,11 @@
 import React from "react"
 
-import {useRouter} from "next/router"
-
-import {Box, Flex, Sticky} from "@rb/react-primitives"
+import {Box, Sticky} from "@rb/react-primitives"
 
 import usePersistentScroll from "~lib/hooks/usePersistentScroll"
 
-import {sidebarConfig} from "./config"
-import SidebarItem from "./SidebarItem"
+import sidebarDocs from "./config.json"
+import SidebarItemGroup from "./SidebarItemGroup"
 
 interface SidebarProps {
   headerHeight: number
@@ -18,14 +16,15 @@ export default function Sidebar({
   headerHeight,
   width,
 }: SidebarProps): JSX.Element {
-  const router = useRouter()
-
   const scrollContainerProps = usePersistentScroll("sidebar")
 
   return (
     <Box display={["none", null, null, "block"]}>
       <Sticky
         bg={"blueGray.0"}
+        borderRight={"solid 1px"}
+        borderRightColor={"border.light"}
+        color={"ansi.blue"}
         height={`calc(100vh - ${headerHeight}px)`}
         minWidth={width}
         top={headerHeight}
@@ -38,18 +37,10 @@ export default function Sidebar({
           height={"100%"}
           overflow={"auto"}
         >
-          <Flex flexDirection={"column"}>
-            {sidebarConfig.map(({label, url}) => {
-              return (
-                <SidebarItem
-                  key={url}
-                  label={label}
-                  pathname={router.pathname}
-                  url={url}
-                />
-              )
-            })}
-          </Flex>
+          <SidebarItemGroup
+            items={sidebarDocs.components}
+            title={sidebarDocs.id}
+          />
         </Box>
       </Sticky>
     </Box>

@@ -2,12 +2,11 @@ import {values} from "rambda"
 
 export interface Palette {
   alert: readonly string[]
-  blueGray: string[]
+  blueGray: readonly string[]
   gray: readonly string[]
   primary: readonly string[]
   success: readonly string[]
   warning: readonly string[]
-
   ansi: {
     black: string
     blackBright: string
@@ -38,7 +37,7 @@ export const primary = {
   "100": "#191B83",
 }
 
-export const blueGray = [
+export const blueGray: readonly string[] = [
   "#fafbfc",
   "#f6f8fa",
   "#e1e4e8",
@@ -102,7 +101,7 @@ export const palette: Palette = {
   },
   blueGray,
   gray: values(gray),
-  primary: values(gray),
+  primary: values(primary),
   success: values(gray),
   warning: values(warning),
 }

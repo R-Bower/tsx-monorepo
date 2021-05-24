@@ -1,11 +1,11 @@
 export const pagePaddingY = {
-  pb: [16, 48],
-  pt: [16, 48],
+  pb: [4, 12],
+  pt: [4, 12],
 }
 
 export const pagePaddingX = {
-  pl: [16, 48],
-  pr: [16, 48],
+  pl: [4, 12],
+  pr: [4, 12],
 }
 
 // pages can opt into the uniform padding by spreading this object

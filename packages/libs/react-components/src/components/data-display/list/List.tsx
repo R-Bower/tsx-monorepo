@@ -14,7 +14,7 @@ export const List = React.forwardRef<HTMLUListElement, ElementProps>(
             wordWrap: "break-word",
           },
           "li + li": {
-            mt: 1,
+            mt: 2,
           },
           "li > p": {
             mt: 3,

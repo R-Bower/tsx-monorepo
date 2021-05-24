@@ -1,9 +1,9 @@
 [
   {
-    "id": "primitives",
+    "id": "Primitives",
     "components": [
       {
-        "id": "box",
+        "id": "Box",
         "mdxFileName": "Box.mdx",
         "url": "/primitives/box"
       }

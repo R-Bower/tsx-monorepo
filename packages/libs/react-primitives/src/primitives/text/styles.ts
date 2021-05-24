@@ -2,29 +2,38 @@ import {TextProps} from "./Text"
 
 export const textStyles: {[key: string]: Partial<TextProps>} = {
   code: {fontSize: "inherit"},
-  h1: {fontSize: 28, fontWeight: 600, lineHeight: "36px"},
+  h1: {
+    fontFamily: "Open Sans",
+    fontSize: 28,
+    fontWeight: 600,
+    lineHeight: "36px",
+  },
   h2: {
+    fontFamily: "Open Sans",
     fontSize: 24,
     fontWeight: 600,
     lineHeight: "32px",
   },
   h3: {
+    fontFamily: "Open Sans",
     fontSize: 20,
-    fontWeight: 500,
+    fontWeight: 600,
     lineHeight: "32px",
   },
   h4: {
+    fontFamily: "Open Sans",
     fontSize: 20,
     fontWeight: 500,
     lineHeight: "24px",
   },
   h5: {
+    fontFamily: "Open Sans",
     fontSize: 16,
     fontWeight: 500,
     lineHeight: "24px",
   },
   inlineCode: {
-    bg: "gray.0",
+    bg: "gray.1",
     borderRadius: 2,
     fontSize: "inherit",
     lineHeight: 1.5,

@@ -1,0 +1,25 @@
+{
+  "id": "About",
+  "components": [
+    {
+      "id": "Overview",
+      "url": "/"
+    },
+    {
+      "id": "System props",
+      "url": "/system-props"
+    },
+    {
+      "id": "Core concepts",
+      "url": "/core-concepts"
+    },
+    {
+      "id": "Theme",
+      "url": "/theme"
+    },
+    {
+      "id": "Philosophy",
+      "url": "/philosophy"
+    }
+  ]
+}

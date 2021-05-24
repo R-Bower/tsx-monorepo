@@ -1,11 +1,9 @@
-export const meta = {
-  title: "System Props"
-}
-
 import MDXPageWrapper from "../components/mdx/MDXPageWrapper"
-export default ({children}) => <MDXPageWrapper meta={meta}>{children}</MDXPageWrapper>
+export default ({children}) => <MDXPageWrapper>{children}</MDXPageWrapper>
 
-This React library is heavily inspired by GitHub's [Primer Design System](https://primer.style/) 🎉
+# Overview
+
+This React library is loosely based off of GitHub's [Primer Design System](https://primer.style/).  It incorporates [styled-components](https://styled-components.com/) and [styled-system](https://styled-system.com/) to facilitate rapid, maintainable, and scalable component creation.
 
 ## Principles
 
@@ -14,3 +12,7 @@ This React library is heavily inspired by GitHub's [Primer Design System](https:
 - Keep system constrained by only including props needed per component.
 - Favor wrapping or extending components for more complex operations.
 - Maintain design system consistency with utilities as props (for spacing, color, font-size, line-height, widths, and radii).
+
+## Considerations
+
+These docs are built using the components described within.  Take a look at the repository for examples!

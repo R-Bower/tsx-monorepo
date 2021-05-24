@@ -33,7 +33,7 @@ export default function Header({headerHeight}: HeaderProps): JSX.Element {
         color={"ansi.white"}
         height={headerHeight}
         justifyContent={"space-between"}
-        px={[12, null, null, 16]}
+        px={[6, 15, 15, 6]}
       >
         <Flex alignItems={"center"}>
           <Flex alignItems={"center"} css={rotateCss}>
