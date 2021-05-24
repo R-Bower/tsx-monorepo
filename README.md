@@ -3,7 +3,7 @@
 
 ## TSX-monorepo
 
-This project is an opinionated collection of tools, apps, and libraries intended for supporting React development.
+This project is an opinionated collection of tools, apps, and libraries intended for supporting rapid React UI development.  Everything you see here is a work in progress.
 
 </div>
 
@@ -22,9 +22,8 @@ This project is an opinionated collection of tools, apps, and libraries intended
   in ECMAScript/JavaScript code, with the goal of making code more consistent and avoiding bugs.
 - First class [TypeScript](https://www.typescriptlang.org/) support.
 - Hot reloading adjacent packages in the repo.
-- First class documentation support via [Bit](https://harmony-docs.bit.dev/essentials/what-is-bit).
-- Consistent styling by use of `styled-components` and `styled-system`.
-- Optional publishing support.
+- First class documentation support via MDX and [storybook](https://storybook.js.org/docs/react/get-started/introduction).
+- Consistent styling by use of `styled-components` and `styled-system` with a strongly typed design system.
 - [Tree shaking](https://webpack.js.org/guides/tree-shaking/) for every React library.
   - This is accomplished using webpack's side effects. If you're unfamiliar with side effects, [read more here](https://sgom.es/posts/2020-06-15-everything-you-never-wanted-to-know-about-side-effects/) for a good explanation.
 - Working "go to definition" feature in IDEs for every package.

@@ -7,9 +7,11 @@
     "declarationDir": "dist",
     "declarationMap": true,
     "outDir": "./dist",
-    "jsx": "react",
-    "module": "ESNext",
+    "jsx": "preserve",
+    "module": "esnext",
+    "moduleResolution": "node",
     "esModuleInterop": true,
+    "sourceMap": true,
     "target": "esnext",
     "paths": {
       "@rb/react-primitives": ["../libs/react-primitives"],
@@ -18,5 +20,6 @@
   },
   "include": [
     "src/**/*"
-  ]
+  ],
+  "exclude": ["dist"]
 }
