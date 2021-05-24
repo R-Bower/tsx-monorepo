@@ -2,7 +2,7 @@ import React, {useMemo} from "react"
 
 import {ThemeProvider} from "styled-components"
 
-import {SystemTheme} from "../system/types"
+import {SystemTheme} from "../system/constants"
 import {ThemeColors} from "./colors/colors"
 import {defaultTheme} from "./config"
 import {ThemeShadows} from "./shadows/shadows"

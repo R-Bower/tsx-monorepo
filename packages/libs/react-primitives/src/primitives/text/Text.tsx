@@ -2,18 +2,23 @@ import React, {HTMLAttributes} from "react"
 
 import {is} from "rambda"
 import styled from "styled-components"
-import {TypographyProps} from "styled-system"
 
-import {TEXT} from "../../system/constants"
+import {
+  COMMON,
+  INTERACTIVITY,
+  SystemCommonProps,
+  SystemInteractivityProps,
+  SystemTypographyProps,
+  TYPOGRAPHY,
+} from "../../system/constants"
 import {shouldForwardProp} from "../../system/shouldForwardProp"
 import {sx} from "../../system/sx"
-import {CommonSystemProps, SystemTextProps} from "../../system/types"
 import {textStyles} from "./styles"
 
 export interface TextProps
-  extends Omit<CommonSystemProps, "children">,
-    TypographyProps,
-    SystemTextProps,
+  extends Omit<SystemCommonProps, "children">,
+    SystemInteractivityProps,
+    SystemTypographyProps,
     Omit<HTMLAttributes<HTMLParagraphElement>, "color"> {
   as: React.ElementType
   children: React.ReactNode
@@ -21,7 +26,9 @@ export interface TextProps
 }
 
 const TextStyled = styled.p.withConfig({shouldForwardProp})<TextProps>`
-  ${TEXT};
+  ${COMMON};
+  ${INTERACTIVITY};
+  ${TYPOGRAPHY};
   ${sx};
 `
 

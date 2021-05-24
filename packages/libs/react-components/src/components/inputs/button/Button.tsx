@@ -4,12 +4,19 @@ import styled from "styled-components"
 
 import {
   COMMON,
-  CommonSystemProps,
+  FLEX,
+  INTERACTIVITY,
   shouldForwardProp,
+  sx,
+  SystemCommonProps,
+  SystemFlexProps,
+  SystemInteractivityProps,
 } from "@rb/react-primitives"
 
 export interface ButtonProps
-  extends CommonSystemProps,
+  extends SystemCommonProps,
+    SystemFlexProps,
+    SystemInteractivityProps,
     Omit<ButtonHTMLAttributes<HTMLButtonElement>, "color"> {}
 
 const ButtonStyled = styled.button.withConfig({
@@ -25,6 +32,9 @@ const ButtonStyled = styled.button.withConfig({
 
   will-change: transform;
   ${COMMON};
+  ${FLEX};
+  ${INTERACTIVITY};
+  ${sx};
 `
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(

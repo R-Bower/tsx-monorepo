@@ -3,25 +3,28 @@ import React, {TextareaHTMLAttributes} from "react"
 import styled from "styled-components"
 
 import {
-  CommonSystemProps,
+  COMMON, INTERACTIVITY,
   shouldForwardProp,
   sx,
-  SystemTextProps,
-  TEXT,
+  SystemCommonProps,
+  SystemInteractivityProps,
+  SystemTypographyProps,
+  TYPOGRAPHY,
 } from "@rb/react-primitives"
 
 export interface TextAreaProps
-  extends CommonSystemProps,
-    SystemTextProps,
+  extends SystemCommonProps,
+    SystemInteractivityProps,
+    SystemTypographyProps,
     Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "color"> {}
 
 const TextAreaStyled = styled.textarea.withConfig({
   shouldForwardProp,
 })<TextAreaProps>`
   box-sizing: border-box;
-  outline: none;
-  resize: none;
-  ${TEXT};
+  ${COMMON};
+  ${INTERACTIVITY};
+  ${TYPOGRAPHY};
   ${sx};
 `
 
@@ -33,5 +36,7 @@ export const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
 
 TextArea.defaultProps = {
   fontSize: "16px",
+  outline: "none",
+  resize: "none",
 }
 TextArea.displayName = "TextArea"

@@ -1,6 +1,6 @@
 import React from "react"
 
-import {Box, Sticky} from "@rb/react-primitives"
+import {Box, Position} from "@rb/react-primitives"
 
 import usePersistentScroll from "~lib/hooks/usePersistentScroll"
 
@@ -20,29 +20,27 @@ export default function Sidebar({
 
   return (
     <Box display={["none", null, null, "block"]}>
-      <Sticky
+      <Position
         bg={"blueGray.0"}
         borderRight={"solid 1px"}
         borderRightColor={"border.light"}
-        color={"ansi.blue"}
         height={`calc(100vh - ${headerHeight}px)`}
         minWidth={width}
+        position={"sticky"}
         top={headerHeight}
       >
-        <Box
+        <Position
           {...scrollContainerProps}
-          borderRadius={0}
-          borderRightWidth={1}
-          borderWidth={0}
           height={"100%"}
           overflow={"auto"}
+          position={"static"}
         >
           <SidebarItemGroup
             items={sidebarDocs.components}
             title={sidebarDocs.id}
           />
-        </Box>
-      </Sticky>
+        </Position>
+      </Position>
     </Box>
   )
 }

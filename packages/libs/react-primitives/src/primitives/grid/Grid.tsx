@@ -1,26 +1,30 @@
 import React, {HTMLAttributes} from "react"
 
 import styled from "styled-components"
-import {GridProps} from "styled-system"
 
-import {GRID} from "../../system/constants"
+import {
+  COMMON,
+  GRID,
+  SystemCommonProps,
+  SystemGridProps,
+} from "../../system/constants"
 import {shouldForwardProp} from "../../system/shouldForwardProp"
 import {sx} from "../../system/sx"
-import {CommonSystemProps} from "../../system/types"
 
-export interface SystemGridProps
-  extends CommonSystemProps,
-    GridProps,
+export interface GridProps
+  extends SystemCommonProps,
+    SystemGridProps,
     Omit<HTMLAttributes<HTMLDivElement>, "color"> {}
 
 const GridStyled = styled.div.withConfig({
   shouldForwardProp,
-})<SystemGridProps>`
-  ${GRID}
-  ${sx}
+})<GridProps>`
+  ${COMMON};
+  ${GRID};
+  ${sx};
 `
 
-export const Grid = React.forwardRef<HTMLDivElement, SystemGridProps>(
+export const Grid = React.forwardRef<HTMLDivElement, GridProps>(
   (props: GridProps, ref) => {
     return <GridStyled ref={ref} {...props} />
   },

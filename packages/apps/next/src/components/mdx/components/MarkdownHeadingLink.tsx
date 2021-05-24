@@ -4,7 +4,7 @@ import Link from "next/link"
 import {useRouter} from "next/router"
 import textContent from "react-addons-text-content"
 
-import {Absolute, Box, Text} from "@rb/react-primitives"
+import {Position, Box, Text} from "@rb/react-primitives"
 
 interface H2Props {
   as: React.ElementType
@@ -26,7 +26,9 @@ export default function MarkdownHeadingLink({
   return (
     <Link href={link}>
       <Box>
-        <Absolute left={0}>icon</Absolute>
+        <Position left={0} position={"absolute"}>
+          icon
+        </Position>
         <Text
           as={as}
           borderBottom={"solid 1px"}

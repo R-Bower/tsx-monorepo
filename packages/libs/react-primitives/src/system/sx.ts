@@ -1,4 +1,4 @@
-import {SystemStyleObject} from "./types"
+import {SystemStyleObject} from "./constants"
 import {css} from "./utils/css"
 
 export interface SxProp {

@@ -1,7 +1,6 @@
 import React from "react"
 
 import copy from "copy-to-clipboard"
-import {GoCheck} from "react-icons/all"
 
 import {Button} from "../../inputs/button/Button"
 

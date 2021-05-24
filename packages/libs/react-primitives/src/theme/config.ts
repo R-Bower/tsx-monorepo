@@ -1,4 +1,4 @@
-import {SystemTheme} from "../system/types"
+import {SystemTheme} from "../system/constants"
 import {colors} from "./colors/colors"
 import {shadows} from "./shadows/shadows"
 

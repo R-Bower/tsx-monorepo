@@ -1,52 +1,33 @@
-import React from "react"
+import React, {HTMLAttributes} from "react"
 
+import * as CSS from "csstype"
 import styled from "styled-components"
-import {position, PositionProps as SystemPositionProps} from "styled-system"
+import {ResponsiveValue} from "styled-system"
 
-import {CommonSystemProps} from "../../system/types"
-import {Box} from "../box/Box"
+import {
+  COMMON,
+  LAYOUT,
+  SystemCommonProps,
+  SystemLayoutProps,
+} from "../../system/constants"
+import {sx} from "../../system/sx"
 
 // Position props
+export interface PositionProps
+  extends SystemCommonProps,
+    Omit<SystemLayoutProps, "position">,
+    Omit<HTMLAttributes<HTMLDivElement>, "color"> {
+  position: ResponsiveValue<CSS.Property.Position>
+}
 
-const Position = styled(Box)<SystemPositionProps>`
-  ${position};
+const StyledPosition = styled.div<PositionProps>`
+  ${COMMON};
+  ${LAYOUT};
+  ${sx};
 `
-
-export interface PositionProps extends SystemPositionProps, CommonSystemProps {}
-
-// Absolute
-export type AbsoluteProps = Omit<PositionProps, "position">
-export const Absolute = React.forwardRef<HTMLDivElement, AbsoluteProps>(
-  (props: AbsoluteProps, ref) => {
-    return <Position {...props} ref={ref} position={"absolute"} />
+export const Position = React.forwardRef<HTMLDivElement, PositionProps>(
+  (props: PositionProps, ref) => {
+    return <StyledPosition {...props} ref={ref} />
   },
 )
-Absolute.displayName = "Absolute"
-
-// Fixed
-export type FixedProps = Omit<PositionProps, "position">
-export const Fixed = React.forwardRef<HTMLDivElement, FixedProps>(
-  (props: FixedProps, ref) => {
-    return <Position {...props} ref={ref} position={"fixed"} />
-  },
-)
-Fixed.displayName = "Fixed"
-
-// Relative
-export type RelativeProps = Omit<PositionProps, "position">
-export const Relative = React.forwardRef<HTMLDivElement, RelativeProps>(
-  (props: RelativeProps, ref) => {
-    return <Position {...props} ref={ref} position={"relative"} />
-  },
-)
-Relative.displayName = "Relative"
-
-// Sticky
-export type StickyProps = Omit<PositionProps, "position">
-export const Sticky = React.forwardRef<HTMLDivElement, StickyProps>(
-  (props: StickyProps, ref) => {
-    return <Position {...props} ref={ref} position={"sticky"} />
-  },
-)
-Sticky.defaultProps = {top: 0, zIndex: 1}
-Sticky.displayName = "Sticky"
+Position.displayName = "Position"

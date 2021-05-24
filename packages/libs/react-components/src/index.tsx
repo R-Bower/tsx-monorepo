@@ -5,3 +5,6 @@ export * from "./components/layout/separator/Separator"
 // Data Display
 export * from "./components/data-display/list/List"
 export * from "./components/data-display/truncated-text/TruncatedText"
+
+// Inputs
+export * from "./components/inputs/button/Button"

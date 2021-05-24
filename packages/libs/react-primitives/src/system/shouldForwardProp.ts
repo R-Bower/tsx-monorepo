@@ -1,6 +1,6 @@
 import {has, keys, reduce} from "rambda"
 
-import {customProps, customTextProps} from "./customProps"
+import customProps from "./customProps"
 
 const styledSystemProps = [
   "alignContent",
@@ -115,11 +115,7 @@ const styledSystemProps = [
   "zIndex",
 ]
 
-const customStyleProps = [
-  ...keys(customProps),
-  ...keys(customTextProps),
-  "variant",
-]
+const customStyleProps = [...keys(customProps), "variant"]
 
 /*
  * Some react components forward every single prop to the dom.  If the prop

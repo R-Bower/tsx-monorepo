@@ -2,10 +2,10 @@ import React from "react"
 
 import {DiReact} from "@react-icons/all-files/di/DiReact"
 import {GiSettingsKnobs} from "@react-icons/all-files/gi/GiSettingsKnobs"
-import Image from "next/image"
 import {css, keyframes} from "styled-components"
 
-import {Flex, Sticky, Text} from "@rb/react-primitives"
+import {Button} from "@rb/react-components"
+import {Flex, Position, Text} from "@rb/react-primitives"
 
 const rotate = keyframes`
   from {
@@ -26,7 +26,7 @@ interface HeaderProps {
 
 export default function Header({headerHeight}: HeaderProps): JSX.Element {
   return (
-    <Sticky>
+    <Position position={"sticky"}>
       <Flex
         alignItems={"center"}
         backgroundColor={"ansi.black"}
@@ -44,10 +44,16 @@ export default function Header({headerHeight}: HeaderProps): JSX.Element {
             @rb/monorepo
           </Text>
         </Flex>
-        <Flex alignItems={"center"} color={"text.secondary"} cursor={"pointer"}>
+        <Button
+          alignItems={"center"}
+          border={"none"}
+          color={"text.secondary"}
+          cursor={"pointer"}
+          outline={"none"}
+        >
           <GiSettingsKnobs color={"inherit"} size={32} />
-        </Flex>
+        </Button>
       </Flex>
-    </Sticky>
+    </Position>
   )
 }

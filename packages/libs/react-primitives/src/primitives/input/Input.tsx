@@ -2,14 +2,21 @@ import React, {InputHTMLAttributes} from "react"
 
 import styled from "styled-components"
 
-import {TEXT} from "../../system/constants"
+import {
+  COMMON,
+  INTERACTIVITY,
+  SystemCommonProps,
+  SystemInteractivityProps,
+  SystemTypographyProps,
+  TYPOGRAPHY,
+} from "../../system/constants"
 import {shouldForwardProp} from "../../system/shouldForwardProp"
 import {sx} from "../../system/sx"
-import {CommonSystemProps, SystemTextProps} from "../../system/types"
 
 export interface InputProps
-  extends CommonSystemProps,
-    SystemTextProps,
+  extends SystemCommonProps,
+    SystemInteractivityProps,
+    SystemTypographyProps,
     Omit<
       InputHTMLAttributes<HTMLInputElement>,
       "color" | "height" | "size" | "width"
@@ -18,10 +25,10 @@ export interface InputProps
 const InputStyled = styled.input.withConfig({
   shouldForwardProp,
 })<InputProps>`
-  ${TEXT};
+  ${COMMON};
+  ${INTERACTIVITY};
+  ${TYPOGRAPHY};
   ${sx};
-  outline: none;
-  line-height: normal;
 `
 
 export const Input = React.forwardRef<HTMLInputElement, InputProps>(
@@ -30,4 +37,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
   },
 )
 
+Input.defaultProps = {
+  outline: "none",
+}
 Input.displayName = "Input"

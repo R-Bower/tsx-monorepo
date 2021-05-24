@@ -1,48 +1,87 @@
+/*
+ * Styled system doesn't provide all of the props that our components may need.
+ * This file defines the custom props that incorporated into style props
+ * by the "system" utility function.
+ */
 import {ConfigStyle} from "styled-system"
 
 import {pixelSizeTransformer} from "./utils/transformers"
 
-export const customTextProps = {
+type SystemPropsConfig = {[key: string]: ConfigStyle | boolean}
+
+export const borderProps: SystemPropsConfig = {
+  outline: true,
+  outlineColor: true,
+  outlineStyle: true,
+  outlineWidth: true,
+}
+
+export const textProps: SystemPropsConfig = {
+  listStylePosition: true,
+  listStyleType: true,
   textDecoration: true,
   textOverflow: true,
   textShadow: true,
   textTransform: true,
+  whiteSpace: true,
+  wordBreak: true,
 }
 
-export const customProps = {
-  boxSizing: true,
-  cursor: true,
-  fill: {
-    property: "fill",
-    scale: "colors",
-  } as ConfigStyle,
+export const sizingProps: SystemPropsConfig = {
   height: {
     property: "height",
     transform: pixelSizeTransformer,
-  } as ConfigStyle,
+  },
   maxHeight: {
     property: "maxHeight",
     transform: pixelSizeTransformer,
-  } as ConfigStyle,
+  },
   maxWidth: {
     property: "maxWidth",
     transform: pixelSizeTransformer,
-  } as ConfigStyle,
+  },
   minHeight: {
     property: "minHeight",
     transform: pixelSizeTransformer,
-  } as ConfigStyle,
+  },
   minWidth: {
     property: "minWidth",
     transform: pixelSizeTransformer,
-  } as ConfigStyle,
-  outline: true,
+  },
+  width: {
+    property: "width",
+    transform: pixelSizeTransformer,
+  },
+}
+
+export const layoutProps: SystemPropsConfig = {
+  boxSizing: true,
+  objectFit: true,
+  overscrollBehavior: true,
+  position: true,
+  visibility: true,
+}
+
+export const interactivityProps: SystemPropsConfig = {
+  appearance: true,
+  cursor: true,
   pointerEvents: true,
-  transform: true,
-  transformOrigin: true,
-  transition: true,
+  resize: true,
   userSelect: true,
-  whiteSpace: true,
+}
+
+export const transitionProps: SystemPropsConfig = {
+  transition: true,
+  transitionDelay: true,
+  transitionDuration: true,
+  transitionProperty: true,
+  transitionTimingFunction: true,
   willChange: true,
-  wordBreak: true,
+}
+
+export default {
+  ...interactivityProps,
+  ...layoutProps,
+  ...sizingProps,
+  ...transitionProps,
 }
