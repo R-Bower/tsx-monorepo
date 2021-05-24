@@ -21,7 +21,7 @@ This project is an opinionated collection of tools, apps, and libraries intended
 - Consistent code formatting in every package.  [ESLint](https://eslint.org/docs/user-guide/getting-started) is used for identifying and reporting on patterns found
   in ECMAScript/JavaScript code, with the goal of making code more consistent and avoiding bugs.
 - First class [TypeScript](https://www.typescriptlang.org/) support.
-- Hot reloading adjacent packages in the repo.
+- Hot reloading adjacent packages for rapid development.
 - First class documentation support via MDX and [storybook](https://storybook.js.org/docs/react/get-started/introduction).
 - Consistent styling by use of `styled-components` and `styled-system` with a strongly typed design system.
 - [Tree shaking](https://webpack.js.org/guides/tree-shaking/) for every React library.
