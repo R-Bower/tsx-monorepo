@@ -1,6 +1,10 @@
 import React from "react"
 
+import {css} from "styled-components"
+
 import {Box, Flex, Grid} from "@rb/react-primitives"
+
+import usePersistentScroll from "~lib/hooks/usePersistentScroll"
 
 import Header from "./Header"
 import Sidebar from "./sidebar/Sidebar"
@@ -12,12 +16,20 @@ interface LayoutProps {
 const headerHeight = 56
 const sidebarWidth = 232
 
+const flexCss = css`
+  scroll-behavior: smooth;
+`
+
 export default function Layout({children}: LayoutProps): JSX.Element {
+  const {onScroll, ref} = usePersistentScroll("app-content")
   return (
     <Flex
+      ref={ref}
+      css={flexCss}
       flexDirection={"column"}
       justifyContent={"space-between"}
       minHeight={"100vh"}
+      onScroll={onScroll}
     >
       <Header headerHeight={headerHeight} />
 
@@ -27,11 +39,14 @@ export default function Layout({children}: LayoutProps): JSX.Element {
         <Box width={1}>
           <Grid
             gridRowGap={"16px"}
-            gridTemplateColumns={"minmax(0px, 960px) 220px"}
+            gridTemplateColumns={[
+              "minmax(0px, 960px)",
+              "minmax(0px, 960px)",
+              "minmax(0px, 960px) 220px",
+            ]}
             maxWidth={960}
             mx={"auto"}
-            p={5}
-            width={"100%"}
+            width={1}
           >
             {children}
           </Grid>

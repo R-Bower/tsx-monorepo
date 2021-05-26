@@ -1,9 +1,10 @@
 import React, {PropsWithChildren} from "react"
 
+import {State, Observe} from "mdx-observable"
 import Link from "next/link"
 
-import {List} from "@rb/react-components"
-import {Text} from "@rb/react-primitives"
+import * as ReactComponents from "@rb/react-components"
+import * as ReactPrimitives from "@rb/react-primitives"
 
 import MarkdownHeadingLink from "./components/MarkdownHeadingLink"
 
@@ -16,10 +17,14 @@ interface MDXComponentProps {
  * We pass custom components to the MDX provider to override the default styles.
  */
 export const MDXComponents = {
+  ...ReactComponents,
+  ...ReactPrimitives,
+  Observe,
+  State,
   a: ({children, href}: PropsWithChildren<HTMLLinkElement>): JSX.Element => {
     return (
       <Link href={href} passHref>
-        <Text
+        <ReactPrimitives.Text
           as={"a"}
           color={"primary.4"}
           cursor={"pointer"}
@@ -33,47 +38,47 @@ export const MDXComponents = {
           }}
         >
           {children}
-        </Text>
+        </ReactPrimitives.Text>
       </Link>
     )
   },
   code: ({children}: PropsWithChildren<HTMLElement>): JSX.Element => (
-    <Text as={"code"}>{children}</Text>
+    <ReactPrimitives.Text as={"code"}>{children}</ReactPrimitives.Text>
   ),
   h1: ({children}: PropsWithChildren<HTMLHeadingElement>): JSX.Element => (
-    <Text
+    <ReactPrimitives.Text
       as={"h1"}
       borderBottom={"solid 1px"}
       borderBottomColor={"border.light"}
       pb={4}
     >
       {children}
-    </Text>
+    </ReactPrimitives.Text>
   ),
   h2: ({children}: MDXComponentProps): JSX.Element => (
     <MarkdownHeadingLink as={"h2"}>{children}</MarkdownHeadingLink>
   ),
   h3: ({children}: PropsWithChildren<HTMLHeadingElement>): JSX.Element => (
-    <Text as={"h3"}>{children}</Text>
+    <ReactPrimitives.Text as={"h3"}>{children}</ReactPrimitives.Text>
   ),
   h4: ({children}: PropsWithChildren<HTMLHeadingElement>): JSX.Element => (
-    <Text as={"h4"}>{children}</Text>
+    <ReactPrimitives.Text as={"h4"}>{children}</ReactPrimitives.Text>
   ),
   h5: ({children}: PropsWithChildren<HTMLHeadingElement>): JSX.Element => (
-    <Text as={"h5"}>{children}</Text>
+    <ReactPrimitives.Text as={"h5"}>{children}</ReactPrimitives.Text>
   ),
   h6: ({children}: PropsWithChildren<HTMLHeadingElement>): JSX.Element => (
-    <Text as={"h6"}>{children}</Text>
+    <ReactPrimitives.Text as={"h6"}>{children}</ReactPrimitives.Text>
   ),
   inlineCode: ({children}: PropsWithChildren<HTMLElement>): JSX.Element => (
-    <Text as={"code"} variant={"inlineCode"}>
+    <ReactPrimitives.Text as={"code"} variant={"inlineCode"}>
       {children}
-    </Text>
+    </ReactPrimitives.Text>
   ),
   p: ({children}: PropsWithChildren<HTMLParagraphElement>): JSX.Element => (
-    <Text as={"p"}>{children}</Text>
+    <ReactPrimitives.Text as={"p"}>{children}</ReactPrimitives.Text>
   ),
   ul: ({children}: PropsWithChildren<HTMLUListElement>): JSX.Element => (
-    <List>{children}</List>
+    <ReactComponents.List>{children}</ReactComponents.List>
   ),
 }

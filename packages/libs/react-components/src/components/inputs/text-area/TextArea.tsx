@@ -3,7 +3,8 @@ import React, {TextareaHTMLAttributes} from "react"
 import styled from "styled-components"
 
 import {
-  COMMON, INTERACTIVITY,
+  COMMON,
+  INTERACTIVITY,
   shouldForwardProp,
   sx,
   SystemCommonProps,
@@ -16,7 +17,9 @@ export interface TextAreaProps
   extends SystemCommonProps,
     SystemInteractivityProps,
     SystemTypographyProps,
-    Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "color"> {}
+    Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "color"> {
+  variant?: string
+}
 
 const TextAreaStyled = styled.textarea.withConfig({
   shouldForwardProp,

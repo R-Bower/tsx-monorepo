@@ -7,6 +7,8 @@ import {css, keyframes} from "styled-components"
 import {Button} from "@rb/react-components"
 import {Flex, Position, Text} from "@rb/react-primitives"
 
+import usePersistentScroll from "~lib/hooks/usePersistentScroll"
+
 const rotate = keyframes`
   from {
     transform: rotate(0deg);
@@ -26,7 +28,7 @@ interface HeaderProps {
 
 export default function Header({headerHeight}: HeaderProps): JSX.Element {
   return (
-    <Position position={"sticky"}>
+    <Position id={"app-header"} position={"sticky"} top={0} zIndex={1}>
       <Flex
         alignItems={"center"}
         backgroundColor={"ansi.black"}
@@ -46,8 +48,9 @@ export default function Header({headerHeight}: HeaderProps): JSX.Element {
         </Flex>
         <Button
           alignItems={"center"}
+          bg={"transparent"}
           border={"none"}
-          color={"text.secondary"}
+          color={"gray.0"}
           cursor={"pointer"}
           outline={"none"}
         >

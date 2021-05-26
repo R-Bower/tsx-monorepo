@@ -188,7 +188,6 @@ export interface SystemCommonProps
   css?: StyledComponentsCssProp
   children?: React.ReactNode
   sx?: SystemStyleObject
-  variant?: string
 }
 
 export const COMMON = SS.compose(

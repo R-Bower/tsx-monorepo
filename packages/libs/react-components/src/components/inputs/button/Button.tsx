@@ -6,18 +6,25 @@ import {
   COMMON,
   FLEX,
   INTERACTIVITY,
+  TYPOGRAPHY,
   shouldForwardProp,
   sx,
   SystemCommonProps,
   SystemFlexProps,
   SystemInteractivityProps,
+  SystemTypographyProps,
 } from "@rb/react-primitives"
+
+import {buttonVariants} from "./styles"
 
 export interface ButtonProps
   extends SystemCommonProps,
     SystemFlexProps,
     SystemInteractivityProps,
-    Omit<ButtonHTMLAttributes<HTMLButtonElement>, "color"> {}
+    SystemTypographyProps,
+    Omit<ButtonHTMLAttributes<HTMLButtonElement>, "color"> {
+  variant?: keyof typeof buttonVariants
+}
 
 const ButtonStyled = styled.button.withConfig({
   shouldForwardProp,
@@ -34,15 +41,18 @@ const ButtonStyled = styled.button.withConfig({
   ${COMMON};
   ${FLEX};
   ${INTERACTIVITY};
+  ${TYPOGRAPHY};
   ${sx};
 `
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  (props: ButtonProps, ref) => {
-    return <ButtonStyled ref={ref} {...props} />
+  ({variant, ...props}: ButtonProps, ref) => {
+    const variantStyle = buttonVariants[variant] || {}
+    return <ButtonStyled ref={ref} {...variantStyle} {...props} />
   },
 )
 
 Button.defaultProps = {
   cursor: "pointer",
+  display: "flex",
 }

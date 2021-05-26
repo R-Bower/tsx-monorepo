@@ -19,6 +19,7 @@
     "@primer/styled-octicons": "^13.0.0",
     "@rb/react-primitives": "*",
     "humps": "^2.0.1",
+    "mdx-observable": "^0.2.0",
     "react-icons": "^4.2.0",
     "react-is": "^17.0.2",
     "react-select": "^4.3.0"

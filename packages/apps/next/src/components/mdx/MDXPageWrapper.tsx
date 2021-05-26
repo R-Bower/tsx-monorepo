@@ -15,7 +15,14 @@ export default function MDXPageWrapper({
 }: MDXPageWrapperProps): JSX.Element {
   return (
     <MDXProvider components={MDXComponents}>
-      <Grid gridRowGap={4} p={[4, 12]}>
+      <Grid
+        gridRowGap={5}
+        gridTemplateColumns={"minmax(0px, 960px)"}
+        maxWidth={960}
+        mx={"auto"}
+        p={[5, 12]}
+        width={1}
+      >
         {children}
       </Grid>
     </MDXProvider>

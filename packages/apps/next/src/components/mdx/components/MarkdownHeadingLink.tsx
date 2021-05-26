@@ -1,10 +1,12 @@
 import React from "react"
 
+import {HiOutlineLink} from "@react-icons/all-files/hi/HiOutlineLink"
 import Link from "next/link"
 import {useRouter} from "next/router"
 import textContent from "react-addons-text-content"
 
-import {Position, Box, Text} from "@rb/react-primitives"
+import {Button} from "@rb/react-components"
+import {Position, Text} from "@rb/react-primitives"
 
 interface H2Props {
   as: React.ElementType
@@ -12,32 +14,44 @@ interface H2Props {
 }
 
 /*
- *
+ * Heading with copy-to-clipboard functionality.
  */
 export default function MarkdownHeadingLink({
   as,
   children,
 }: H2Props): JSX.Element {
+  const [showingLink, setShowingLink] = React.useState(false)
   const router = useRouter()
-  const link = `${router.pathname}#${textContent(children)
-    .toLowerCase()
-    .split(" ")
-    .join("-")}`
+  const hashId = textContent(children).toLowerCase().split(" ").join("-")
+  const link = `${router.pathname}#${hashId}`
+
   return (
-    <Link href={link}>
-      <Box>
-        <Position left={0} position={"absolute"}>
-          icon
+    <Link href={link} passHref>
+      <Button
+        as={"a"}
+        color={"text.primary"}
+        onMouseEnter={() => setShowingLink(true)}
+        onMouseLeave={() => setShowingLink(false)}
+        textDecoration={"none"}
+        variant={"transparent"}
+      >
+        <Position position={"relative"} width={1}>
+          <Position left={-24} position={"absolute"} top={2}>
+            {showingLink ? <HiOutlineLink color={"inherit"} size={16} /> : null}
+          </Position>
+          {/* Scroll offset for header fixed position */}
+          <Position id={hashId} position={"absolute"} top={-64} />
+          <Text
+            as={as}
+            borderBottom={"solid 1px"}
+            borderBottomColor={"border.light"}
+            id={hashId}
+            pb={4}
+          >
+            {children}
+          </Text>
         </Position>
-        <Text
-          as={as}
-          borderBottom={"solid 1px"}
-          borderBottomColor={"border.light"}
-          pb={4}
-        >
-          {children}
-        </Text>
-      </Box>
+      </Button>
     </Link>
   )
 }
