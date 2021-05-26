@@ -1,7 +1,7 @@
 const chokidar = require("chokidar")
 const path = require("path")
 
-const compileDocs = require("./compile-mdx-docs-v2")
+const compileDocs = require("./compile-mdx-docs")
 
 compileDocs()
 

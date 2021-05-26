@@ -9,11 +9,13 @@ import {
   sx,
   SystemCommonProps,
   SystemFlexProps,
+  SystemTransitionProps,
 } from "@rb/react-style-system"
 
 export interface FlexProps
   extends SystemCommonProps,
     SystemFlexProps,
+    SystemTransitionProps,
     Omit<HTMLAttributes<HTMLDivElement>, "color"> {}
 
 const FlexStyled = styled.div.withConfig({shouldForwardProp})<FlexProps>`

@@ -46,7 +46,10 @@ This project is an opinionated collection of tools, apps, and libraries intended
 - Shared libraries and utilities are located within `packages/libs`.
 - Data fetching APIs and libraries are located within `packages/data`.
     - Note: it's perfectly fine for isolated apps to include their own data fetching apis within their respective package folders.
-- The NextJS application at `packages/docs` is responsible for rendering MDX components.  Shared components that contain a corresponding mdx file are aggregated by this package. For more information, check out `packages/docs`.
+
+## Docs
+
+The NextJS application at `packages/docs` is responsible for rendering MDX components.  Shared components that contain a corresponding mdx file are aggregated by this package. For more information, check out `packages/docs`.
 
 ### NextJS Development
 
@@ -54,11 +57,6 @@ This project is an opinionated collection of tools, apps, and libraries intended
 - run `yarn next-dev` from the root of this repository. Executes `yarn run dev --parallel --stream` which does the following:
   - starts `@rb/nextjs-template` in dev mode using `next dev`
   - runs `@rb/react-style-system` and `@rb/react-components` in watch mode (using `tsc`) which triggers a recompile on change (hot reloading).
-  
-### Component docs
-- [Storybook](https://storybook.js.org/docs/react/get-started/introduction) is used for documenting the application.
-  - Known issues:
-  - Hot reloading works but refreshing the browser in storybook's development mode doesn't.  In order to reload, you must exit and restart storybook.
 
 
 ## Shared Theme (see `packages/libs/react-style-system`)

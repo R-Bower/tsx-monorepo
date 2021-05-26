@@ -6,8 +6,7 @@ A NextJS application featuring MDX components. This application serves as the do
 
 - `.mdx` files located in adjacent packages* are compiled and linked at the file level. Their contents are serialized and served
   using [next-mdx-remote](https://github.com/hashicorp/next-mdx-remote) and [@mdx-js/react](https://www.npmjs.com/package/@mdx-js/react).
-    - Only `libs/react-components` and `libs/react-primitives` are currently supported.
-    - Adding new packages is as simple as updating the aggregator script at `scripts/compile-mdx-docs.js`
+    - *Only `libs/react-components` is supported at this time.
 - Our MDX pages are wrapped with an `MDXProvider` which provides default styles for most markdown elements. This process is documented [here](https://mdxjs.com/table-of-components).
 - Every component exported from `libs/react-primitives` and `libs/react-components` is provided to this MDXProvider. This gives developers the ability to use our
   custom components in any MDX context 
@@ -18,3 +17,6 @@ A NextJS application featuring MDX components. This application serves as the do
 ### Interactive docs
 - State tracking with `next-mdx-remote` is tricky. We're using the [mdx-observable](https://github.com/alexkrolick/mdx-observable) package to provide our docs with state to facilitate interactivity.  
 - TODO: Examples
+
+### Adding new packages
+- Currently a WIP.  The current issue is that the MDX file resolver doesn't handle nesting more than 3 folders deep.  This will be fixed in a later version.  

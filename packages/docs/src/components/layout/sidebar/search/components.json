@@ -1,12 +1,77 @@
 [
   {
-    "id": "Primitives",
     "components": [
       {
-        "id": "Box",
-        "mdxFileName": "Box.mdx",
-        "url": "/primitives/box"
+        "mdxFileName": "List.mdx",
+        "url": "/components/data-display/list",
+        "id": "list"
+      },
+      {
+        "mdxFileName": "TruncatedText.mdx",
+        "url": "/components/data-display/truncated-text",
+        "id": "truncated-text"
       }
-    ]
+    ],
+    "id": "data-display"
+  },
+  {
+    "components": [
+      {
+        "mdxFileName": "Card.mdx",
+        "url": "/components/layout/card",
+        "id": "card"
+      },
+      {
+        "mdxFileName": "Separator.mdx",
+        "url": "/components/layout/separator",
+        "id": "separator"
+      }
+    ],
+    "id": "layout"
+  },
+  {
+    "components": [
+      {
+        "mdxFileName": "Box.mdx",
+        "url": "/components/primitives/box",
+        "id": "box"
+      },
+      {
+        "mdxFileName": "Element.mdx",
+        "url": "/components/primitives/element",
+        "id": "element"
+      },
+      {
+        "mdxFileName": "Elevation.mdx",
+        "url": "/components/primitives/elevation",
+        "id": "elevation"
+      },
+      {
+        "mdxFileName": "Flex.mdx",
+        "url": "/components/primitives/flex",
+        "id": "flex"
+      },
+      {
+        "mdxFileName": "Grid.mdx",
+        "url": "/components/primitives/grid",
+        "id": "grid"
+      },
+      {
+        "mdxFileName": "Input.mdx",
+        "url": "/components/primitives/input",
+        "id": "input"
+      },
+      {
+        "mdxFileName": "Position.mdx",
+        "url": "/components/primitives/position",
+        "id": "position"
+      },
+      {
+        "mdxFileName": "Text.mdx",
+        "url": "/components/primitives/text",
+        "id": "text"
+      }
+    ],
+    "id": "primitives"
   }
 ]

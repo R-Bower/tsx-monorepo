@@ -13,7 +13,7 @@
     "next-dev": "yarn run watch",
     "show-config": "tsc --showConfig",
     "prepublishOnly": "yarn run build",
-    "watch": "tsc -p tsconfig.build.json -w --preserveWatchOutput",
+    "watch": "yarn compile && tsc-watch --onSuccess \"tscpaths -p tsconfig.build.json -s ./src -o ./dist\"",
     "jest:unit": "jest --config jest.config.unit.js"
   },
   "dependencies": {
@@ -26,6 +26,7 @@
     "react-select": "^4.3.0"
   },
   "devDependencies": {
+    "@kintsu/tscpaths": "^0.0.10",
     "@testing-library/jest-dom": "^5.12.0",
     "@testing-library/react": "^11.2.6",
     "@types/jest": "^26.0.23",
@@ -38,7 +39,7 @@
     "@types/testing-library__jest-dom": "^5.9.5",
     "csstype": "^3.0.8",
     "ts-loader": "^9.1.2",
-    "tscpaths": "^0.0.9",
+    "tsc-watch": "^4.4.0",
     "typescript": "^4.2.4",
     "webpack": "^5.37.0"
   },

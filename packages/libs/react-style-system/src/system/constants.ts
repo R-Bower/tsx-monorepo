@@ -151,6 +151,10 @@ export const SPACE = SS.space
 
 // TRANSITIONS
 export interface SystemTransitionProps {
+  transform?: SS.ResponsiveValue<CSS.Property.Transform>
+  transformBox?: SS.ResponsiveValue<CSS.Property.TransformBox>
+  transformOrigin?: SS.ResponsiveValue<CSS.Property.TransformOrigin>
+  transformStyle?: SS.ResponsiveValue<CSS.Property.TransformStyle>
   transition?: SS.ResponsiveValue<CSS.Property.Transition>
   transitionDelay?: SS.ResponsiveValue<CSS.Property.TransitionDelay>
   transitionDuration?: SS.ResponsiveValue<CSS.Property.TransitionDuration>

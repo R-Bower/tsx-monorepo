@@ -71,6 +71,10 @@ export const interactivityProps: SystemPropsConfig = {
 }
 
 export const transitionProps: SystemPropsConfig = {
+  transform: true,
+  transformBox: true,
+  transformOrigin: true,
+  transformStyle: true,
   transition: true,
   transitionDelay: true,
   transitionDuration: true,

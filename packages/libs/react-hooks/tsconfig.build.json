@@ -2,7 +2,6 @@
   // https://json.schemastore.org/tsconfig
   "extends": "../../../tsconfig.build.json",
   "compilerOptions": {
-    "baseUrl": ".",
     "declaration": true,
     "declarationDir": "dist",
     "declarationMap": true,
@@ -12,14 +11,7 @@
     "moduleResolution": "node",
     "esModuleInterop": true,
     "sourceMap": true,
-    "target": "esnext",
-    "paths": {
-      "@rb/react-hooks": ["../react-hooks"],
-      "@rb/react-style-system": ["../react-style-system"],
-      "~components/*": ["./src/components/*"],
-      "~primitives/*": ["./src/primitives/*"],
-      "~test/*": ["./src/test/*"]
-    }
+    "target": "esnext"
   },
   "include": [
     "src/**/*"

@@ -46,8 +46,7 @@ export const sidebarSlice = createSlice({
 export const {setDocs, toggleExpanded} = sidebarSlice.actions
 
 // Other code such as selectors can use the imported `RootState` type
-export const getDocs = (state: RootState): SidebarDoc[] =>
-  state.sidebar.docs
+export const getDocs = (state: RootState): SidebarDoc[] => state.sidebar.docs
 export const getFilteredDocs = (state: RootState): SidebarDoc[] =>
   state.sidebar.filteredDocs
 

@@ -8,7 +8,7 @@
       "@rb/*": ["packages/libs/*"]
     },
     "resolveJsonModule": true,
-    "typeRoots": ["node_modules/@types"],
+    "typeRoots": ["node_modules/@types"]
   },
   "references": [
     {
@@ -23,5 +23,5 @@
     {
       "path": "packages/libs/react-primitives"
     }
-  ],
+  ]
 }

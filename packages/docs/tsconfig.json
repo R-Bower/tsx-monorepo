@@ -15,7 +15,8 @@
     "skipLibCheck": true,
     "paths": {
       "@rb/react-components": ["../libs/react-components"],
-      "@rb/react-primitives": ["../libs/react-primitives"],
+      "@rb/react-hooks": ["../libs/react-hooks"],
+      "@rb/react-style-system": ["../libs/react-style-system"],
       "~assets/*": ["./src/assets/*"],
       "~components/*": ["./src/components/*"],
       "~lib/*": ["src/lib/*"],

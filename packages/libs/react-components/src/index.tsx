@@ -9,12 +9,12 @@ export * from "./primitives/text/Text"
 export * from "./primitives/position/Position"
 
 // Layout
-export * from "./complex/layout/card/Card"
-export * from "./complex/layout/separator/Separator"
+export * from "./layout/card/Card"
+export * from "./layout/separator/Separator"
 
 // Data Display
-export * from "./complex/data-display/list/List"
-export * from "./complex/data-display/truncated-text/TruncatedText"
+export * from "./data-display/list/List"
+export * from "./data-display/truncated-text/TruncatedText"
 
 // Inputs
-export * from "./complex/inputs/button/Button"
+export * from "./inputs/button/Button"

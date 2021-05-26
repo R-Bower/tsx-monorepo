@@ -1,0 +1,21 @@
+{
+  "name": "@rb/react-hooks",
+  "version": "0.0.1",
+  "description": "Shared react hooks",
+  "main": "dist/index",
+  "types": "dist/index",
+  "sideEffects": false,
+  "scripts": {
+    "docs": "yarn run watch",
+    "dev": "yarn run watch",
+    "next-dev": "yarn run watch",
+    "watch": "tsc -p tsconfig.build.json -w --preserveWatchOutput"
+  },
+  "devDependencies": {
+    "typescript": "^4.2.4"
+  },
+  "peerDependencies": {
+    "react": "*",
+    "react-dom": "*"
+  }
+}
