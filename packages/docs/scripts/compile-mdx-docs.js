@@ -1,9 +1,7 @@
 const fs = require("fs")
 const path = require("path")
 const {toPairs} = require("rambda")
-const {init, last, pipe, reduce, split, tail} = require("rambda")
-
-const reactComponents = path.join(__dirname, "../../libs/react-components")
+const {chain, init, last, pipe, reduce, split, tail} = require("rambda")
 
 const isMdx = (file) => file.endsWith(".mdx")
 
@@ -81,18 +79,25 @@ const consolidateConfig = (obj) => {
   })
 }
 
-function main() {
-  const componentFilePaths = collectMdxFiles(reactComponents, [])
+function main(componentDirs, writeFile) {
+  const componentFilePaths = chain(
+    (dir) => collectMdxFiles(dir, []),
+    componentDirs,
+  )
 
   const config = consolidateConfig(generateConfig(componentFilePaths))
 
-  fs.writeFileSync(
-    path.resolve(
-      __dirname,
-      "../src/components/layout/sidebar/search/components.json",
-    ),
-    JSON.stringify(config, null, "  "),
-  )
+  if (writeFile) {
+    fs.writeFileSync(
+      path.resolve(
+        __dirname,
+        "../src/components/layout/sidebar/search/components.json",
+      ),
+      JSON.stringify(config, null, "  "),
+    )
+  }
+
+  return componentFilePaths
 }
 
 module.exports = main

@@ -4,7 +4,7 @@ import {Box, Position} from "@rb/react-components"
 
 import usePersistentScroll from "~lib/hooks/usePersistentScroll"
 
-import sidebarDocs from "./config.json"
+import sidebarConfig from "./config.json"
 import Search from "./search/Search"
 import SidebarItemGroup from "./SidebarItemGroup"
 
@@ -37,8 +37,8 @@ export default function Sidebar({
           position={"static"}
         >
           <SidebarItemGroup
-            items={sidebarDocs.components}
-            title={sidebarDocs.id}
+            items={sidebarConfig.components}
+            title={sidebarConfig.id}
           />
           <Search />
         </Position>

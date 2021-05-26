@@ -2,6 +2,7 @@ import React from "react"
 
 import {FaReact} from "@react-icons/all-files/fa/FaReact"
 import Link from "next/link"
+import {useRouter} from "next/router"
 
 import {Flex, Text} from "@rb/react-components"
 
@@ -12,6 +13,8 @@ interface FileNodeProps extends SidebarDoc {
 }
 
 export default function FileNode({id, level, url}: FileNodeProps): JSX.Element {
+  const router = useRouter()
+  const active = router.asPath === url
   return (
     <Link href={url} passHref>
       <Text
@@ -30,7 +33,7 @@ export default function FileNode({id, level, url}: FileNodeProps): JSX.Element {
             textDecoration: "underline",
           },
         }}
-        textDecoration={"none"}
+        textDecoration={active ? "underline" : "none"}
         width={1}
       >
         <Flex alignItems={"center"}>

@@ -3,7 +3,9 @@ const path = require("path")
 
 const compileDocs = require("./compile-mdx-docs")
 
-compileDocs()
+const reactComponents = path.join(__dirname, "../../libs/react-components")
+
+compileDocs([reactComponents], true)
 
 /*
  * Watches all .mdx files and recompiles the docs sidebar on add/remove.
@@ -27,12 +29,12 @@ const formatPath = (path) => path.substring(path.indexOf("packages"))
 
 const onRemove = (path) => {
   console.debug("Doc removed:", formatPath(path))
-  compileDocs()
+  compileDocs([reactComponents], true)
 }
 
 const onAdd = (path) => {
   console.debug("Doc added:", formatPath(path))
-  compileDocs()
+  compileDocs([reactComponents], true)
 }
 
 watcher.on("add", onAdd)
