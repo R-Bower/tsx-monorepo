@@ -6,6 +6,7 @@ module.exports = {
     jest: true,
     node: true,
   },
+  extends: ["plugin:mdx/recommended"],
   globals: {
     JSX: true,
   },
@@ -17,7 +18,7 @@ module.exports = {
         "plugin:@typescript-eslint/recommended",
         "plugin:jsx-a11y/recommended",
       ],
-      files: ["*.tsx", "*.ts", "*.js", "*.jsx", "*.mdx"],
+      files: ["*.tsx", "*.ts", "*.js", "*.jsx"],
       parser: "@typescript-eslint/parser",
       parserOptions: {
         ecmaFeatures: {
@@ -139,4 +140,7 @@ module.exports = {
       },
     },
   ],
+  settings: {
+    "mdx/code-blocks": true,
+  },
 }

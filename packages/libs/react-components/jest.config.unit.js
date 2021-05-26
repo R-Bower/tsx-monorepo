@@ -10,6 +10,8 @@ module.exports = {
   moduleDirectories: ["node_modules", "src"],
   moduleFileExtensions: ["js", "jsx", "ts", "tsx"],
   moduleNameMapper: {
+    "^~components(.*)$": "<rootDir>/src/components$1",
+    "^~primitives(.*)$": "<rootDir>/src/primitives$1",
     "^~test(.*)$": "<rootDir>/src/test$1",
   },
   roots: ["<rootDir>"],

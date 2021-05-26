@@ -2,7 +2,7 @@ import React from "react"
 
 import {render, RenderOptions, RenderResult} from "@testing-library/react"
 
-import {StyledThemeProvider} from "@rb/react-primitives"
+import {StyledThemeProvider} from "@rb/react-style-system"
 
 const customRender = (
   ui: React.ReactElement,

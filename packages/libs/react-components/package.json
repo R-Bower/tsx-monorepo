@@ -3,10 +3,11 @@
   "version": "0.0.1",
   "main": "dist/index",
   "types": "dist/index",
+  "sideEffects": false,
   "scripts": {
     "build": "yarn run clean && yarn run compile",
     "clean": "rimraf -rf ./dist",
-    "compile": "tsc -p tsconfig.build.json",
+    "compile": "tsc -p tsconfig.build.json && tscpaths -p tsconfig.build.json -s ./src -o ./dist",
     "dev": "yarn run watch",
     "docs": "yarn run watch",
     "next-dev": "yarn run watch",
@@ -17,7 +18,7 @@
   },
   "dependencies": {
     "@primer/styled-octicons": "^13.0.0",
-    "@rb/react-primitives": "*",
+    "@rb/react-style-system": "*",
     "humps": "^2.0.1",
     "mdx-observable": "^0.2.0",
     "react-icons": "^4.2.0",
@@ -37,6 +38,7 @@
     "@types/testing-library__jest-dom": "^5.9.5",
     "csstype": "^3.0.8",
     "ts-loader": "^9.1.2",
+    "tscpaths": "^0.0.9",
     "typescript": "^4.2.4",
     "webpack": "^5.37.0"
   },

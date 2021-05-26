@@ -1,9 +1,16 @@
 {
   "extends": "../../../tsconfig.json",
   "compilerOptions": {
+    "baseUrl": ".",
     "importHelpers": true,
     "jsx": "react",
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "paths": {
+      "@rb/react-style-system": ["../react-style-system"],
+      "~components/*": ["./src/components/*"],
+      "~primitives/*": ["./src/primitives/*"],
+      "~test/*": ["./src/test/*"]
+    }
   },
   "exclude": ["dist"]
 }

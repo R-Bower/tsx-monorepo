@@ -1,10 +1,20 @@
+// UI Primitives
+export * from "./primitives/box/Box"
+export * from "./primitives/element/Element"
+export * from "./primitives/elevation/Elevation"
+export * from "./primitives/flex/Flex"
+export * from "./primitives/grid/Grid"
+export * from "./primitives/input/Input"
+export * from "./primitives/text/Text"
+export * from "./primitives/position/Position"
+
 // Layout
-export * from "./components/layout/card/Card"
-export * from "./components/layout/separator/Separator"
+export * from "./complex/layout/card/Card"
+export * from "./complex/layout/separator/Separator"
 
 // Data Display
-export * from "./components/data-display/list/List"
-export * from "./components/data-display/truncated-text/TruncatedText"
+export * from "./complex/data-display/list/List"
+export * from "./complex/data-display/truncated-text/TruncatedText"
 
 // Inputs
-export * from "./components/inputs/button/Button"
+export * from "./complex/inputs/button/Button"

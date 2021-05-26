@@ -3,19 +3,13 @@
   "private": true,
   "version": "0.0.1",
   "scripts": {
-    "dev": "FORCE_COLOR=1 next dev",
-    "next-dev": "yarn run dev",
-    "build": "next build",
-    "show-config": "tsc --showConfig",
-    "docs:prod": "next",
-    "test": "jest --config jest.config.unit.js"
   },
   "dependencies": {
     "@mdx-js/loader": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
     "@next/mdx": "^10.2.2",
     "@rb/react-components": "*",
-    "@rb/react-primitives": "*",
+    "@rb/react-style-system": "*",
     "@react-icons/all-files": "^4.1.0",
     "@reduxjs/toolkit": "^1.5.1",
     "copy-to-clipboard": "^3.3.1",

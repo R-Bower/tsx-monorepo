@@ -53,7 +53,7 @@ This project is an opinionated collection of tools, apps, and libraries intended
 - run `yarn install` from the root. 
 - run `yarn next-dev` from the root of this repository. Executes `yarn run dev --parallel --stream` which does the following:
   - starts `@rb/nextjs-template` in dev mode using `next dev`
-  - runs `@rb/react-primitives` and `@rb/react-components` in watch mode (using `tsc`) which triggers a recompile on change (hot reloading).
+  - runs `@rb/react-style-system` and `@rb/react-components` in watch mode (using `tsc`) which triggers a recompile on change (hot reloading).
   
 ### Component docs
 - [Storybook](https://storybook.js.org/docs/react/get-started/introduction) is used for documenting the application.
@@ -61,12 +61,12 @@ This project is an opinionated collection of tools, apps, and libraries intended
   - Hot reloading works but refreshing the browser in storybook's development mode doesn't.  In order to reload, you must exit and restart storybook.
 
 
-## Shared Theme (see `packages/libs/react-primitives`)
+## Shared Theme (see `packages/libs/react-style-system`)
 
 - By designing components around a shared theme, colors and styles* can be swapped with ease without fear of breaking the codebase. The `styled-components` and `styled-system` packages utilize this theme and makes common variables like color, spacing, breakpoints available as props for every component. Every React component in this library is designed around this theme.
 - Recommendations:
-  - The ThemeProvider in the `react-primitives` package accepts two props:
-    - `colors`, an object that maps to the ThemeColors interface in `react-primitives/src/theme/colors`
+  - The ThemeProvider in the `react-style-system` package accepts two props:
+    - `colors`, an object that maps to the ThemeColors interface in `react-style-system/src/theme/colors`
     - `box shadows`
 
 ## Conventions
