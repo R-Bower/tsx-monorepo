@@ -3,8 +3,7 @@ import React from "react"
 import {css} from "styled-components"
 
 import {Box, Flex, Grid} from "@rb/react-components"
-
-import usePersistentScroll from "~lib/hooks/usePersistentScroll"
+import {usePersistentScroll} from "@rb/react-hooks"
 
 import Header from "./Header"
 import Sidebar from "./sidebar/Sidebar"

@@ -2,22 +2,10 @@ import React from "react"
 
 import {DiReact} from "@react-icons/all-files/di/DiReact"
 import {GiSettingsKnobs} from "@react-icons/all-files/gi/GiSettingsKnobs"
-import {css, keyframes} from "styled-components"
 
 import {Button, Flex, Position, Text} from "@rb/react-components"
 
-const rotate = keyframes`
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-`
-
-const rotateCss = css`
-  animation: ${rotate} 5s infinite linear;
-`
+import {rotateCss} from "~lib/animations/rotate"
 
 interface HeaderProps {
   headerHeight: number | number[]

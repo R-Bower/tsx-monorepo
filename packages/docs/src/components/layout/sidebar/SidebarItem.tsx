@@ -4,21 +4,19 @@ import Link from "next/link"
 
 import {Flex, Text} from "@rb/react-components"
 
-import {SidebarDoc} from "./sidebarSlice"
-
-interface SidebarItemProps extends SidebarDoc {
+interface SidebarItemProps {
+  id: string
   icon?: React.ReactNode
-  index?: number
   pathname: string
+  url: string
 }
 
 export default function SidebarItem({
   id,
-  index = 0,
   pathname,
   url,
 }: SidebarItemProps): JSX.Element {
-  const active = pathname === url
+  const active = url === pathname
   return (
     <Link href={url} passHref>
       <Text
@@ -37,7 +35,7 @@ export default function SidebarItem({
         textDecoration={active ? "underline" : "none"}
         transition={"background-color 0.2s"}
       >
-        <Flex pl={index * 4}>{id}</Flex>
+        <Flex>{id}</Flex>
       </Text>
     </Link>
   )

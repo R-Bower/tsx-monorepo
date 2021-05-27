@@ -1,6 +1,6 @@
 import React from "react"
 
-export default function usePersistentScroll(id: string): {
+export function usePersistentScroll(id: string): {
   onScroll: React.UIEventHandler
   ref: React.RefObject<any>
 } {

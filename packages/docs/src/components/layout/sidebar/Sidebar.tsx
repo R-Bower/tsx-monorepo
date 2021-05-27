@@ -1,12 +1,13 @@
 import React from "react"
 
-import {Box, Position} from "@rb/react-components"
+import {useRouter} from "next/router"
 
-import usePersistentScroll from "~lib/hooks/usePersistentScroll"
+import {Box, Flex, Position, Text} from "@rb/react-components"
+import {usePersistentScroll} from "@rb/react-hooks"
 
 import sidebarConfig from "./config.json"
 import Search from "./search/Search"
-import SidebarItemGroup from "./SidebarItemGroup"
+import SidebarItem from "./SidebarItem"
 
 interface SidebarProps {
   headerHeight: number
@@ -18,6 +19,7 @@ export default function Sidebar({
   width,
 }: SidebarProps): JSX.Element {
   const scrollContainerProps = usePersistentScroll("sidebar")
+  const router = useRouter()
 
   return (
     <Box display={["none", null, null, "block"]}>
@@ -36,10 +38,26 @@ export default function Sidebar({
           overflow={"auto"}
           position={"static"}
         >
-          <SidebarItemGroup
-            items={sidebarConfig.components}
-            title={sidebarConfig.id}
-          />
+          <Flex
+            borderBottom={"solid 1px"}
+            borderBottomColor={"border.light"}
+            flexDirection={"column"}
+            py={6}
+          >
+            <Text as={"h5"} pb={3} pl={6} pr={2}>
+              {sidebarConfig.id}
+            </Text>
+            {sidebarConfig.components.map(({id, url}) => {
+              return (
+                <SidebarItem
+                  key={url}
+                  id={id}
+                  pathname={router.asPath}
+                  url={url}
+                />
+              )
+            })}
+          </Flex>
           <Search />
         </Position>
       </Position>

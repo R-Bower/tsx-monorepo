@@ -1,22 +1,24 @@
 import React, {useCallback, useEffect, useState} from "react"
 
-import {Flex, Input, Text} from "@rb/react-components"
+import {Flex, Input} from "@rb/react-components"
 
 import {useAppSelector} from "~lib/hooks/useSelector"
 
-import {SidebarDoc} from "../sidebarSlice"
-import DirectoryNode from "./DirectoryNode"
+import {SidebarDocGroup} from "../sidebarSlice"
+import SidebarGroup from "./SidebarGroup"
 import {filterDocs} from "./utils"
 
 export default function Search(): JSX.Element {
-  const sidebarDocs = useAppSelector<SidebarDoc[]>(
+  const sidebarDocs = useAppSelector<SidebarDocGroup[]>(
     (state) => state.sidebar.docs,
   )
   const [inputValue, setInputValue] = useState<string>("")
-  const [filteredDocs, setFilteredDocs] = useState<SidebarDoc[]>(sidebarDocs)
+  const [filteredDocs, setFilteredDocs] =
+    useState<SidebarDocGroup[]>(sidebarDocs)
 
   useEffect(() => {
-    if (sidebarDocs.length && !inputValue) {
+    // default to showing all docs if no input value
+    if (!inputValue) {
       setFilteredDocs(sidebarDocs)
     }
   }, [inputValue, sidebarDocs])
@@ -25,7 +27,7 @@ export default function Search(): JSX.Element {
     (event: React.ChangeEvent<HTMLInputElement>) => {
       const value: string = event.target.value
       setInputValue(value)
-      const docs = filterDocs(value, sidebarDocs)
+      const docs = filterDocs(value.toLowerCase(), sidebarDocs)
       setFilteredDocs(docs)
     },
     [sidebarDocs],
@@ -33,9 +35,6 @@ export default function Search(): JSX.Element {
 
   return (
     <Flex flex={"1 0 auto"} flexDirection={"column"} py={6}>
-      <Text as={"h5"} mb={4} pl={6} pr={2}>
-        Components
-      </Text>
       <Input
         mb={4}
         mx={5}
@@ -44,12 +43,7 @@ export default function Search(): JSX.Element {
         value={inputValue}
       />
       {filteredDocs.map((doc) => (
-        <DirectoryNode
-          key={doc.id}
-          components={doc.components}
-          id={doc.id}
-          level={0}
-        />
+        <SidebarGroup key={doc.id} {...doc} />
       ))}
     </Flex>
   )

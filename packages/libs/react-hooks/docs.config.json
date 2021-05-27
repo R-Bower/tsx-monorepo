@@ -1,0 +1,9 @@
+{
+  "group": "hooks",
+  "subgroups": [
+    {
+      "id": "data",
+      "order": 1
+    }
+  ]
+}

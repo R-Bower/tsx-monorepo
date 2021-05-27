@@ -1,77 +1,163 @@
 [
   {
-    "components": [
+    "id": "components",
+    "subgroups": [
       {
-        "mdxFileName": "List.mdx",
-        "url": "/components/data-display/list",
-        "id": "list"
+        "id": "layout",
+        "elements": [
+          {
+            "group": "components",
+            "id": "list",
+            "mdxBody": "# List\n\nThis is a list component.\n",
+            "mdxFileName": "List.mdx",
+            "mdxFilePath": "packages/libs/react-components/src/data-display/list/List.mdx",
+            "subgroup": "layout",
+            "url": "/doc/components/layout/list"
+          },
+          {
+            "group": "components",
+            "id": "card",
+            "mdxBody": "# Card\n\nThis is a card component\n",
+            "mdxFileName": "Card.mdx",
+            "mdxFilePath": "packages/libs/react-components/src/layout/card/Card.mdx",
+            "subgroup": "layout",
+            "url": "/doc/components/layout/card"
+          },
+          {
+            "group": "components",
+            "id": "separator",
+            "mdxBody": "# Separator\n\nThis is a separator component.\n",
+            "mdxFileName": "Separator.mdx",
+            "mdxFilePath": "packages/libs/react-components/src/layout/separator/Separator.mdx",
+            "subgroup": "layout",
+            "url": "/doc/components/layout/separator"
+          }
+        ]
       },
       {
-        "mdxFileName": "TruncatedText.mdx",
-        "url": "/components/data-display/truncated-text",
-        "id": "truncated-text"
+        "id": "data-display",
+        "elements": [
+          {
+            "group": "components",
+            "id": "truncated-text",
+            "mdxBody": "# TruncatedText\n\n<State initialState={{maxLines: 2}}>\n\n  <Observe>\n    {({maxLines, setState}) => (\n      <button onClick={() => setState(s => ({maxLines: s.maxLines + 1}))}>\n        Click to increment: {maxLines}\n      </button>\n    )}\n  </Observe>\n\n  <Observe>\n    {({maxLines}) =>\n      <Box px={2} py={1} border={\"solid 2px\"} borderColor={\"border.default\"} width={200}>\n        <TruncatedText as={\"p\"} maxLines={maxLines}>\n          Click the button to expand this section.  Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?\n        </TruncatedText>\n      </Box>\n    }\n  </Observe>\n\n</State>\n",
+            "mdxFileName": "TruncatedText.mdx",
+            "mdxFilePath": "packages/libs/react-components/src/data-display/truncated-text/TruncatedText.mdx",
+            "subgroup": "data-display",
+            "url": "/doc/components/data-display/truncated-text"
+          }
+        ]
+      },
+      {
+        "id": "primitives",
+        "elements": [
+          {
+            "group": "components",
+            "id": "box",
+            "mdxBody": "# Box\n\nThe `Box` primitive...\n",
+            "mdxFileName": "Box.mdx",
+            "mdxFilePath": "packages/libs/react-components/src/primitives/box/Box.mdx",
+            "subgroup": "primitives",
+            "url": "/doc/components/primitives/box"
+          },
+          {
+            "group": "components",
+            "id": "element",
+            "mdxBody": "# Element\n\nThis is the Element primitive.\n",
+            "mdxFileName": "Element.mdx",
+            "mdxFilePath": "packages/libs/react-components/src/primitives/element/Element.mdx",
+            "subgroup": "primitives",
+            "url": "/doc/components/primitives/element"
+          },
+          {
+            "group": "components",
+            "id": "elevation",
+            "mdxBody": "# Elevation\n\nThis is the Elevation primitive.\n",
+            "mdxFileName": "Elevation.mdx",
+            "mdxFilePath": "packages/libs/react-components/src/primitives/elevation/Elevation.mdx",
+            "subgroup": "primitives",
+            "url": "/doc/components/primitives/elevation"
+          },
+          {
+            "group": "components",
+            "id": "flex",
+            "mdxBody": "# Flex\n\nThis is the Flex primitive.\n",
+            "mdxFileName": "Flex.mdx",
+            "mdxFilePath": "packages/libs/react-components/src/primitives/flex/Flex.mdx",
+            "subgroup": "primitives",
+            "url": "/doc/components/primitives/flex"
+          },
+          {
+            "group": "components",
+            "id": "grid",
+            "mdxBody": "# Grid\n\nThis is the Grid primitive.\n",
+            "mdxFileName": "Grid.mdx",
+            "mdxFilePath": "packages/libs/react-components/src/primitives/grid/Grid.mdx",
+            "subgroup": "primitives",
+            "url": "/doc/components/primitives/grid"
+          },
+          {
+            "group": "components",
+            "id": "input",
+            "mdxBody": "# Input\n\nThis is the Input primitive.\n",
+            "mdxFileName": "Input.mdx",
+            "mdxFilePath": "packages/libs/react-components/src/primitives/input/Input.mdx",
+            "subgroup": "primitives",
+            "url": "/doc/components/primitives/input"
+          },
+          {
+            "group": "components",
+            "id": "position",
+            "mdxBody": "# Position\n\nThis is the Position primitive.\n",
+            "mdxFileName": "Position.mdx",
+            "mdxFilePath": "packages/libs/react-components/src/primitives/position/Position.mdx",
+            "subgroup": "primitives",
+            "url": "/doc/components/primitives/position"
+          },
+          {
+            "group": "components",
+            "id": "text",
+            "mdxBody": "# Text\n\nThis is the Text primitive.\n",
+            "mdxFileName": "Text.mdx",
+            "mdxFilePath": "packages/libs/react-components/src/primitives/text/Text.mdx",
+            "subgroup": "primitives",
+            "url": "/doc/components/primitives/text"
+          }
+        ]
       }
-    ],
-    "id": "data-display"
+    ]
   },
   {
-    "components": [
+    "id": "hooks",
+    "subgroups": [
       {
-        "mdxFileName": "Card.mdx",
-        "url": "/components/layout/card",
-        "id": "card"
+        "id": "data",
+        "elements": [
+          {
+            "group": "hooks",
+            "id": "use-debounce",
+            "mdxBody": "# useDebounce\n\nTODO: add examples.\n",
+            "mdxFileName": "useDebounce.mdx",
+            "mdxFilePath": "packages/libs/react-hooks/src/data/useDebounce.mdx",
+            "subgroup": "data",
+            "url": "/doc/hooks/data/use-debounce"
+          }
+        ]
       },
       {
-        "mdxFileName": "Separator.mdx",
-        "url": "/components/layout/separator",
-        "id": "separator"
+        "id": "interactions",
+        "elements": [
+          {
+            "group": "hooks",
+            "id": "use-persistent-scroll",
+            "mdxBody": "# usePersistentScroll\n\nTODO: add examples\n",
+            "mdxFileName": "usePersistentScroll.mdx",
+            "mdxFilePath": "packages/libs/react-hooks/src/interactions/usePersistentScroll.mdx",
+            "subgroup": "interactions",
+            "url": "/doc/hooks/interactions/use-persistent-scroll"
+          }
+        ]
       }
-    ],
-    "id": "layout"
-  },
-  {
-    "components": [
-      {
-        "mdxFileName": "Box.mdx",
-        "url": "/components/primitives/box",
-        "id": "box"
-      },
-      {
-        "mdxFileName": "Element.mdx",
-        "url": "/components/primitives/element",
-        "id": "element"
-      },
-      {
-        "mdxFileName": "Elevation.mdx",
-        "url": "/components/primitives/elevation",
-        "id": "elevation"
-      },
-      {
-        "mdxFileName": "Flex.mdx",
-        "url": "/components/primitives/flex",
-        "id": "flex"
-      },
-      {
-        "mdxFileName": "Grid.mdx",
-        "url": "/components/primitives/grid",
-        "id": "grid"
-      },
-      {
-        "mdxFileName": "Input.mdx",
-        "url": "/components/primitives/input",
-        "id": "input"
-      },
-      {
-        "mdxFileName": "Position.mdx",
-        "url": "/components/primitives/position",
-        "id": "position"
-      },
-      {
-        "mdxFileName": "Text.mdx",
-        "url": "/components/primitives/text",
-        "id": "text"
-      }
-    ],
-    "id": "primitives"
+    ]
   }
 ]

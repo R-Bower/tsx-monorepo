@@ -3,20 +3,28 @@ import {createSlice, PayloadAction} from "@reduxjs/toolkit"
 import type {RootState} from "~redux/store"
 
 export interface SidebarDoc {
+  mdxBody: string
+  group: string
   id: string
-  mdxFileName?: string
-  url?: string
-  components?: SidebarDoc[]
+  mdxFileName: string
+  mdxFilePath?: string
+  subgroup: string
+  url: string
+}
+
+export interface SidebarDocSubGroup {
+  id: string
+  elements: SidebarDoc[]
+}
+
+export interface SidebarDocGroup {
+  id: string
+  subgroups: SidebarDocSubGroup[]
 }
 
 // Define a type for this slice state.
 interface SidebarState {
-  docs: SidebarDoc[]
-  expanded: {
-    [key: string]: boolean
-  }
-  filteredDocs: SidebarDoc[]
-  searchValue: string
+  docs: SidebarDocGroup[]
 }
 
 // TODO: cache sidebar state.
@@ -24,9 +32,6 @@ interface SidebarState {
 // Define the initial state for this slice.
 export const sidebarInitialState: SidebarState = {
   docs: [],
-  expanded: {},
-  filteredDocs: [],
-  searchValue: "",
 }
 
 export const sidebarSlice = createSlice({
@@ -34,20 +39,19 @@ export const sidebarSlice = createSlice({
   initialState: sidebarInitialState,
   name: "sidebar",
   reducers: {
-    setDocs: (state: SidebarState, action: PayloadAction<SidebarDoc[]>) => {
+    setDocs: (
+      state: SidebarState,
+      action: PayloadAction<SidebarDocGroup[]>,
+    ) => {
       state.docs = action.payload
-    },
-    toggleExpanded: (state: SidebarState, action: PayloadAction<string>) => {
-      state.expanded[action.payload] = !state.expanded[action.payload]
     },
   },
 })
 
-export const {setDocs, toggleExpanded} = sidebarSlice.actions
+export const {setDocs} = sidebarSlice.actions
 
 // Other code such as selectors can use the imported `RootState` type
-export const getDocs = (state: RootState): SidebarDoc[] => state.sidebar.docs
-export const getFilteredDocs = (state: RootState): SidebarDoc[] =>
-  state.sidebar.filteredDocs
+export const getDocs = (state: RootState): SidebarDocGroup[] =>
+  state.sidebar.docs
 
 export default sidebarSlice.reducer

@@ -10,22 +10,44 @@
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "isolatedModules": true,
     "jsx": "preserve",
     "skipLibCheck": true,
     "paths": {
-      "@rb/react-components": ["../libs/react-components"],
-      "@rb/react-hooks": ["../libs/react-hooks"],
-      "@rb/react-style-system": ["../libs/react-style-system"],
-      "~assets/*": ["./src/assets/*"],
-      "~components/*": ["./src/components/*"],
-      "~lib/*": ["src/lib/*"],
-      "~pages/*": ["./src/pages/*"],
-      "~props/*": ["./src/props/*"],
-      "~redux/*": ["./src/redux/*"],
-      "~routes/*": ["./src/routes/*"],
-      "~utils/*": ["./src/utils/*"]
-    }
+      "@rb/react-components": [
+        "../libs/react-components"
+      ],
+      "@rb/react-hooks": [
+        "../libs/react-hooks"
+      ],
+      "@rb/react-style-system": [
+        "../libs/react-style-system"
+      ],
+      "~assets/*": [
+        "./src/assets/*"
+      ],
+      "~components/*": [
+        "./src/components/*"
+      ],
+      "~lib/*": [
+        "src/lib/*"
+      ],
+      "~pages/*": [
+        "./src/pages/*"
+      ],
+      "~props/*": [
+        "./src/props/*"
+      ],
+      "~redux/*": [
+        "./src/redux/*"
+      ],
+      "~routes/*": [
+        "./src/routes/*"
+      ],
+      "~utils/*": [
+        "./src/utils/*"
+      ]
+    },
+    "isolatedModules": true
   },
   "exclude": [
     "node_modules"

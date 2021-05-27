@@ -9,6 +9,18 @@ import {pixelSizeTransformer} from "./utils/transformers"
 
 type SystemPropsConfig = {[key: string]: ConfigStyle | boolean}
 
+export const animationProps: SystemPropsConfig = {
+  animation: true,
+  animationDelay: true,
+  animationDirection: true,
+  animationDuration: true,
+  animationFillMode: true,
+  animationIterationCount: true,
+  animationName: true,
+  animationPlayState: true,
+  animationTimingFunction: true,
+}
+
 export const borderProps: SystemPropsConfig = {
   outline: true,
   outlineColor: true,
@@ -16,15 +28,20 @@ export const borderProps: SystemPropsConfig = {
   outlineWidth: true,
 }
 
-export const textProps: SystemPropsConfig = {
-  listStylePosition: true,
-  listStyleType: true,
-  textDecoration: true,
-  textOverflow: true,
-  textShadow: true,
-  textTransform: true,
-  whiteSpace: true,
-  wordBreak: true,
+export const interactivityProps: SystemPropsConfig = {
+  appearance: true,
+  cursor: true,
+  pointerEvents: true,
+  resize: true,
+  userSelect: true,
+}
+
+export const layoutProps: SystemPropsConfig = {
+  boxSizing: true,
+  objectFit: true,
+  overscrollBehavior: true,
+  position: true,
+  visibility: true,
 }
 
 export const sizingProps: SystemPropsConfig = {
@@ -54,20 +71,15 @@ export const sizingProps: SystemPropsConfig = {
   },
 }
 
-export const layoutProps: SystemPropsConfig = {
-  boxSizing: true,
-  objectFit: true,
-  overscrollBehavior: true,
-  position: true,
-  visibility: true,
-}
-
-export const interactivityProps: SystemPropsConfig = {
-  appearance: true,
-  cursor: true,
-  pointerEvents: true,
-  resize: true,
-  userSelect: true,
+export const textProps: SystemPropsConfig = {
+  listStylePosition: true,
+  listStyleType: true,
+  textDecoration: true,
+  textOverflow: true,
+  textShadow: true,
+  textTransform: true,
+  whiteSpace: true,
+  wordBreak: true,
 }
 
 export const transitionProps: SystemPropsConfig = {
@@ -84,8 +96,11 @@ export const transitionProps: SystemPropsConfig = {
 }
 
 export default {
+  ...animationProps,
+  ...borderProps,
   ...interactivityProps,
   ...layoutProps,
   ...sizingProps,
+  ...textProps,
   ...transitionProps,
 }

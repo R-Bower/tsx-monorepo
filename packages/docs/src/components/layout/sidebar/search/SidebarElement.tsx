@@ -6,13 +6,16 @@ import {useRouter} from "next/router"
 
 import {Flex, Text} from "@rb/react-components"
 
+import {rotateCss} from "~lib/animations/rotate"
+
 import {SidebarDoc} from "../sidebarSlice"
 
-interface FileNodeProps extends SidebarDoc {
-  level: number
-}
+type SidebarElementProps = SidebarDoc
 
-export default function FileNode({id, level, url}: FileNodeProps): JSX.Element {
+export default function SidebarElement({
+  id,
+  url,
+}: SidebarElementProps): JSX.Element {
   const router = useRouter()
   const active = router.asPath === url
   return (
@@ -25,7 +28,7 @@ export default function FileNode({id, level, url}: FileNodeProps): JSX.Element {
         fontSize={14}
         fontWeight={500}
         my={1}
-        pl={24 + level * 12}
+        pl={36}
         pr={24}
         py={1}
         sx={{
@@ -37,10 +40,17 @@ export default function FileNode({id, level, url}: FileNodeProps): JSX.Element {
         width={1}
       >
         <Flex alignItems={"center"}>
-          <Flex mr={2}>
-            <FaReact size={16} />
-          </Flex>
-          <Flex>{id}</Flex>
+          {active ? (
+            <Flex css={rotateCss}>
+              <FaReact size={16} />
+            </Flex>
+          ) : (
+            <Flex>
+              <FaReact size={16} />
+            </Flex>
+          )}
+
+          <Flex ml={2}>{id}</Flex>
         </Flex>
       </Text>
     </Link>

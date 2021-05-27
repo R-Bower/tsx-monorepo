@@ -1,17 +1,18 @@
 const chokidar = require("chokidar")
-const path = require("path")
+const {join, resolve} = require("path")
 
 const compileDocs = require("./compile-mdx-docs")
 
-const reactComponents = path.join(__dirname, "../../libs/react-components")
+const reactComponents = join(__dirname, "../../libs/react-components")
+const reactHooks = join(__dirname, "../../libs/react-hooks")
 
-compileDocs([reactComponents], true)
+compileDocs([reactComponents, reactHooks], true)
 
 /*
  * Watches all .mdx files and recompiles the docs sidebar on add/remove.
  * This is for hot reloading the docs config on add/remove for a better dev experience.
  */
-const watcher = chokidar.watch(path.resolve(__dirname, "../libs"), {
+const watcher = chokidar.watch(resolve(__dirname, "../libs"), {
   ignoreInitial: true,
   ignored: [
     "node_modules**/*",
@@ -39,3 +40,7 @@ const onAdd = (path) => {
 
 watcher.on("add", onAdd)
 watcher.on("unlink", onRemove)
+
+export const emptyFn = () => {
+  // ignore
+}
