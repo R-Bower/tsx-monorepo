@@ -32,7 +32,6 @@ export const Code = React.forwardRef<HTMLDivElement, CodeProps>(
           theme={githubTheme}
         >
           {({className, style, tokens, getLineProps, getTokenProps}) => {
-            console.debug(style)
             return (
               <Position
                 as={"pre"}
