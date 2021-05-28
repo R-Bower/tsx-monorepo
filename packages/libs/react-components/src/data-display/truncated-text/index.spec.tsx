@@ -2,9 +2,8 @@ import React from "react"
 
 import "@testing-library/jest-dom/extend-expect"
 
-import {Box} from "~primitives/box/Box"
-import {render, screen} from "~test/test-utils"
-
+import {Box} from "../../primitives/box/Box"
+import {render, screen} from "../../test/test-utils"
 import {TruncatedText} from "./TruncatedText"
 
 const loremIpsum =

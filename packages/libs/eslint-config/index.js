@@ -100,7 +100,7 @@ module.exports = {
         "no-restricted-imports": [
           "error",
           // awaiting https://github.com/eslint/eslint/pull/14580 to provide suggestion
-          {patterns: ["@rb/react-*/src/**/*"]},
+          {patterns: ["@rb/react-*/src/**/*", "**/*../../libs/*/src"]},
         ],
         "no-undef": "error",
         "no-unused-vars": "off",

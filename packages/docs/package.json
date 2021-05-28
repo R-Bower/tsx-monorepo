@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.1",
   "scripts": {
-    "dev": "FORCE_COLOR=1 next dev",
+    "dev": "FORCE_COLOR=1 next-remote-watch ./src/components/layout/sidebar/search/components.json",
     "docs": "yarn watch-docs & yarn dev",
     "build": "next build",
     "show-config": "tsc --showConfig",
@@ -41,6 +41,7 @@
     "@types/react-dom": "^17.0.3",
     "@types/react-redux": "^7.1.16",
     "fork-ts-checker-webpack-plugin": "^6.2.10",
+    "next-remote-watch": "^1.0.0",
     "ts-node": "^10.0.0",
     "typescript": "^4.2.4",
     "webpack": "^5.37.1"

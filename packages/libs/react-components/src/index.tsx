@@ -18,3 +18,4 @@ export * from "./data-display/truncated-text/TruncatedText"
 
 // Inputs
 export * from "./inputs/button/Button"
+export * from "./inputs/text-input/TextInput"

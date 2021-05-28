@@ -8,7 +8,7 @@
           {
             "group": "components",
             "id": "list",
-            "mdxBody": "# List\n\nThis is a list component.\n",
+            "mdxBody": "# List\n\n:)\n",
             "mdxFileName": "List.mdx",
             "mdxFilePath": "packages/libs/react-components/src/data-display/list/List.mdx",
             "subgroup": "layout",

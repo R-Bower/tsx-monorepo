@@ -1,6 +1,6 @@
 import React, {useCallback, useEffect, useState} from "react"
 
-import {Flex, Input} from "@rb/react-components"
+import {Flex, TextInput} from "@rb/react-components"
 
 import {useAppSelector} from "~lib/hooks/useSelector"
 
@@ -35,12 +35,13 @@ export default function Search(): JSX.Element {
 
   return (
     <Flex flex={"1 0 auto"} flexDirection={"column"} py={6}>
-      <Input
+      <TextInput
         mb={4}
         mx={5}
         onChange={onInputChange}
         placeholder={"Search..."}
         value={inputValue}
+        variant={"primary"}
       />
       {filteredDocs.map((doc) => (
         <SidebarGroup key={doc.id} {...doc} />

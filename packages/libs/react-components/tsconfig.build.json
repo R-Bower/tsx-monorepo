@@ -16,8 +16,6 @@
     "paths": {
       "@rb/react-hooks": ["../react-hooks"],
       "@rb/react-style-system": ["../react-style-system"],
-      "~components/*": ["./src/components/*"],
-      "~primitives/*": ["./src/primitives/*"],
       "~test/*": ["./src/test/*"]
     }
   },

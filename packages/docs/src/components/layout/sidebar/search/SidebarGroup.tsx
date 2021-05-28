@@ -14,7 +14,7 @@ export default function SidebarGroup({
   subgroups,
 }: SidebarGroupProps): JSX.Element {
   return (
-    <Flex flexDirection={"column"}>
+    <Flex flexDirection={"column"} mb={3}>
       <Flex justifyContent={"space-between"}>
         <Flex alignItems={"center"} flex={"1 0 auto"} width={1}>
           <Text as={"h5"} fontSize={16} fontWeight={500} pl={24}>

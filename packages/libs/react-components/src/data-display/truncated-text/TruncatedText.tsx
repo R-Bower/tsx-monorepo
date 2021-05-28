@@ -3,7 +3,7 @@ import React from "react"
 import styled from "styled-components"
 import {ResponsiveValue, system} from "styled-system"
 
-import {Text, TextProps} from "~primitives/text/Text"
+import {Text, TextProps} from "../../primitives/text/Text"
 
 const textTruncateProp = system({
   lineClamp: {

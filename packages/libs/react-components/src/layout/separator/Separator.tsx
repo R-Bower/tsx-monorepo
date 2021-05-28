@@ -3,7 +3,7 @@ import React from "react"
 import {Property} from "csstype"
 import {ResponsiveValue} from "styled-system"
 
-import {Flex} from "~primitives/flex/Flex"
+import {Flex} from "../../primitives/flex/Flex"
 
 interface SeparatorProps {
   size: ResponsiveValue<Property.Width>

@@ -1,6 +1,6 @@
 import React from "react"
 
-import {Elevation, ElevationProps} from "~primitives/elevation/Elevation"
+import {Elevation, ElevationProps} from "../../primitives/elevation/Elevation"
 
 export const Card = React.forwardRef<HTMLDivElement, ElevationProps>(
   ({boxShadow, children}: ElevationProps, ref) => {

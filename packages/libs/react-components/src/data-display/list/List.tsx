@@ -1,6 +1,6 @@
 import React from "react"
 
-import {Element, ElementProps} from "~primitives/element/Element"
+import {Element, ElementProps} from "../../primitives/element/Element"
 
 export const List = React.forwardRef<HTMLUListElement, ElementProps>(
   (props, ref) => {
