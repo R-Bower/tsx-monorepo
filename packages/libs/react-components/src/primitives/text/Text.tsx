@@ -22,7 +22,6 @@ export interface TextProps
     SystemTypographyProps,
     Omit<HTMLAttributes<HTMLParagraphElement>, "color"> {
   as: React.ElementType
-  children: React.ReactNode
   variant?: string
 }
 

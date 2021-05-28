@@ -13,6 +13,8 @@ export * from "./layout/card/Card"
 export * from "./layout/separator/Separator"
 
 // Data Display
+export * from "./data-display/code/Code"
+export * from "./data-display/code-clipboard-copy/CodeClipboardCopy"
 export * from "./data-display/list/List"
 export * from "./data-display/truncated-text/TruncatedText"
 

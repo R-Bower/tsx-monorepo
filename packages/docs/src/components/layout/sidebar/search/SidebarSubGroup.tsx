@@ -12,9 +12,9 @@ export default function SidebarSubGroup({
   id,
 }: SidebarSubGroupProps): JSX.Element {
   return (
-    <Flex flexDirection={"column"} pt={3}>
+    <Flex flexDirection={"column"} mt={4}>
       <Flex alignItems={"center"} flex={"1 0 auto"} width={1}>
-        <Text as={"h5"} fontSize={14} fontWeight={600} pl={24}>
+        <Text as={"h5"} fontSize={16} pl={25}>
           {id}
         </Text>
       </Flex>

@@ -19,9 +19,11 @@
   "dependencies": {
     "@primer/styled-octicons": "^13.0.0",
     "@rb/react-style-system": "*",
+    "@react-icons/all-files": "^4.1.0",
     "humps": "^2.0.1",
     "mdx-observable": "^0.2.0",
-    "react-icons": "^4.2.0",
+    "prismjs": "^1.23.0",
+    "prism-react-renderer": "^1.2.1",
     "react-is": "^17.0.2",
     "react-select": "^4.3.0"
   },

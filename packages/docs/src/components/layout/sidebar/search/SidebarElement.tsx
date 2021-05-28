@@ -25,7 +25,7 @@ export default function SidebarElement({
         bg={"gray.0"}
         color={"primary.4"}
         cursor={"pointer"}
-        fontSize={14}
+        fontSize={16}
         fontWeight={500}
         my={1}
         pl={36}

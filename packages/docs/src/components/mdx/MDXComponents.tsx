@@ -40,8 +40,8 @@ export const MDXComponents = {
       </Link>
     )
   },
-  code: ({children}: PropsWithChildren<HTMLElement>): JSX.Element => (
-    <ReactComponents.Text as={"code"}>{children}</ReactComponents.Text>
+  code: ({children, ...props}: ReactComponents.CodeProps): JSX.Element => (
+    <ReactComponents.Code {...props}>{children}</ReactComponents.Code>
   ),
   h1: ({children}: PropsWithChildren<HTMLHeadingElement>): JSX.Element => (
     <ReactComponents.Text

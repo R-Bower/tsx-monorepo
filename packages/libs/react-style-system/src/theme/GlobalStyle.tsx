@@ -1,7 +1,7 @@
 import {createGlobalStyle, css} from "styled-components"
 
 const fontFamily = css`
-  font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+  font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI",
     Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
 `
 
@@ -19,6 +19,11 @@ export const DefaultGlobalStyle = createGlobalStyle`
     ${fontFamily};
     font-size: 16px;
   }
+  
+  input {
+    ${fontFamily};
+  }
+  
   
   h1, h2, h3, h4, h5, h6, p {
     margin: 0;

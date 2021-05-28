@@ -20,7 +20,7 @@ export const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(
     const inputStyles = {...inputVariants[variant], ...inputSizes[size]}
     return (
       <Flex as={"span"} display={"inline-flex"} outline={"none"}>
-        <Input ref={ref} width={1} {...props} sx={inputStyles} />
+        <Input ref={ref} width={1} {...props} {...inputStyles} />
       </Flex>
     )
   },

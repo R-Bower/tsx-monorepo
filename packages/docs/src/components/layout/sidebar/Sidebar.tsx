@@ -44,7 +44,7 @@ export default function Sidebar({
             flexDirection={"column"}
             py={6}
           >
-            <Text as={"h5"} pb={3} pl={6} pr={2}>
+            <Text as={"h4"} pb={3} pl={6} pr={2}>
               {sidebarConfig.id}
             </Text>
             {sidebarConfig.components.map(({id, url}) => {

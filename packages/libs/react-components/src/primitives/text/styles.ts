@@ -3,34 +3,34 @@ import {TextProps} from "./Text"
 export const textStyles: {[key: string]: Partial<TextProps>} = {
   code: {fontSize: "inherit"},
   h1: {
-    fontFamily: "Open Sans",
     fontSize: 28,
     fontWeight: 600,
-    lineHeight: "36px",
+    lineHeight: 1.5,
   },
   h2: {
-    fontFamily: "Open Sans",
     fontSize: 24,
     fontWeight: 600,
-    lineHeight: "32px",
+    lineHeight: 1.5,
   },
   h3: {
-    fontFamily: "Open Sans",
     fontSize: 20,
     fontWeight: 600,
-    lineHeight: "32px",
+    lineHeight: 1.5,
   },
   h4: {
-    fontFamily: "Open Sans",
-    fontSize: 20,
+    fontSize: 18,
     fontWeight: 500,
-    lineHeight: "24px",
+    lineHeight: 1.5,
   },
   h5: {
-    fontFamily: "Open Sans",
+    fontSize: 16,
+    fontWeight: 600,
+    lineHeight: 1.5,
+  },
+  h6: {
     fontSize: 16,
     fontWeight: 500,
-    lineHeight: "24px",
+    lineHeight: 1.5,
   },
   inlineCode: {
     bg: "gray.1",

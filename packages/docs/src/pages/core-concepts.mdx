@@ -49,7 +49,7 @@ Complex components are organized based on their category.  Some examples of this
 
  For example, say you are using a `Button` component, and you really need to apply `Flex` styles to it. You can compose `Flex` and `Button` like so:
 
- ```.jsx
+ ```jsx
  <Flex as={Button} href='https://github.com'>Hello</Flex>
  ```
 
@@ -59,8 +59,13 @@ Complex components are organized based on their category.  Some examples of this
 
 For these reasons, **we recommend only using the `as` prop when you cannot achieve the same result by nesting components.** The `Flex` / `Button` example could be done like so:
 
-```.jsx
-<Flex>
-  <Button href='https://github.com'>Hi</Button>
-</Flex>
+```jsx
+function Test() {
+  return (
+    <Flex>
+      <Button href='https://github.com'>Hi</Button>
+    </Flex>
+  )
+}
+
 ```

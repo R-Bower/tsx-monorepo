@@ -22,8 +22,6 @@ export default function SidebarItem({
       <Text
         as={"a"}
         color={"btn.secondary.base.text"}
-        fontSize={14}
-        fontWeight={500}
         pl={6}
         pr={2}
         py={2}

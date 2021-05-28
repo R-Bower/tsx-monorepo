@@ -36,7 +36,7 @@ export default function Search(): JSX.Element {
   return (
     <Flex flex={"1 0 auto"} flexDirection={"column"} py={6}>
       <TextInput
-        mb={4}
+        mb={2}
         mx={5}
         onChange={onInputChange}
         placeholder={"Search..."}
