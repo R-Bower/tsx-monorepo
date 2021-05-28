@@ -50,7 +50,6 @@ export const Code = React.forwardRef<HTMLDivElement, CodeProps>(
                   // eslint-disable-next-line react/no-array-index-key
                   <div key={i} {...getLineProps({key: i, line})}>
                     {line.map((token, key) => {
-                      console.debug({...getTokenProps({key, token})})
                       return (
                         <Text
                           /* eslint-disable-next-line react/no-array-index-key */
