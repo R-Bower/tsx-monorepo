@@ -16,8 +16,11 @@ export interface CodeProps extends HTMLElement {
 }
 
 export const Code = React.forwardRef<HTMLDivElement, CodeProps>(
-  ({children, language, live, noinline}: CodeProps, ref) => {
+  ({children, className, live, noinline}: CodeProps, ref) => {
     const code = textContent(children).trim()
+    const language = (
+      className ? className.replace(/language-/, "") : "jsx"
+    ) as Language
 
     return (
       <Position ref={ref} borderRadius={5} position={"relative"}>
@@ -31,7 +34,7 @@ export const Code = React.forwardRef<HTMLDivElement, CodeProps>(
           language={language}
           theme={githubTheme}
         >
-          {({className, style, tokens, getLineProps, getTokenProps}) => {
+          {({className, tokens, getLineProps, getTokenProps}) => {
             return (
               <Position
                 as={"pre"}
@@ -39,10 +42,11 @@ export const Code = React.forwardRef<HTMLDivElement, CodeProps>(
                 border={0}
                 borderRadius={5}
                 className={className}
+                color={"inherit"}
                 mb={3}
                 mt={0}
                 overflow={"auto"}
-                p={3}
+                p={4}
                 position={"static"}
               >
                 {tokens.map((line, i) => (

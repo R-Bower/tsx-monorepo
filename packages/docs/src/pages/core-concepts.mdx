@@ -8,7 +8,7 @@ This page lays out the fundamentals of building with our components.
 ## Responsive props
 Instead of manually managing media queries and adding nested style objects throughout the codebase, we take advantage of [styled-system](https://github.com/styled-system/styled-system)'s responsive props API.  Styled System offers a convenient shorthand syntax for adding responsive styles with a mobile-first approach.
 
-```
+```jsx
 <Box
   width={[
     1,    // 100% below the smallest breakpoint
@@ -20,7 +20,7 @@ Instead of manually managing media queries and adding nested style objects throu
 
 The styled-components [css](https://styled-components.com/docs/api) prop should only be used as a last resort.
 
-```
+```jsx
 import {css} from styled-components
 
 const boxCss = css`
