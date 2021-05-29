@@ -33,7 +33,7 @@ export const textStyles: {[key: string]: Partial<TextProps>} = {
     lineHeight: 1.5,
   },
   inlineCode: {
-    bg: "gray.1",
+    bg: "palette.secondary.contrast",
     borderRadius: 2,
     fontSize: "inherit",
     lineHeight: 1.5,

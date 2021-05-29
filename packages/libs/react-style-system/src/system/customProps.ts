@@ -94,13 +94,3 @@ export const transitionProps: SystemPropsConfig = {
   transitionTimingFunction: true,
   willChange: true,
 }
-
-export default {
-  ...animationProps,
-  ...borderProps,
-  ...interactivityProps,
-  ...layoutProps,
-  ...sizingProps,
-  ...textProps,
-  ...transitionProps,
-}

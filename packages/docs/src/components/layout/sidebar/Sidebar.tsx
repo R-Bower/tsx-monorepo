@@ -24,7 +24,7 @@ export default function Sidebar({
   return (
     <Box display={["none", null, null, "block"]}>
       <Position
-        bg={"blueGray.0"}
+        bg={"nav.bg.secondary"}
         borderRight={"solid 1px"}
         borderRightColor={"border.light"}
         height={`calc(100vh - ${headerHeight}px)`}
@@ -44,7 +44,7 @@ export default function Sidebar({
             flexDirection={"column"}
             py={6}
           >
-            <Text as={"h4"} pb={3} pl={6} pr={2}>
+            <Text as={"h4"} color={"nav.text.secondary"} pb={3} pl={6} pr={2}>
               {sidebarConfig.id}
             </Text>
             {sidebarConfig.components.map(({id, url}) => {
@@ -52,7 +52,7 @@ export default function Sidebar({
                 <SidebarItem
                   key={url}
                   id={id}
-                  pathname={router.asPath}
+                  pathname={router.pathname}
                   url={url}
                 />
               )

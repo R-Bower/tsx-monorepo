@@ -14,8 +14,8 @@
     "sourceMap": true,
     "target": "esnext",
     "paths": {
-      "@rb/react-hooks": ["../react-hooks"],
-      "@rb/react-style-system": ["../react-style-system"],
+      "@rb/react-hooks": ["../react-hooks/src"],
+      "@rb/react-style-system": ["../react-style-system/src"],
       "~test/*": ["./src/test/*"]
     }
   },

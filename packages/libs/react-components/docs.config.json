@@ -1,25 +1,10 @@
 {
   "group": "components",
-  "subgroups": [
-    {
-      "id": "primitives",
-      "order": 1
-    },
-    {
-      "id": "data-display",
-      "order": 2
-    },
-    {
-      "id": "feedback",
-      "order": 3
-    },
-    {
-      "id": "inputs",
-      "order": 4
-    },
-    {
-      "id": "layout",
-      "order": 5
-    }
-  ]
+  "subgroupOrder": {
+    "primitives": 1,
+    "data-display": 2,
+    "feedback": 3,
+    "inputs": 4,
+    "layout": 5
+  }
 }

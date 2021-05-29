@@ -194,7 +194,15 @@ export interface SystemTypographyProps extends SS.TypographyProps {
   wordBreak?: SS.ResponsiveValue<CSS.Property.WordBreak>
 }
 
-export const TYPOGRAPHY = SS.compose(SS.system(textProps), SS.typography)
+export const TYPOGRAPHY = SS.compose(
+  SS.system(textProps),
+  SS.fontFamily,
+  SS.fontSize,
+  SS.lineHeight,
+  SS.letterSpacing,
+  SS.fontStyle,
+  SS.textAlign,
+)
 
 // COMMON
 export interface SystemCommonProps

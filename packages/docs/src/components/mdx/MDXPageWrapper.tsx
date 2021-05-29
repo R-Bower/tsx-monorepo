@@ -20,7 +20,7 @@ export default function MDXPageWrapper({
         gridTemplateColumns={"minmax(0px, 960px)"}
         maxWidth={960}
         mx={"auto"}
-        p={[5, 12]}
+        p={[4, 6, 12]}
         width={1}
       >
         {children}

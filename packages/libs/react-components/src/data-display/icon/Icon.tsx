@@ -1,35 +1,45 @@
-import React, {ComponentProps} from "react"
+import React from "react"
 
-import {Size} from "@primer/styled-octicons"
 import styled from "styled-components"
-import * as StyledSystem from "styled-system"
+import {ResponsiveValue} from "styled-system"
 
-import {sx, SxProp, SystemStyleObject} from "@rb/react-style-system"
+import {
+  COLOR,
+  SIZING,
+  SPACE,
+  sx,
+  SxProp,
+  SystemColorProps,
+  SystemSizingProps,
+  SystemSpaceProps,
+} from "@rb/react-style-system"
 
-type OcticonProps = {icon: React.ElementType} & IconProps
+type IconProps = {icon: React.ElementType} & IconBaseProps
 
-export interface IconProps
-  extends StyledSystem.ColorProps,
-    StyledSystem.SpaceProps {
+export interface IconBaseProps
+  extends SystemColorProps,
+    SystemSizingProps,
+    SystemSpaceProps,
+    SxProp {
   "aria-label"?: string
   className?: string
-  size?: number | Size
+  size?: ResponsiveValue<number>
   verticalAlign?: "middle" | "text-bottom" | "text-top" | "top" | "unset"
-  sx?: SystemStyleObject
 }
 
-function Octicon({icon: IconComponent, ...rest}: OcticonProps) {
+function Icon({icon: IconComponent, ...rest}: IconProps) {
   return <IconComponent {...rest} />
 }
 
-const StyledOcticon = styled(Octicon)<SxProp>`
-  // ${sx}
+const StyledIcon = styled(Icon)<IconProps>`
+  ${COLOR};
+  ${SIZING};
+  ${SPACE};
+  ${sx};
 `
-// ${COMMON}
 
-StyledOcticon.defaultProps = {
+StyledIcon.defaultProps = {
   size: 16,
 }
 
-export type StyledOcticonProps = ComponentProps<typeof StyledOcticon>
-export default StyledOcticon
+export default StyledIcon

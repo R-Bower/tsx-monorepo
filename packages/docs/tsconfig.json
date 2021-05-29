@@ -14,13 +14,13 @@
     "skipLibCheck": true,
     "paths": {
       "@rb/react-components": [
-        "../libs/react-components"
+        "../libs/react-components/src"
       ],
       "@rb/react-hooks": [
-        "../libs/react-hooks"
+        "../libs/react-hooks/src"
       ],
       "@rb/react-style-system": [
-        "../libs/react-style-system"
+        "../libs/react-style-system/src"
       ],
       "~assets/*": [
         "./src/assets/*"

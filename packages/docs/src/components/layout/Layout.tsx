@@ -41,6 +41,8 @@ export default function Layout({children}: LayoutProps): JSX.Element {
             gridTemplateColumns={[
               "minmax(0px, 960px)",
               "minmax(0px, 960px)",
+              "minmax(0px, 960px)",
+              "minmax(0px, 960px)",
               "minmax(0px, 960px) 220px",
             ]}
             maxWidth={960}

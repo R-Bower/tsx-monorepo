@@ -1,7 +1,7 @@
 import React from "react"
 
-import {GoCheck} from "@react-icons/all-files/go/GoCheck"
-import {IoMdClipboard} from "@react-icons/all-files/io/IoMdClipboard"
+import {BsCheck} from "@react-icons/all-files/bs/BsCheck"
+import {FaRegClipboard} from "@react-icons/all-files/fa/FaRegClipboard"
 import copy from "copy-to-clipboard"
 
 import {Button, ButtonProps} from "../../inputs/button/Button"
@@ -27,6 +27,7 @@ export const CodeClipboardCopy = React.forwardRef<
     <Button
       ref={ref}
       aria-label={"Copy to clipboard"}
+      bg={"icon.bg"}
       border={"solid 1px"}
       borderColor={"border.light"}
       borderRadius={5}
@@ -37,12 +38,12 @@ export const CodeClipboardCopy = React.forwardRef<
       p={"6px"}
     >
       {copied ? (
-        <Flex alignItems={"center"} color={"success.1"}>
-          <GoCheck color={"inherit"} size={20} />
+        <Flex alignItems={"center"} color={"icon.success"}>
+          <BsCheck color={"inherit"} size={20} />
         </Flex>
       ) : (
-        <Flex alignItems={"center"} color={"gray.5"}>
-          <IoMdClipboard color={"inherit"} size={20} />
+        <Flex alignItems={"center"} color={"icon.secondary"}>
+          <FaRegClipboard color={"inherit"} size={20} />
         </Flex>
       )}
     </Button>

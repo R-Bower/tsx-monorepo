@@ -2,23 +2,18 @@ import {SystemTheme} from "../system/constants"
 import {colors} from "./colors/colors"
 import {shadows} from "./shadows/shadows"
 
-const breakpoints = [
-  // 0-360 is 0
-  361, // 1
-  550, // 2
-  768, // 3
-  1024, // 4
-  1400, // 5
-  1800, // 6
-]
-
 export const defaultTheme: SystemTheme = {
-  breakpoints: breakpoints.map(
-    (breakpoint: number) => `${breakpoint}px`,
-  ) as string[],
+  breakpoints: [
+    // 0-359 is 0
+    "360px", // 360 - 549 is 1
+    "550px", // 550 - 767 is 2
+    "768px", // 768 - 1023 is 3
+    "1024px", // 1024 - 1399 is 4
+    "1400px", // 1400 - 1799 is 5
+    "1800px", // 1800+ is 6
+  ],
   colors,
   fontSizes: [],
-  fontWeights: [300, 400, 500, 600],
   lineHeights: [1, 1.15, 1.25, 1.5],
   shadows,
   // multiples of 4

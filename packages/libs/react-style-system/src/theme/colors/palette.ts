@@ -1,105 +1,53 @@
-export interface Palette {
-  alert: string[]
-  blueGray: string[]
-  gray: string[]
-  primary: string[]
-  success: string[]
-  warning: string[]
-  ansi: {
-    black: string
-    blackBright: string
-    white: string
-    whiteBright: string
-    gray: string
-    red: string
-    redBright: string
-    green: string
-    greenBright: string
-    yellow: string
-    yellowBright: string
-    blue: string
-    blueBright: string
-    magenta: string
-    magentaBright: string
-    cyan: string
-    cyanBright: string
-  }
+interface PaletteColor {
+  light: string
+  main: string
+  dark: string
+  contrast?: string
 }
 
-export const primary = [
-  "#EEF2F8", // 0
-  "#C2D3E7", // 5
-  "#7499C9", // 10
-  "#4D7DB9", // 20
-  "#2660AA", // 50
-  "#191B83", // 100
-]
+export interface Palette {
+  alert: PaletteColor
+  secondary: PaletteColor
+  primary: PaletteColor
+  success: PaletteColor
+  warning: PaletteColor
+}
 
-export const blueGray = [
-  "#fafbfc",
-  "#f6f8fa",
-  "#e1e4e8",
-  "#d1d5da",
-  "#959da5",
-  "#6a737d",
-  "#586069",
-  "#444d56",
-  "#2f363d",
-  "#24292e",
-]
+const primary: PaletteColor = {
+  dark: "#191B83",
+  light: "#C2D3E7",
+  main: "#2660AA",
+}
 
-export const gray = [
-  "#fafbfc", // 0
-  "#EDEDED", // 5
-  "#E4E4E4", // 10
-  "#C7C7C7", // 40
-  "#A1A1A1", // 60
-  "#656565", // 80
-  "#1F1F1F", // 100
-]
+const secondary: PaletteColor = {
+  contrast: "rgba(27, 31, 35, 0.05)",
+  dark: "#2f363d",
+  light: "#f6f8fa",
+  main: "#959da5",
+}
 
-export const success = [
-  "#D6F3E2", // 5
-  "#008556", // 50
-  "#086343", // 100
-]
+const success: PaletteColor = {
+  dark: "#388e3c", // 100
+  light: "#81c784", // 5
+  main: "#4caf50", // 50
+}
 
-export const warning = [
-  "#A64F21", // 0
-  "#E86825", // 1
-  "#FFE1BE", // 2
-]
+const warning: PaletteColor = {
+  dark: "#f57c00", // 2
+  light: "#ffb74d", // 0
+  main: "#ff9800", // 1
+}
 
-export const alert = [
-  "#F9D3D4", // 5
-  "#DE1C22", // 50
-  "#9F1B1F", // 100
-]
+const alert: PaletteColor = {
+  dark: "#d32f2f", // 100
+  light: "e57373", // 5
+  main: "f44336", // 50
+}
 
 export const palette: Palette = {
   alert,
-  ansi: {
-    black: "#24292e",
-    blackBright: "#2f363d",
-    blue: "#79b8ff",
-    blueBright: "#c8e1ff",
-    cyan: "#76e3ea",
-    cyanBright: "#b3f0ff",
-    gray: "#959da5",
-    green: "#85e89d",
-    greenBright: "#bef5cb",
-    magenta: "#b392f0",
-    magentaBright: "#d1bcf9",
-    red: "#f97583",
-    redBright: "#fdaeb7",
-    white: "#e1e4e8",
-    whiteBright: "#e1e4e8",
-    yellow: "#ffea7f",
-    yellowBright: "#fff5b1",
-  },
-  blueGray,
-  gray,
   primary,
+  secondary,
   success,
   warning,
 }

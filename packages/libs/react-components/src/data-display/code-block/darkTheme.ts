@@ -1,15 +1,15 @@
 import {PrismTheme} from "prism-react-renderer"
 
-const githubTheme: PrismTheme = {
+const darkTheme: PrismTheme = {
   plain: {
-    backgroundColor: "#f6f8fa",
-    color: "#393A34",
+    backgroundColor: "#1E1E1E",
+    color: "#f6f8fa",
   },
   styles: [
     {
       languages: ["jsx", "tsx"],
       style: {
-        color: "#999988",
+        color: "#0AB615",
         fontStyle: "italic",
       },
       types: ["comment", "prolog", "doctype", "cdata"],
@@ -70,11 +70,18 @@ const githubTheme: PrismTheme = {
     {
       languages: ["jsx", "tsx"],
       style: {
-        color: "#00009f",
+        color: "#D4C4A9",
       },
-      types: ["tag", "selector", "keyword"],
+      types: ["tag", "selector"],
+    },
+    {
+      languages: ["jsx", "tsx"],
+      style: {
+        color: "",
+      },
+      types: ["keyword"],
     },
   ],
 }
 
-export default githubTheme
+export default darkTheme

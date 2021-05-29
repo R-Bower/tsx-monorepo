@@ -3,9 +3,23 @@ export default ({children}) => <MDXPageWrapper>{children}</MDXPageWrapper>
 
 # System Props
 
-Our React components utilize [styled-system](https://github.com/jxnblk/styled-system)'s "system props" to apply a standard set of props to each component.
+Our React components utilize [styled-system](https://github.com/jxnblk/styled-system)'s style functions to apply groups of props to each component.   These functions modify our components to accept CSS variables as props.
 
-Most components get the `COMMON` set of props which give the component access to background, border, color, sizing, space, and transition props.  Refer to the table below for each value.
+Many components get the `COMMON` set of props which give the component access to background, border, color, sizing, space, and transition styling.  Refer to the [table](/system-props#style-props-table) below for each value.
 
-## COMMON
+## Colors
+Colors are overridden and restricted to an interface.
 
+
+## Style Props Table
+
+### System Prop Categories
+
+| Category       | Included Props           | styled-system docs  |
+|-----|--------|--------|
+| `COMMON`| <PropsList systemProps={"COMMON"} />| [styled-system core docs](https://github.com/jxnblk/styled-system/blob/master/docs/table.md#core) |
+| `TYPOGRAPHY`| <PropsList systemProps={"TYPOGRAPHY"}/> | [styled-system typography docs](https://github.com/jxnblk/styled-system/blob/master/docs/table.md#typography) |
+| `BORDER`| <PropsList systemProps={"BORDER"}/> | [styled-system border docs](https://github.com/jxnblk/styled-system/blob/master/docs/table.md#border) |
+| `LAYOUT` | <PropsList systemProps={"LAYOUT"}/>| [styled-system layout docs](https://github.com/jxnblk/styled-system/blob/master/docs/table.md#layout) <br/> [styled-system misc docs](https://github.com/jxnblk/styled-system/blob/master/docs/table.md#misc) |
+| `FLEX` | <PropsList systemProps={"FLEX"}/> | [styled-system flexbox docs](https://github.com/jxnblk/styled-system/blob/master/docs/table.md#flexbox) |
+| `GRID` | <PropsList systemProps={"GRID"}/> | [styled-system grid docs](https://github.com/styled-system/styled-system/blob/master/docs/table.md#grid-layout) |

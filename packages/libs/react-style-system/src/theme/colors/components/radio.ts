@@ -22,7 +22,7 @@ export const radio: RadioColors = {
   base: {
     bg: "#FFFFFF",
     border: "#C7C7C7",
-    icon: "",
+    icon: "#C7C7C7",
   },
   checked: {
     bg: "#2660AA",

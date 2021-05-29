@@ -21,7 +21,7 @@ export default function ComponentsPage({
 }: ComponentsPageProps): JSX.Element {
   return (
     <MDXPageWrapper>
-      <MDXRemote {...source} lazy />
+      <MDXRemote {...source} />
     </MDXPageWrapper>
   )
 }

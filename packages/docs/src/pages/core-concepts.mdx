@@ -18,16 +18,37 @@ Instead of manually managing media queries and adding nested style objects throu
 />
 ```
 
-The styled-components [css](https://styled-components.com/docs/api) prop should only be used as a last resort.
+### Fundamentals
+Each array value generates a min-width media query.
+
+The first value of the array is the default value than spans from `0px` to the first breakpoint of the breakpoints theme field.
+Each subsequent value corresponds to the breakpoints theme field, starting with the first breakpoint.
+
+The following examples are based on our theme's default breakpoints configuration.  All values are in pixels.
+
+`const breakpoints = [360, 550, 768, 1024, 1400, 1800]`
 
 ```jsx
-import {css} from styled-components
+<Box
+  height={[
+    28, // 0-359px: height = 28px
+    32, // 360-549px: height = 32px
+    36  // 550px and up: height = 36px
+  ]}
+/>
 
-const boxCss = css`
-  width: 100px;
-`
+```
+To skip a breakpoint, supply null for that breakpoint's array index.
 
-<Box css={boxCss} />
+```jsx
+<Box
+  height={[
+    28,   // 0-359px: height = 28px
+    32,   // 360-549px: height = 32px
+    null, // 550-767px: height = 32px
+    36    // 768px and up: height = 36px
+  ]}
+/>
 ```
 
 ## Types of components

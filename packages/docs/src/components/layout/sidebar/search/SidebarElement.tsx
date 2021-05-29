@@ -22,15 +22,13 @@ export default function SidebarElement({
     <Link href={url} passHref>
       <Text
         as={"a"}
-        bg={"gray.0"}
-        color={"primary.4"}
+        color={"nav.text.link"}
         cursor={"pointer"}
         fontSize={16}
-        fontWeight={500}
-        my={1}
+        fontWeight={400}
         pl={36}
         pr={24}
-        py={1}
+        py={2}
         sx={{
           "&:hover": {
             textDecoration: "underline",

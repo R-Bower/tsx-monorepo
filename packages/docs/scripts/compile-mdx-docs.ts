@@ -1,11 +1,19 @@
 import frontmatter from "front-matter"
 import fs from "fs"
+import fse from "fs-extra"
 import path from "path"
 import {chain, findIndex, propEq} from "rambda"
 
 import {SidebarDocGroup} from "../src/components/layout/sidebar/sidebarSlice"
 
 const isMdx = (file) => file.endsWith(".mdx")
+
+const isGroupConfigFile = (file: string) => file === "docs.config.json"
+
+interface SidebarGroupConfig {
+  group: string
+  subgroupOrder: {[key: string]: number}
+}
 
 interface DocMeta {
   group: string
@@ -17,14 +25,17 @@ interface DocMeta {
 const collectMdxFiles = (
   dir: string,
   components: SidebarDocGroup[],
-  numDocs,
-) => {
+  configs: SidebarGroupConfig[],
+): SidebarDocGroup[] => {
   if (fs.readdirSync) {
     fs.readdirSync(dir).forEach((file) => {
       const currentFilePath = path.join(dir, file)
       if (fs.existsSync(currentFilePath)) {
         if (fs.lstatSync(currentFilePath).isDirectory()) {
-          collectMdxFiles(currentFilePath, components, numDocs)
+          collectMdxFiles(currentFilePath, components, configs)
+        } else if (isGroupConfigFile(file)) {
+          const config = fse.readJSONSync(currentFilePath)
+          configs.push(config)
         } else if (isMdx(file)) {
           const fileContents = fs.readFileSync(currentFilePath, {
             encoding: "utf-8",
@@ -87,7 +98,10 @@ const collectMdxFiles = (
 }
 
 function main(componentDirs: string[], writeFile: boolean) {
-  const config = chain((dir) => collectMdxFiles(dir, [], 0), componentDirs)
+  const groupConfigs = []
+  const config = chain((dir: string) => collectMdxFiles(dir, [], groupConfigs))(
+    componentDirs,
+  )
 
   if (writeFile) {
     fs.writeFileSync(

@@ -1,3 +1,5 @@
+import {palette} from "../palette"
+
 export interface LabelColors {
   alert: string
   base: string
@@ -5,7 +7,7 @@ export interface LabelColors {
 }
 
 export const label: LabelColors = {
-  alert: "#DE1C22",
+  alert: palette.alert.main,
   base: "#1A1A1A",
   disabled: "#A1A1A1",
 }

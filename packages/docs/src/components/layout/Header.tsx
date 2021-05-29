@@ -16,8 +16,8 @@ export default function Header({headerHeight}: HeaderProps): JSX.Element {
     <Position id={"app-header"} position={"sticky"} top={0} zIndex={1}>
       <Flex
         alignItems={"center"}
-        backgroundColor={"ansi.black"}
-        color={"ansi.white"}
+        backgroundColor={"nav.bg.primary"}
+        color={"nav.text.primary"}
         height={headerHeight}
         justifyContent={"space-between"}
         px={[6, 15, 15, 6]}
@@ -35,7 +35,7 @@ export default function Header({headerHeight}: HeaderProps): JSX.Element {
           alignItems={"center"}
           bg={"transparent"}
           border={"none"}
-          color={"gray.0"}
+          color={"icon.primary"}
           cursor={"pointer"}
           outline={"none"}
         >
