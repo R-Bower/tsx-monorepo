@@ -8,7 +8,6 @@ import * as SS from "styled-system"
 import {ThemeColors} from "../theme/colors/colors"
 import {ThemeShadows} from "../theme/shadows/shadows"
 import {
-  animationProps,
   borderProps,
   interactivityProps,
   layoutProps,
@@ -31,21 +30,6 @@ export interface SystemTheme
   colors?: ThemeColors
   shadows?: ThemeShadows
 }
-
-// ANIMATION
-export interface SystemAnimationProps {
-  animation?: SS.ResponsiveValue<CSS.Property.Animation>
-  animationDelay?: SS.ResponsiveValue<CSS.Property.AnimationDelay>
-  animationDirection?: SS.ResponsiveValue<CSS.Property.AnimationDirection>
-  animationDuration?: SS.ResponsiveValue<CSS.Property.AnimationDuration>
-  animationFillMode?: SS.ResponsiveValue<CSS.Property.AnimationFillMode>
-  animationIterationCount?: SS.ResponsiveValue<CSS.Property.AnimationIterationCount>
-  animationName?: SS.ResponsiveValue<CSS.Property.AnimationName>
-  animationPlayState?: SS.ResponsiveValue<CSS.Property.AnimationPlayState>
-  animationTimingFunction?: SS.ResponsiveValue<CSS.Property.AnimationTimingFunction>
-}
-
-export const ANIMATION = SS.system(animationProps)
 
 // BACKGROUND
 export type SystemBackgroundProps = SS.BackgroundProps
@@ -206,8 +190,7 @@ export const TYPOGRAPHY = SS.compose(
 
 // COMMON
 export interface SystemCommonProps
-  extends SystemBackgroundProps,
-    SystemBorderProps,
+  extends SystemBorderProps,
     SystemColorProps,
     SystemDisplayProps,
     SystemSizingProps,
@@ -220,7 +203,6 @@ export interface SystemCommonProps
 }
 
 export const COMMON = SS.compose(
-  BACKGROUND,
   BORDER,
   COLOR,
   DISPLAY,
@@ -239,7 +221,6 @@ type CSSSelectors = {
 }
 
 export type SystemStyleObject =
-  | SystemAnimationProps
   | SystemBackgroundProps
   | SystemBorderProps
   | SystemColorProps

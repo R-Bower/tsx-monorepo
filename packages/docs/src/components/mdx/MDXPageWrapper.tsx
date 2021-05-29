@@ -16,7 +16,6 @@ export default function MDXPageWrapper({
   return (
     <MDXProvider components={MDXComponents}>
       <Grid
-        gridRowGap={5}
         gridTemplateColumns={"minmax(0px, 960px)"}
         maxWidth={960}
         mx={"auto"}

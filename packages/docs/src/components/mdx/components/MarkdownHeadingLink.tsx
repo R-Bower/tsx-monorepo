@@ -5,9 +5,9 @@ import Link from "next/link"
 import {useRouter} from "next/router"
 import textContent from "react-addons-text-content"
 
-import {Button, Position, Text} from "@rb/react-components"
+import {Button, Position, Text, TextProps} from "@rb/react-components"
 
-interface H2Props {
+interface H2Props extends TextProps {
   as: React.ElementType
   children: React.ReactNode & HTMLCollection
 }
@@ -18,6 +18,11 @@ interface H2Props {
 export default function MarkdownHeadingLink({
   as,
   children,
+  borderBottom,
+  borderBottomColor,
+  mt,
+  mb,
+  pb,
 }: H2Props): JSX.Element {
   const [showingLink, setShowingLink] = React.useState(false)
   const router = useRouter()
@@ -29,6 +34,8 @@ export default function MarkdownHeadingLink({
       <Button
         as={"a"}
         color={"text.primary"}
+        mb={mb}
+        mt={mt}
         onMouseEnter={() => setShowingLink(true)}
         onMouseLeave={() => setShowingLink(false)}
         textDecoration={"none"}
@@ -42,10 +49,10 @@ export default function MarkdownHeadingLink({
           <Position id={hashId} position={"absolute"} top={-64} />
           <Text
             as={as}
-            borderBottom={"solid 1px"}
-            borderBottomColor={"border.light"}
+            borderBottom={borderBottom}
+            borderBottomColor={borderBottomColor}
             id={hashId}
-            pb={4}
+            pb={pb}
           >
             {children}
           </Text>

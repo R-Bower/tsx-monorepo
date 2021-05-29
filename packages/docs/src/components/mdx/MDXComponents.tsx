@@ -43,26 +43,49 @@ export const MDXComponents = {
     )
   },
   code: ({children, ...props}: ReactComponents.CodeProps): JSX.Element => (
-    <ReactComponents.CodeBlock {...props}>{children}</ReactComponents.CodeBlock>
+    <ReactComponents.CodeBlock mb={2} {...props}>
+      {children}
+    </ReactComponents.CodeBlock>
   ),
   h1: ({children}: MDXComponentProps): JSX.Element => (
     <ReactComponents.Text
       as={"h1"}
       borderBottom={"solid 1px"}
       borderBottomColor={"border.light"}
+      mb={5}
       pb={4}
     >
       {children}
     </ReactComponents.Text>
   ),
   h2: ({children}: MDXComponentProps): JSX.Element => (
-    <MarkdownHeadingLink as={"h2"}>{children}</MarkdownHeadingLink>
+    <MarkdownHeadingLink
+      as={"h2"}
+      borderBottom={"solid 1px"}
+      borderBottomColor={"border.light"}
+      mb={4}
+      mt={2}
+      pb={4}
+    >
+      {children}
+    </MarkdownHeadingLink>
   ),
   h3: ({children}: MDXComponentProps): JSX.Element => (
-    <ReactComponents.Text as={"h3"}>{children}</ReactComponents.Text>
+    <MarkdownHeadingLink
+      as={"h3"}
+      borderBottom={"none"}
+      borderBottomColor={"border.light"}
+      mb={3}
+      mt={2}
+      pb={0}
+    >
+      {children}
+    </MarkdownHeadingLink>
   ),
   h4: ({children}: MDXComponentProps): JSX.Element => (
-    <ReactComponents.Text as={"h4"}>{children}</ReactComponents.Text>
+    <ReactComponents.Text as={"h4"} mb={2}>
+      {children}
+    </ReactComponents.Text>
   ),
   h5: ({children}: MDXComponentProps): JSX.Element => (
     <ReactComponents.Text as={"h5"}>{children}</ReactComponents.Text>
@@ -76,7 +99,9 @@ export const MDXComponents = {
     </ReactComponents.Text>
   ),
   p: ({children}: MDXComponentProps): JSX.Element => (
-    <ReactComponents.Text as={"p"}>{children}</ReactComponents.Text>
+    <ReactComponents.Text as={"p"} mb={4}>
+      {children}
+    </ReactComponents.Text>
   ),
   table: ReactComponents.Table,
   ul: ({children}: MDXComponentProps): JSX.Element => (

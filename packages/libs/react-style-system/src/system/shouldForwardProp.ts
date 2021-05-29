@@ -1,7 +1,6 @@
 import {has, reduce} from "rambda"
 
 import {
-  ANIMATION,
   BACKGROUND,
   BORDER,
   COLOR,
@@ -18,7 +17,6 @@ import {
 } from "./constants"
 
 const styledSystemProps = [
-  ...ANIMATION.propNames,
   ...BACKGROUND.propNames,
   ...BORDER.propNames,
   ...COLOR.propNames,

@@ -3,52 +3,6 @@
     "id": "components",
     "subgroups": [
       {
-        "id": "layout",
-        "elements": [
-          {
-            "group": "components",
-            "id": "list",
-            "mdxBody": "# List\n\n:)\n",
-            "mdxFileName": "List.mdx",
-            "mdxFilePath": "packages/libs/react-components/src/data-display/list/List.mdx",
-            "subgroup": "layout",
-            "url": "/doc/components/layout/list"
-          },
-          {
-            "group": "components",
-            "id": "card",
-            "mdxBody": "# Card\n\nThis is a card component\n",
-            "mdxFileName": "Card.mdx",
-            "mdxFilePath": "packages/libs/react-components/src/layout/card/Card.mdx",
-            "subgroup": "layout",
-            "url": "/doc/components/layout/card"
-          },
-          {
-            "group": "components",
-            "id": "separator",
-            "mdxBody": "# Separator\n\nThis is a separator component.\n",
-            "mdxFileName": "Separator.mdx",
-            "mdxFilePath": "packages/libs/react-components/src/layout/separator/Separator.mdx",
-            "subgroup": "layout",
-            "url": "/doc/components/layout/separator"
-          }
-        ]
-      },
-      {
-        "id": "data-display",
-        "elements": [
-          {
-            "group": "components",
-            "id": "truncated-text",
-            "mdxBody": "# TruncatedText\n\n<State initialState={{maxLines: 2}}>\n\n  <Observe>\n    {({maxLines, setState}) => (\n      <button onClick={() => setState(s => ({maxLines: s.maxLines + 1}))}>\n        Click to increment: {maxLines}\n      </button>\n    )}\n  </Observe>\n\n  <Observe>\n    {({maxLines}) =>\n      <Box px={2} py={1} border={\"solid 2px\"} borderColor={\"border.default\"} width={200}>\n        <TruncatedText as={\"p\"} maxLines={maxLines}>\n          Click the button to expand this section.  Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?\n        </TruncatedText>\n      </Box>\n    }\n  </Observe>\n\n</State>\n",
-            "mdxFileName": "TruncatedText.mdx",
-            "mdxFilePath": "packages/libs/react-components/src/data-display/truncated-text/TruncatedText.mdx",
-            "subgroup": "data-display",
-            "url": "/doc/components/data-display/truncated-text"
-          }
-        ]
-      },
-      {
         "id": "primitives",
         "elements": [
           {
@@ -122,6 +76,52 @@
             "mdxFilePath": "packages/libs/react-components/src/primitives/text/Text.mdx",
             "subgroup": "primitives",
             "url": "/doc/components/primitives/text"
+          }
+        ]
+      },
+      {
+        "id": "data-display",
+        "elements": [
+          {
+            "group": "components",
+            "id": "truncated-text",
+            "mdxBody": "# TruncatedText\n\n<State initialState={{maxLines: 2}}>\n\n  <Observe>\n    {({maxLines, setState}) => (\n      <button onClick={() => setState(s => ({maxLines: s.maxLines + 1}))}>\n        Click to increment: {maxLines}\n      </button>\n    )}\n  </Observe>\n\n  <Observe>\n    {({maxLines}) =>\n      <Box px={2} py={1} border={\"solid 2px\"} borderColor={\"border.default\"} width={200}>\n        <TruncatedText as={\"p\"} maxLines={maxLines}>\n          Click the button to expand this section.  Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?\n        </TruncatedText>\n      </Box>\n    }\n  </Observe>\n\n</State>\n",
+            "mdxFileName": "TruncatedText.mdx",
+            "mdxFilePath": "packages/libs/react-components/src/data-display/truncated-text/TruncatedText.mdx",
+            "subgroup": "data-display",
+            "url": "/doc/components/data-display/truncated-text"
+          }
+        ]
+      },
+      {
+        "id": "layout",
+        "elements": [
+          {
+            "group": "components",
+            "id": "list",
+            "mdxBody": "# List\n\n:)\n",
+            "mdxFileName": "List.mdx",
+            "mdxFilePath": "packages/libs/react-components/src/data-display/list/List.mdx",
+            "subgroup": "layout",
+            "url": "/doc/components/layout/list"
+          },
+          {
+            "group": "components",
+            "id": "card",
+            "mdxBody": "# Card\n\nThis is a card component\n",
+            "mdxFileName": "Card.mdx",
+            "mdxFilePath": "packages/libs/react-components/src/layout/card/Card.mdx",
+            "subgroup": "layout",
+            "url": "/doc/components/layout/card"
+          },
+          {
+            "group": "components",
+            "id": "separator",
+            "mdxBody": "# Separator\n\nThis is a separator component.\n",
+            "mdxFileName": "Separator.mdx",
+            "mdxFilePath": "packages/libs/react-components/src/layout/separator/Separator.mdx",
+            "subgroup": "layout",
+            "url": "/doc/components/layout/separator"
           }
         ]
       }

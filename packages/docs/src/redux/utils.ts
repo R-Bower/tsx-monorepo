@@ -1,8 +1,8 @@
-import sidebarComponents from "~components/layout/sidebar/search/components.json"
+import sidebarComponents from "~components/page-layout/sidebar/search/components.json"
 import {
   SidebarDocGroup,
   sidebarInitialState,
-} from "~components/layout/sidebar/sidebarSlice"
+} from "~components/page-layout/sidebar/sidebarSlice"
 
 const getSidebarState = () => {
   return {

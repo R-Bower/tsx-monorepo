@@ -3,19 +3,19 @@ import React from "react"
 import Highlight, {defaultProps, Language} from "prism-react-renderer"
 import textContent from "react-addons-text-content"
 
-import {Position} from "../../primitives/position/Position"
+import {Position, PositionProps} from "../../primitives/position/Position"
 import {CodeClipboardCopy} from "../code-clipboard-copy/CodeClipboardCopy"
 import lightTheme from "./lightTheme"
 import Prism from "./Prism"
 
-export interface CodeProps extends HTMLElement {
+export interface CodeProps extends PositionProps {
   language?: Language
   live?: boolean
   noinline?: boolean
 }
 
 export const CodeBlock = React.forwardRef<HTMLDivElement, CodeProps>(
-  ({children, className, live, noinline}: CodeProps, ref) => {
+  ({children, className, live, noinline, ...props}: CodeProps, ref) => {
     const code = textContent(children).trim()
     const language = (
       className ? className.replace(/language-/, "") : "jsx"
@@ -30,7 +30,7 @@ export const CodeBlock = React.forwardRef<HTMLDivElement, CodeProps>(
     }
 
     return (
-      <Position ref={ref} borderRadius={5} position={"relative"}>
+      <Position ref={ref} borderRadius={5} position={"relative"} {...props}>
         <Position p={2} position={"absolute"} right={0} top={0}>
           <CodeClipboardCopy value={code} />
         </Position>

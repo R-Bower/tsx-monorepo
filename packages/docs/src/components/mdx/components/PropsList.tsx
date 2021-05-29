@@ -1,7 +1,6 @@
 import React from "react"
 
 import {
-  ANIMATION,
   BACKGROUND,
   BORDER,
   COLOR,
@@ -23,7 +22,6 @@ interface PropsListProps {
 }
 
 const propsMap = {
-  ANIMATION,
   BACKGROUND,
   BORDER,
   COLOR,

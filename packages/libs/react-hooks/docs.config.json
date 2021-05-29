@@ -1,9 +1,7 @@
 {
   "group": "hooks",
-  "subgroups": [
-    {
-      "id": "data",
-      "order": 1
-    }
-  ]
+  "subgroupOrder": {
+    "data": 1,
+    "interactions": 2
+  }
 }

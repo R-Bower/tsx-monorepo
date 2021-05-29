@@ -5,12 +5,12 @@ import {MDXRemote, MDXRemoteSerializeResult} from "next-mdx-remote"
 import {serialize} from "next-mdx-remote/serialize"
 import {is, pluck} from "rambda"
 
-import sidebarDocs from "~components/layout/sidebar/search/components.json"
+import MDXPageWrapper from "~components/mdx/MDXPageWrapper"
+import sidebarDocs from "~components/page-layout/sidebar/search/components.json"
 import {
   collectSidebarElements,
   findSidebarElement,
-} from "~components/layout/sidebar/search/utils"
-import MDXPageWrapper from "~components/mdx/MDXPageWrapper"
+} from "~components/page-layout/sidebar/search/utils"
 
 interface ComponentsPageProps {
   source: MDXRemoteSerializeResult

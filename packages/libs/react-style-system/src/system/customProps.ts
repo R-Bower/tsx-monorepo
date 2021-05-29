@@ -9,18 +9,6 @@ import {pixelSizeTransformer} from "./utils/transformers"
 
 type SystemPropsConfig = {[key: string]: ConfigStyle | boolean}
 
-export const animationProps: SystemPropsConfig = {
-  animation: true,
-  animationDelay: true,
-  animationDirection: true,
-  animationDuration: true,
-  animationFillMode: true,
-  animationIterationCount: true,
-  animationName: true,
-  animationPlayState: true,
-  animationTimingFunction: true,
-}
-
 export const borderProps: SystemPropsConfig = {
   outline: true,
   outlineColor: true,

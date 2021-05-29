@@ -2,7 +2,7 @@ import React from "react"
 
 import {AppProps} from "next/app"
 
-import Providers from "~components/layout/Providers"
+import Providers from "~components/page-layout/Providers"
 import {nextReduxWrapper} from "~redux/store"
 
 function CustomApp({Component, pageProps}: AppProps): JSX.Element {

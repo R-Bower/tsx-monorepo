@@ -37,7 +37,6 @@ export default function Layout({children}: LayoutProps): JSX.Element {
 
         <Box width={1}>
           <Grid
-            gridRowGap={"16px"}
             gridTemplateColumns={[
               "minmax(0px, 960px)",
               "minmax(0px, 960px)",
