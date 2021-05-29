@@ -1,3 +1,4 @@
+import StylePropsSearch from "../components/mdx/components/style-props-search/StylePropsSearch"
 import MDXPageWrapper from "../components/mdx/MDXPageWrapper"
 export default ({children}) => <MDXPageWrapper>{children}</MDXPageWrapper>
 
@@ -9,56 +10,6 @@ Many components get the `COMMON` set of props which give the component access to
 
 ## Style Props
 
-### BACKGROUND
-| Prop                 | CSS Property          | Theme Field |
-| -------------------- | --------------------- | ----------- |
-| `background`         | `background`          | none        |
-| `backgroundImage`    | `background-image`    | none        |
-| `backgroundSize`     | `background-size`     | none        |
-| `backgroundPosition` | `background-position` | none        |
-| `backgroundRepeat`   | `background-repeat`   | none        |
+Search here for supported CSS properties and groups.
 
-### COLOR
-| Prop                    | CSS Property       | Theme Field |
-| ----------------------- | ------------------ | ----------- |
-| `color`                 | `color`            | `colors`    |
-| `bg`, `backgroundColor` | `background-color` | `colors`    |
-| `opacity`               | `opacity`          |             |
-
-### BORDER
-| Prop                      | CSS Property                   | Theme Field    |
-| ------------------------- | ------------------------------ | -------------- |
-| `border`                  | `border`                       | `borders`      |
-| `borderWidth`             | `border-width`                 | `borderWidths` |
-| `borderStyle`             | `border-style`                 | `borderStyles` |
-| `borderColor`             | `border-color`                 | `colors`       |
-| `borderRadius`            | `border-radius`                | `radii`        |
-| `borderTop`               | `border-top`                   | `borders`      |
-| `borderTopWidth`          | `border-top-width`             | `borderWidths` |
-| `borderTopStyle`          | `border-top-style`             | `borderStyles` |
-| `borderTopColor`          | `border-top-color`             | `colors`       |
-| `borderTopLeftRadius`     | `border-top-left-radius`       | `radii`        |
-| `borderTopRightRadius`    | `border-top-right-radius`      | `radii`        |
-| `borderRight`             | `border-right`                 | `borders`      |
-| `borderRightWidth`        | `border-right-width`           | `borderWidths` |
-| `borderRightStyle`        | `border-right-style`           | `borderStyles` |
-| `borderRightColor`        | `border-right-color`           | `colors`       |
-| `borderBottom`            | `border-bottom`                | `borders`      |
-| `borderBottomWidth`       | `border-bottom-width`          | `borderWidths` |
-| `borderBottomStyle`       | `border-bottom-style`          | `borderStyles` |
-| `borderBottomColor`       | `border-bottom-color`          | `colors`       |
-| `borderBottomLeftRadius`  | `border-bottom-left-radius`    | `radii`        |
-| `borderBottomRightRadius` | `border-bottom-right-radius`   | `radii`        |
-| `borderLeft`              | `border-left`                  | `borders`      |
-| `borderLeftWidth`         | `border-left-width`            | `borderWidths` |
-| `borderLeftStyle`         | `border-left-style`            | `borderStyles` |
-| `borderLeftColor`         | `border-left-color`            | `colors`       |
-| `borderX`                 | `border-left` & `border-right` | `borders`      |
-| `borderY`                 | `border-top` & `border-bottom` | `borders`      |
-| `outline`                 | `outline`                      |                |
-| `outlineColor`            | `outline-color`                | `colors`       |
-| `outlineWidth`            | `outline-width`                |                |
-| `outlineStyle`            | `outline-style`                |                |
-
-#### Considerations
-Colors are restricted to the interface defined in @rb/react-style-system.
+<StylePropsSearch />

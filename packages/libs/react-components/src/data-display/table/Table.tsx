@@ -9,6 +9,7 @@ export const Table = React.forwardRef<
   return (
     <Element
       ref={ref}
+      as={"table"}
       {...props}
       sx={{
         display: "block",

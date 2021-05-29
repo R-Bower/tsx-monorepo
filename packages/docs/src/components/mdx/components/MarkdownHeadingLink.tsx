@@ -3,13 +3,14 @@ import React from "react"
 import {HiOutlineLink} from "@react-icons/all-files/hi/HiOutlineLink"
 import Link from "next/link"
 import {useRouter} from "next/router"
+import {is} from "rambda"
 import textContent from "react-addons-text-content"
 
 import {Button, Position, Text, TextProps} from "@rb/react-components"
 
 interface H2Props extends TextProps {
   as: React.ElementType
-  children: React.ReactNode & HTMLCollection
+  children: React.ReactNode
 }
 
 /*
@@ -24,9 +25,12 @@ export default function MarkdownHeadingLink({
   mb,
   pb,
 }: H2Props): JSX.Element {
+  const text = is(String, children)
+    ? (children as string)
+    : textContent(children)
   const [showingLink, setShowingLink] = React.useState(false)
   const router = useRouter()
-  const hashId = textContent(children).toLowerCase().split(" ").join("-")
+  const hashId = text.toLowerCase().split(" ").join("-")
   const link = `${router.pathname}#${hashId}`
 
   return (

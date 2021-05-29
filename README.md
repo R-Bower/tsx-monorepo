@@ -1,9 +1,9 @@
 <!--suppress HtmlDeprecatedAttribute -->
 <div align="center">
 
-## TSX-monorepo
+# TSX-monorepo
 
-This project is an opinionated collection of tools, apps, and libraries intended for supporting rapid React UI development.  Everything you see here is a work in progress.
+This project is an opinionated collection of tools, apps, and libraries intended for supporting rapid React UI development. This project was heavily inspired by [GitHub's Primer design system](https://primer.style/).
 
 </div>
 
@@ -65,14 +65,6 @@ The NextJS application at `packages/docs` is responsible for rendering MDX compo
   - starts `@rb/nextjs-template` in dev mode using `next dev`
   - runs `@rb/react-style-system` and `@rb/react-components` in watch mode (using `tsc`) which triggers a recompile on change (hot reloading).
 
-
-## Shared Theme (see `packages/libs/react-style-system`)
-
-- By designing components around a shared theme, colors and styles* can be swapped with ease without fear of breaking the codebase. The `styled-components` and `styled-system` packages utilize this theme and makes common variables like color, spacing, breakpoints available as props for every component. Every React component in this library is designed around this theme.
-- Recommendations:
-  - The ThemeProvider in the `react-style-system` package accepts two props:
-    - `colors`, an object that maps to the ThemeColors interface in `react-style-system/src/theme/colors`
-    - `box shadows`
 
 ## Conventions
 

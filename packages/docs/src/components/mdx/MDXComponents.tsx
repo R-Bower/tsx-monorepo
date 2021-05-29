@@ -6,7 +6,6 @@ import Link from "next/link"
 import * as ReactComponents from "@rb/react-components"
 
 import MarkdownHeadingLink from "./components/MarkdownHeadingLink"
-import PropsList from "./components/PropsList"
 
 interface MDXComponentProps {
   children: React.ReactNode & HTMLCollection
@@ -19,7 +18,6 @@ interface MDXComponentProps {
 export const MDXComponents = {
   ...ReactComponents,
   Observe,
-  PropsList,
   State,
   a: ({children, href}: PropsWithChildren<HTMLLinkElement>): JSX.Element => {
     return (
@@ -52,8 +50,8 @@ export const MDXComponents = {
       as={"h1"}
       borderBottom={"solid 1px"}
       borderBottomColor={"border.light"}
-      mb={5}
-      pb={4}
+      mb={4}
+      pb={2}
     >
       {children}
     </ReactComponents.Text>
@@ -65,7 +63,7 @@ export const MDXComponents = {
       borderBottomColor={"border.light"}
       mb={4}
       mt={2}
-      pb={4}
+      pb={1}
     >
       {children}
     </MarkdownHeadingLink>
@@ -103,7 +101,9 @@ export const MDXComponents = {
       {children}
     </ReactComponents.Text>
   ),
-  table: ReactComponents.Table,
+  table: ({children}: MDXComponentProps): JSX.Element => (
+    <ReactComponents.Table>{children}</ReactComponents.Table>
+  ),
   ul: ({children}: MDXComponentProps): JSX.Element => (
     <ReactComponents.List>{children}</ReactComponents.List>
   ),

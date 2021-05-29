@@ -1,5 +1,5 @@
 import fuzzysearch from "fuzzysearch"
-import {chain, find, findIndex, map, propEq} from "rambda"
+import {chain, find, map, propEq} from "rambda"
 
 import {SidebarDoc, SidebarDocGroup, SidebarDocSubGroup} from "../sidebarSlice"
 

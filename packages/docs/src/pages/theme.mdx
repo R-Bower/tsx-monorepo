@@ -1,4 +1,19 @@
+import MDXPageWrapper from "../components/mdx/MDXPageWrapper"
+export default ({children}) => <MDXPageWrapper>{children}</MDXPageWrapper>
+
 # Theme
 
-Theming in this library is made possible by a theme object that defines your application's colors, spacing, fonts, and more.
+Theming in this library is made possible by a `styled-components` theme object that defines the application's colors, breakpoints, spacing, fonts, and more.
+(see `packages/libs/react-style-system`)
 
+- By designing components around a universal theme, colors can be swapped and tweaked without fear of breaking existing components.
+
+## Colors
+
+The application's colors map to an interface that defines every element's available colors.  Elements are grouped based on their functionality.
+
+Color groups are categorized based on the functionality of the elements within the group.  Examples include `text`, `icons`, and `backgrounds`.
+
+#### Guidelines:
+- When at all possible, favor using color utility classes over using custom CSS to set colors.
+- You should only use colors designed for the element you're applying them to. For example, text colors should not be used for icons, backgrounds, or any other non-text element.
