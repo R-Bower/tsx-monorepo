@@ -25,6 +25,10 @@ export interface TextProps
   variant?: string
 }
 
+/*
+ * `styled.p` will be overwritten by whichever string is passed in to the
+ * `as` prop of this component.
+ */
 const TextStyled = styled.p.withConfig({shouldForwardProp})<TextProps>`
   ${COMMON};
   ${INTERACTIVITY};

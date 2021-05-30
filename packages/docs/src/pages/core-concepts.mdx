@@ -69,8 +69,16 @@ To skip a breakpoint, supply null for that breakpoint's array index.
 Complex components are organized based on their category.  Some examples of this organization include `data display`, `inputs`, and `layout`.
 
 
- ## The `as` prop
- The `as` prop is a feature that all of our components get from [styled-components](https://www.styled-components.com). It allows you to pass an HTML tag or another component to a Component.  That Component will be rendered as the base tag of the `as` variable along with all of its styles and props.
+## The `as` prop
+[styled-components](https://www.styled-components.com) provides all of our components with the `as` prop. When passed to a component, that component will be rendered as the base tag of the `as` variable along with all of its styles and props.
+
+```jsx
+// Box renders as a div by default.
+// This will change it to a span.
+<Box as={"span"}>
+  Hello
+</Box>
+```
 
 
  For example, say you are using a `Button` component, and you really need to apply `Flex` styles to it. You can compose `Flex` and `Button` like so:

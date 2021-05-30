@@ -31,16 +31,16 @@ export default function Header({headerHeight}: HeaderProps): JSX.Element {
             @rb/monorepo
           </Text>
         </Flex>
-        <Button
-          alignItems={"center"}
-          bg={"transparent"}
-          border={"none"}
-          color={"icon.primary"}
-          cursor={"pointer"}
-          outline={"none"}
-        >
-          <GiSettingsKnobs color={"inherit"} size={32} />
-        </Button>
+        {/*<Button*/}
+        {/*  alignItems={"center"}*/}
+        {/*  bg={"transparent"}*/}
+        {/*  border={"none"}*/}
+        {/*  color={"icon.primary"}*/}
+        {/*  cursor={"pointer"}*/}
+        {/*  outline={"none"}*/}
+        {/*>*/}
+        {/*  <GiSettingsKnobs color={"inherit"} size={32} />*/}
+        {/*</Button>*/}
       </Flex>
     </Position>
   )
