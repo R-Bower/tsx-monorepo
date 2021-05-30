@@ -8,7 +8,7 @@
           {
             "group": "components",
             "id": "box",
-            "mdxBody": "# Box\n\nThe `Box` primitive...\n",
+            "mdxBody": "The Box component serves as a wrapper component for most layout related needs. Use Box to set values such as `display`, `width`, `height`, and more. See the LAYOUT section of our [System Props](/system-props) documentation for the full list of available props. In practice, this component is used frequently as a wrapper around other components to achieve Box Model related styling.\n\n## Default example\n\n```jsx live\n<Box color={\"text.primary\"} bg={\"bg.successInverse\"}>\n  Box can be used to create both{' '}\n  <Box as=\"span\" color=\"text.secondary\">\n    inline\n  </Box>{' '}\n  and\n  <Box color={\"text.secondary\"} bg=\"bg.dangerInverse\">\n    block-level elements,\n  </Box>\n  <Box\n    border={\"solid 1px\"}\n    borderColor={\"border.default\"}\n    color={\"text.secondary\"}\n    bg={\"bg.infoInverse\"}\n    p={4}\n    mt={2}\n  >\n    and more!\n  </Box>\n</Box>\n```\n\n## System props\n\nBox components get the `COMMON` category of system props. Read our [System Props](/system-props) doc page for a full list of available props.\n\n## Component props\n\n| Prop name | Type   | Default | Description                         |\n| :-------- | :----- | :-----: | :---------------------------------- |\n| as        | String |  `div`  | sets the HTML tag for the component |\n",
             "mdxFileName": "Box.mdx",
             "mdxFilePath": "packages/libs/react-components/src/primitives/box/Box.mdx",
             "subgroup": "primitives",

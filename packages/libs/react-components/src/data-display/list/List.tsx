@@ -7,14 +7,15 @@ import {Element, ElementProps} from "../../primitives/element/Element"
 interface ListProps extends ElementProps, HTMLAttributes<HTMLUListElement> {
   listStyleType?: SystemTypographyProps["listStyleType"]
   listStylePosition?: SystemTypographyProps["listStylePosition"]
+  listTag?: "ul" | "ol" | "dl"
 }
 
 export const List = React.forwardRef<HTMLUListElement, ListProps>(
-  ({listStyleType, listStylePosition, ...props}, ref) => {
+  ({listStyleType, listStylePosition, listTag, ...props}, ref) => {
     return (
       <Element
         ref={ref}
-        as={"ul"}
+        as={listTag}
         {...props}
         sx={{
           li: {

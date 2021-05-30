@@ -1,5 +1,11 @@
+import BundleAnalyzer from "@next/bundle-analyzer"
 import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin"
+import withPlugins from "next-compose-plugins"
 import type {NextConfig} from "next/dist/next-server/server/config"
+
+const withBundleAnalyzer = BundleAnalyzer({
+  enabled: process.env.ANALYZE === "true",
+})
 
 const withMDX = require("@next/mdx")()
 
@@ -33,8 +39,16 @@ const nextConfig: NextConfig = {
       config.resolve.fallback.fs = false
     }
 
+    if (!dev && !isServer) {
+      Object.assign(config.resolve.alias, {
+        react: "preact/compat",
+        "react-dom": "preact/compat",
+        "react-dom/test-utils": "preact/test-utils",
+      })
+    }
+
     return config
   },
 }
 
-module.exports = withMDX(nextConfig)
+module.exports = withPlugins([withMDX, withBundleAnalyzer], nextConfig)

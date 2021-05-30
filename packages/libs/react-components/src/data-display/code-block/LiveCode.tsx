@@ -1,6 +1,7 @@
-import React, {useState} from "react"
+import React, {useEffect, useState} from "react"
 
 import htmlReactParser from "html-react-parser"
+import {Language} from "prism-react-renderer"
 import reactElementToJsxString from "react-element-to-jsx-string"
 import {LiveEditor, LiveError, LivePreview, LiveProvider} from "react-live"
 import {ThemeContext} from "styled-components"
@@ -12,7 +13,6 @@ import {Text} from "../../primitives/text/Text"
 import {CodeClipboardCopy} from "../code-clipboard-copy/CodeClipboardCopy"
 import darkTheme from "./themes/darkTheme"
 import lightTheme from "./themes/lightTheme"
-import {Language} from "prism-react-renderer"
 
 const languageTransformers = {
   html: (html) => htmlToJsx(html),
@@ -42,6 +42,7 @@ function wrapWithFragment(jsx) {
 interface LiveCodeProps {
   code: string
   language: Language
+  liveCodeScope: Record<string, React.ReactNode>
   noinline?: boolean
   viewMode?: "light" | "dark"
 }
@@ -49,26 +50,32 @@ interface LiveCodeProps {
 export default function LiveCode({
   code,
   language,
+  liveCodeScope,
   noinline,
   viewMode,
 }: LiveCodeProps) {
   const theme = React.useContext(ThemeContext)
   const [liveCode, setLiveCode] = useState(code)
   const handleChange = (updatedLiveCode) => setLiveCode(updatedLiveCode)
-  const prismTheme = viewMode === "light" ? lightTheme : darkTheme
+  const prismTheme = viewMode === "dark" ? darkTheme : lightTheme
+
+  useEffect(() => {
+    console.debug(code)
+  }, [code])
 
   return (
     <Flex flexDirection={"column"} mb={3}>
       <LiveProvider
         code={liveCode}
         noInline={noinline}
+        scope={liveCodeScope}
         transformCode={languageTransformers[language]}
       >
         <Flex
           border={"solid 1px"}
           borderColor={"border.light"}
-          borderTopLeftRadius={2}
-          borderTopRightRadius={2}
+          borderTopLeftRadius={5}
+          borderTopRightRadius={5}
         >
           <Box p={3}>
             <LivePreview />
@@ -76,13 +83,18 @@ export default function LiveCode({
         </Flex>
         <Position position={"relative"}>
           <LiveEditor
+            // these variables actually work - the compiler just doesn't
+            // want to resolve the types.
+            // @ts-ignore
+            ignoreTabKey={true}
             onChange={handleChange}
+            // @ts-ignore
+            padding={16}
             style={{
-              borderBottomLeftRadius: theme.radii[2],
-              borderBottomRightRadius: theme.radii[2],
+              borderBottomLeftRadius: 2,
+              borderBottomRightRadius: 2,
               fontFamily: theme.fonts.mono,
               fontSize: "85%",
-              padding: theme.space[3],
             }}
             theme={prismTheme}
           />

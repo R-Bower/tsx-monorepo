@@ -1,17 +1,21 @@
 import React from "react"
 
+import loadable from "@loadable/component"
 import Highlight, {defaultProps, Language} from "prism-react-renderer"
 import textContent from "react-addons-text-content"
 
 import {Position, PositionProps} from "../../primitives/position/Position"
 import {CodeClipboardCopy} from "../code-clipboard-copy/CodeClipboardCopy"
-import LiveCode from "./LiveCode"
 import Prism from "./Prism"
 import darkTheme from "./themes/darkTheme"
 import lightTheme from "./themes/lightTheme"
 
+// react-live bloats the bundle, so code split for better performance.
+const LiveCode = loadable(() => import("./LiveCode"))
+
 export interface CodeProps extends PositionProps {
   language?: Language
+  liveCodeScope?: Record<string, React.ReactNode>
   live?: boolean
   mode?: "light" | "dark"
   noinline?: boolean
@@ -19,7 +23,15 @@ export interface CodeProps extends PositionProps {
 
 export const CodeBlock = React.forwardRef<HTMLDivElement, CodeProps>(
   (
-    {children, className, live, mode = "light", noinline, ...props}: CodeProps,
+    {
+      children,
+      className,
+      live,
+      liveCodeScope,
+      mode = "light",
+      noinline,
+      ...props
+    }: CodeProps,
     ref,
   ) => {
     const code = textContent(children).trim()
@@ -36,7 +48,14 @@ export const CodeBlock = React.forwardRef<HTMLDivElement, CodeProps>(
     }
 
     if (live) {
-      return <LiveCode code={code} language={language} noinline={noinline} />
+      return (
+        <LiveCode
+          code={code}
+          language={language}
+          liveCodeScope={liveCodeScope}
+          noinline={noinline}
+        />
+      )
     }
 
     return (

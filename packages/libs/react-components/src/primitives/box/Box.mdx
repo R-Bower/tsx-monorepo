@@ -4,6 +4,39 @@ subgroup: Primitives
 id: box
 ---
 
-# Box
+The Box component serves as a wrapper component for most layout related needs. Use Box to set values such as `display`, `width`, `height`, and more. See the LAYOUT section of our [System Props](/system-props) documentation for the full list of available props. In practice, this component is used frequently as a wrapper around other components to achieve Box Model related styling.
 
-The `Box` primitive...
+## Default example
+
+```jsx live
+<Box color={"text.primary"} bg={"bg.successInverse"}>
+  Box can be used to create both{' '}
+  <Box as="span" color="text.secondary">
+    inline
+  </Box>{' '}
+  and
+  <Box color={"text.secondary"} bg="bg.dangerInverse">
+    block-level elements,
+  </Box>
+  <Box
+    border={"solid 1px"}
+    borderColor={"border.default"}
+    color={"text.secondary"}
+    bg={"bg.infoInverse"}
+    p={4}
+    mt={2}
+  >
+    and more!
+  </Box>
+</Box>
+```
+
+## System props
+
+Box components get the `COMMON` category of system props. Read our [System Props](/system-props) doc page for a full list of available props.
+
+## Component props
+
+| Prop name | Type   | Default | Description                         |
+| :-------- | :----- | :-----: | :---------------------------------- |
+| as        | String |  `div`  | sets the HTML tag for the component |

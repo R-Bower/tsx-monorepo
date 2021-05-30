@@ -1,11 +1,15 @@
 import React, {PropsWithChildren} from "react"
 
 import {State, Observe} from "mdx-observable"
+import dynamic from "next/dynamic"
 import Link from "next/link"
 
-import * as ReactComponents from "@rb/react-components"
+import {Box, CodeProps, List, Table, Text} from "@rb/react-components"
 
 import MarkdownHeadingLink from "./components/MarkdownHeadingLink"
+
+// Code split the editor code for better performance
+const Code = dynamic(() => import("./components/CodeEditor"))
 
 interface MDXComponentProps {
   children: React.ReactNode & HTMLCollection
@@ -16,13 +20,13 @@ interface MDXComponentProps {
  * We pass custom components to the MDX provider to override the default styles.
  */
 export const MDXComponents = {
-  ...ReactComponents,
+  Box,
   Observe,
   State,
   a: ({children, href}: PropsWithChildren<HTMLLinkElement>): JSX.Element => {
     return (
       <Link href={href} passHref>
-        <ReactComponents.Text
+        <Text
           as={"a"}
           color={"palette.primary.main"}
           cursor={"pointer"}
@@ -36,17 +40,17 @@ export const MDXComponents = {
           }}
         >
           {children}
-        </ReactComponents.Text>
+        </Text>
       </Link>
     )
   },
-  code: ({children, ...props}: ReactComponents.CodeProps): JSX.Element => (
-    <ReactComponents.CodeBlock mb={2} {...props}>
+  code: ({children, ...props}: CodeProps): JSX.Element => (
+    <Code mb={2} {...props}>
       {children}
-    </ReactComponents.CodeBlock>
+    </Code>
   ),
   h1: ({children}: MDXComponentProps): JSX.Element => (
-    <ReactComponents.Text
+    <Text
       as={"h1"}
       borderBottom={"solid 1px"}
       borderBottomColor={"border.light"}
@@ -54,7 +58,7 @@ export const MDXComponents = {
       pb={2}
     >
       {children}
-    </ReactComponents.Text>
+    </Text>
   ),
   h2: ({children}: MDXComponentProps): JSX.Element => (
     <MarkdownHeadingLink
@@ -81,37 +85,37 @@ export const MDXComponents = {
     </MarkdownHeadingLink>
   ),
   h4: ({children}: MDXComponentProps): JSX.Element => (
-    <ReactComponents.Text as={"h4"} mb={2}>
+    <Text as={"h4"} mb={2}>
       {children}
-    </ReactComponents.Text>
+    </Text>
   ),
   h5: ({children}: MDXComponentProps): JSX.Element => (
-    <ReactComponents.Text as={"h5"}>{children}</ReactComponents.Text>
+    <Text as={"h5"}>{children}</Text>
   ),
   h6: ({children}: MDXComponentProps): JSX.Element => (
-    <ReactComponents.Text as={"h6"}>{children}</ReactComponents.Text>
+    <Text as={"h6"}>{children}</Text>
   ),
   inlineCode: ({children}: MDXComponentProps): JSX.Element => (
-    <ReactComponents.Text as={"code"} variant={"inlineCode"}>
+    <Text as={"code"} variant={"inlineCode"}>
       {children}
-    </ReactComponents.Text>
+    </Text>
   ),
   ol: ({children}: MDXComponentProps): JSX.Element => (
-    <ReactComponents.List listStyleType={"decimal"} mb={4}>
+    <List listTag={"ol"} mb={4}>
       {children}
-    </ReactComponents.List>
+    </List>
   ),
   p: ({children}: MDXComponentProps): JSX.Element => (
-    <ReactComponents.Text as={"p"} mb={4}>
+    <Text as={"p"} mb={4}>
       {children}
-    </ReactComponents.Text>
+    </Text>
   ),
   table: ({children}: MDXComponentProps): JSX.Element => (
-    <ReactComponents.Table>{children}</ReactComponents.Table>
+    <Table>{children}</Table>
   ),
   ul: ({children}: MDXComponentProps): JSX.Element => (
-    <ReactComponents.List listStyleType={"disc"} mb={4}>
+    <List listTag={"ul"} mb={4}>
       {children}
-    </ReactComponents.List>
+    </List>
   ),
 }

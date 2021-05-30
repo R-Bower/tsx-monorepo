@@ -32,6 +32,7 @@ export const DefaultGlobalStyle = createGlobalStyle`
     margin: 0;
   }
 
+  dl,
   ol,
   ul,
   li {

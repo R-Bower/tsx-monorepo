@@ -14,6 +14,10 @@ export const defaultTheme: SystemTheme = {
   ],
   colors: lightColors,
   fontSizes: [],
+  fonts: {
+    mono: "Source Code Pro",
+    regular: "Source Sans Pro",
+  },
   lineHeights: [1, 1.15, 1.25, 1.5],
   shadows,
   // multiples of 4
