@@ -12,11 +12,11 @@ export default function Providers({
   children,
 }: React.PropsWithChildren<ProvidersProps>): JSX.Element {
   return (
-    <StyledThemeProvider>
+    <>
       <DefaultGlobalStyle />
-      <main>
+      <StyledThemeProvider>
         <Layout>{children}</Layout>
-      </main>
-    </StyledThemeProvider>
+      </StyledThemeProvider>
+    </>
   )
 }
