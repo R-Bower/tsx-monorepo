@@ -1,18 +1,19 @@
-import {border, BorderColors} from "./components/border"
-import {btn, BtnColors} from "./components/btn"
-import {caption, CaptionColors} from "./components/caption"
-import {checkbox, CheckboxColors} from "./components/checkbox"
-import {chip, ChipColors} from "./components/chip"
-import {icon, IconColors} from "./components/icon"
-import {input, InputColors} from "./components/input"
-import {label, LabelColors} from "./components/label"
-import {nav, NavColors} from "./components/nav"
-import {radio, RadioColors} from "./components/radio"
-import {text, TextColors} from "./components/text"
-import {toast, ToastColors} from "./components/toast"
+import {BackgroundColors, bgLight} from "./components/bg"
+import {borderLight, BorderColors} from "./components/border"
+import {btnLight, BtnColors} from "./components/btn"
+import {captionLight, CaptionColors} from "./components/caption"
+import {checkboxLight, CheckboxColors} from "./components/checkbox"
+import {chipLight, ChipColors} from "./components/chip"
+import {iconLight, IconColors} from "./components/icon"
+import {inputLight, InputColors} from "./components/input"
+import {labelLight, LabelColors} from "./components/label"
+import {navLight, NavColors} from "./components/nav"
+import {radioLight, RadioColors} from "./components/radio"
+import {textLight, TextColors} from "./components/text"
 import {palette, Palette} from "./palette"
 
 export interface ThemeColors {
+  bg: BackgroundColors
   border: BorderColors
   btn: BtnColors
   caption: CaptionColors
@@ -25,21 +26,20 @@ export interface ThemeColors {
   palette: Palette
   radio: RadioColors
   text: TextColors
-  toast: ToastColors
 }
 
-export const colors: ThemeColors = {
-  border,
-  btn,
-  caption,
-  checkbox,
-  chip,
-  icon,
-  input,
-  label,
-  nav,
+export const lightColors: ThemeColors = {
+  bg: bgLight,
+  border: borderLight,
+  btn: btnLight,
+  caption: captionLight,
+  checkbox: checkboxLight,
+  chip: chipLight,
+  icon: iconLight,
+  input: inputLight,
+  label: labelLight,
+  nav: navLight,
   palette,
-  radio,
-  text,
-  toast,
+  radio: radioLight,
+  text: textLight,
 }

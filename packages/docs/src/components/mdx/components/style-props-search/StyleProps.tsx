@@ -21,16 +21,16 @@ const StyleProps = ({props, id}: PropsListProps): React.ReactElement => {
             as={"tr"}
             borderBottom={"solid 1px"}
             borderBottomColor={"border.light"}
+            sx={{
+              th: {
+                pb: 2,
+                textAlign: "start",
+              },
+            }}
           >
-            <Text as={"th"} pb={2} textAlign={"start"}>
-              Prop
-            </Text>
-            <Text as={"th"} pb={2} textAlign={"start"}>
-              CSS Property
-            </Text>
-            <Text as={"th"} pb={2} textAlign={"start"}>
-              Theme Field
-            </Text>
+            <Text as={"th"}>Prop</Text>
+            <Text as={"th"}>CSS Property</Text>
+            <Text as={"th"}>Theme Field</Text>
           </Box>
         </Box>
         <Box as={"tbody"}>
@@ -40,8 +40,14 @@ const StyleProps = ({props, id}: PropsListProps): React.ReactElement => {
               as={"tr"}
               borderBottom={"solid 1px"}
               borderBottomColor={"border.inverse"}
+              sx={{
+                td: {
+                  pr: 2,
+                  py: 2,
+                },
+              }}
             >
-              <Box as={"td"} py={2}>
+              <Box as={"td"}>
                 <Text as={"code"}>{prop}</Text>
               </Box>
               <Box as={"td"}>

@@ -6,7 +6,7 @@ export interface LabelColors {
   disabled: string
 }
 
-export const label: LabelColors = {
+export const labelLight: LabelColors = {
   alert: palette.alert.main,
   base: "#1A1A1A",
   disabled: "#A1A1A1",

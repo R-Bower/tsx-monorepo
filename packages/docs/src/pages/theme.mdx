@@ -17,3 +17,14 @@ Color groups are categorized based on the functionality of the elements within t
 #### Guidelines:
 - When at all possible, favor using color utility classes over using custom CSS to set colors.
 - You should only use colors designed for the element you're applying them to. For example, text colors should not be used for icons, backgrounds, or any other non-text element.
+
+## Accessing theme values programmatically
+There may be times when you need to access theme values directly.  Our theme is implemented through `styled-components`, which supports programmatic access through the `useContext` React hook:
+
+```jsx
+import {ThemeContext} from "styled-components"
+
+function ExampleView() {
+  const theme = useContext(ThemeContext)
+}
+```

@@ -96,6 +96,11 @@ export const MDXComponents = {
       {children}
     </ReactComponents.Text>
   ),
+  ol: ({children}: MDXComponentProps): JSX.Element => (
+    <ReactComponents.List listStyleType={"decimal"} mb={4}>
+      {children}
+    </ReactComponents.List>
+  ),
   p: ({children}: MDXComponentProps): JSX.Element => (
     <ReactComponents.Text as={"p"} mb={4}>
       {children}
@@ -105,6 +110,8 @@ export const MDXComponents = {
     <ReactComponents.Table>{children}</ReactComponents.Table>
   ),
   ul: ({children}: MDXComponentProps): JSX.Element => (
-    <ReactComponents.List>{children}</ReactComponents.List>
+    <ReactComponents.List listStyleType={"disc"} mb={4}>
+      {children}
+    </ReactComponents.List>
   ),
 }

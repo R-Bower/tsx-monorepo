@@ -17,7 +17,7 @@ import {
 import {textStyles} from "./styles"
 
 export interface TextProps
-  extends Omit<SystemCommonProps, "children">,
+  extends SystemCommonProps,
     SystemInteractivityProps,
     SystemTypographyProps,
     Omit<HTMLAttributes<HTMLParagraphElement>, "color"> {

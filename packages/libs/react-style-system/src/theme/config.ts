@@ -1,5 +1,5 @@
 import {SystemTheme} from "../system/constants"
-import {colors} from "./colors/colors"
+import {lightColors} from "./colors/colors"
 import {shadows} from "./shadows/shadows"
 
 export const defaultTheme: SystemTheme = {
@@ -12,7 +12,7 @@ export const defaultTheme: SystemTheme = {
     "1400px", // 1400 - 1799 is 5
     "1800px", // 1800+ is 6
   ],
-  colors,
+  colors: lightColors,
   fontSizes: [],
   lineHeights: [1, 1.15, 1.25, 1.5],
   shadows,

@@ -4,7 +4,7 @@ export interface CaptionColors {
   disabled: string
 }
 
-export const caption: CaptionColors = {
+export const captionLight: CaptionColors = {
   alert: "#DE1C22",
   default: "#656565",
   disabled: "#A1A1A1",

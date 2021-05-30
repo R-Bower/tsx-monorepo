@@ -1,6 +1,6 @@
-export const get = (obj, key, def?, p?, undef?) => {
+export const get = (obj: any, key, def?, undef?: undefined) => {
   key = key && key.split ? key.split(".") : [key]
-  for (p = 0; p < key.length; p++) {
+  for (let p = 0; p < key.length; p++) {
     obj = obj ? obj[key[p]] : undef
   }
   return obj === undef ? def : obj

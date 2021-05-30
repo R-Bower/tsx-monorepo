@@ -1,29 +1,37 @@
 import React, {HTMLAttributes} from "react"
 
-import {Element} from "../../primitives/element/Element"
+import {SystemTypographyProps} from "@rb/react-style-system"
 
-export const List = React.forwardRef<
-  HTMLUListElement,
-  HTMLAttributes<HTMLUListElement>
->((props, ref) => {
-  return (
-    <Element
-      ref={ref}
-      as={"ul"}
-      {...props}
-      sx={{
-        li: {
-          wordWrap: "break-word",
-        },
-        "li + li": {
-          mt: 2,
-        },
-        "li > p": {
-          mt: 3,
-        },
-        pl: "2em",
-        "ul, ol": {my: 0},
-      }}
-    />
-  )
-})
+import {Element, ElementProps} from "../../primitives/element/Element"
+
+interface ListProps extends ElementProps, HTMLAttributes<HTMLUListElement> {
+  listStyleType?: SystemTypographyProps["listStyleType"]
+  listStylePosition?: SystemTypographyProps["listStylePosition"]
+}
+
+export const List = React.forwardRef<HTMLUListElement, ListProps>(
+  ({listStyleType, listStylePosition, ...props}, ref) => {
+    return (
+      <Element
+        ref={ref}
+        as={"ul"}
+        {...props}
+        sx={{
+          li: {
+            wordWrap: "break-word",
+          },
+          "li + li": {
+            mt: 2,
+          },
+          "li > p": {
+            mt: 3,
+          },
+          listStylePosition,
+          listStyleType,
+          pl: "2em",
+          "ul, ol": {my: 0},
+        }}
+      />
+    )
+  },
+)

@@ -13,13 +13,15 @@
     "build": "lerna run build",
     "clean": "lerna run clean",
     "docs": "lerna run --parallel --stream docs",
-    "lint": "eslint --ext js,ts,tsx,mdx .",
+    "docs:prod": "lerna run docs:prod",
+    "lint": "eslint --ext js,ts,tsx .",
     "lint:mdx": "eslint -c .eslintrc.js --ext mdx .",
     "reset": "node scripts/node-reset.js",
     "next-dev": "lerna run --parallel --stream next-dev",
     "start": "lerna run start",
     "storybook": "lerna run --parallel --stream storybook",
-    "test": "lerna run test"
+    "test": "lerna run test",
+    "lint:config": "eslint --print-config .eslintrc.js > outfile.json"
   },
   "dependencies": {
     "change-case": "^4.1.2",

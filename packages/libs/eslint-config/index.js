@@ -1,3 +1,5 @@
+const configs = require("eslint-plugin-mdx/lib/configs")
+
 module.exports = {
   env: {
     browser: true,
@@ -6,13 +8,22 @@ module.exports = {
     jest: true,
     node: true,
   },
-  extends: ["plugin:mdx/recommended"],
   globals: {
     JSX: true,
   },
-  ignorePatterns: ["node_modules"],
+  ignorePatterns: ["node_modules", "dist"],
   overrides: [
+    // {
+    //   // MDX
+    //   files: ["*.md", "*.mdx"],
+    //   rules: {
+    //     "lines-between-class-members": [2],
+    //     "mdx/remark": [2],
+    //     "no-unused-expressions": [2],
+    //   },
+    // },
     {
+      // TSX
       extends: [
         "eslint:recommended",
         "plugin:@typescript-eslint/recommended",
@@ -141,6 +152,8 @@ module.exports = {
     },
   ],
   settings: {
-    "mdx/code-blocks": true,
+    react: {
+      version: "detect",
+    },
   },
 }

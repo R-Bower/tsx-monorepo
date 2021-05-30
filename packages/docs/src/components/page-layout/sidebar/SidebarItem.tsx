@@ -31,7 +31,6 @@ export default function SidebarItem({
           },
         }}
         textDecoration={active ? "underline" : "none"}
-        transition={"background-color 0.2s"}
       >
         <Flex>{id}</Flex>
       </Text>

@@ -12,7 +12,7 @@ export interface ChipColors {
   disabled: ChipBase
 }
 
-export const chip: ChipColors = {
+export const chipLight: ChipColors = {
   alert: {
     bg: "#FFFFFF",
     border: "#DE1C22",

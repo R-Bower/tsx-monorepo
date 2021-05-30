@@ -7,8 +7,9 @@ interface PaletteColor {
 
 export interface Palette {
   alert: PaletteColor
-  secondary: PaletteColor
+  info: PaletteColor
   primary: PaletteColor
+  secondary: PaletteColor
   success: PaletteColor
   warning: PaletteColor
 }
@@ -24,6 +25,12 @@ const secondary: PaletteColor = {
   dark: "#2f363d",
   light: "#f6f8fa",
   main: "#959da5",
+}
+
+export const info: PaletteColor = {
+  dark: "#1976d2",
+  light: "#64b5f6",
+  main: "#2196f3",
 }
 
 const success: PaletteColor = {
@@ -46,6 +53,7 @@ const alert: PaletteColor = {
 
 export const palette: Palette = {
   alert,
+  info,
   primary,
   secondary,
   success,

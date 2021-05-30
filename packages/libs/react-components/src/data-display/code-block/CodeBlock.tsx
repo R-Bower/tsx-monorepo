@@ -5,17 +5,23 @@ import textContent from "react-addons-text-content"
 
 import {Position, PositionProps} from "../../primitives/position/Position"
 import {CodeClipboardCopy} from "../code-clipboard-copy/CodeClipboardCopy"
-import lightTheme from "./lightTheme"
+import LiveCode from "./LiveCode"
 import Prism from "./Prism"
+import darkTheme from "./themes/darkTheme"
+import lightTheme from "./themes/lightTheme"
 
 export interface CodeProps extends PositionProps {
   language?: Language
   live?: boolean
+  mode?: "light" | "dark"
   noinline?: boolean
 }
 
 export const CodeBlock = React.forwardRef<HTMLDivElement, CodeProps>(
-  ({children, className, live, noinline, ...props}: CodeProps, ref) => {
+  (
+    {children, className, live, mode = "light", noinline, ...props}: CodeProps,
+    ref,
+  ) => {
     const code = textContent(children).trim()
     const language = (
       className ? className.replace(/language-/, "") : "jsx"
@@ -29,6 +35,10 @@ export const CodeBlock = React.forwardRef<HTMLDivElement, CodeProps>(
       return null
     }
 
+    if (live) {
+      return <LiveCode code={code} language={language} noinline={noinline} />
+    }
+
     return (
       <Position ref={ref} borderRadius={5} position={"relative"} {...props}>
         <Position p={2} position={"absolute"} right={0} top={0}>
@@ -39,7 +49,7 @@ export const CodeBlock = React.forwardRef<HTMLDivElement, CodeProps>(
           Prism={Prism}
           code={code}
           language={language}
-          theme={lightTheme}
+          theme={mode === "light" ? lightTheme : darkTheme}
         >
           {({className, tokens, getLineProps, getTokenProps, style}) => {
             return (

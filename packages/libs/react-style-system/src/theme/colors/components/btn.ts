@@ -17,7 +17,7 @@ export interface BtnColors {
   success: BtnStateColors
 }
 
-export const btn: BtnColors = {
+export const btnLight: BtnColors = {
   contrast: {
     base: {
       bg: "transparent",

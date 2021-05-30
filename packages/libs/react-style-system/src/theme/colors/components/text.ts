@@ -1,3 +1,5 @@
+import {palette} from "../palette"
+
 export interface TextColors {
   alert: string
   contrast: string
@@ -9,13 +11,13 @@ export interface TextColors {
   warning: string
 }
 
-export const text: TextColors = {
-  alert: "#DE1C22",
+export const textLight: TextColors = {
+  alert: palette.alert.main,
   contrast: "#FFFFFF",
   disabled: "#A1A1A1",
-  link: "#2660AA",
+  link: palette.primary.main,
   primary: "#24292E",
   secondary: "#656565",
-  success: "#008556",
-  warning: "#E86825",
+  success: palette.success.main,
+  warning: palette.warning.main,
 }

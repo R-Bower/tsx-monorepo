@@ -13,7 +13,7 @@ export interface CheckboxColors {
   hover: CheckboxBase
 }
 
-export const checkbox: CheckboxColors = {
+export const checkboxLight: CheckboxColors = {
   alert: {
     bg: "#FFFFFF",
     border: "#DE1C22",

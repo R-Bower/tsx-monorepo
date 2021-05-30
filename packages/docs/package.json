@@ -24,6 +24,7 @@
     "copy-to-clipboard": "^3.3.1",
     "front-matter": "^4.0.2",
     "fuzzysearch": "^1.0.3",
+    "html-react-parser": "^1.2.6",
     "mdx-observable": "^0.2.0",
     "next": "^10.2.0",
     "next-mdx-remote": "^3.0.2",

@@ -13,7 +13,7 @@ export interface RadioColors {
   hover: RadioBase
 }
 
-export const radio: RadioColors = {
+export const radioLight: RadioColors = {
   alert: {
     bg: "#FFFFFF",
     border: "#DE1C22",

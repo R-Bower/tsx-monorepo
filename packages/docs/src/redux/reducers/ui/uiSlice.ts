@@ -1,0 +1,34 @@
+import {createSlice, PayloadAction} from "@reduxjs/toolkit"
+
+import type {RootState} from "~redux/store"
+
+export type ViewMode = "light" | "dark"
+
+// Define a type for this slice state.
+interface UIState {
+  viewMode: ViewMode
+}
+
+// Will need to resolve against the value in localStorage on refresh
+// Define the initial state for this slice.
+export const uiInitialState: UIState = {
+  viewMode: "light",
+}
+
+export const uiSlice = createSlice({
+  // `createSlice` will infer the state type from the `initialState` argument
+  initialState: uiInitialState,
+  name: "sidebar",
+  reducers: {
+    toggleViewMode: (state: UIState, action: PayloadAction<ViewMode>) => {
+      state.viewMode = action.payload
+    },
+  },
+})
+
+export const {toggleViewMode} = uiSlice.actions
+
+// Other code such as selectors can use the imported `RootState` type
+export const getViewMode = (state: RootState): ViewMode => state.ui.viewMode
+
+export default uiSlice.reducer

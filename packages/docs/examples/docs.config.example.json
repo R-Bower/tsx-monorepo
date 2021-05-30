@@ -1,0 +1,7 @@
+{
+  "group": "docs",
+  "subgroupOrder": {
+    "example": 1,
+    "someOtherSubgroupId": 2
+  }
+}

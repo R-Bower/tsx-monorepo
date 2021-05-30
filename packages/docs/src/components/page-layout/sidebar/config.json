@@ -10,12 +10,20 @@
       "url": "/system-props"
     },
     {
+      "id": "Why styled-system?",
+      "url": "/why-styled-system"
+    },
+    {
       "id": "Core concepts",
       "url": "/core-concepts"
     },
     {
       "id": "Theme",
       "url": "/theme"
+    },
+    {
+      "id": "Sx prop",
+      "url": "/sx-prop"
     },
     {
       "id": "Philosophy",

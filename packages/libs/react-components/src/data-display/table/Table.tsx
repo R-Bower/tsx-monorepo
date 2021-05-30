@@ -12,6 +12,7 @@ export const Table = React.forwardRef<
       as={"table"}
       {...props}
       sx={{
+        color: "text.primary",
         display: "block",
         img: {
           bg: "transparent",

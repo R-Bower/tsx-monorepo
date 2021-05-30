@@ -1,0 +1,128 @@
+import MDXPageWrapper from "../components/mdx/MDXPageWrapper"
+export default ({children}) => <MDXPageWrapper>{children}</MDXPageWrapper>
+
+# Why styled-system?
+
+The system enables developers to quickly build custom UI components that leverage the values defined in our theme.
+
+Compare how the same component can be built with two different APIs.
+
+##### `styled-components` example:
+
+```tsx
+import styled from "styled-components"
+
+const Wrapper = styled("div")(
+  ({ theme }) => `
+  background-color: ${theme.colors.bg.primary};
+  box-shadow: ${theme.shadows.sm};
+  border-radius: 6px;
+  padding: ${theme.space[2]};
+  min-width: 300px;
+`,
+)
+
+const Header = styled("h2")(
+  ({ theme }) => `
+  color: ${theme.palette.text.secondary};
+  font-size: 24px;
+  line-height: 1.5;
+  margin-bottom: ${theme.space[2]};
+`,
+)
+
+const Value = styled("p")(
+  ({ theme }) => `
+  color: ${theme.colors.text.primary};
+  font-size: 16px;
+  font-weight: 600;
+`,
+)
+
+return (
+  <Wrapper>
+    <Header>Hello there</Header>
+    <Value>How are you?</Value>
+  </Wrapper>
+)
+```
+
+##### Using our `styled-system` primitives:
+
+```tsx
+import {Elevation, Text} from "@rb/react-components"
+
+return (
+  <Elevation
+    bg={"bg.primary"}
+    borderRadius={6}
+    boxShadow={"sm"}
+    minWidth={300}
+    p={2}
+  >
+    <Text as={"h2"} fontSize={24} lineHeight={1.5} mb={2}>
+      Hello there
+    </Text>
+    <Text as={"p"} color={"text.primary"} fontSize={16} fontWeight={600}>
+      How are you?
+    </Text>
+  </Elevation>
+)
+```
+
+### Concise and convenient
+
+The system focuses on solving 3 main problems:
+
+#### 1. Switching context wastes time.
+
+There's no need to constantly jump between the usage of the styled components and where they're defined. With the system, the CSS props are on the components in the render method.
+
+#### 2. Naming things is hard.
+
+```
+There are only two hard things in Computer Science:
+cache invalidation and naming things.
+
+-- Phil Karlton
+```
+
+The system obviates the need for declaring and naming individual styled components.  Just use the primitives!
+
+#### 3. Enforcing consistency in UIs is hard.
+
+This is especially true when more than one person is building the application, as there has to be some coordination amongst members of the team regarding the choice of variables and how they're used.
+
+The system provides direct access to the scales within the theme.  It makes it easier to design with constraints.
+
+
+## Optimal developer experience
+
+By design, the `styled-system` package is unopinionated.  It's primarily a JavaScript library and TypeScript support is an [add-on package](https://www.npmjs.com/package/@types/styled-system).  Our library expands on `styled-system` by supplying a strongly typed TypeScript theme and restricting values to predefined interfaces.
+
+There are numerous benefits to this constraint-based approach:
+
+1.
+
+
+
+## Tradeoffs and workarounds
+The style-props approach presents with some challenges.  For example, React props aren't compatible with CSS selector syntax.
+
+##### Problem
+```jsx
+// won't compile
+<Box &:hover={{bg: "bg.hover.primary"}} />
+```
+
+##### Solution
+All of our primitives expose an `sx` prop that provides a superset of CSS (contains all CSS properties/selectors in addition to custom ones).  Like with our primitives, these CSS values are theme-aware.
+```
+<Box sx={{
+  "&:hover": {
+    bg: "bg.hover.primary",
+  }
+}} />
+```
+
+Before using the `sx` prop, visit the [corresponding section](/sx-prop) of these docs for instructions and best practices.

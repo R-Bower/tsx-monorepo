@@ -8,6 +8,7 @@ import {useDispatch} from "react-redux"
 
 import sidebarReducer from "~components/page-layout/sidebar/sidebarSlice"
 
+import uiReducer from "./reducers/ui/uiSlice"
 import {getPreloadedState} from "./utils"
 
 const devMode = process.env.NODE_ENV === "development"
@@ -16,7 +17,7 @@ const store = configureStore({
   devTools: devMode,
   middleware: [...getDefaultMiddleware()],
   preloadedState: getPreloadedState(),
-  reducer: {sidebar: sidebarReducer},
+  reducer: {sidebar: sidebarReducer, ui: uiReducer},
 })
 
 const setupStore = (context: Context): EnhancedStore => store

@@ -34,7 +34,9 @@ export const layoutProps: SystemPropsConfig = {
 
 export const sizingProps: SystemPropsConfig = {
   height: {
+    properties: ["height"],
     property: "height",
+    scale: "sizes",
     transform: pixelSizeTransformer,
   },
   maxHeight: {

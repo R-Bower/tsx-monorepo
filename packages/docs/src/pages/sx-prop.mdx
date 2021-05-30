@@ -1,3 +1,25 @@
+import MDXPageWrapper from "../components/mdx/MDXPageWrapper"
+export default ({children}) => <MDXPageWrapper>{children}</MDXPageWrapper>
+
 # The sx prop
 
+
+### Warning
+
+With the SX prop, any theme value from our system's style functions is valid.  This is powerful, but it's also easy to abuse.  For example, using the SX prop you can provide props to components that don't accept that prop by default.  Consider the `Box` primitive which doesn't include any `TYPOGRAPHY` props.
+
+```jsx
+// just because you can doesn't mean you should.
+<Box sx={{fontSize: 14}}>Hello</Box>
+```
+
+The `sx` prop was implemented to provide access to theme-aware props.  It should primarily be used for locking in styles or providing one-off CSS selectors to existing elements.
+
+When in doubt:
+1. Attempt to use one of our primitives or components.
+
+### Pattern abstraction
+If you find yourself repeating the same pattern with the sx prop, consider extracting that styling logic into a standalone component.
+
+Consider the following real-world example that I ran into while building this library:
 

@@ -1,5 +1,5 @@
 import {palette} from "../palette"
-import {text} from "./text"
+import {textLight} from "./text"
 
 export interface NavColors {
   bg: {
@@ -13,14 +13,14 @@ export interface NavColors {
   }
 }
 
-export const nav: NavColors = {
+export const navLight: NavColors = {
   bg: {
-    primary: text.primary,
+    primary: textLight.primary,
     secondary: palette.secondary.light,
   },
   text: {
     link: palette.primary.main,
     primary: palette.secondary.light,
-    secondary: text.primary,
+    secondary: textLight.primary,
   },
 }

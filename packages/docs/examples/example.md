@@ -1,6 +1,6 @@
 ---
-group: docs
-subgroup: examples
+group: docs  
+subgroup: examples  
 id: example
 ---
 
@@ -16,5 +16,3 @@ Each docs component must include a frontmatter block with the following:
   - Ex: If you were to add a `Checkbox` component in the `react-components` package, the subgroup would be the existing `inputs` subgroup in `src`.
 - `id`
   - A unique identifier for this component.  This should match the name of the component in [kebab-case](https://www.theserverside.com/definition/Kebab-case).
-
-

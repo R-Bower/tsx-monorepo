@@ -14,7 +14,7 @@ export interface InputColors {
   hover: InputBase
 }
 
-export const input: InputColors = {
+export const inputLight: InputColors = {
   alert: {
     bg: "#FFFFFF",
     border: "#DE1C22",

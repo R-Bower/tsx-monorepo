@@ -11,13 +11,13 @@ export interface IconColors {
   warning: string
 }
 
-export const icon: IconColors = {
+export const iconLight: IconColors = {
   bg: "#fafbfc",
   danger: palette.alert.main,
-  info: "#2660AA",
+  info: palette.info.main,
   primary: "#C7C7C7",
   secondary: "#656565",
-  success: "#008556",
+  success: palette.success.main,
   tertiary: "#E4E4E4",
-  warning: "#E86825",
+  warning: palette.warning.main,
 }

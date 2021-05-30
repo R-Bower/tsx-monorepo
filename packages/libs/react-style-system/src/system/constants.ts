@@ -70,7 +70,7 @@ export const COLOR = SS.color
 
 // EFFECTS
 export interface SystemEffectsProps {
-  boxShadow?: SS.ResponsiveValue<CSS.Property.BoxShadow>
+  boxShadow?: DeepObjectKeys<ThemeShadows>
   opacity?: SS.ResponsiveValue<CSS.Property.Opacity>
   textShadow?: SS.ResponsiveValue<CSS.Property.TextShadow>
 }
@@ -194,8 +194,7 @@ export interface SystemCommonProps
     SystemColorProps,
     SystemDisplayProps,
     SystemSizingProps,
-    SystemSpaceProps,
-    SystemTransitionProps {
+    SystemSpaceProps {
   as?: React.ElementType
   css?: StyledComponentsCssProp
   children?: React.ReactNode

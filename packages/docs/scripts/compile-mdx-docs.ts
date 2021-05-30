@@ -4,7 +4,7 @@ import fse from "fs-extra"
 import path from "path"
 import {chain, find, findIndex, propEq} from "rambda"
 
-import {SidebarDocGroup} from "../src/components/layout/sidebar/sidebarSlice"
+import {SidebarDocGroup} from "../src/components/page-layout/sidebar/sidebarSlice"
 
 const isMdx = (file) => file.endsWith(".mdx")
 
@@ -96,10 +96,6 @@ const collectMdxFiles = (
             subgroup: subgroupId,
             url: `/doc/${groupId}/${subgroupId}/${id}`,
           })
-          // const config = find(propEq("group", group.id), configs)
-          // if (config) {
-          //   group.subgroups.sort((a, b) => config[a.id] - config[b.id])
-          // }
         }
       }
     })
@@ -114,6 +110,7 @@ function main(componentDirs: string[], writeFile: boolean) {
     componentDirs,
   )
 
+  // sort the configs if order is defined for each group
   const groups = config.map((group) => {
     const groupConfig = find(propEq("group", group.id), groupConfigs)
     if (groupConfig) {
@@ -131,7 +128,7 @@ function main(componentDirs: string[], writeFile: boolean) {
     fs.writeFileSync(
       path.resolve(
         __dirname,
-        "../src/components/layout/sidebar/search/components.json",
+        "../src/components/page-layout/sidebar/search/components.json",
       ),
       JSON.stringify(groups, null, "  "),
     )
