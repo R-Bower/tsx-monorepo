@@ -5,13 +5,33 @@ interface PaletteColor {
   contrast?: string
 }
 
-export interface Palette {
-  alert: PaletteColor
+interface PaletteBase {
+  danger: PaletteColor
   info: PaletteColor
   primary: PaletteColor
   secondary: PaletteColor
   success: PaletteColor
   warning: PaletteColor
+}
+
+export interface Palette {
+  light: PaletteBase
+}
+
+export interface AlertBase {
+  danger: string
+  dangerInverse: string
+  info: string
+  infoInverse: string
+  success: string
+  successInverse: string
+  warning: string
+  warningInverse: string
+}
+
+export interface Alert {
+  light: AlertBase
+  dark: AlertBase
 }
 
 const primary: PaletteColor = {
@@ -45,17 +65,42 @@ const warning: PaletteColor = {
   main: "#ff9800", // 1
 }
 
-const alert: PaletteColor = {
+const dangerLight: PaletteColor = {
   dark: "#d32f2f", // 100
-  light: "e57373", // 5
-  main: "f44336", // 50
+  light: "#e57373", // 5
+  main: "#f44336", // 50
+}
+
+export const alert: Alert = {
+  dark: {
+    danger: "#c93c37",
+    dangerInverse: "rgba(229,83,75,0.1)",
+    info: "#4184e4",
+    infoInverse: "rgba(65,132,228,0.1)",
+    success: "#46954a",
+    successInverse: "rgba(70,149,74,0.1)",
+    warning: "#ae7c14",
+    warningInverse: "rgba(174,124,20,0.1)",
+  },
+  light: {
+    danger: "#f44336",
+    dangerInverse: "#ffeef0",
+    info: "#2196f3",
+    infoInverse: "#f1f8ff",
+    success: "#4caf50",
+    successInverse: "#dcffe4",
+    warning: "#ff9800",
+    warningInverse: "#fff5b1",
+  },
 }
 
 export const palette: Palette = {
-  alert,
-  info,
-  primary,
-  secondary,
-  success,
-  warning,
+  light: {
+    danger: dangerLight,
+    info,
+    primary,
+    secondary,
+    success,
+    warning,
+  },
 }

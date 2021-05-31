@@ -4,7 +4,7 @@ import {MDXProvider} from "@mdx-js/react"
 
 import {Grid} from "@rb/react-components"
 
-import {MDXComponents} from "./MDXComponents"
+import MDXComponents from "./MDXComponents"
 
 export interface MDXPageWrapperProps {
   children: React.ReactNode

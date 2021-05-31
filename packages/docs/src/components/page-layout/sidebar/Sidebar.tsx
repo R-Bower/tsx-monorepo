@@ -24,9 +24,9 @@ export default function Sidebar({
   return (
     <Box display={["none", null, null, "block"]}>
       <Position
-        bg={"nav.bg.secondary"}
+        bg={"globalNav.inputBg"}
         borderRight={"solid 1px"}
-        borderRightColor={"border.light"}
+        borderRightColor={"border.secondary"}
         height={`calc(100vh - ${headerHeight}px)`}
         minWidth={width}
         position={"sticky"}
@@ -40,11 +40,11 @@ export default function Sidebar({
         >
           <Flex
             borderBottom={"solid 1px"}
-            borderBottomColor={"border.light"}
+            borderBottomColor={"border.secondary"}
             flexDirection={"column"}
             py={6}
           >
-            <Text as={"h4"} color={"nav.text.secondary"} pb={3} pl={6} pr={2}>
+            <Text as={"h4"} color={"text.primary"} pb={3} pl={6} pr={2}>
               {sidebarConfig.id}
             </Text>
             {sidebarConfig.components.map(({id, url}) => {

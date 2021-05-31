@@ -5,7 +5,7 @@ import type {RootState} from "~redux/store"
 export type ViewMode = "light" | "dark"
 
 // Define a type for this slice state.
-interface UIState {
+export interface UIState {
   viewMode: ViewMode
 }
 

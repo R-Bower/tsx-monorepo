@@ -20,7 +20,7 @@ const StyleProps = ({props, id}: PropsListProps): React.ReactElement => {
           <Box
             as={"tr"}
             borderBottom={"solid 1px"}
-            borderBottomColor={"border.light"}
+            borderBottomColor={"border.secondary"}
             sx={{
               th: {
                 pb: 2,

@@ -1,7 +1,6 @@
-import {palette} from "../palette"
+import {alert} from "../palette"
 
 export interface IconColors {
-  bg: string
   primary: string
   secondary: string
   tertiary: string
@@ -12,12 +11,21 @@ export interface IconColors {
 }
 
 export const iconLight: IconColors = {
-  bg: "#fafbfc",
-  danger: palette.alert.main,
-  info: palette.info.main,
+  danger: alert.light.danger,
+  info: alert.light.info,
   primary: "#C7C7C7",
   secondary: "#656565",
-  success: palette.success.main,
+  success: alert.light.success,
   tertiary: "#E4E4E4",
-  warning: palette.warning.main,
+  warning: alert.light.warning,
+}
+
+export const iconDark: IconColors = {
+  danger: "#e5534b",
+  info: "#6cb6ff",
+  primary: "#adbac7",
+  secondary: "#636e7b",
+  success: "#6bc46d",
+  tertiary: "#545d68",
+  warning: "#daaa3f",
 }

@@ -21,7 +21,7 @@ export default function SidebarItem({
     <Link href={url} passHref>
       <Text
         as={"a"}
-        color={"nav.text.link"}
+        color={"text.link"}
         pl={6}
         pr={2}
         py={2}

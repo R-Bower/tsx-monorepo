@@ -19,7 +19,7 @@ interface MDXComponentProps {
 /**
  * We pass custom components to the MDX provider to override the default styles.
  */
-export const MDXComponents = {
+const MDXComponents = {
   Box,
   Observe,
   State,
@@ -28,7 +28,7 @@ export const MDXComponents = {
       <Link href={href} passHref>
         <Text
           as={"a"}
-          color={"palette.primary.main"}
+          color={"text.link"}
           cursor={"pointer"}
           sx={{
             "&:hover": {
@@ -53,7 +53,7 @@ export const MDXComponents = {
     <Text
       as={"h1"}
       borderBottom={"solid 1px"}
-      borderBottomColor={"border.light"}
+      borderBottomColor={"border.secondary"}
       mb={4}
       pb={2}
     >
@@ -64,7 +64,7 @@ export const MDXComponents = {
     <MarkdownHeadingLink
       as={"h2"}
       borderBottom={"solid 1px"}
-      borderBottomColor={"border.light"}
+      borderBottomColor={"border.secondary"}
       mb={4}
       mt={2}
       pb={1}
@@ -76,7 +76,7 @@ export const MDXComponents = {
     <MarkdownHeadingLink
       as={"h3"}
       borderBottom={"none"}
-      borderBottomColor={"border.light"}
+      borderBottomColor={"border.secondary"}
       mb={3}
       mt={2}
       pb={0}
@@ -119,3 +119,5 @@ export const MDXComponents = {
     </List>
   ),
 }
+
+export default MDXComponents

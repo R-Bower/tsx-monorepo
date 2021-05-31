@@ -19,7 +19,7 @@ export const textStyles: {[key: string]: Partial<TextProps>} = {
   },
   h4: {
     fontSize: 18,
-    fontWeight: 500,
+    fontWeight: 600,
     lineHeight: 1.5,
   },
   h5: {
@@ -29,11 +29,11 @@ export const textStyles: {[key: string]: Partial<TextProps>} = {
   },
   h6: {
     fontSize: 16,
-    fontWeight: 500,
+    fontWeight: 400,
     lineHeight: 1.5,
   },
   inlineCode: {
-    bg: "palette.secondary.contrast",
+    bg: "bg.canvasInset",
     borderRadius: 2,
     fontSize: "inherit",
     lineHeight: 1.5,

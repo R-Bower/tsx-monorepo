@@ -15,6 +15,7 @@ export interface TextInputProps extends InputProps {
   variant?: keyof TextInputVariants
 }
 
+// TODO: add icons
 export const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(
   ({size = "medium", variant = "primary", ...props}: TextInputProps, ref) => {
     const inputStyles = {...inputVariants[variant], ...inputSizes[size]}

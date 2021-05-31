@@ -16,13 +16,13 @@ export default function SidebarGroup({
   return (
     <Flex
       borderBottom={"solid 1px"}
-      borderBottomColor={"border.light"}
+      borderBottomColor={"border.secondary"}
       flexDirection={"column"}
       py={4}
     >
       <Flex justifyContent={"space-between"}>
         <Flex alignItems={"center"} flex={"1 0 auto"} width={1}>
-          <Text as={"h4"} color={"nav.text.secondary"} pl={24}>
+          <Text as={"h4"} color={"text.primary"} pl={24}>
             {pascalCase(id)}
           </Text>
         </Flex>

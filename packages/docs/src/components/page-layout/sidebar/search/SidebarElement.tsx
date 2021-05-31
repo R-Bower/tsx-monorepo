@@ -22,11 +22,8 @@ export default function SidebarElement({
     <Link href={url} passHref>
       <Text
         as={"a"}
-        color={"nav.text.link"}
-        cursor={"pointer"}
-        fontSize={16}
-        fontWeight={400}
-        pl={36}
+        color={"text.link"}
+        pl={9}
         pr={24}
         py={2}
         sx={{

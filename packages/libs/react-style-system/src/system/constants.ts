@@ -182,6 +182,7 @@ export const TYPOGRAPHY = SS.compose(
   SS.system(textProps),
   SS.fontFamily,
   SS.fontSize,
+  SS.fontWeight,
   SS.lineHeight,
   SS.letterSpacing,
   SS.fontStyle,

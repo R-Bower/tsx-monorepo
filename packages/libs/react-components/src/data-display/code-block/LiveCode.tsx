@@ -73,7 +73,7 @@ export default function LiveCode({
       >
         <Flex
           border={"solid 1px"}
-          borderColor={"border.light"}
+          borderColor={"border.secondary"}
           borderTopLeftRadius={5}
           borderTopRightRadius={5}
         >
@@ -104,7 +104,7 @@ export default function LiveCode({
         </Position>
         <Text
           as={LiveError}
-          bg={"palette.alert.main"}
+          bg={"text.danger"}
           color={"white"}
           fontFamily={"mono"}
           fontSize={1}

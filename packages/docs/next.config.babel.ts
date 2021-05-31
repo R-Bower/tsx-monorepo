@@ -39,6 +39,7 @@ const nextConfig: NextConfig = {
       config.resolve.fallback.fs = false
     }
 
+    // use preact on CSR to shave 30kb off of the bundle
     if (!dev && !isServer) {
       Object.assign(config.resolve.alias, {
         react: "preact/compat",

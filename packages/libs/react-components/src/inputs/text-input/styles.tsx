@@ -37,12 +37,18 @@ export interface TextInputVariants {
 export const inputVariants: TextInputVariants = {
   primary: {
     border: "solid 1px",
-    borderColor: "input.base.border",
+    borderColor: "input.border",
     borderRadius: 5,
-    color: "input.base.text",
+    color: "text.primary",
     sx: {
+      "&:focus": {
+        borderColor: "input.focusBorder",
+      },
+      "&:hover:not(:focus)": {
+        borderColor: "input.hoverBorder",
+      },
       "::placeholder": {
-        color: "input.base.placeholder",
+        color: "input.primary.placeholder",
       },
     },
   },

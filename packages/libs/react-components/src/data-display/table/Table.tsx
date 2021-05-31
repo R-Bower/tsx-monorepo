@@ -24,7 +24,7 @@ export const Table = React.forwardRef<
         },
         "th, td": {
           border: "solid 1px",
-          borderColor: "border.light",
+          borderColor: "border.secondary",
           px: 3,
           py: 2,
         },
