@@ -4,7 +4,10 @@ import {MDXProvider} from "@mdx-js/react"
 
 import {Grid} from "@rb/react-components"
 
-import MDXComponents from "./MDXComponents"
+import {ViewMode} from "~redux/reducers/ui/uiSlice"
+import {useAppSelector} from "~redux/store"
+
+import makeMDXComponents from "./MDXComponents"
 
 export interface MDXPageWrapperProps {
   children: React.ReactNode
@@ -13,6 +16,8 @@ export interface MDXPageWrapperProps {
 export default function MDXPageWrapper({
   children,
 }: MDXPageWrapperProps): JSX.Element {
+  const viewMode = useAppSelector<ViewMode>((state) => state.ui.viewMode)
+  const MDXComponents = makeMDXComponents(viewMode)
   return (
     <MDXProvider components={MDXComponents}>
       <Grid

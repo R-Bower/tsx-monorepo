@@ -45,7 +45,7 @@ export default function Header({headerHeight}: HeaderProps): JSX.Element {
             <Text
               as={"a"}
               color={"inherit"}
-              ml={2}
+              ml={1}
               textDecoration={"none"}
               variant={"h4"}
             >

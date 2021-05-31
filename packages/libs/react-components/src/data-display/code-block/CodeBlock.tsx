@@ -17,7 +17,7 @@ export interface CodeProps extends PositionProps {
   language?: Language
   liveCodeScope?: Record<string, React.ReactNode>
   live?: boolean
-  mode?: "light" | "dark"
+  viewMode?: "light" | "dark"
   noinline?: boolean
 }
 
@@ -28,7 +28,7 @@ export const CodeBlock = React.forwardRef<HTMLDivElement, CodeProps>(
       className,
       live,
       liveCodeScope,
-      mode = "light",
+      viewMode = "light",
       noinline,
       ...props
     }: CodeProps,
@@ -68,7 +68,7 @@ export const CodeBlock = React.forwardRef<HTMLDivElement, CodeProps>(
           Prism={Prism}
           code={code}
           language={language}
-          theme={mode === "light" ? lightTheme : darkTheme}
+          theme={viewMode === "light" ? lightTheme : darkTheme}
         >
           {({className, tokens, getLineProps, getTokenProps, style}) => {
             return (
