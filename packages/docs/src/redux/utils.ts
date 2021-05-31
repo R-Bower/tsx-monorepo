@@ -15,10 +15,6 @@ const getSidebarState = () => {
   }
 }
 
-const getUiState = () => {
-
-}
-
 export const getPreloadedState = () => {
   return {
     sidebar: getSidebarState(),

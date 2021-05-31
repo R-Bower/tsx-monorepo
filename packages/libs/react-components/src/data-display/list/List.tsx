@@ -18,6 +18,7 @@ export const List = React.forwardRef<HTMLUListElement, ListProps>(
         as={listTag}
         {...props}
         sx={{
+          color: "text.primary",
           li: {
             wordWrap: "break-word",
           },

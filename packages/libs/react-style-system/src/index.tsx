@@ -1,7 +1,8 @@
 // Theme
+export * from "./theme/colors/colors"
+export * from "./theme/config"
 export * from "./theme/Provider"
 export * from "./theme/GlobalStyle"
-export * from "./theme/config"
 
 // Style System
 export * from "./system/constants"

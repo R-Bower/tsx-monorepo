@@ -3,19 +3,19 @@ import React, {useMemo} from "react"
 import {ThemeProvider} from "styled-components"
 
 import {SystemTheme} from "../system/constants"
-import {ThemeColors} from "./colors/colors"
+import {lightColors, ThemeColors} from "./colors/colors"
 import {defaultTheme} from "./config"
 import {ThemeShadows} from "./shadows/shadows"
 
 export interface ThemeProviderProps {
-  children: JSX.Element | JSX.Element[]
+  children: React.ReactNode
   colors?: ThemeColors
   shadows?: ThemeShadows
 }
 
 export const StyledThemeProvider: React.FC = ({
   children,
-  colors = defaultTheme.colors,
+  colors = lightColors,
   shadows = defaultTheme.shadows,
 }: ThemeProviderProps) => {
   const mergedTheme: SystemTheme = useMemo(

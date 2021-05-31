@@ -7,9 +7,10 @@ This React library is heavily inspired by GitHub's [Primer Design System](https:
 
 These docs are built using the components described within.  Take a look at the repository for examples!
 
-While these docs may seem extremely similar to Primer's docs site, there are a few noteworthy differences:
-1. Primer's components are a mix of JavaScript and TypeScript.  The components in this library are all
-2. Primer's styling solution uses vanilla `styled-system`.  Ours extends the `styled-system` TypeScript definitions types for optimal code completion/intellisense.  [Go here](/why-styled-system#optimal-developer-experience) for more details.
+The layout of this site is similar to Primer's React component docs, but appearances can be deceiving:
+1. This site was reengineered from the ground-up using Next + TypeScript (Primer's docs are based in Gatsby + JavaScript).
+2. Primer's styling solution uses vanilla `styled-system`.  Ours extends the `styled-system` TypeScript definitions types for optimal code completion/intellisense.  [Learn more](/why-styled-system#optimal-developer-experience).
+3. Primer's docs sites and individual React libraries are standalone.  This library is a monorepo that melds all the React tooling into one convenient package.
 
 ## Principles
 
@@ -17,7 +18,7 @@ While these docs may seem extremely similar to Primer's docs site, there are a f
 - Build small building blocks with minimal props to keep complexity low.
 - Keep system constrained by only including props needed per component.
 - Favor wrapping or extending components for more complex operations.
-- Maintain design system consistency with utilities as props (for spacing, color, font-size, line-height, widths, and radii).
+- Maintain design system consistency with utilities as props (for spacing, color, font-size, line-height, etc...).
 
 
 ## Goals and Focus

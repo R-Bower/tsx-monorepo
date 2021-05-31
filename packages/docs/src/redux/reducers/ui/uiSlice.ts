@@ -1,4 +1,4 @@
-import {createSlice, PayloadAction} from "@reduxjs/toolkit"
+import {createSlice} from "@reduxjs/toolkit"
 
 import type {RootState} from "~redux/store"
 
@@ -20,8 +20,9 @@ export const uiSlice = createSlice({
   initialState: uiInitialState,
   name: "sidebar",
   reducers: {
-    toggleViewMode: (state: UIState, action: PayloadAction<ViewMode>) => {
-      state.viewMode = action.payload
+    toggleViewMode: (state: UIState) => {
+      state.viewMode = state.viewMode === "light" ? "dark" : "light"
+      window.localStorage.setItem("uiState", JSON.stringify(state))
     },
   },
 })

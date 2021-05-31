@@ -4,7 +4,7 @@ import {
   getDefaultMiddleware,
 } from "@reduxjs/toolkit"
 import {Context, createWrapper, MakeStore} from "next-redux-wrapper"
-import {useDispatch} from "react-redux"
+import {TypedUseSelectorHook, useDispatch, useSelector} from "react-redux"
 
 import sidebarReducer from "~components/page-layout/sidebar/sidebarSlice"
 
@@ -33,4 +33,6 @@ export const nextReduxWrapper = createWrapper(makeStore, {
 export type RootState = ReturnType<typeof store.getState>
 // Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
 export type AppDispatch = typeof store.dispatch
-export const useAppDispatch = (): AppDispatch => useDispatch<AppDispatch>() // Export a hook that can be reused to resolve types
+// Export hooks that can be reused to resolve types
+export const useAppDispatch = (): AppDispatch => useDispatch<AppDispatch>()
+export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector

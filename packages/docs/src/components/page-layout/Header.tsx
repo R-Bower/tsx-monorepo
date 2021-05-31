@@ -8,8 +8,8 @@ import Link from "next/link"
 import {Button, Flex, Position, Text} from "@rb/react-components"
 
 import {rotateCss} from "~lib/animations/rotate"
-import {useAppSelector} from "~lib/hooks/useSelector"
-import {ViewMode} from "~redux/reducers/ui/uiSlice"
+import {toggleViewMode, ViewMode} from "~redux/reducers/ui/uiSlice"
+import {useAppDispatch, useAppSelector} from "~redux/store"
 
 interface HeaderProps {
   headerHeight: number | number[]
@@ -17,6 +17,7 @@ interface HeaderProps {
 
 export default function Header({headerHeight}: HeaderProps): JSX.Element {
   const viewMode = useAppSelector<ViewMode>((state) => state.ui.viewMode)
+  const dispatch = useAppDispatch()
   return (
     <Position id={"app-header"} position={"sticky"} top={0} zIndex={1}>
       <Flex
@@ -28,12 +29,26 @@ export default function Header({headerHeight}: HeaderProps): JSX.Element {
         px={[6, 6, 15, 6]}
       >
         <Flex alignItems={"center"}>
-          <Flex alignItems={"center"} color={"globalNav.icon"} css={rotateCss}>
-            <DiReact size={24} />
-          </Flex>
+          <Link href={"/"}>
+            <Button
+              alignItems={"center"}
+              bg={"transparent"}
+              border={"none"}
+              color={"globalNav.icon"}
+              css={rotateCss}
+            >
+              <DiReact size={24} />
+            </Button>
+          </Link>
 
           <Link href={"https://github.com/R-Bower/tsx-monorepo"} passHref>
-            <Text as={"a"} color={"inherit"} ml={4} variant={"h4"}>
+            <Text
+              as={"a"}
+              color={"inherit"}
+              ml={2}
+              textDecoration={"none"}
+              variant={"h4"}
+            >
               @rb/tsx-monorepo
             </Text>
           </Link>
@@ -45,6 +60,7 @@ export default function Header({headerHeight}: HeaderProps): JSX.Element {
           border={"none"}
           color={"globalNav.icon"}
           cursor={"pointer"}
+          onClick={() => dispatch(toggleViewMode())}
           outline={"none"}
         >
           {viewMode === "dark" ? (

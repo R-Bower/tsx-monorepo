@@ -2,7 +2,7 @@ import React, {useCallback, useEffect, useState} from "react"
 
 import {Flex, TextInput} from "@rb/react-components"
 
-import {useAppSelector} from "~lib/hooks/useSelector"
+import {useAppSelector} from "~redux/store"
 
 import {SidebarDocGroup} from "../sidebarSlice"
 import SidebarGroup from "./SidebarGroup"
