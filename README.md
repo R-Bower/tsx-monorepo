@@ -8,6 +8,16 @@ This project is an opinionated collection of tools, apps, and libraries intended
 </div>
 
 ----
+Live build here: https://tsx-monorepo.com/
+
+----
+
+### Disclaimers
+Development for this project is ongoing.  My company will likely be making a private fork once we're ready to incorporate private business logic.  I'll do my best to keep the public bits updated, but can't make any guarantees!
+
+Mobile support is coming soon - just need to spruce up the sidebar.  The nav menu doesn't have links yet, and you'll be stuck on the homepage unless you navigate to urls directly.
+
+----
 
 **Table of contents**
 
@@ -18,14 +28,13 @@ This project is an opinionated collection of tools, apps, and libraries intended
 
 ## Goals
 
-- Consistent code formatting in every package.  [ESLint](https://eslint.org/docs/user-guide/getting-started) is used for identifying and reporting on patterns found
-  in ECMAScript/JavaScript code, with the goal of making code more consistent and avoiding bugs.
+- Consistent code formatting in every package via [ESLint](https://eslint.org/docs/user-guide/getting-started).
 - First class [TypeScript](https://www.typescriptlang.org/) support.
 - Hot reloading adjacent packages for rapid development.
-- First class documentation support via MDX and [storybook](https://storybook.js.org/docs/react/get-started/introduction).
-- Consistent styling by use of `styled-components` and `styled-system` with a strongly typed design system.
+- First class documentation support via MDX and react-live.
+- Consistent styling by use of [styled-components](https://styled-components.com/) and [styled-system](https://styled-system.com/) with a strongly typed design system.
 - [Tree shaking](https://webpack.js.org/guides/tree-shaking/) for every React library.
-  - This is accomplished using webpack's side effects. If you're unfamiliar with side effects, [read more here](https://sgom.es/posts/2020-06-15-everything-you-never-wanted-to-know-about-side-effects/) for a good explanation.
+  - This is accomplished using webpack's side effects. [Learn more](https://sgom.es/posts/2020-06-15-everything-you-never-wanted-to-know-about-side-effects/).
 - Working "go to definition" feature in IDEs for every package.
 - Icons by [react-icons](https://react-icons.github.io/react-icons/).
 - Unit Testing support via Jest and [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/).
@@ -56,14 +65,15 @@ This project is an opinionated collection of tools, apps, and libraries intended
 
 ## Docs
 
-The NextJS application at `packages/docs` is responsible for rendering MDX components.  Shared components that contain a corresponding mdx file are aggregated by this package. For more information, check out `packages/docs`.
+The NextJS application at `packages/docs` is responsible for rendering MDX components.  Shared components that contain a corresponding mdx file are aggregated by this package. For more information, check out the [docs readme](./packages/docs/README.md).
 
-### NextJS Development
+### Running locally
 
 - run `yarn install` from the root. 
-- run `yarn next-dev` from the root of this repository. Executes `yarn run dev --parallel --stream` which does the following:
-  - starts `@rb/nextjs-template` in dev mode using `next dev`
+- run `yarn docs` from the root of this repository. Executes `yarn run docs --parallel --stream` which does the following:
+  - starts `@rb/monorepo-docs` in dev mode using `next dev`
   - runs `@rb/react-style-system` and `@rb/react-components` in watch mode (using `tsc`) which triggers a recompile on change (hot reloading).
+  - There's additional configuration details in the `packages/docs` package that forces the site to hot-reload when MDX files are changed.
 
 
 ## Conventions
@@ -130,12 +140,12 @@ export default function Example(): JSX.Element {
 
 #### Solution: split the component using the Data/View pattern.
 
-```typescript jsx
+```tsx
 // src/components/example/ExampleView.tsx
 import React from "react"
 
 export interface ViewProps {
-  // never use `any` like this.  It's just an example ;)
+  // never use `any` like this.  It's just an example.
   data: any
 }
 
@@ -149,7 +159,7 @@ export default function ExampleView({data}: ViewProps): JSX.Element {
 }
 ```
 
-```typescript jsx
+```tsx
 // src/components/example/ExampleData.tsx
 import React from "react"
 
@@ -162,7 +172,7 @@ export default function ExampleData(): JSX.Element {
 }
 ```
 
-Now we're more flexible.  We've eliminated the API coupling by keeping the styles contained within a separate component.  However, this presents with a tradeoff.
+Now we're more flexible.  We've eliminated the API coupling by placing the styles in a separate component.  However, this presents with a tradeoff.
 
 Pros:
 - More flexible and likely more accurate tests.
@@ -176,8 +186,7 @@ Read more on the [Data/View pattern here](https://www.freecodecamp.org/news/reac
 
 ##### Feature Driven Development (FDD).
 
-- This is a lightweight Agile technique, manifest in a project structure where your code is organized by what it accomplishes (i.e. features), rather than lumping all
-  modules of like types into separate blobs of components, routes, logic, actions, etc.
+- This is a lightweight Agile technique.  It involves a project structure where your code is organized by what it accomplishes (i.e. features), rather than lumping all modules of like types into separate blobs of components, routes, logic, actions, etc.
 - There is a direct correlation between the problem space (the requirements) and the implementation (the code)
 
 ##### FDD Folder Structure
@@ -196,8 +205,10 @@ Read more on the [Data/View pattern here](https://www.freecodecamp.org/news/reac
 
 ## References
 
-See the following blog posts. This guy is pretty good. I used his monorepo as a base for this repository:
+See the following blog posts. This guy is pretty good. I used his monorepo as a starting point for this repository:
 
 - [How to set up a TypeScript monorepo and make Go to definition work](https://medium.com/@NiGhTTraX/how-to-set-up-a-typescript-monorepo-with-lerna-c6acda7d4559)
 - [Making TypeScript monorepos play nice with other tools](https://medium.com/@NiGhTTraX/making-typescript-monorepos-play-nice-with-other-tools-a8d197fdc680)
 
+### Like/comment/subscribe/etc...
+- Add me on [LinkedIn](https://www.linkedin.com/in/ryan-bower-3325a253/)
