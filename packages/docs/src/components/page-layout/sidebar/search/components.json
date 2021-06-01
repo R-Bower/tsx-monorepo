@@ -17,7 +17,7 @@
           {
             "group": "components",
             "id": "element",
-            "mdxBody": "# Element\n\nThis is the Element primitive.\n",
+            "mdxBody": "# Element\n\nTODO: implement.\n",
             "mdxFileName": "Element.mdx",
             "mdxFilePath": "packages/libs/react-components/src/primitives/element/Element.mdx",
             "subgroup": "primitives",
@@ -26,7 +26,7 @@
           {
             "group": "components",
             "id": "elevation",
-            "mdxBody": "# Elevation\n\nThis is the Elevation primitive.\n",
+            "mdxBody": "# Elevation\n\nTODO: implement.\n",
             "mdxFileName": "Elevation.mdx",
             "mdxFilePath": "packages/libs/react-components/src/primitives/elevation/Elevation.mdx",
             "subgroup": "primitives",
@@ -35,7 +35,7 @@
           {
             "group": "components",
             "id": "flex",
-            "mdxBody": "# Flex\n\nThis is the Flex primitive.\n",
+            "mdxBody": "# Flex\n\nTODO: implement.\n",
             "mdxFileName": "Flex.mdx",
             "mdxFilePath": "packages/libs/react-components/src/primitives/flex/Flex.mdx",
             "subgroup": "primitives",
@@ -44,7 +44,7 @@
           {
             "group": "components",
             "id": "grid",
-            "mdxBody": "# Grid\n\nThis is the Grid primitive.\n",
+            "mdxBody": "# Grid\n\nTODO: implement.\n",
             "mdxFileName": "Grid.mdx",
             "mdxFilePath": "packages/libs/react-components/src/primitives/grid/Grid.mdx",
             "subgroup": "primitives",
@@ -53,7 +53,7 @@
           {
             "group": "components",
             "id": "input",
-            "mdxBody": "# Input\n\nThis is the Input primitive.\n",
+            "mdxBody": "# Input\n\nTODO: implement.\n",
             "mdxFileName": "Input.mdx",
             "mdxFilePath": "packages/libs/react-components/src/primitives/input/Input.mdx",
             "subgroup": "primitives",
@@ -62,7 +62,7 @@
           {
             "group": "components",
             "id": "position",
-            "mdxBody": "# Position\n\nThis is the Position primitive.\n",
+            "mdxBody": "# Position\n\nTODO: implement.\n",
             "mdxFileName": "Position.mdx",
             "mdxFilePath": "packages/libs/react-components/src/primitives/position/Position.mdx",
             "subgroup": "primitives",
@@ -71,7 +71,7 @@
           {
             "group": "components",
             "id": "text",
-            "mdxBody": "# Text\n\nThis is the Text primitive.\n",
+            "mdxBody": "# Text\n\nTODO: implement.\n",
             "mdxFileName": "Text.mdx",
             "mdxFilePath": "packages/libs/react-components/src/primitives/text/Text.mdx",
             "subgroup": "primitives",
@@ -84,17 +84,8 @@
         "elements": [
           {
             "group": "components",
-            "id": "breadcrumbs",
-            "mdxBody": "Breadcrumbs are used to show taxonomical context on pages that are many levels deep in a site’s hierarchy. Breadcrumbs show and link to parent, grandparent, and sometimes great-grandparent pages. Breadcrumbs are most appropriate on pages that:\n\n- Are many levels deep on a site\n- Do not have a section-level navigation\n- May need the ability to quickly go back to the previous (parent) page\n\nTo use Breadcrumb with [react-router](https://github.com/ReactTraining/react-router) or\n[react-router-dom](https://www.npmjs.com/package/react-router-dom), pass\n`as={NavLink}` and omit the `selected` prop.\nThis ensures that the NavLink gets `activeClassName='selected'`\n\n## Default example\n\n```jsx\n<Breadcrumb>\n  <Breadcrumb.Item href=\"#business\">Business</Breadcrumb.Item>\n  <Breadcrumb.Item href=\"#customers\">Customers</Breadcrumb.Item>\n  <Breadcrumb.Item href=\"#mailchimp\" selected>\n    MailChimp\n  </Breadcrumb.Item>\n</Breadcrumb>\n```\n\n## System props\n\nBreadcrumb and Breadcrumb.Item components get `COMMON` system props. Read our [System Props](/system-props) doc page for a full list of available props.\n\n## Component props\n\n### Breadcrumb\n\nThe `Breadcrumb` component does not receive any additional props besides `COMMON` system props.\n\n### Breadcrumb.Item\n\n| Prop name | Type | Default | Description |\n| :- | :- | :-: | :- |\n| as        | String  | `a` | Sets the HTML tag for the component              |\n| href      | String  | | URL to be used for the Link                      |\n| selected  | Boolean | false | Used to style the link as selected or unselected |\n",
-            "mdxFileName": "Breadcrumbs.mdx",
-            "mdxFilePath": "packages/libs/react-components/src/data-display/breadcrumbs/Breadcrumbs.mdx",
-            "subgroup": "data-display",
-            "url": "/doc/components/data-display/breadcrumbs"
-          },
-          {
-            "group": "components",
             "id": "truncated-text",
-            "mdxBody": "# TruncatedText\n\n<State initialState={{maxLines: 2}}>\n\n  <Observe>\n    {({maxLines, setState}) => (\n      <button onClick={() => setState(s => ({maxLines: s.maxLines + 1}))}>\n        Click to increment: {maxLines}\n      </button>\n    )}\n  </Observe>\n\n  <Observe>\n    {({maxLines}) =>\n      <Box px={2} py={1} border={\"solid 2px\"} borderColor={\"border.default\"} width={200}>\n        <TruncatedText as={\"p\"} maxLines={maxLines}>\n          Click the button to expand this section.  Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?\n        </TruncatedText>\n      </Box>\n    }\n  </Observe>\n\n</State>\n",
+            "mdxBody": "# TruncatedText\nTODO: finish.\n\n<State initialState={{maxLines: 2}}>\n\n  <Observe>\n    {({maxLines, setState}) => (\n      <button onClick={() => setState(s => ({maxLines: s.maxLines + 1}))}>\n        Click to increment: {maxLines}\n      </button>\n    )}\n  </Observe>\n\n  <Observe>\n    {({maxLines}) =>\n      <Box px={2} py={1} border={\"solid 2px\"} borderColor={\"border.default\"} width={200}>\n        <TruncatedText as={\"p\"} maxLines={maxLines}>\n          Click the button to expand this section.  Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?\n        </TruncatedText>\n      </Box>\n    }\n  </Observe>\n\n</State>\n",
             "mdxFileName": "TruncatedText.mdx",
             "mdxFilePath": "packages/libs/react-components/src/data-display/truncated-text/TruncatedText.mdx",
             "subgroup": "data-display",
@@ -108,7 +99,7 @@
           {
             "group": "components",
             "id": "list",
-            "mdxBody": "# List\n\n:)\n",
+            "mdxBody": "# List\n\nTODO: implement.\n",
             "mdxFileName": "List.mdx",
             "mdxFilePath": "packages/libs/react-components/src/data-display/list/List.mdx",
             "subgroup": "layout",
@@ -117,7 +108,7 @@
           {
             "group": "components",
             "id": "card",
-            "mdxBody": "# Card\n\nThis is a card component\n",
+            "mdxBody": "# Card\n\nTODO: implement.\n",
             "mdxFileName": "Card.mdx",
             "mdxFilePath": "packages/libs/react-components/src/layout/card/Card.mdx",
             "subgroup": "layout",
@@ -126,7 +117,7 @@
           {
             "group": "components",
             "id": "separator",
-            "mdxBody": "# Separator\n\nThis is a separator component.\n",
+            "mdxBody": "# Separator\n\nTODO: implement.\n",
             "mdxFileName": "Separator.mdx",
             "mdxFilePath": "packages/libs/react-components/src/layout/separator/Separator.mdx",
             "subgroup": "layout",
