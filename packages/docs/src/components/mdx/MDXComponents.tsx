@@ -10,7 +10,7 @@ import {ViewMode} from "~redux/reducers/ui/uiSlice"
 
 import MarkdownHeadingLink from "./components/MarkdownHeadingLink"
 
-// Code split the editor code for better performance
+// Code split the large CodeEditor for better performance
 const Code = dynamic(() => import("./components/CodeEditor"))
 
 interface MDXComponentProps {
