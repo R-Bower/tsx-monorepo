@@ -3,7 +3,7 @@
 
 # TSX-monorepo
 
-This project is an opinionated collection of tools, apps, and libraries intended for supporting rapid React UI development. This project was heavily inspired by [GitHub's Primer design system](https://primer.style/).
+This project is an opinionated collection of tools, apps, and libraries intended for supporting rapid React UI development. It was heavily inspired by [GitHub's Primer design system](https://primer.style/).
 
 </div>
 
@@ -13,7 +13,7 @@ Live build here: https://tsx-monorepo.com/
 ----
 
 ### Disclaimers
-Development for this project is ongoing.  My company will likely be making a private fork once we're ready to incorporate private business logic.  I'll do my best to keep the public bits updated, but can't make any guarantees!
+Development for this project is ongoing - not sure how much longer the repo is going to stay public.
 
 Mobile support is coming soon - just need to spruce up the sidebar.  The nav menu doesn't have links yet, and you'll be stuck on the homepage unless you navigate to urls directly.
 
@@ -209,6 +209,3 @@ See the following blog posts. This guy is pretty good. I used his monorepo as a 
 
 - [How to set up a TypeScript monorepo and make Go to definition work](https://medium.com/@NiGhTTraX/how-to-set-up-a-typescript-monorepo-with-lerna-c6acda7d4559)
 - [Making TypeScript monorepos play nice with other tools](https://medium.com/@NiGhTTraX/making-typescript-monorepos-play-nice-with-other-tools-a8d197fdc680)
-
-### Like/comment/subscribe/etc...
-- Add me on [LinkedIn](https://www.linkedin.com/in/ryan-bower-3325a253/)
