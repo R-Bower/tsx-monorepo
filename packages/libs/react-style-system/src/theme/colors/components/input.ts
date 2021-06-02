@@ -27,6 +27,6 @@ export const inputDark: InputColors = {
   dangerBorder: "#e5534b",
   disabledBg: "#2d333b",
   disabledBorder: "#444c56",
-  focusBorder: "",
-  hoverBorder: "",
+  focusBorder: "#4184e4",
+  hoverBorder: "#4184e4",
 }

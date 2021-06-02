@@ -8,7 +8,9 @@ import * as ReactComponents from "@rb/react-components"
 
 import {ViewMode} from "~redux/reducers/ui/uiSlice"
 
+import {CodeProps} from "./components/code-block/CodeBlock"
 import MarkdownHeadingLink from "./components/MarkdownHeadingLink"
+import StylePropsSearch from "./components/style-props-search/StylePropsSearch"
 
 // Code split the large CodeEditor for better performance
 const Code = dynamic(() => import("./components/CodeEditor"))
@@ -26,6 +28,7 @@ export default function makeMDXComponents(viewMode: ViewMode) {
     ...ReactComponents,
     Observe,
     State,
+    StylePropsSearch,
     a: ({children, href}: PropsWithChildren<HTMLLinkElement>): JSX.Element => {
       return (
         <Link href={href} passHref>
@@ -47,7 +50,7 @@ export default function makeMDXComponents(viewMode: ViewMode) {
         </Link>
       )
     },
-    code: ({children, ...props}: ReactComponents.CodeProps): JSX.Element => (
+    code: ({children, ...props}: CodeProps): JSX.Element => (
       <Code mb={2} viewMode={viewMode} {...props}>
         {children}
       </Code>

@@ -6,4 +6,38 @@ id: flex
 
 # Flex
 
-TODO: implement.
+The `Flex` component behaves the same as the [Box](/doc/components/primitives/box) component except that it has `display: flex` set by default.
+
+```jsx live
+<Flex
+  border={"solid 1px"}
+  borderColor={"border.primary"}
+  borderRadius={2}
+  height={300}
+  width={1}
+>
+  <Flex flexWrap={"nowrap"}>
+    <Flex bg={"bg.infoInverse"} color={"text.inverse"} p={3}>
+      Item 1
+    </Flex>
+    <Box bg={"bg.warningInverse"} color={"text.inverse"} p={3}>
+      Item 2
+    </Box>
+    <Box bg={"bg.dangerInverse"} color={"text.inverse"} p={3}>
+      Item 3
+    </Box>
+  </Flex>
+</Flex>
+```
+
+## Component props
+
+| Prop name | Type   | Default | Description                         |
+| :-------- | :----- | :-----: | :---------------------------------- |
+| as        | String |  `div`  | sets the HTML tag for the component |
+
+## System props
+
+Box components get the `COMMON` and `FLEX` category of system props which are listed in the table below.
+
+<StylePropsSearch propGroups={["flex", "border", "color", "display", "sizing", "space"]} />

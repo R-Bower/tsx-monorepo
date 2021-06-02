@@ -5,7 +5,21 @@ import {Box, Flex, Text} from "@rb/react-components"
 import MarkdownHeadingLink from "../MarkdownHeadingLink"
 
 export interface PropsListProps {
-  id: string
+  id:
+    | "background"
+    | "border"
+    | "color"
+    | "display"
+    | "effects"
+    | "flex"
+    | "grid"
+    | "interactivity"
+    | "layout"
+    | "sizing"
+    | "space"
+    | "transitions"
+    | "typography"
+    | string
   props: [string, string, string?][]
 }
 

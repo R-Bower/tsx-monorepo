@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react"
+import React, {useState} from "react"
 
 import htmlReactParser from "html-react-parser"
 import {Language} from "prism-react-renderer"
@@ -6,10 +6,8 @@ import reactElementToJsxString from "react-element-to-jsx-string"
 import {LiveEditor, LiveError, LivePreview, LiveProvider} from "react-live"
 import {ThemeContext} from "styled-components"
 
-import {Box} from "../../primitives/box/Box"
-import {Flex} from "../../primitives/flex/Flex"
-import {Position} from "../../primitives/position/Position"
-import {Text} from "../../primitives/text/Text"
+import {Box, Flex, Position, Text} from "@rb/react-components"
+
 import {CodeClipboardCopy} from "../code-clipboard-copy/CodeClipboardCopy"
 import darkTheme from "./themes/darkTheme"
 import lightTheme from "./themes/lightTheme"
@@ -58,10 +56,6 @@ export default function LiveCode({
   const [liveCode, setLiveCode] = useState(code)
   const handleChange = (updatedLiveCode) => setLiveCode(updatedLiveCode)
   const prismTheme = viewMode === "dark" ? darkTheme : lightTheme
-
-  useEffect(() => {
-    console.debug(code)
-  }, [code])
 
   return (
     <Flex flexDirection={"column"} mb={3}>

@@ -4,7 +4,8 @@ import loadable from "@loadable/component"
 import Highlight, {defaultProps, Language} from "prism-react-renderer"
 import textContent from "react-addons-text-content"
 
-import {Position, PositionProps} from "../../primitives/position/Position"
+import {Position, PositionProps} from "@rb/react-components"
+
 import {CodeClipboardCopy} from "../code-clipboard-copy/CodeClipboardCopy"
 import Prism from "./Prism"
 import darkTheme from "./themes/darkTheme"
@@ -54,6 +55,7 @@ export const CodeBlock = React.forwardRef<HTMLDivElement, CodeProps>(
           language={language}
           liveCodeScope={liveCodeScope}
           noinline={noinline}
+          viewMode={viewMode}
         />
       )
     }

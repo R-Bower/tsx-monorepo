@@ -8,7 +8,7 @@
           {
             "group": "components",
             "id": "box",
-            "mdxBody": "The Box component serves as a wrapper component for most layout related needs. Use Box to set values such as `display`, `width`, `height`, and more. See the LAYOUT section of our [System Props](/system-props) documentation for the full list of available props. In practice, this component is used frequently as a wrapper around other components to achieve Box Model related styling.\n\n## Default example\n\n```jsx live\n<Box color={\"text.primary\"} bg={\"bg.successInverse\"}>\n  Box can be used to create both{' '}\n  <Box as=\"span\" color=\"text.secondary\">\n    inline\n  </Box>{' '}\n  and\n  <Box color={\"text.secondary\"} bg=\"bg.dangerInverse\">\n    block-level elements,\n  </Box>\n  <Box\n    border={\"solid 1px\"}\n    borderColor={\"border.default\"}\n    color={\"text.secondary\"}\n    bg={\"bg.infoInverse\"}\n    p={4}\n    mt={2}\n  >\n    and more!\n  </Box>\n</Box>\n```\n\n## System props\n\nBox components get the `COMMON` category of system props. Read our [System Props](/system-props) doc page for a full list of available props.\n\n## Component props\n\n| Prop name | Type   | Default | Description                         |\n| :-------- | :----- | :-----: | :---------------------------------- |\n| as        | String |  `div`  | sets the HTML tag for the component |\n",
+            "mdxBody": "# Box\n\nThe Box component serves as a wrapper component for most layout related needs. Use Box to set values such as `display`, `width`, `height`, and more. See the LAYOUT section of our [System Props](/system-props) documentation for the full list of available props. In practice, this component is used frequently as a wrapper around other components to achieve Box Model related styling.\n\n```jsx live\n<Box\n  bg={\"bg.successInverse\"}\n  border={\"solid 1px\"}\n  borderColor={\"border.primary\"}\n>\n  Box can be used to create both{\" \"}\n  <Box as={\"span\"} bg={\"bg.warningInverse\"}>\n    inline\n  </Box>{\" \"}\n  and\n  <Box bg={\"bg.dangerInverse\"}>\n    block-level elements,\n  </Box>\n  <Box\n    bg={\"bg.infoInverse\"}\n    p={4}\n    mt={2}\n  >\n    and more!\n  </Box>\n</Box>\n```\n\n## Component props\n\n| Prop name | Type   | Default | Description                         |\n| :-------- | :----- | :-----: | :---------------------------------- |\n| as        | String |  `div`  | sets the HTML tag for the component |\n\n## System props\n\nBox components get the `COMMON` category of system props which are listed in the table below.\n\n<StylePropsSearch propGroups={[\"border\", \"color\", \"display\", \"sizing\", \"space\"]} />\n",
             "mdxFileName": "Box.mdx",
             "mdxFilePath": "packages/libs/react-components/src/primitives/box/Box.mdx",
             "subgroup": "primitives",
@@ -17,7 +17,7 @@
           {
             "group": "components",
             "id": "element",
-            "mdxBody": "# Element\n\nTODO: implement.\n",
+            "mdxBody": "# Element\n\nTODO: implement.\n\n<StylePropsSearch propGroups={[\"space\"]} />\n",
             "mdxFileName": "Element.mdx",
             "mdxFilePath": "packages/libs/react-components/src/primitives/element/Element.mdx",
             "subgroup": "primitives",
@@ -26,7 +26,7 @@
           {
             "group": "components",
             "id": "elevation",
-            "mdxBody": "# Elevation\n\nTODO: implement.\n",
+            "mdxBody": "# Elevation\n\nThe `Elevation` component behaves the same as the [Box](/doc/components/primitives/box) component except that it has access to the `SHADOW` system props.\n\n<StylePropsSearch propGroups={[\"shadow\", \"color\", \"display\", \"sizing\", \"space\", \"border\"]} />\n\n",
             "mdxFileName": "Elevation.mdx",
             "mdxFilePath": "packages/libs/react-components/src/primitives/elevation/Elevation.mdx",
             "subgroup": "primitives",
@@ -35,7 +35,7 @@
           {
             "group": "components",
             "id": "flex",
-            "mdxBody": "# Flex\n\nTODO: implement.\n",
+            "mdxBody": "# Flex\n\nThe `Flex` component behaves the same as the [Box](/doc/components/primitives/box) component except that it has `display: flex` set by default.\n\n```jsx live\n<Flex\n  border={\"solid 1px\"}\n  borderColor={\"border.primary\"}\n  borderRadius={2}\n  height={300}\n  width={1}\n>\n  <Flex flexWrap={\"nowrap\"}>\n    <Flex bg={\"bg.infoInverse\"} color={\"text.inverse\"} p={3}>\n      Item 1\n    </Flex>\n    <Box bg={\"bg.warningInverse\"} color={\"text.inverse\"} p={3}>\n      Item 2\n    </Box>\n    <Box bg={\"bg.dangerInverse\"} color={\"text.inverse\"} p={3}>\n      Item 3\n    </Box>\n  </Flex>\n</Flex>\n```\n\n## Component props\n\n| Prop name | Type   | Default | Description                         |\n| :-------- | :----- | :-----: | :---------------------------------- |\n| as        | String |  `div`  | sets the HTML tag for the component |\n\n## System props\n\nBox components get the `COMMON` and `FLEX` category of system props which are listed in the table below.\n\n<StylePropsSearch propGroups={[\"flex\", \"border\", \"color\", \"display\", \"sizing\", \"space\"]} />\n",
             "mdxFileName": "Flex.mdx",
             "mdxFilePath": "packages/libs/react-components/src/primitives/flex/Flex.mdx",
             "subgroup": "primitives",

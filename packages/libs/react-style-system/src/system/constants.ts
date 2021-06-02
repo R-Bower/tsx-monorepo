@@ -64,22 +64,24 @@ export interface SystemColorProps {
   backgroundColor?: ColorsType
   bg?: ColorsType
   color?: ColorsType
+  opacity?: SS.ResponsiveValue<CSS.Property.Opacity>
 }
 
 export const COLOR = SS.color
 
-// EFFECTS
-export interface SystemEffectsProps {
-  boxShadow?: DeepObjectKeys<ThemeShadows>
-  opacity?: SS.ResponsiveValue<CSS.Property.Opacity>
-  textShadow?: SS.ResponsiveValue<CSS.Property.TextShadow>
-}
+// DISPLAY
 
 export interface SystemDisplayProps {
   display?: SS.ResponsiveValue<CSS.Property.Display>
 }
 
 export const DISPLAY = SS.display
+
+// EFFECTS
+export interface SystemEffectsProps {
+  boxShadow?: DeepObjectKeys<ThemeShadows>
+  textShadow?: SS.ResponsiveValue<CSS.Property.TextShadow>
+}
 
 export const EFFECTS = SS.compose(SS.boxShadow, SS.opacity, SS.textShadow)
 
@@ -202,14 +204,7 @@ export interface SystemCommonProps
   sx?: SystemStyleObject
 }
 
-export const COMMON = SS.compose(
-  BORDER,
-  COLOR,
-  DISPLAY,
-  SIZING,
-  SPACE,
-  TRANSITIONS,
-)
+export const COMMON = SS.compose(BORDER, COLOR, DISPLAY, SIZING, SPACE)
 
 // System Style Object
 type SystemPseudoSelectors = {

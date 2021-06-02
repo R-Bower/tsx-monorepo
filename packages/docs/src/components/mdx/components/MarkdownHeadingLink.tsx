@@ -31,7 +31,7 @@ export default function MarkdownHeadingLink({
   const [showingLink, setShowingLink] = React.useState(false)
   const router = useRouter()
   const hashId = text.toLowerCase().split(" ").join("-")
-  const link = `${router.pathname}#${hashId}`
+  const link = `${router.asPath}#${hashId}`
 
   return (
     <Link href={link} passHref>

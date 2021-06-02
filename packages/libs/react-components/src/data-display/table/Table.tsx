@@ -23,6 +23,7 @@ export const Table = React.forwardRef<
           fontWeight: 600,
         },
         "th, td": {
+          bg: "bg.primary",
           border: "solid 1px",
           borderColor: "border.secondary",
           px: 3,
@@ -30,7 +31,7 @@ export const Table = React.forwardRef<
         },
         tr: {
           "&:nth-child(2n)": {
-            bg: "palette.secondary.light",
+            bg: "bg.primary",
           },
           bg: "white",
           borderTop: "solid 1px",

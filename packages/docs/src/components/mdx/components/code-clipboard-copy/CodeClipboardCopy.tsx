@@ -4,8 +4,7 @@ import {FiCheck} from "@react-icons/all-files/fi/FiCheck"
 import {FiClipboard} from "@react-icons/all-files/fi/FiClipboard"
 import copy from "copy-to-clipboard"
 
-import {Button, ButtonProps} from "../../inputs/button/Button"
-import {Flex} from "../../primitives/flex/Flex"
+import {Button, ButtonProps, Flex} from "@rb/react-components"
 
 export const CodeClipboardCopy = React.forwardRef<
   HTMLButtonElement,

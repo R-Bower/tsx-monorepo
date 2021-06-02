@@ -36,6 +36,7 @@ export interface TextInputVariants {
 
 export const inputVariants: TextInputVariants = {
   primary: {
+    bg: "input.bg",
     border: "solid 1px",
     borderColor: "input.border",
     borderRadius: 5,

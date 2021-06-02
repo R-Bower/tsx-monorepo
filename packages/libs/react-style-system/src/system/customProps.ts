@@ -57,6 +57,7 @@ export const sizingProps: SystemPropsConfig = {
   },
   width: {
     property: "width",
+    scale: "sizes",
     transform: pixelSizeTransformer,
   },
 }

@@ -1,9 +1,7 @@
 import * as ReactComponents from "@rb/react-components"
 
-export default function CodeEditor(
-  props: ReactComponents.CodeProps,
-): JSX.Element {
-  return (
-    <ReactComponents.CodeBlock liveCodeScope={ReactComponents} {...props} />
-  )
+import {CodeBlock, CodeProps} from "./code-block/CodeBlock"
+
+export default function CodeEditor(props: CodeProps): JSX.Element {
+  return <CodeBlock liveCodeScope={ReactComponents} {...props} />
 }
