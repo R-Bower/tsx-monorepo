@@ -28,7 +28,7 @@ export const bgLight: BackgroundColors = {
   warningInverse: alert.light.warning,
 }
 
-export const bgDark: BackgroundColors = {
+export const bgDarkDimmed: BackgroundColors = {
   backdrop: "rgba(28,33,40,0.8)",
   canvas: "#22272e",
   canvasInset: "#1e2228",
@@ -44,4 +44,22 @@ export const bgDark: BackgroundColors = {
   tertiary: "#2d333b",
   warning: alert.dark.warningInverse,
   warningInverse: alert.dark.warning,
+}
+
+export const bgDark: BackgroundColors = {
+  backdrop: "rgba(1,4,9,0.8)",
+  canvas: "#0d1117",
+  canvasInset: "#090c10",
+  canvasInverse: "#f0f6fc",
+  danger: "rgba(248,81,73,0.1)",
+  dangerInverse: "#da3633",
+  info: "rgba(56,139,253,0.1)",
+  infoInverse: "#388bfd",
+  primary: "#0d1117",
+  secondary: "#0d1117",
+  success: "rgba(46,160,67,0.1)",
+  successInverse: "#2ea043",
+  tertiary: "#161b22",
+  warning: "rgba(187,128,9,0.1)",
+  warningInverse: "#bb8009",
 }

@@ -20,7 +20,6 @@ The layout of this site is similar to Primer's React component docs, but appeara
 - Favor wrapping or extending components for more complex operations.
 - Maintain design system consistency with utilities as props (for spacing, color, font-size, line-height, etc...).
 
-
 ## Goals and Focus
 
 Our goal with this toolkit is to hit the sweet spot between providing too little and too much styling flexibility.  Too little, and the design system is too rigid; too much, and it becomes difficult to maintain a consistent style.
@@ -28,6 +27,7 @@ Our goal with this toolkit is to hit the sweet spot between providing too little
 We're focusing primarily on presentational components that help standardize common design patterns. These components don't handle fetching and submitting data to/from APIs. If you'd like to handle data in one of these components, create a wrapper and pass the data to the presentational components.
 
 ## Library overview
-The repository is configured using Lerna and Yarn workspaces to link packages.  Each package maintains its own list of dependencies which are ultimately compiled and hoisted to the root node_modules directory.  The docs site you're on now primarily focuses on two packages:
+The repository is configured using Lerna and Yarn workspaces to link packages.  Each package maintains its own list of dependencies which are ultimately compiled and hoisted to the root node_modules directory.  The docs site you're on now primarily focuses on three packages:
 1. `libs/react-components` - a shared React component library.
 2. `libs/react-style-system` - the shared styling solution for React code in the repository.
+3. `libs/react-hooks` - a shared React hooks library.

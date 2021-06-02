@@ -28,7 +28,7 @@ export const textLight: TextColors = {
   white: "#ffffff",
 }
 
-export const textDark: TextColors = {
+export const textDarkDimmed: TextColors = {
   danger: "#cb2431",
   disabled: "#545d68",
   inverse: "#22272e",
@@ -40,4 +40,18 @@ export const textDark: TextColors = {
   tertiary: "#768390",
   warning: "#daaa3f",
   white: "#cdd9e5",
+}
+
+export const textDark: TextColors = {
+  danger: "#f85149",
+  disabled: "#484f58",
+  inverse: "#0d1117",
+  link: "#58a6ff",
+  placeholder: "#484f58",
+  primary: "#c9d1d9",
+  secondary: "#8b949e",
+  success: "#56d364",
+  tertiary: "#8b949e",
+  warning: "#e3b341",
+  white: "#f0f6fc",
 }

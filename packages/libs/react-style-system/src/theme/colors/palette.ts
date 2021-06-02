@@ -74,7 +74,7 @@ const dangerLight: PaletteColor = {
 export const alert: Alert = {
   dark: {
     danger: "#c93c37",
-    dangerInverse: "rgba(229,83,75,0.1)",
+    dangerInverse: "rgba(229,83,75,0.2)",
     info: "#4184e4",
     infoInverse: "rgba(65,132,228,0.1)",
     success: "#46954a",

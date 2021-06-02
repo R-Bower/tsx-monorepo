@@ -20,7 +20,7 @@ export const iconLight: IconColors = {
   warning: alert.light.warning,
 }
 
-export const iconDark: IconColors = {
+export const iconDarkDimmed: IconColors = {
   danger: "#e5534b",
   info: "#6cb6ff",
   primary: "#adbac7",
@@ -28,4 +28,14 @@ export const iconDark: IconColors = {
   success: "#6bc46d",
   tertiary: "#545d68",
   warning: "#daaa3f",
+}
+
+export const iconDark: IconColors = {
+  danger: "#f85149",
+  info: "#79c0ff",
+  primary: "#c9d1d9",
+  secondary: "#6e7681",
+  success: "#56d364",
+  tertiary: "#484f58",
+  warning: "#e3b341",
 }

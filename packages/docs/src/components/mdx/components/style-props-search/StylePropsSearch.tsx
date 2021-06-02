@@ -5,18 +5,26 @@ import {equals} from "rambda"
 import {Flex, TextInput} from "@rb/react-components"
 
 import {propsList} from "./props"
-import StyleProps, {PropsListProps} from "./StyleProps"
+import PropsGroup, {PropsListProps} from "./PropsGroup"
 import {filterEntries} from "./utils"
 
 interface StylePropsSearchProps {
   propGroups: PropsListProps["id"][]
 }
 
-const getFilteredPropsList = (propGroups: PropsListProps["id"][]) =>
-  equals("all", propGroups[0])
+const getFilteredPropsList = (propGroups: PropsListProps["id"][]) => {
+  const props = equals("all", propGroups[0])
     ? propsList
     : propsList.filter(({id}) => propGroups.includes(id))
+  return props.sort((a, b) => {
+    return a.id.localeCompare(b.id)
+  })
+}
 
+/*
+ * A simple search interface for our system props.  Prop groups are sorted based
+ * on the order that they're provided in the @propGroups array.
+ */
 export default function StylePropsSearch({
   propGroups,
 }: StylePropsSearchProps): JSX.Element {
@@ -44,7 +52,7 @@ export default function StylePropsSearch({
         value={input}
       />
       {filteredState.map((entry) => (
-        <StyleProps
+        <PropsGroup
           key={entry.id}
           id={entry.id.toUpperCase()}
           props={entry.props}

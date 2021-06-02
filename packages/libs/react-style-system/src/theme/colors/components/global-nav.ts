@@ -20,7 +20,7 @@ export const globalNavLight: GlobalNavColors = {
   text: "#ffffff",
 }
 
-export const globalNavDark: GlobalNavColors = {
+export const globalNavDarkDimmed: GlobalNavColors = {
   bg: "#2d333b",
   icon: "#adbac7",
   inputBg: "#22272e",
@@ -29,4 +29,15 @@ export const globalNavDark: GlobalNavColors = {
   inputPlaceholder: "#545d68",
   logo: "#cdd9e5",
   text: "#adbac7",
+}
+
+export const globalNavDark: GlobalNavColors = {
+  bg: "#161b22",
+  icon: "#c9d1d9",
+  inputBg: "#0d1117",
+  inputBorder: "#21262d",
+  inputIcon: "#21262d",
+  inputPlaceholder: "#484f58",
+  logo: "#f0f6fc",
+  text: "#c9d1d9",
 }

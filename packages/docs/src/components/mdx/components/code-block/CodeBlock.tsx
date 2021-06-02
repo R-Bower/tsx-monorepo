@@ -6,6 +6,8 @@ import textContent from "react-addons-text-content"
 
 import {Position, PositionProps} from "@rb/react-components"
 
+import {ViewMode} from "~redux/reducers/ui/uiSlice"
+
 import {CodeClipboardCopy} from "../code-clipboard-copy/CodeClipboardCopy"
 import Prism from "./Prism"
 import darkTheme from "./themes/darkTheme"
@@ -18,7 +20,7 @@ export interface CodeProps extends PositionProps {
   language?: Language
   liveCodeScope?: Record<string, React.ReactNode>
   live?: boolean
-  viewMode?: "light" | "dark"
+  viewMode?: ViewMode
   noinline?: boolean
 }
 

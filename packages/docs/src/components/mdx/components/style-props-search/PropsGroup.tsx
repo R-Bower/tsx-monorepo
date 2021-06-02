@@ -23,7 +23,7 @@ export interface PropsListProps {
   props: [string, string, string?][]
 }
 
-const StyleProps = ({props, id}: PropsListProps): React.ReactElement => {
+const PropsGroup = ({props, id}: PropsListProps): React.ReactElement => {
   return (
     <Flex flexDirection={"column"}>
       <MarkdownHeadingLink as={"h3"} mb={2} mt={2}>
@@ -77,4 +77,4 @@ const StyleProps = ({props, id}: PropsListProps): React.ReactElement => {
     </Flex>
   )
 }
-export default StyleProps
+export default PropsGroup

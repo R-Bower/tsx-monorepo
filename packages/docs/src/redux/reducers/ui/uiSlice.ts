@@ -2,7 +2,7 @@ import {createSlice} from "@reduxjs/toolkit"
 
 import type {RootState} from "~redux/store"
 
-export type ViewMode = "light" | "dark"
+export type ViewMode = "light" | "dark" | "dark-dimmed"
 
 // Define a type for this slice state.
 export interface UIState {

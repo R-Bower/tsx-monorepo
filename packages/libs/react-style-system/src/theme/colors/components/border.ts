@@ -22,7 +22,7 @@ export const borderLight: BorderColors = {
   warning: alert.light.warning,
 }
 
-export const borderDark: BorderColors = {
+export const borderDarkDimmed: BorderColors = {
   danger: "rgba(229,83,75,0.4)",
   info: "rgba(65,132,228,0.4)",
   inverse: "#cdd9e5",
@@ -31,4 +31,15 @@ export const borderDark: BorderColors = {
   success: "rgba(87,171,90,0.4)",
   tertiary: "#636e7b",
   warning: "rgba(174,124,20,0.4)",
+}
+
+export const borderDark: BorderColors = {
+  danger: "rgba(248,81,73,0.4)",
+  info: "rgba(56,139,253,0.4)",
+  inverse: "#f0f6fc",
+  primary: "#41484fff",
+  secondary: "#373d44ff",
+  success: "rgba(63,185,80,0.4)",
+  tertiary: "#6e7681",
+  warning: "rgba(187,128,9,0.4)",
 }
