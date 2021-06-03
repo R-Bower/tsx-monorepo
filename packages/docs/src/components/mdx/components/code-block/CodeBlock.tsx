@@ -46,7 +46,10 @@ export const CodeBlock = React.forwardRef<HTMLDivElement, CodeProps>(
      * In some instances, prism doesn't render properly in local dev SSR.
      * We can restrict it to CSR to fix this issue.
      */
-    if (typeof window === "undefined" && process.env.CURRENT_ENV === "local") {
+    if (
+      typeof window === "undefined" &&
+      process.env.NEXT_PUBLIC_CURRENT_ENV === "local"
+    ) {
       return null
     }
 

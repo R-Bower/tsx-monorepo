@@ -41,7 +41,7 @@ export const Text = React.forwardRef<HTMLParagraphElement, TextProps>(
     return (
       <TextStyled
         ref={ref}
-        as={as}
+        as={as || variant}
         className={className}
         {...styles}
         {...props}

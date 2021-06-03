@@ -101,7 +101,7 @@ export default function LiveCode({
           bg={"text.danger"}
           color={"white"}
           fontFamily={"mono"}
-          fontSize={1}
+          fontSize={14}
           m={0}
           p={3}
           variant={"span"}

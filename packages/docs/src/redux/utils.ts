@@ -4,6 +4,8 @@ import {
   sidebarInitialState,
 } from "~components/page-layout/sidebar/sidebarSlice"
 
+import {uiInitialState, ViewMode} from "./reducers/ui/uiSlice"
+
 const getSidebarState = () => {
   return {
     ...sidebarInitialState,
@@ -15,8 +17,16 @@ const getSidebarState = () => {
   }
 }
 
+const getUiState = () => {
+  return {
+    ...uiInitialState,
+    viewMode: (process.env.NEXT_PUBLIC_UI_VIEW_MODE || "light") as ViewMode,
+  }
+}
+
 export const getPreloadedState = () => {
   return {
     sidebar: getSidebarState(),
+    ui: getUiState(),
   }
 }
