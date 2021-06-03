@@ -1,14 +1,35 @@
 import {BackgroundColors, bgDark, bgDarkDimmed, bgLight} from "./components/bg"
-import {borderLight, BorderColors, borderDarkDimmed, borderDark} from "./components/border"
+import {
+  borderLight,
+  BorderColors,
+  borderDarkDimmed,
+  borderDark,
+} from "./components/border"
 import {btnLight, BtnColors} from "./components/btn"
 import {
   globalNavLight,
   GlobalNavColors,
-  globalNavDarkDimmed, globalNavDark,
+  globalNavDarkDimmed,
+  globalNavDark,
 } from "./components/global-nav"
-import {iconLight, IconColors, iconDarkDimmed, iconDark} from "./components/icon"
-import {inputLight, InputColors, inputDarkDimmed, inputDark} from "./components/input"
-import {textLight, TextColors, textDarkDimmed, textDark} from "./components/text"
+import {
+  iconLight,
+  IconColors,
+  iconDarkDimmed,
+  iconDark,
+} from "./components/icon"
+import {
+  inputLight,
+  InputColors,
+  inputDarkDimmed,
+  inputDark,
+} from "./components/input"
+import {
+  textLight,
+  TextColors,
+  textDarkDimmed,
+  textDark,
+} from "./components/text"
 
 export interface ThemeColors {
   bg: BackgroundColors

@@ -13,7 +13,7 @@ describe("Truncated Text", () => {
   it("Hello", () => {
     render(
       <Box height={300} width={300}>
-        <TruncatedText as={"h3"} maxLines={[2]}>
+        <TruncatedText lineClamp={2} variant={"h3"}>
           {loremIpsum}
         </TruncatedText>
       </Box>,

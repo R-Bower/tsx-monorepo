@@ -16,22 +16,14 @@ const textTruncateProp = system({
   },
 })
 
-const SystemTextTruncate = styled(Text)`
+interface TruncatedTextProps extends TextProps {
+  lineClamp?: ResponsiveValue<number>
+}
+
+const StyledTruncatedText = styled(Text).withConfig({
+  shouldForwardProp: (prop: keyof TruncatedTextProps) => prop !== "lineClamp",
+})<TruncatedTextProps>`
   ${textTruncateProp};
-`
-
-export interface TruncatedTextProps extends TextProps {
-  maxLines: number | number[]
-}
-
-interface StyledTextTruncateProps extends TruncatedTextProps {
-  lineClamp?: ResponsiveValue<number[]>
-}
-
-const StyledTruncatedText = styled(SystemTextTruncate).withConfig({
-  shouldForwardProp: (prop: keyof StyledTextTruncateProps) =>
-    prop !== "lineClamp",
-})<StyledTextTruncateProps>`
   display: none;
 
   @supports (-webkit-line-clamp: 1) {
@@ -45,8 +37,22 @@ const StyledTruncatedText = styled(SystemTextTruncate).withConfig({
   }
 `
 
-export const TruncatedText = React.forwardRef(
-  ({maxLines, ...props}: TruncatedTextProps, ref) => {
-    return <StyledTruncatedText ref={ref} lineClamp={maxLines} {...props} />
+export const TruncatedText = React.forwardRef<
+  HTMLParagraphElement,
+  TruncatedTextProps
+>(
+  (
+    {as, color = "text.primary", lineClamp, ...props}: TruncatedTextProps,
+    ref,
+  ) => {
+    return (
+      <StyledTruncatedText
+        ref={ref}
+        as={as}
+        color={color}
+        lineClamp={lineClamp}
+        {...props}
+      />
+    )
   },
 )

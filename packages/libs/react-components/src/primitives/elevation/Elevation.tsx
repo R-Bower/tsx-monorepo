@@ -4,23 +4,23 @@ import styled from "styled-components"
 
 import {
   COMMON,
-  EFFECTS,
+  SHADOWS,
   shouldForwardProp,
   sx,
   SystemCommonProps,
-  SystemEffectsProps,
+  SystemShadowProps,
 } from "@rb/react-style-system"
 
 export interface ElevationProps
   extends SystemCommonProps,
-    SystemEffectsProps,
+    SystemShadowProps,
     Omit<HTMLAttributes<HTMLDivElement>, "color"> {}
 
 const ElevationStyled = styled.div.withConfig({
   shouldForwardProp,
 })<ElevationProps>`
   ${COMMON};
-  ${EFFECTS}
+  ${SHADOWS}
   ${sx};
 `
 

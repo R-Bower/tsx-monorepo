@@ -9,7 +9,7 @@ import {pagePadding} from "~components/page-layout/config"
 export default function NotFoundPage(): JSX.Element {
   return (
     <Flex flex={"1 0 auto"} flexDirection={"column"} {...pagePadding}>
-      <Text as={"h1"} mb={16}>
+      <Text mb={16} variant={"h1"}>
         Page Not Found
       </Text>
       <Link href={"/"} passHref>

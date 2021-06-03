@@ -14,7 +14,7 @@ export default function SidebarSubGroup({
   return (
     <Flex flexDirection={"column"} mt={4}>
       <Flex alignItems={"center"} flex={"1 0 auto"} width={1}>
-        <Text as={"h4"} color={"text.primary"} fontSize={16} pl={25}>
+        <Text color={"text.primary"} fontSize={16} pl={25} variant={"h4"}>
           {id}
         </Text>
       </Flex>

@@ -77,14 +77,6 @@ export interface SystemDisplayProps {
 
 export const DISPLAY = SS.display
 
-// EFFECTS
-export interface SystemEffectsProps {
-  boxShadow?: DeepObjectKeys<ThemeShadows>
-  textShadow?: SS.ResponsiveValue<CSS.Property.TextShadow>
-}
-
-export const EFFECTS = SS.compose(SS.boxShadow, SS.opacity, SS.textShadow)
-
 // FLEX
 export type SystemFlexProps = SS.FlexboxProps
 
@@ -134,6 +126,14 @@ export const LAYOUT = SS.compose(
   SS.bottom,
   SS.left,
 )
+
+// SHADOWS
+export interface SystemShadowProps {
+  boxShadow?: DeepObjectKeys<ThemeShadows>
+  textShadow?: SS.ResponsiveValue<CSS.Property.TextShadow>
+}
+
+export const SHADOWS = SS.compose(SS.boxShadow, SS.textShadow)
 
 // SIZING
 export interface SystemSizingProps {
@@ -201,6 +201,7 @@ export interface SystemCommonProps
   as?: React.ElementType
   css?: StyledComponentsCssProp
   children?: React.ReactNode
+  forwardedAs?: React.ElementType
   sx?: SystemStyleObject
 }
 
@@ -220,7 +221,7 @@ export type SystemStyleObject =
   | SystemBorderProps
   | SystemColorProps
   | SystemDisplayProps
-  | SystemEffectsProps
+  | SystemShadowProps
   | SystemFlexProps
   | SystemGridProps
   | SystemInteractivityProps

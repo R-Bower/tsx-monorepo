@@ -1,6 +1,5 @@
 import React, {HTMLAttributes} from "react"
 
-import {is} from "rambda"
 import styled from "styled-components"
 
 import {
@@ -21,8 +20,7 @@ export interface TextProps
     SystemInteractivityProps,
     SystemTypographyProps,
     Omit<HTMLAttributes<HTMLParagraphElement>, "color"> {
-  as: React.ElementType
-  variant?: string
+  variant: string
 }
 
 /*
@@ -37,16 +35,18 @@ const TextStyled = styled.p.withConfig({shouldForwardProp})<TextProps>`
 `
 
 export const Text = React.forwardRef<HTMLParagraphElement, TextProps>(
-  ({as, variant = "", ...props}: TextProps, ref) => {
-    // apply styles from mapped value (`as` or `variant`).  This keeps text styles consistent.
-    const tag = variant || as
-    const transformer: string = is(String, tag) ? (tag as string) : "p"
-    // cast as to string to satisfy the TS compiler
-    const styles = is(String, tag)
-      ? textStyles[transformer]
-      : textStyles["span"]
-
-    return <TextStyled ref={ref} as={as} {...styles} {...props} />
+  ({as, className, variant = "", ...props}: TextProps, ref) => {
+    // apply styles from `variant` prop.  This keeps text styles consistent.
+    const styles = textStyles[variant || "span"]
+    return (
+      <TextStyled
+        ref={ref}
+        as={as}
+        className={className}
+        {...styles}
+        {...props}
+      />
+    )
   },
 )
 

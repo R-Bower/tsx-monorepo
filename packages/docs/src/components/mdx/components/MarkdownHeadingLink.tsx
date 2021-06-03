@@ -9,7 +9,6 @@ import textContent from "react-addons-text-content"
 import {Button, Position, Text, TextProps} from "@rb/react-components"
 
 interface H2Props extends TextProps {
-  as: React.ElementType
   children: React.ReactNode
 }
 
@@ -24,6 +23,7 @@ export default function MarkdownHeadingLink({
   mt,
   mb,
   pb,
+  variant,
 }: H2Props): JSX.Element {
   const text = is(String, children)
     ? (children as string)
@@ -57,6 +57,7 @@ export default function MarkdownHeadingLink({
             borderBottomColor={borderBottomColor}
             id={hashId}
             pb={pb}
+            variant={variant}
           >
             {children}
           </Text>

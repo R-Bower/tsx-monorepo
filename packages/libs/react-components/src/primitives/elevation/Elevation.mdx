@@ -6,7 +6,28 @@ id: elevation
 
 # Elevation
 
-The `Elevation` component behaves the same as the [Box](/doc/components/primitives/box) component except that it has access to the `SHADOW` system props.
+The `Elevation` component behaves the same as the [Box](/doc/components/primitives/box) component except that it has access to the `SHADOWS` system props.
 
-<StylePropsSearch propGroups={["shadow", "color", "display", "sizing", "space", "border"]} />
+
+```jsx live
+<Flex
+  sx={{
+    div: {
+      bg: "bg.successInverse",
+      height: 75,
+      mr: 4,
+      p: 2,
+      width: 75,
+    },
+  }}
+>
+  <Elevation boxShadow={"sm"}>sm</Elevation>
+  <Elevation boxShadow={"md"}>md</Elevation>
+  <Elevation boxShadow={"lg"}>lg</Elevation>
+  <Elevation boxShadow={"xl"}>xl</Elevation>
+</Flex>
+
+```
+
+<StylePropsSearch propGroups={["shadows", "color", "display", "sizing", "space", "border"]} />
 

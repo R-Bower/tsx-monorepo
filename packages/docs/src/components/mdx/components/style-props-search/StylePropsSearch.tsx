@@ -1,11 +1,11 @@
 import React, {useCallback, useState} from "react"
 
-import {equals} from "rambda"
+import {equals, findIndex} from "rambda"
 
 import {Flex, TextInput} from "@rb/react-components"
 
+import PropGroup, {PropsListProps} from "./PropGroup"
 import {propsList} from "./props"
-import PropsGroup, {PropsListProps} from "./PropsGroup"
 import {filterEntries} from "./utils"
 
 interface StylePropsSearchProps {
@@ -17,7 +17,9 @@ const getFilteredPropsList = (propGroups: PropsListProps["id"][]) => {
     ? propsList
     : propsList.filter(({id}) => propGroups.includes(id))
   return props.sort((a, b) => {
-    return a.id.localeCompare(b.id)
+    const aIndex = findIndex(equals(a.id), propGroups) + 1
+    const bIndex = findIndex(equals(b.id), propGroups) + 1
+    return aIndex - bIndex
   })
 }
 
@@ -38,9 +40,13 @@ export default function StylePropsSearch({
     (event: React.ChangeEvent<HTMLInputElement>) => {
       const {value} = event.target
       setInput(value)
-      setFilteredState(value ? filterEntries(value, propsList) : propsList)
+      setFilteredState(
+        value
+          ? filterEntries(value, propsList)
+          : getFilteredPropsList(propGroups),
+      )
     },
-    [],
+    [propGroups],
   )
 
   return (
@@ -52,7 +58,7 @@ export default function StylePropsSearch({
         value={input}
       />
       {filteredState.map((entry) => (
-        <PropsGroup
+        <PropGroup
           key={entry.id}
           id={entry.id.toUpperCase()}
           props={entry.props}

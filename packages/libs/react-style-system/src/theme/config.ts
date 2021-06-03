@@ -1,6 +1,6 @@
 import {SystemTheme} from "../system/constants"
 import {lightColors} from "./colors/colors"
-import {shadows} from "./shadows/shadows"
+import {lightShadows} from "./shadows/shadows"
 
 export const defaultTheme: SystemTheme = {
   breakpoints: [
@@ -19,7 +19,7 @@ export const defaultTheme: SystemTheme = {
     regular: "Source Sans Pro",
   },
   lineHeights: [1, 1.15, 1.25, 1.5],
-  shadows,
+  shadows: lightShadows,
   // multiples of 4
   space: [
     "0px",

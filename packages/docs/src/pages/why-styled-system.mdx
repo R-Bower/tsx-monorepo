@@ -9,7 +9,7 @@ Compare how the same component can be built with two different APIs.
 
 ##### `styled-components` example:
 
-```tsx
+```jsx
 import styled from "styled-components"
 
 const Wrapper = styled("div")(
@@ -49,9 +49,7 @@ return (
 
 ##### Using our `styled-system` primitives:
 
-```tsx
-import {Elevation, Text} from "@rb/react-components"
-
+```jsx
 return (
   <Elevation
     bg={"bg.primary"}
@@ -60,7 +58,7 @@ return (
     minWidth={300}
     p={2}
   >
-    <Text as={"h2"} fontSize={24} lineHeight={1.5} mb={2}>
+    <Text fontSize={24} lineHeight={1.5} mb={2} variant={"h2"}>
       Hello there
     </Text>
     <Text as={"p"} color={"text.primary"} fontSize={16} fontWeight={600}>

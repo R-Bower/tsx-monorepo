@@ -104,6 +104,7 @@ export default function LiveCode({
           fontSize={1}
           m={0}
           p={3}
+          variant={"span"}
         />
       </LiveProvider>
     </Flex>

@@ -6,12 +6,14 @@ export type ViewMode = "light" | "dark" | "dark-dimmed"
 
 // Define a type for this slice state.
 export interface UIState {
+  breakpoint: number
   viewMode: ViewMode
 }
 
 // Will need to resolve against the value in localStorage on refresh
 // Define the initial state for this slice.
 export const uiInitialState: UIState = {
+  breakpoint: 1,
   viewMode: "light",
 }
 

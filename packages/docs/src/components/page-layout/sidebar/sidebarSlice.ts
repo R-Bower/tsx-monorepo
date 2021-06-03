@@ -25,6 +25,7 @@ export interface SidebarDocGroup {
 // Define a type for this slice state.
 interface SidebarState {
   docs: SidebarDocGroup[]
+  mobileShowing: boolean
 }
 
 // TODO: cache sidebar state.
@@ -32,6 +33,7 @@ interface SidebarState {
 // Define the initial state for this slice.
 export const sidebarInitialState: SidebarState = {
   docs: [],
+  mobileShowing: false,
 }
 
 export const sidebarSlice = createSlice({
@@ -45,10 +47,21 @@ export const sidebarSlice = createSlice({
     ) => {
       state.docs = action.payload
     },
+    toggleMobileSidebar: (
+      state: SidebarState,
+      action?: PayloadAction<boolean>,
+    ) => {
+      if (action.payload === false || action.payload === true) {
+        // toggle can be overridden by supplying a value
+        state.mobileShowing = action.payload
+      } else {
+        state.mobileShowing = !state.mobileShowing
+      }
+    },
   },
 })
 
-export const {setDocs} = sidebarSlice.actions
+export const {setDocs, toggleMobileSidebar} = sidebarSlice.actions
 
 // Other code such as selectors can use the imported `RootState` type
 export const getDocs = (state: RootState): SidebarDocGroup[] =>

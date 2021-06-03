@@ -15,6 +15,7 @@ export interface PropsListProps {
     | "grid"
     | "interactivity"
     | "layout"
+    | "shadows"
     | "sizing"
     | "space"
     | "transitions"
@@ -23,10 +24,10 @@ export interface PropsListProps {
   props: [string, string, string?][]
 }
 
-const PropsGroup = ({props, id}: PropsListProps): React.ReactElement => {
+const PropGroup = ({props, id}: PropsListProps): React.ReactElement => {
   return (
     <Flex flexDirection={"column"}>
-      <MarkdownHeadingLink as={"h3"} mb={2} mt={2}>
+      <MarkdownHeadingLink mb={2} mt={2} variant={"h3"}>
         {id.toUpperCase()}
       </MarkdownHeadingLink>
       <Box as={"table"} mb={4}>
@@ -42,33 +43,55 @@ const PropsGroup = ({props, id}: PropsListProps): React.ReactElement => {
               },
             }}
           >
-            <Text as={"th"}>Prop</Text>
-            <Text as={"th"}>CSS Property</Text>
-            <Text as={"th"}>Theme Field</Text>
+            <Text as={"th"} variant={"p"}>
+              Prop
+            </Text>
+            <Text as={"th"} variant={"p"}>
+              CSS Property
+            </Text>
+            <Text as={"th"} variant={"p"}>
+              Theme Field
+            </Text>
           </Box>
         </Box>
-        <Box as={"tbody"}>
+        <Box
+          as={"tbody"}
+          sx={{
+            td: {
+              pr: 2,
+              py: 2,
+            },
+            "th, td": {
+              border: "solid 1px",
+              borderColor: "border.secondary",
+              px: 3,
+              py: 2,
+            },
+            tr: {
+              "&:nth-child(2n)": {
+                bg: "bg.tertiary",
+              },
+              bg: "bg.primary",
+              borderTop: "solid 1px",
+              borderTopColor: "border.tertiary",
+            },
+          }}
+        >
           {props.map(([prop, cssProperty, themeField]) => (
             <Box
               key={prop}
               as={"tr"}
               borderBottom={"solid 1px"}
               borderBottomColor={"border.inverse"}
-              sx={{
-                td: {
-                  pr: 2,
-                  py: 2,
-                },
-              }}
             >
               <Box as={"td"}>
-                <Text as={"code"}>{prop}</Text>
+                <Text variant={"code"}>{prop}</Text>
               </Box>
               <Box as={"td"}>
-                <Text as={"code"}>{cssProperty}</Text>
+                <Text variant={"code"}>{cssProperty}</Text>
               </Box>
               <Box as={"td"}>
-                <Text as={"code"}>{themeField || "none"}</Text>
+                <Text variant={"code"}>{themeField || "none"}</Text>
               </Box>
             </Box>
           ))}
@@ -77,4 +100,4 @@ const PropsGroup = ({props, id}: PropsListProps): React.ReactElement => {
     </Flex>
   )
 }
-export default PropsGroup
+export default PropGroup

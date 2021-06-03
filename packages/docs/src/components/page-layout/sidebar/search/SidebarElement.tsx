@@ -32,6 +32,7 @@ export default function SidebarElement({
           },
         }}
         textDecoration={active ? "underline" : "none"}
+        variant={"p"}
         width={1}
       >
         <Flex alignItems={"center"}>

@@ -1,6 +1,6 @@
 import fuzzysearch from "fuzzysearch"
 
-import {PropsListProps} from "./PropsGroup"
+import {PropsListProps} from "./PropGroup"
 
 export const filterProps = (
   term: string,

@@ -1,4 +1,4 @@
-import {PropsListProps} from "./PropsGroup"
+import {PropsListProps} from "./PropGroup"
 
 export const propsList: PropsListProps[] = [
   {
@@ -58,13 +58,6 @@ export const propsList: PropsListProps[] = [
   {
     id: "display",
     props: [["display", "display"]],
-  },
-  {
-    id: "effects",
-    props: [
-      ["boxShadow", "box-shadow", "shadows"],
-      ["textShadow", "text-shadow", "shadows"],
-    ],
   },
   {
     id: "flex",
@@ -127,6 +120,13 @@ export const propsList: PropsListProps[] = [
       ["top", "top"],
       ["visibility", "visibility"],
       ["zIndex", "z-index"],
+    ],
+  },
+  {
+    id: "shadows",
+    props: [
+      ["boxShadow", "box-shadow", "shadows"],
+      ["textShadow", "text-shadow", "shadows"],
     ],
   },
   {

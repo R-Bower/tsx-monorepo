@@ -47,7 +47,7 @@ export const textDark: TextColors = {
   disabled: "#484f58",
   inverse: "#0d1117",
   link: "#58a6ff",
-  placeholder: "#484f58",
+  placeholder: "#505861ff",
   primary: "#c9d1d9",
   secondary: "#8b949e",
   success: "#56d364",

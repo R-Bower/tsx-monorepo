@@ -22,7 +22,7 @@ export default function Sidebar({
   const router = useRouter()
 
   return (
-    <Box display={["none", null, null, "block"]}>
+    <Box display={["none", "none", "none", "block"]}>
       <Position
         bg={"globalNav.inputBg"}
         borderRight={"solid 1px"}
@@ -44,7 +44,7 @@ export default function Sidebar({
             flexDirection={"column"}
             py={6}
           >
-            <Text as={"h4"} color={"text.primary"} pb={3} pl={6} pr={2}>
+            <Text color={"text.primary"} pb={3} pl={6} pr={2} variant={"h4"}>
               {sidebarConfig.id}
             </Text>
             {sidebarConfig.components.map(({id, url}) => {

@@ -31,6 +31,7 @@ export default function SidebarItem({
           },
         }}
         textDecoration={active ? "underline" : "none"}
+        variant={"p"}
       >
         <Flex>{id}</Flex>
       </Text>

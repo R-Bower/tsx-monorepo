@@ -19,7 +19,7 @@ export const bgLight: BackgroundColors = {
   dangerInverse: alert.light.danger,
   info: alert.light.infoInverse,
   infoInverse: alert.light.info,
-  primary: "white",
+  primary: "#ffffff",
   secondary: "#fafbfc",
   success: alert.light.successInverse,
   successInverse: alert.light.success,

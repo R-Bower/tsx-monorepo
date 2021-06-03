@@ -22,7 +22,7 @@ export default function SidebarGroup({
     >
       <Flex justifyContent={"space-between"}>
         <Flex alignItems={"center"} flex={"1 0 auto"} width={1}>
-          <Text as={"h4"} color={"text.primary"} pl={24}>
+          <Text color={"text.primary"} pl={24} variant={"h4"}>
             {pascalCase(id)}
           </Text>
         </Flex>

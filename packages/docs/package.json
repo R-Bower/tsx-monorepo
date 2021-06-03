@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.1",
   "scripts": {
-    "dev": "FORCE_COLOR=1 next-remote-watch ./src/components/layout/sidebar/search/components.json",
+    "dev": "FORCE_COLOR=1 next-remote-watch ./src/components/page-layout/sidebar/search/components.json",
     "docs": "yarn watch-docs & yarn dev",
     "build": "ANALYZE=true next build",
     "show-config": "tsc --showConfig",
