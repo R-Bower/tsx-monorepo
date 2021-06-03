@@ -12,7 +12,6 @@ export default function AppHead({description, title}: HeadProps): JSX.Element {
   return (
     <>
       <NextSeo description={description} title={title} />
-
       <NextHead>
         <link href={"https://fonts.gstatic.com"} rel={"preconnect"} />
         <link

@@ -8,7 +8,7 @@
           {
             "group": "components",
             "id": "box",
-            "mdxBody": "# Box\n\nThe Box component serves as a wrapper component for most layout related needs. Use Box to set values such as `display`, `width`, `height`, and more. See the LAYOUT section of our [System Props](/system-props) documentation for the full list of available props. In practice, this component is used frequently as a wrapper around other components to achieve Box Model related styling.\n\n```jsx live\n<Box\n  bg={\"bg.successInverse\"}\n  border={\"solid 1px\"}\n  borderColor={\"border.primary\"}\n>\n  Box can be used to create both{\" \"}\n  <Box as={\"span\"} bg={\"bg.warningInverse\"}>\n    inline\n  </Box>{\" \"}\n  and\n  <Box bg={\"bg.dangerInverse\"}>\n    block-level elements,\n  </Box>\n  <Box\n    bg={\"bg.infoInverse\"}\n    p={4}\n    mt={2}\n  >\n    and more!\n  </Box>\n</Box>\n```\n\n## Component props\n\n| Prop name | Type   | Default | Description                         |\n| :-------- | :----- | :-----: | :---------------------------------- |\n| as        | String |  `div`  | sets the HTML tag for the component |\n| sx        | sx     |  `null` | See the [SX Prop](/sx-prop) page    |\n\n## System props\n\nBox components get the `COMMON` category of system props which include `BORDER`, `COLOR`, `DISPLAY`, `SIZING`, and `SPACE`. Refer to the table below each property.\n\n<StylePropsSearch propGroups={[\"color\", \"display\", \"sizing\", \"space\", \"border\"]} />\n",
+            "mdxBody": "# Box\n\nThe Box component serves as a wrapper component for most layout related needs. Use Box to set values such as `display`, `width`, `height`, and more. See the LAYOUT section of our [System Props](/system-props) documentation for the full list of available props. In practice, this component is used frequently as a wrapper around other components to achieve Box Model related styling.\n\n```jsx live\n<Box\n  bg={\"bg.successInverse\"}\n  border={\"solid 1px\"}\n  borderColor={\"border.primary\"}\n>\n  Box can be used to create both{\" \"}\n  <Box as={\"span\"} bg={\"bg.warningInverse\"}>\n    inline\n  </Box>{\" \"}\n  and\n  <Box bg={\"bg.dangerInverse\"}>\n    block-level elements,\n  </Box>\n  <Box\n    bg={\"bg.infoInverse\"}\n    p={4}\n    mt={2}\n  >\n    and more!\n  </Box>\n</Box>\n```\n\n## Component props\n\n| Prop name | Type   | Default | Description                         |\n| :-------- | :----- | :-----: | :---------------------------------- |\n| as        | String |  `div`  | sets the HTML tag for the component |\n| sx        | sx     |  `null` | See the [SX Prop](/sx-prop) page    |\n\n## System props\n\nBox components get the `COMMON` category of system props which includes `BORDER`, `COLOR`, `DISPLAY`, `SIZING`, and `SPACE`. Refer to the table below each property.\n\n<StylePropsSearch propGroups={[\"color\", \"display\", \"sizing\", \"space\", \"border\"]} />\n",
             "mdxFileName": "Box.mdx",
             "mdxFilePath": "packages/libs/react-components/src/primitives/box/Box.mdx",
             "subgroup": "primitives",
@@ -150,7 +150,7 @@
           {
             "group": "hooks",
             "id": "use-persistent-scroll",
-            "mdxBody": "# usePersistentScroll\n\nTODO: add examples\n",
+            "mdxBody": "# usePersistentScroll\n\nTODO: add examples.\n",
             "mdxFileName": "usePersistentScroll.mdx",
             "mdxFilePath": "packages/libs/react-hooks/src/interactions/usePersistentScroll.mdx",
             "subgroup": "interactions",

@@ -60,7 +60,7 @@ To skip a breakpoint, supply null for that breakpoint's array index.
 
 ### Primitive Components
 
- Primitive components (referred to as Primitives) are basic building blocks that can be used together to create more complex components.  Each primitive contains a tailored set of [system-props](/system-props) which provide CSS-in-JS as props on the component.  Some examples of our primitives include `Box`, `Flex`, `Grid`, and `Text`.
+ Primitive components (referred to as Primitives) are basic building blocks that can be used together to create more complex components.  Each primitive contains a tailored set of [system-props](/system-props) which provide CSS properties as props on the component.  Some examples of our primitives include `Box`, `Flex`, `Grid`, and `Text`.
 
 ### Complex Components
 
@@ -78,28 +78,4 @@ Complex components are organized based on their category.  Some examples of this
 <Box as={"span"}>
   Hello
 </Box>
-```
-
-
- For example, say you are using a `Button` component, and you really need to apply `Flex` styles to it. You can compose `Flex` and `Button` like so:
-
- ```jsx
- <Flex as={Button} href='https://github.com'>Hello</Flex>
- ```
-
- This will allow you to use all of the `Button` props _and_ all of the `Flex` props without having to wrap your `Button` component in another `Flex` component.
-
- **This pattern does have some limitations.** Usage of the `as` prop can lead to unexpected output. In the example above, if the user had done `<Button as={Flex}/>` instead, because the `Flex`'s render method is ultimately applied, and `Flex` components render `div`'s, you'll see that the rendered component is a `div` when ideally you'd like it to be a `button`. It is also not always clear how the styles in both components will interact and/or override each other.
-
-For these reasons, **we recommend only using the `as` prop when you cannot achieve the same result by nesting components.** The `Flex` / `Button` example could be done like so:
-
-```jsx
-function Test() {
-  return (
-    <Flex>
-      <Button href='https://github.com'>Hi</Button>
-    </Flex>
-  )
-}
-
 ```

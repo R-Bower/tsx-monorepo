@@ -3,6 +3,8 @@ import React from "react"
 import {default as Document, Head, Html, Main, NextScript} from "next/document"
 import {ServerStyleSheet} from "styled-components"
 
+import {mediaStyles} from "~components/media/Media"
+
 class MyDocument extends Document {
   static async getInitialProps(ctx) {
     // Resolution order
@@ -58,6 +60,10 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
+          <style
+            dangerouslySetInnerHTML={{__html: mediaStyles}}
+            type={"text/css"}
+          />
           <link
             href={
               "https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,500,600&display=swap"

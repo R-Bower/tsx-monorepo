@@ -11,6 +11,8 @@ import {
   SystemTheme,
 } from "@rb/react-style-system"
 
+import BreakpointSwitch from "~components/media/BreakpointSwitch"
+import {MediaContextProvider} from "~components/media/Media"
 import {ViewMode} from "~redux/reducers/ui/uiSlice"
 import {useAppSelector} from "~redux/store"
 
@@ -32,11 +34,14 @@ export default function Providers({children}: ProvidersProps): JSX.Element {
   const viewMode = useAppSelector<ViewMode>((state) => state.ui.viewMode)
   return (
     <>
-      <DefaultGlobalStyle />
-      {/* caching this would be possible if we persisted the setting via the API */}
-      <ThemeProvider theme={themeMap[viewMode] || lightTheme}>
-        <Layout>{children}</Layout>
-      </ThemeProvider>
+      <MediaContextProvider>
+        <BreakpointSwitch />
+        <DefaultGlobalStyle />
+        {/* caching this would be possible if we persisted the setting via the API */}
+        <ThemeProvider theme={themeMap[viewMode] || lightTheme}>
+          <Layout>{children}</Layout>
+        </ThemeProvider>
+      </MediaContextProvider>
     </>
   )
 }

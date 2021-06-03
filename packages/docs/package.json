@@ -12,6 +12,7 @@
     "watch-docs": "ts-node --project tsconfig.scripts.json scripts/watch-docs.ts"
   },
   "dependencies": {
+    "@artsy/fresnel": "^1.5.0",
     "@mdx-js/loader": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
     "@next/mdx": "^10.2.2",

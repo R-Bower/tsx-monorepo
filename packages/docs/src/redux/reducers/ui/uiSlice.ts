@@ -1,4 +1,4 @@
-import {createSlice} from "@reduxjs/toolkit"
+import {createSlice, PayloadAction} from "@reduxjs/toolkit"
 
 import type {RootState} from "~redux/store"
 
@@ -22,6 +22,9 @@ export const uiSlice = createSlice({
   initialState: uiInitialState,
   name: "sidebar",
   reducers: {
+    setBreakpoint: (state: UIState, action: PayloadAction<number>) => {
+      state.breakpoint = action.payload
+    },
     toggleViewMode: (state: UIState) => {
       state.viewMode = state.viewMode === "light" ? "dark" : "light"
       window.localStorage.setItem("uiState", JSON.stringify(state))
@@ -29,7 +32,7 @@ export const uiSlice = createSlice({
   },
 })
 
-export const {toggleViewMode} = uiSlice.actions
+export const {setBreakpoint, toggleViewMode} = uiSlice.actions
 
 // Other code such as selectors can use the imported `RootState` type
 export const getViewMode = (state: RootState): ViewMode => state.ui.viewMode

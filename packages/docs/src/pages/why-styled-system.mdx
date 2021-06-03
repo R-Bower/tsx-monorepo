@@ -34,7 +34,6 @@ const Header = styled("h2")(
 const Value = styled("p")(
   ({ theme }) => `
   color: ${theme.colors.text.primary};
-  font-size: 16px;
   font-weight: 600;
 `,
 )
@@ -50,22 +49,20 @@ return (
 ##### Using our `styled-system` primitives:
 
 ```jsx
-return (
-  <Elevation
-    bg={"bg.primary"}
-    borderRadius={6}
-    boxShadow={"sm"}
-    minWidth={300}
-    p={2}
-  >
-    <Text fontSize={24} lineHeight={1.5} mb={2} variant={"h2"}>
-      Hello there
-    </Text>
-    <Text color={"text.primary"} fontSize={16} fontWeight={600} variant={"p"}>
-      How are you?
-    </Text>
-  </Elevation>
-)
+<Elevation
+  bg={"bg.primary"}
+  borderRadius={6}
+  boxShadow={"sm"}
+  minWidth={300}
+  p={2}
+>
+  <Text fontSize={24} lineHeight={1.5} mb={2} variant={"h2"}>
+    Hello there
+  </Text>
+  <Text color={"text.primary"} fontWeight={600} variant={"p"}>
+    How are you?
+  </Text>
+</Elevation>
 ```
 
 ### Concise and convenient
@@ -89,7 +86,7 @@ The system obviates the need for declaring and naming individual styled componen
 
 #### 3. Enforcing consistency in UIs is hard.
 
-This is especially true when more than one person is building the application, as there has to be some coordination amongst members of the team regarding the choice of variables and how they're used.
+This is especially true when more than one person is building the application, as there has to be some coordination regarding the choice of variables and how they're used.
 
 The system provides direct access to the scales within the theme.  It makes it easier to design with constraints.
 
@@ -100,9 +97,8 @@ By design, the `styled-system` package is unopinionated.  It's primarily a JavaS
 
 There are numerous benefits to this constraint-based approach:
 
-- Consistent styles are easier to maintain if they're enforced at the compiler level.
+- Consistent styles are easier to maintain if they're enforced by the compiler.
   - If you try to use a color that doesn't exist in our colors interface, your code won't compile.
-  - One-off HEX values often yield inconsistencies that compromise the user experience.  They're also cumbersome to refactor.
 - TODO: add more.
 
 
@@ -112,15 +108,15 @@ The style-props approach presents with some challenges.  For example, React prop
 ##### Problem
 ```jsx
 // won't compile
-<Box &:hover={{bg: "bg.hover.primary"}} />
+<Box :hover={{bg: "bg.tertiary"}} />
 ```
 
 ##### Solution
 All of our primitives expose an `sx` prop that provides a superset of CSS (contains all CSS properties/selectors in addition to custom ones).  Like with our primitives, these CSS values are theme-aware.
 ```
 <Box sx={{
-  "&:hover": {
-    bg: "bg.hover.primary",
+  ":hover": {
+    bg: "bg.tertiary",
   }
 }} />
 ```

@@ -18,6 +18,7 @@ interface HeaderProps {
 export default function Header({headerHeight}: HeaderProps): JSX.Element {
   const viewMode = useAppSelector<ViewMode>((state) => state.ui.viewMode)
   const dispatch = useAppDispatch()
+
   return (
     <Position id={"app-header"} position={"sticky"} top={0} zIndex={1}>
       <Flex
@@ -40,7 +41,6 @@ export default function Header({headerHeight}: HeaderProps): JSX.Element {
               <DiReact size={24} />
             </Button>
           </Link>
-
           <Link href={"https://github.com/R-Bower/tsx-monorepo"} passHref>
             <Text
               as={"a"}
@@ -53,22 +53,25 @@ export default function Header({headerHeight}: HeaderProps): JSX.Element {
             </Text>
           </Link>
         </Flex>
-        <Button
-          alignItems={"center"}
-          aria-label={"Toggle light/dark theme"}
-          bg={"transparent"}
-          border={"none"}
-          color={"globalNav.icon"}
-          cursor={"pointer"}
-          onClick={() => dispatch(toggleViewMode())}
-          outline={"none"}
-        >
-          {viewMode === "dark" ? (
-            <FiSun size={24} />
-          ) : (
-            <HiOutlineMoon size={24} />
-          )}
-        </Button>
+        <Flex>
+          {/* TODO: make into icon component */}
+          <Button
+            alignItems={"center"}
+            aria-label={"Toggle light/dark theme"}
+            bg={"transparent"}
+            border={"none"}
+            color={"globalNav.icon"}
+            cursor={"pointer"}
+            onClick={() => dispatch(toggleViewMode())}
+            outline={"none"}
+          >
+            {viewMode === "dark" ? (
+              <FiSun size={24} />
+            ) : (
+              <HiOutlineMoon size={24} />
+            )}
+          </Button>
+        </Flex>
       </Flex>
     </Position>
   )
