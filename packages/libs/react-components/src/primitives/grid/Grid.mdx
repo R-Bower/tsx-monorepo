@@ -6,4 +6,30 @@ id: grid
 
 # Grid
 
-TODO: implement.
+Grid is a component that exposes grid system props. See the [CSS Tricks Complete Guide to Grid](https://css-tricks.com/snippets/css/complete-guide-grid/) to learn more about Grid Layout.
+
+## Default example
+
+```jsx live
+<Grid gridGap={3} gridTemplateColumns={"repeat(2, auto)"}>
+  <Box bg={"bg.infoInverse"} color={"text.inverse"} p={3}>
+    1
+  </Box>
+  <Box bg={"bg.warningInverse"} color={"text.inverse"} p={3}>
+    2
+  </Box>
+</Grid>
+```
+
+## Component props
+
+| Prop name | Type   | Default | Description                         |
+| :-------- | :----- | :-----: | :---------------------------------- |
+| as        | String |  `div`  | sets the HTML tag for the component |
+
+## System props
+
+Grid components get the `COMMON` and `GRID` category of system props which are listed in the table below.
+
+<StylePropsSearch propGroups={["grid", "color", "display", "sizing", "space", "border"]} />
+

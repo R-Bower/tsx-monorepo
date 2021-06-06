@@ -49,7 +49,7 @@ export const bgDarkDimmed: BackgroundColors = {
 export const bgDark: BackgroundColors = {
   backdrop: "rgba(1,4,9,0.8)",
   canvas: "#0d1117",
-  canvasInset: "#090c10",
+  canvasInset: "#1f3344",
   canvasInverse: "#f0f6fc",
   danger: "rgba(248,81,73,0.1)",
   dangerInverse: "#da3633",

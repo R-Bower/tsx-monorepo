@@ -17,8 +17,8 @@ The Text component is used to apply typography styles to text.
 
 | Name      | Type        | Default | Description                                |
 | :---      | :-----      | :-----: | :-----------------------------------------:|
-| as        | String      | `null`  | Sets the HTML tag for the component        |
-| variant   | String      | `span`  | Sets the style variant for the component   |
+| as        | String      | `null`  | Sets the HTML tag for the component. If used in conjunction with `variant`, the HTML tag of the `as` prop takes precedence.  However, the styles of the variant prop are still applied.        |
+| variant   | String      | `span`  | Sets the style variant and HTML tag for the component.  If a style variant is supplied that isn't supported, the HTML tag will default to `span`.   |
 
 ## System props
 
