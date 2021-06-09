@@ -37,7 +37,7 @@ yargs(hideBin(process.argv))
 
       if (write) {
         fs.writeFileSync(
-          path.join(__dirname, `../output/report-${new Date().getTime()}`),
+          path.join(__dirname, `../output/report-${new Date().getTime()}.html`),
           results.report,
         )
       }
