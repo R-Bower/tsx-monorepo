@@ -1,0 +1,20 @@
+{
+  "name": "@rb/lighthouse",
+  "description": "Lighthouse local performance metrics",
+  "version": "0.0.1",
+  "main": "dist/index",
+  "types": "dist/index",
+  "sideEffects": false,
+  "scripts": {
+    "benchmark": "ts-node src/index.ts --project tsconfig.json",
+    "benchmark:setup": "lighthouse --view --chrome-flags=\"--headless\" https://google.com --output-path ./output/lighthouse-results.html"
+  },
+  "devDependencies": {
+    "chrome-launcher": "^0.14.0",
+    "dotenv": "^10.0.0",
+    "fs-extra": "^10.0.0",
+    "lighthouse": "^8.0.0",
+    "rambda": "^6.7.0",
+    "yargs": "^17.0.1"
+  }
+}

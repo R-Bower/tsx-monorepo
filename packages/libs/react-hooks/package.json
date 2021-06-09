@@ -6,8 +6,12 @@
   "types": "dist/index",
   "sideEffects": false,
   "scripts": {
-    "docs": "yarn run watch",
+    "build": "yarn run clean && yarn run compile",
+    "clean": "rimraf -rf ./dist",
+    "compile": "tsc -p tsconfig.build.json",
     "dev": "yarn run watch",
+    "docs": "yarn run watch",
+    "docs:build": "yarn run build",
     "next-dev": "yarn run watch",
     "watch": "tsc -p tsconfig.build.json -w --preserveWatchOutput"
   },

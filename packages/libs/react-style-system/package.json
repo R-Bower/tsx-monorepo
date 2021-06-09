@@ -10,6 +10,7 @@
     "clean": "rimraf -rf ./dist",
     "compile": "tsc -p tsconfig.build.json",
     "docs": "yarn run watch",
+    "docs:build": "yarn run build",
     "dev": "yarn run watch",
     "next-dev": "yarn run watch",
     "show-config": "tsc --showConfig",

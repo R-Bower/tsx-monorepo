@@ -13,6 +13,8 @@
     "build": "lerna run build",
     "clean": "lerna run clean",
     "docs": "lerna run --parallel --stream docs",
+    "docs:build": "lerna run docs:build",
+    "docs:prod": "lerna run docs:prod",
     "lint": "eslint --ext js,ts,tsx .",
     "lint:mdx": "eslint -c .eslintrc.js --ext mdx .",
     "reset": "node scripts/dep-reset.js",

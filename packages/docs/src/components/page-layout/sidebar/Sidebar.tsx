@@ -5,6 +5,7 @@ import {useRouter} from "next/router"
 import {Flex, Position, Text} from "@rb/react-components"
 import {usePersistentScroll} from "@rb/react-hooks"
 
+import {Media} from "~components/media/Media"
 import {useAppSelector} from "~redux/store"
 
 import sidebarConfig from "./config.json"
@@ -16,18 +17,11 @@ interface SidebarProps {
   width: number
 }
 
-export default function Sidebar({
-  headerHeight,
-  width,
-}: SidebarProps): JSX.Element {
-  const scrollContainerProps = usePersistentScroll("sidebar")
+function SidebarView({headerHeight, width}: SidebarProps) {
   const router = useRouter()
   const breakpoint = useAppSelector((state) => state.ui.breakpoint)
-  const mobileSidebarShowing = useAppSelector(
-    (state) => state.sidebar.mobileShowing,
-  )
-
-  return breakpoint > 2 || mobileSidebarShowing ? (
+  const scrollContainerProps = usePersistentScroll("sidebar")
+  return (
     <Position
       bg={"globalNav.inputBg"}
       borderRight={"solid 1px"}
@@ -67,5 +61,27 @@ export default function Sidebar({
         <Search />
       </Position>
     </Position>
-  ) : null
+  )
+}
+
+export default function Sidebar({
+  headerHeight,
+  width,
+}: SidebarProps): JSX.Element {
+  const mobileSidebarShowing = useAppSelector(
+    (state) => state.sidebar.mobileShowing,
+  )
+
+  return (
+    <>
+      <Media lessThan={"md"}>
+        {mobileSidebarShowing ? (
+          <SidebarView headerHeight={headerHeight} width={width} />
+        ) : null}
+      </Media>
+      <Media greaterThanOrEqual={"md"}>
+        <SidebarView headerHeight={headerHeight} width={width} />
+      </Media>
+    </>
+  )
 }

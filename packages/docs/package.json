@@ -3,11 +3,13 @@
   "private": true,
   "version": "0.0.1",
   "scripts": {
+    "build": "next build",
+    "build:analyze": "ANALYZE=true yarn run build",
     "dev": "FORCE_COLOR=1 next-remote-watch ./src/components/page-layout/sidebar/search/components.json",
     "docs": "yarn watch-docs & yarn dev",
-    "build": "ANALYZE=true next build",
-    "show-config": "tsc --showConfig",
+    "docs:build": "yarn run build",
     "docs:prod": "next",
+    "show-config": "tsc --showConfig",
     "test": "jest --config jest.config.unit.js",
     "watch-docs": "ts-node --project tsconfig.scripts.json scripts/watch-docs.ts"
   },
