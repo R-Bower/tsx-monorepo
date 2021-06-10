@@ -2,7 +2,7 @@ import React from "react"
 
 import {useRouter} from "next/router"
 
-import {Flex, Position, Text} from "@rb/react-components"
+import {Flex, Position, PositionProps, Text} from "@rb/react-components"
 import {usePersistentScroll} from "@rb/react-hooks"
 
 import {Media} from "~components/media/Media"
@@ -14,12 +14,12 @@ import SidebarItem from "./SidebarItem"
 
 interface SidebarProps {
   headerHeight: number
+  position?: PositionProps["position"]
   width: number
 }
 
-function SidebarView({headerHeight, width}: SidebarProps) {
+function SidebarView({headerHeight, position, width}: SidebarProps) {
   const router = useRouter()
-  const breakpoint = useAppSelector((state) => state.ui.breakpoint)
   const scrollContainerProps = usePersistentScroll("sidebar")
   return (
     <Position
@@ -28,7 +28,7 @@ function SidebarView({headerHeight, width}: SidebarProps) {
       borderRightColor={"border.secondary"}
       height={`calc(100vh - ${headerHeight}px)`}
       minWidth={width}
-      position={breakpoint > 2 ? "sticky" : "fixed"}
+      position={position}
       top={headerHeight}
       zIndex={2}
     >
@@ -76,11 +76,19 @@ export default function Sidebar({
     <>
       <Media lessThan={"md"}>
         {mobileSidebarShowing ? (
-          <SidebarView headerHeight={headerHeight} width={width} />
+          <SidebarView
+            headerHeight={headerHeight}
+            position={"fixed"}
+            width={width}
+          />
         ) : null}
       </Media>
       <Media greaterThanOrEqual={"md"}>
-        <SidebarView headerHeight={headerHeight} width={width} />
+        <SidebarView
+          headerHeight={headerHeight}
+          position={"sticky"}
+          width={width}
+        />
       </Media>
     </>
   )
