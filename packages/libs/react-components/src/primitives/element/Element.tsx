@@ -13,3 +13,5 @@ export const Element = styled.div<ElementProps>`
   ${SPACE};
   ${sx};
 `
+
+Element.displayName = "Primitives.Element"

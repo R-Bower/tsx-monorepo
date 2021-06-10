@@ -1,0 +1,11 @@
+{
+  "Control": "316 ms",
+  "Styled": "716 ms",
+  "StyledCss": "674 ms",
+  "StyledWrapper": "430 ms",
+  "SxDynamic": "897 ms",
+  "SxStatic": "914 ms",
+  "SxWrapper": "504 ms",
+  "SystemPropsDynamic": "888 ms",
+  "SystemPropsStatic": "902 ms"
+}
