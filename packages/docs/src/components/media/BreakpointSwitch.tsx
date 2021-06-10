@@ -19,10 +19,10 @@ function BreakpointOption({breakpoint, dispatch}) {
 }
 
 /**
- * A lightning quick solution to set the current breakpoint on browser hydration.
+ * A quick solution to set the current breakpoint on browser hydration.
+ * This doesn't solve the Cumulative Layout Shift problem on initial load.
  * <Media> renders on the server and when it's time for the browser to hydrate,
- * it computes the layout very quickly.  This eliminates the pop-in effect from
- * a useEffect w/ window.innerWidth calculation.
+ * it computes the layout.
  */
 export default function BreakpointSwitch(): JSX.Element {
   const dispatch = useAppDispatch()
