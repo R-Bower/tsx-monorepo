@@ -52,7 +52,7 @@ export default function StylePropsSearch({
   return (
     <Flex flexDirection={"column"}>
       <TextInput
-        mb={4}
+        mb={2}
         onChange={onInputChange}
         placeholder={"Props search..."}
         value={input}

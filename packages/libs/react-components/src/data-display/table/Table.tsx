@@ -1,13 +1,13 @@
 import React, {HTMLAttributes} from "react"
 
-import {Element} from "../../primitives/element/Element"
+import {Base} from "../../primitives/base/Base"
 
 export const Table = React.forwardRef<
   HTMLTableElement,
   HTMLAttributes<HTMLTableElement>
 >((props, ref) => {
   return (
-    <Element
+    <Base
       ref={ref}
       as={"table"}
       {...props}

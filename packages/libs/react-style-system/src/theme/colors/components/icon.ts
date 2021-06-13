@@ -13,7 +13,7 @@ export interface IconColors {
 export const iconLight: IconColors = {
   danger: alert.light.danger,
   info: alert.light.info,
-  primary: "#C7C7C7",
+  primary: "#A1A1A1",
   secondary: "#656565",
   success: alert.light.success,
   tertiary: "#E4E4E4",

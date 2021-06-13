@@ -32,7 +32,6 @@ const ButtonStyled = styled.button.withConfig({
   &:active {
     outline: none;
   }
-
   *:focus:not(.focus-visible) {
     outline: none;
   }
@@ -54,5 +53,5 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 
 Button.defaultProps = {
   cursor: "pointer",
-  display: "flex",
+  display: "inline-flex",
 }

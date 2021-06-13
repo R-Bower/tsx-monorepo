@@ -10,21 +10,14 @@ Theming in this library is made possible by a `styled-components` theme object t
 
 ## Colors
 
-The application's colors map to an interface that defines every element's available colors.  Elements are grouped based on their functionality.
+Component colors map to an interface that defines the available color variables.  Elements are grouped based on their functionality.
 
-Color groups are categorized based on the functionality of the elements within the group.  Examples include `text`, `icons`, and `backgrounds`.
+Color groups are categorized based on the functionality of the elements within the group.  Examples include `text`, `icons`, and `backgrounds`.  For all available colors, check out the `@rb/react-style-system` package.
 
 #### Guidelines:
 - When at all possible, favor using color utility classes over using custom CSS to set colors.
 - You should only use colors designed for the element you're applying them to. For example, text colors should not be used for icons, backgrounds, or any other non-text element.
+- As a last resort you can provide any valid hex, rgb, or rgba color string.
 
-## Accessing theme values programmatically
-There may be times when you need to access theme values directly.  Our theme is implemented through `styled-components`, which supports programmatic access through the `useContext` React hook:
-
-```jsx
-import {ThemeContext} from "styled-components"
-
-function ExampleView() {
-  const theme = useContext(ThemeContext)
-}
-```
+#### Considerations
+- The colors interface will change as components are added and adjusted.

@@ -7,6 +7,7 @@ import {useRouter} from "next/router"
 import {Flex, Text} from "@rb/react-components"
 
 import {rotateCss} from "~lib/animations/rotate"
+import {removeTrailingHash} from "~utils/url"
 
 import {SidebarDoc} from "../sidebarSlice"
 
@@ -17,7 +18,8 @@ export default function SidebarElement({
   url,
 }: SidebarElementProps): JSX.Element {
   const router = useRouter()
-  const active = router.asPath === url
+  const path = removeTrailingHash(router.asPath)
+  const active = path === url
   return (
     <Link href={url} passHref>
       <Text

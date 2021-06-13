@@ -1,10 +1,10 @@
-import React from "react"
+import React, {useEffect} from "react"
 
 import {FiCheck} from "@react-icons/all-files/fi/FiCheck"
 import {FiClipboard} from "@react-icons/all-files/fi/FiClipboard"
 import copy from "copy-to-clipboard"
 
-import {Button, ButtonProps, Flex} from "@rb/react-components"
+import {Button, ButtonProps, ReactIcon} from "@rb/react-components"
 
 export const CodeClipboardCopy = React.forwardRef<
   HTMLButtonElement,
@@ -12,7 +12,8 @@ export const CodeClipboardCopy = React.forwardRef<
 >(({value}, ref) => {
   const [copied, setCopied] = React.useState(false)
 
-  React.useEffect(() => {
+  // state will be toggled off after 1s
+  useEffect(() => {
     const timeout = setTimeout(() => {
       if (copied) {
         setCopied(false)
@@ -26,24 +27,22 @@ export const CodeClipboardCopy = React.forwardRef<
     <Button
       ref={ref}
       aria-label={"Copy to clipboard"}
-      bg={"bg.secondary"}
-      border={"solid 1px"}
-      borderColor={"border.secondary"}
-      borderRadius={5}
       onClick={() => {
         copy(value.toString())
         setCopied(true)
       }}
       p={2}
+      variant={"icon"}
     >
       {copied ? (
-        <Flex alignItems={"center"} color={"icon.success"}>
-          <FiCheck color={"inherit"} size={18} />
-        </Flex>
+        <ReactIcon color={"icon.success"} icon={FiCheck} size={18} />
       ) : (
-        <Flex alignItems={"center"} color={"icon.secondary"}>
-          <FiClipboard color={"inherit"} size={18} />
-        </Flex>
+        <ReactIcon
+          color={"icon.primary"}
+          icon={FiClipboard}
+          size={18}
+          title={"Copy code"}
+        />
       )}
     </Button>
   )

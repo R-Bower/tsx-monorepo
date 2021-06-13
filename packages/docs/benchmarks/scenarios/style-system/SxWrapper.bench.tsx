@@ -1,12 +1,12 @@
 import React from "react"
 
-import {Element} from "@rb/react-components"
+import {Base} from "@rb/react-components"
 
 import {Benchmark, testIterations} from "../../utils/benchmark"
 
 function SxWrapper(): JSX.Element {
   return (
-    <Element
+    <Base
       sx={{
         div: {
           border: "solid 3px",
@@ -26,7 +26,7 @@ function SxWrapper(): JSX.Element {
           </div>
         ))}
       </>
-    </Element>
+    </Base>
   )
 }
 

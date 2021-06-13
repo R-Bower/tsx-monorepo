@@ -7,21 +7,21 @@
         "elements": [
           {
             "group": "components",
+            "id": "base",
+            "mdxBody": "# Base\n\nThe `Base` primitive serves as a template for creating reusable components with predetermined styles.\n\n### Best practices\n\nRe: Goals and Focus - Our goal with this toolkit is to hit the sweet spot between providing too little and too much styling flexibility. Too little, and the design system is too rigid; too much, and it becomes difficult to maintain a consistent style.\n\nIn line with the focus of this toolkit, you should only use this component if you're creating a reusable component that has a predetermined style.\n\n<StylePropsSearch propGroups={[\"sizing\", \"space\"]} />\n",
+            "mdxFileName": "Base.mdx",
+            "mdxFilePath": "packages/libs/react-components/src/primitives/base/Base.mdx",
+            "subgroup": "primitives",
+            "url": "/doc/components/primitives/base"
+          },
+          {
+            "group": "components",
             "id": "box",
-            "mdxBody": "# Box\n\nThe Box component serves as a wrapper component for most layout related needs. Use Box to set values such as `display`, `width`, `height`, and more. See the LAYOUT section of our [System Props](/system-props) documentation for the full list of available props. In practice, this component is used frequently as a wrapper around other components to achieve Box Model related styling.\n\n```jsx live\n<Box\n  bg={\"bg.successInverse\"}\n  border={\"solid 1px\"}\n  borderColor={\"border.primary\"}\n>\n  Box can be used to create both{\" \"}\n  <Box as={\"span\"} bg={\"bg.warningInverse\"}>\n    inline\n  </Box>{\" \"}\n  and\n  <Box bg={\"bg.dangerInverse\"}>\n    block-level elements,\n  </Box>\n  <Box\n    bg={\"bg.infoInverse\"}\n    p={4}\n    mt={2}\n  >\n    and more!\n  </Box>\n</Box>\n```\n\n## Component props\n\n| Prop name | Type   | Default | Description                         |\n| :-------- | :----- | :-----: | :---------------------------------- |\n| as        | String |  `div`  | sets the HTML tag for the component |\n\n## System props\n\nBox components get the `COMMON` category of system props which includes `BORDER`, `COLOR`, `DISPLAY`, `SIZING`, and `SPACE`. Refer to the table below each property.\n\n<StylePropsSearch propGroups={[\"color\", \"display\", \"sizing\", \"space\", \"border\"]} />\n",
+            "mdxBody": "# Box\n\nThe Box component serves as a wrapper component for most layout related needs. Use Box to set values such as `display`, `width`, `height`, and more. In practice, this component is used as a wrapper around other components to achieve Box Model related styling.\n\n```jsx live\n<Box\n  bg={\"bg.successInverse\"}\n  border={\"solid 1px\"}\n  borderColor={\"border.primary\"}\n>\n  Box can be used to create both{\" \"}\n  <Box as={\"span\"} bg={\"bg.warningInverse\"}>\n    inline\n  </Box>{\" \"}\n  and\n  <Box bg={\"bg.dangerInverse\"}>\n    block-level elements,\n  </Box>\n  <Box\n    bg={\"bg.infoInverse\"}\n    p={4}\n    mt={2}\n  >\n    and more!\n  </Box>\n</Box>\n```\n\n## System props\n\nBox components get the `COMMON` category of system props which includes `BORDER`, `COLOR`, `DISPLAY`, `SIZING`, and `SPACE`. Refer to the table below for each property.\n\n<StylePropsSearch propGroups={[\"border\", \"color\", \"display\", \"sizing\", \"space\"]} />\n",
             "mdxFileName": "Box.mdx",
             "mdxFilePath": "packages/libs/react-components/src/primitives/box/Box.mdx",
             "subgroup": "primitives",
             "url": "/doc/components/primitives/box"
-          },
-          {
-            "group": "components",
-            "id": "element",
-            "mdxBody": "# Element\n\nTODO: implement.\n\n<StylePropsSearch propGroups={[\"space\"]} />\n",
-            "mdxFileName": "Element.mdx",
-            "mdxFilePath": "packages/libs/react-components/src/primitives/element/Element.mdx",
-            "subgroup": "primitives",
-            "url": "/doc/components/primitives/element"
           },
           {
             "group": "components",
@@ -35,7 +35,7 @@
           {
             "group": "components",
             "id": "flex",
-            "mdxBody": "# Flex\n\nThe `Flex` component behaves the same as the [Box](/doc/components/primitives/box) component except that it has `display: flex` set by default.\n\n```jsx live\n<Flex\n  border={\"solid 1px\"}\n  borderColor={\"border.primary\"}\n  borderRadius={2}\n  height={300}\n  width={1}\n>\n  <Flex flexWrap={\"nowrap\"}>\n    <Flex bg={\"bg.infoInverse\"} color={\"text.inverse\"} p={3}>\n      Item 1\n    </Flex>\n    <Box bg={\"bg.warningInverse\"} color={\"text.inverse\"} p={3}>\n      Item 2\n    </Box>\n    <Box bg={\"bg.dangerInverse\"} color={\"text.inverse\"} p={3}>\n      Item 3\n    </Box>\n  </Flex>\n</Flex>\n```\n\n## Component props\n\n| Prop name | Type   | Default | Description                         |\n| :-------- | :----- | :-----: | :---------------------------------- |\n| as        | String |  `div`  | sets the HTML tag for the component |\n\n## System props\n\nFlex components get the `COMMON` and `FLEX` category of system props which are listed in the table below.\n\n<StylePropsSearch propGroups={[\"flex\", \"border\", \"color\", \"display\", \"sizing\", \"space\"]} />\n",
+            "mdxBody": "# Flex\n\nThe `Flex` component is a superset of the [Box](/doc/components/primitives/box) component with the following additional traits:\n- it has `display: flex` set by default.\n- it has access to the `FLEX` category of system props.\n\n```jsx live\n<Flex\n  border={\"solid 1px\"}\n  borderColor={\"border.primary\"}\n  borderRadius={2}\n  height={300}\n  width={1}\n>\n  <Flex flexWrap={\"nowrap\"}>\n    <Flex bg={\"bg.infoInverse\"} color={\"text.inverse\"} p={3}>\n      Item 1\n    </Flex>\n    <Box bg={\"bg.warningInverse\"} color={\"text.inverse\"} p={3}>\n      Item 2\n    </Box>\n    <Box bg={\"bg.dangerInverse\"} color={\"text.inverse\"} p={3}>\n      Item 3\n    </Box>\n  </Flex>\n</Flex>\n```\n\n## Default props\n\n| Prop name | Type   | Default | Description                         |\n| :-------- | :----- | :-----: | :---------------------------------- |\n| display   | [CSS display property](https://www.w3schools.com/cssref/pr_class_display.asp) |  `flex`  | sets the `display` property for this component |\n\n## System props\n\nFlex components get the `COMMON` and `FLEX` category of system props which are listed in the table below.\n\n<StylePropsSearch propGroups={[\"flex\", \"border\", \"color\", \"display\", \"sizing\", \"space\"]} />\n",
             "mdxFileName": "Flex.mdx",
             "mdxFilePath": "packages/libs/react-components/src/primitives/flex/Flex.mdx",
             "subgroup": "primitives",
@@ -44,7 +44,7 @@
           {
             "group": "components",
             "id": "grid",
-            "mdxBody": "# Grid\n\nGrid is a component that exposes grid system props. See the [CSS Tricks Complete Guide to Grid](https://css-tricks.com/snippets/css/complete-guide-grid/) to learn more about Grid Layout.\n\n## Default example\n\n```jsx live\n<Grid gridGap={3} gridTemplateColumns={\"repeat(2, auto)\"}>\n  <Box bg={\"bg.infoInverse\"} color={\"text.inverse\"} p={3}>\n    1\n  </Box>\n  <Box bg={\"bg.warningInverse\"} color={\"text.inverse\"} p={3}>\n    2\n  </Box>\n</Grid>\n```\n\n## Component props\n\n| Prop name | Type   | Default | Description                         |\n| :-------- | :----- | :-----: | :---------------------------------- |\n| as        | String |  `div`  | sets the HTML tag for the component |\n\n## System props\n\nGrid components get the `COMMON` and `GRID` category of system props which are listed in the table below.\n\n<StylePropsSearch propGroups={[\"grid\", \"color\", \"display\", \"sizing\", \"space\", \"border\"]} />\n\n",
+            "mdxBody": "# Grid\n\nGrid is a component that exposes grid system props. Learn more about Grid Layout [here](https://gridbyexample.com/learn/).\n\n## Default example\n\n```jsx live\n<Grid gridGap={3} gridTemplateColumns={\"repeat(2, auto)\"}>\n  <Box bg={\"bg.infoInverse\"} color={\"text.inverse\"} p={3}>\n    1\n  </Box>\n  <Box bg={\"bg.warningInverse\"} color={\"text.inverse\"} p={3}>\n    2\n  </Box>\n</Grid>\n```\n\n## Component props\n\n| Prop name | Type   | Default | Description                         |\n| :-------- | :----- | :-----: | :---------------------------------- |\n| as        | String |  `div`  | sets the HTML tag for the component |\n\n## System props\n\nGrid components get the `COMMON` and `GRID` category of system props which are listed in the table below.\n\n<StylePropsSearch propGroups={[\"grid\", \"color\", \"display\", \"sizing\", \"space\", \"border\"]} />\n\n",
             "mdxFileName": "Grid.mdx",
             "mdxFilePath": "packages/libs/react-components/src/primitives/grid/Grid.mdx",
             "subgroup": "primitives",
@@ -62,7 +62,7 @@
           {
             "group": "components",
             "id": "position",
-            "mdxBody": "# Position\n\nTODO: implement.\n",
+            "mdxBody": "# Position\n\nThe Position component is a superset of the [Box](/doc/components/primitives/box) component with the following additional attributes:\n- It has access to the `LAYOUT` category of system props.\n\nIn previous versions of this library, the `LAYOUT` component was part of the `COMMON` category of system props, which are given to almost every component.  This led to every component being able to manipulate its `position` attribute, which presented with the following issues:\n- it permitted widespread — and ultimately unnecessary — usage of the `z-index` property.\n  - Definitely read [stop (ab)using z-index](https://www.codegram.com/blog/stop-ab-using-z-index/) if this applies to you.\n- every component could modify its position attribute.  In hindsight, this was rarely necessary.\n\n\n",
             "mdxFileName": "Position.mdx",
             "mdxFilePath": "packages/libs/react-components/src/primitives/position/Position.mdx",
             "subgroup": "primitives",
@@ -93,6 +93,15 @@
           },
           {
             "group": "components",
+            "id": "react-icon",
+            "mdxBody": "# ReactIcon\n\nThe ReactIcon component accepts a component from the [React Icons](https://react-icons.github.io/react-icons) package as a prop and renders it inside a wrapper.  This component can be used to apply our theme variables, like colors, sizing, and spacing, to externally sourced icons.\n\nThe following example demonstrates how `<ReactIcon />` can be used with an icon from the React Icons package.\n\n```jsx live\n<ReactIcon\n  color={\"icon.primary\"}\n  // don't forget to import this!\n  icon={IoHappyOutline}\n  size={35}\n/>\n```\n\n## Recommended Props\n| Prop name | Type   | Default | Description                         |\n| :-------- | :----- | :-----: | :---------------------------------- |\n| title   | String |  `title`  | The title attribute specifies extra information about an element.  Use it to provide a text tooltip for the icon |\n",
+            "mdxFileName": "ReactIcon.mdx",
+            "mdxFilePath": "packages/libs/react-components/src/data-display/react-icon/ReactIcon.mdx",
+            "subgroup": "data-display",
+            "url": "/doc/components/data-display/react-icon"
+          },
+          {
+            "group": "components",
             "id": "truncated-text",
             "mdxBody": "# TruncatedText\nTODO: finish.\n\n<State initialState={{maxLines: 2}}>\n\n  <Observe>\n    {({maxLines, setState}) => (\n      <button onClick={() => setState(s => ({maxLines: s.maxLines + 1}))}>\n        Click to increment: {maxLines}\n      </button>\n    )}\n  </Observe>\n\n  <Observe>\n    {({maxLines}) =>\n      <Box px={2} py={1} border={\"solid 2px\"} borderColor={\"border.primary\"} width={300}>\n        <TruncatedText color={\"text.primary\"} lineClamp={maxLines} variant={\"p\"}>\n          Click the button to expand this section.  Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?\n        </TruncatedText>\n      </Box>\n    }\n  </Observe>\n\n</State>\n",
             "mdxFileName": "TruncatedText.mdx",
@@ -103,25 +112,30 @@
         ]
       },
       {
-        "id": "layout",
+        "id": "inputs",
+        "elements": [
+          {
+            "group": "components",
+            "id": "text-input",
+            "mdxBody": "# TextInput\n\nTextInput is a form component that provides default styling to the browser's native text input.\n\n#### Sizes\n\n```jsx live hideEditor\n<Flex\n  alignItems={\"center\"}\n  flexDirection={\"column\"}\n  mb={8}\n  p={4}\n>\n  <TextInput\n    defaultValue={\"Large\"}\n    mb={3}\n    placeholder={\"Search...\"}\n    size={\"large\"}\n  />\n  <TextInput\n    defaultValue={\"Medium\"}\n    mb={3}\n    placeholder={\"Search...\"}\n    size={\"medium\"}\n  />\n  <TextInput\n    defaultValue={\"Small\"}\n    placeholder={\"Search...\"}\n    size={\"small\"}\n  />\n</Flex>\n```\n\n#### Form Props\n\n",
+            "mdxFileName": "TextInput.mdx",
+            "mdxFilePath": "packages/libs/react-components/src/inputs/text-input/TextInput.mdx",
+            "subgroup": "inputs",
+            "url": "/doc/components/inputs/text-input"
+          }
+        ]
+      },
+      {
+        "id": "surfaces",
         "elements": [
           {
             "group": "components",
             "id": "card",
             "mdxBody": "# Card\n\nTODO: implement.\n",
             "mdxFileName": "Card.mdx",
-            "mdxFilePath": "packages/libs/react-components/src/layout/card/Card.mdx",
-            "subgroup": "layout",
-            "url": "/doc/components/layout/card"
-          },
-          {
-            "group": "components",
-            "id": "separator",
-            "mdxBody": "# Separator\n\nTODO: implement.\n",
-            "mdxFileName": "Separator.mdx",
-            "mdxFilePath": "packages/libs/react-components/src/layout/separator/Separator.mdx",
-            "subgroup": "layout",
-            "url": "/doc/components/layout/separator"
+            "mdxFilePath": "packages/libs/react-components/src/surfaces/card/Card.mdx",
+            "subgroup": "surfaces",
+            "url": "/doc/components/surfaces/card"
           }
         ]
       }
@@ -131,20 +145,6 @@
     "id": "hooks",
     "subgroups": [
       {
-        "id": "data",
-        "elements": [
-          {
-            "group": "hooks",
-            "id": "use-debounce",
-            "mdxBody": "# useDebounce\n\nTODO: add examples.\n",
-            "mdxFileName": "useDebounce.mdx",
-            "mdxFilePath": "packages/libs/react-hooks/src/data/useDebounce.mdx",
-            "subgroup": "data",
-            "url": "/doc/hooks/data/use-debounce"
-          }
-        ]
-      },
-      {
         "id": "interactions",
         "elements": [
           {
@@ -152,9 +152,32 @@
             "id": "use-persistent-scroll",
             "mdxBody": "# usePersistentScroll\n\nTODO: add examples.\n",
             "mdxFileName": "usePersistentScroll.mdx",
-            "mdxFilePath": "packages/libs/react-hooks/src/interactions/usePersistentScroll.mdx",
+            "mdxFilePath": "packages/libs/react-hooks/src/interactions/use-persistent-scroll/usePersistentScroll.mdx",
             "subgroup": "interactions",
             "url": "/doc/hooks/interactions/use-persistent-scroll"
+          }
+        ]
+      },
+      {
+        "id": "state",
+        "elements": [
+          {
+            "group": "hooks",
+            "id": "use-debounce",
+            "mdxBody": "# useDebounce\n\nTODO: add examples.\n",
+            "mdxFileName": "useDebounce.mdx",
+            "mdxFilePath": "packages/libs/react-hooks/src/state/use-debounce/useDebounce.mdx",
+            "subgroup": "state",
+            "url": "/doc/hooks/state/use-debounce"
+          },
+          {
+            "group": "hooks",
+            "id": "use-toggle",
+            "mdxBody": "# useToggle\n\nA simple hook for toggling a boolean value.\n\n```jsx\nconst [toggled, toggle] = useToggle(false)\n\n// calling toggle() will invert the value of toggled\n<Button onClick={toggle}>\n  {toggled ? \"On\" : \"Off\"}\n</Button>\n```\n",
+            "mdxFileName": "useToggle.mdx",
+            "mdxFilePath": "packages/libs/react-hooks/src/state/use-toggle/useToggle.mdx",
+            "subgroup": "state",
+            "url": "/doc/hooks/state/use-toggle"
           }
         ]
       }

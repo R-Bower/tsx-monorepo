@@ -5,6 +5,7 @@ import dynamic from "next/dynamic"
 import Link from "next/link"
 
 import * as ReactComponents from "@rb/react-components"
+import * as ReactHooks from "@rb/react-hooks"
 
 import {ViewMode} from "~redux/reducers/ui/uiSlice"
 
@@ -26,6 +27,7 @@ interface MDXComponentProps {
 export default function makeMDXComponents(viewMode: ViewMode) {
   return {
     ...ReactComponents,
+    ...ReactHooks,
     Observe,
     State,
     StylePropsSearch,

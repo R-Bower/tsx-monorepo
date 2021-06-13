@@ -2,9 +2,9 @@ import React, {HTMLAttributes} from "react"
 
 import {SystemTypographyProps} from "@rb/react-style-system"
 
-import {Element, ElementProps} from "../../primitives/element/Element"
+import {Base, BaseProps} from "../../primitives/base/Base"
 
-interface ListProps extends ElementProps, HTMLAttributes<HTMLUListElement> {
+interface ListProps extends BaseProps, HTMLAttributes<HTMLUListElement> {
   listStyleType?: SystemTypographyProps["listStyleType"]
   listStylePosition?: SystemTypographyProps["listStylePosition"]
   listTag?: "ul" | "ol" | "dl"
@@ -13,7 +13,7 @@ interface ListProps extends ElementProps, HTMLAttributes<HTMLUListElement> {
 export const List = React.forwardRef<HTMLUListElement, ListProps>(
   ({listStyleType, listStylePosition, listTag, ...props}, ref) => {
     return (
-      <Element
+      <Base
         ref={ref}
         as={listTag}
         {...props}

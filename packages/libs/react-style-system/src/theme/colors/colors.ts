@@ -5,7 +5,7 @@ import {
   borderDarkDimmed,
   borderDark,
 } from "./components/border"
-import {btnLight, BtnColors} from "./components/btn"
+import {btnLight, BtnColors, btnDark} from "./components/btn"
 import {
   globalNavLight,
   GlobalNavColors,
@@ -54,8 +54,8 @@ export const lightColors: ThemeColors = {
 export const darkDimmedColors: ThemeColors = {
   bg: bgDarkDimmed,
   border: borderDarkDimmed,
-  // TODO: implement dark
-  btn: btnLight,
+  // TODO: implement darkDimmed
+  btn: btnDark,
   globalNav: globalNavDarkDimmed,
   icon: iconDarkDimmed,
   input: inputDarkDimmed,
@@ -65,8 +65,7 @@ export const darkDimmedColors: ThemeColors = {
 export const darkColors: ThemeColors = {
   bg: bgDark,
   border: borderDark,
-  // TODO: implement dark
-  btn: btnLight,
+  btn: btnDark,
   globalNav: globalNavDark,
   icon: iconDark,
   input: inputDark,

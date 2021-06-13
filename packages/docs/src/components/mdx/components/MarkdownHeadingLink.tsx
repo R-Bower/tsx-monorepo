@@ -7,6 +7,7 @@ import {is} from "rambda"
 import textContent from "react-addons-text-content"
 
 import {Button, Position, Text, TextProps} from "@rb/react-components"
+import {removeTrailingHash} from "~utils/url"
 
 interface H2Props extends TextProps {
   children: React.ReactNode
@@ -31,7 +32,9 @@ export default function MarkdownHeadingLink({
   const [showingLink, setShowingLink] = React.useState(false)
   const router = useRouter()
   const hashId = text.toLowerCase().split(" ").join("-")
-  const link = `${router.asPath.replace(`#${hashId}`, "")}#${hashId}`
+  // don't stack anchors
+  const path = removeTrailingHash(router.asPath)
+  const link = `${path}#${hashId}`
 
   return (
     <Link href={link} passHref>

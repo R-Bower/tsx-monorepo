@@ -1,0 +1,25 @@
+---
+group: components
+subgroup: data-display
+id: react-icon
+---
+
+# ReactIcon
+
+The ReactIcon component accepts a component from the [React Icons](https://react-icons.github.io/react-icons) package as a prop and renders it inside a wrapper.  This component can be used to apply our theme variables, like colors, sizing, and spacing, to externally sourced icons.
+
+The following example demonstrates how `<ReactIcon />` can be used with an icon from the React Icons package.
+
+```jsx live
+<ReactIcon
+  color={"icon.primary"}
+  // don't forget to import this!
+  icon={IoHappyOutline}
+  size={35}
+/>
+```
+
+## Recommended Props
+| Prop name | Type   | Default | Description                         |
+| :-------- | :----- | :-----: | :---------------------------------- |
+| title   | String |  `title`  | The title attribute specifies extra information about an element.  Use it to provide a text tooltip for the icon |

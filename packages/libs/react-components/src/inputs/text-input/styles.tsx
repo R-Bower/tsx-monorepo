@@ -7,6 +7,28 @@ export interface TextInputSizes {
   small: Partial<TextProps>
 }
 
+export const labelSizes: TextInputSizes = {
+  large: {
+    fontSize: 16,
+    fontWeight: 400,
+    lineHeight: 1.5,
+    maxWidth: 312,
+    mb: 2,
+  },
+  medium: {
+    fontSize: 14,
+    lineHeight: 1.5,
+    maxWidth: 280,
+    mb: 1,
+  },
+  small: {
+    fontSize: 12,
+    lineHeight: 1.25,
+    maxWidth: 280,
+    mb: 1,
+  },
+}
+
 export const inputSizes: TextInputSizes = {
   large: {
     fontSize: 20,
@@ -14,6 +36,8 @@ export const inputSizes: TextInputSizes = {
     height: 48,
     lineHeight: 1.5,
     maxWidth: 312,
+    px: 5,
+    py: 3,
   },
   medium: {
     fontSize: 16,
@@ -25,8 +49,11 @@ export const inputSizes: TextInputSizes = {
   },
   small: {
     fontSize: 14,
-    height: "30px",
+    height: 30,
     lineHeight: 1.5,
+    maxWidth: 280,
+    px: 2,
+    py: 1,
   },
 }
 

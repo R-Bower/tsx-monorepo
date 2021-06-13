@@ -1,6 +1,6 @@
 import React from "react"
 
-import {Element} from "@rb/react-components"
+import {Base} from "@rb/react-components"
 
 import {Benchmark, testIterations} from "../../utils/benchmark"
 
@@ -8,7 +8,7 @@ function SxDynamic(): JSX.Element {
   return (
     <>
       {new Array(testIterations).fill(null).map((_, i) => (
-        <Element
+        <Base
           /* eslint-disable-next-line react/no-array-index-key */
           key={i}
           sx={{
@@ -19,7 +19,7 @@ function SxDynamic(): JSX.Element {
           }}
         >
           Test
-        </Element>
+        </Base>
       ))}
     </>
   )

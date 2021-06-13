@@ -22,7 +22,7 @@ export default function MDXPageWrapper({
     <MDXProvider components={MDXComponents}>
       <Grid
         gridTemplateColumns={"minmax(0px, 960px)"}
-        maxWidth={960}
+        maxWidth={1324}
         mx={"auto"}
         p={[4, 6, 12]}
         width={1}

@@ -1,6 +1,6 @@
 import React from "react"
 
-import {Element} from "@rb/react-components"
+import {Base} from "@rb/react-components"
 import {SystemStyleObject} from "@rb/react-style-system"
 
 import {Benchmark, testIterations} from "../../utils/benchmark"
@@ -16,13 +16,13 @@ function SxStatic(): JSX.Element {
   return (
     <>
       {new Array(testIterations).fill(null).map((_, i) => (
-        <Element
+        <Base
           /* eslint-disable-next-line react/no-array-index-key */
           key={i}
           sx={sx}
         >
           Test
-        </Element>
+        </Base>
       ))}
     </>
   )

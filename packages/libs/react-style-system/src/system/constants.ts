@@ -20,7 +20,12 @@ import {DeepObjectKeys} from "./utils/utils"
 export type SystemShadows = SS.ResponsiveValue<keyof ThemeShadows>
 
 type BaseColorsType = SS.ResponsiveValue<
-  DeepObjectKeys<ThemeColors> | "inherit" | "white" | "black" | "transparent"
+  | DeepObjectKeys<ThemeColors>
+  | "inherit"
+  | "transparent"
+  | `#${string}`
+  | `rgb(${number},${number},${number})`
+  | `rgba(${number},${number},${number},${number})`
 >
 export type ColorsType = BaseColorsType
 
@@ -142,6 +147,7 @@ export interface SystemSizingProps {
   maxWidth?: SS.ResponsiveValue<SS.TLengthStyledSystem>
   minHeight?: SS.ResponsiveValue<SS.TLengthStyledSystem>
   minWidth?: SS.ResponsiveValue<SS.TLengthStyledSystem>
+  size?: SS.ResponsiveValue<SS.TLengthStyledSystem>
   width?: SS.ResponsiveValue<SS.TLengthStyledSystem>
 }
 

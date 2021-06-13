@@ -17,11 +17,12 @@ import lightTheme from "./themes/lightTheme"
 const LiveCode = loadable(() => import("./LiveCode"))
 
 export interface CodeProps extends PositionProps {
+  hideEditor?: boolean
   language?: Language
-  liveCodeScope?: Record<string, React.ReactNode>
   live?: boolean
-  viewMode?: ViewMode
+  liveCodeScope?: Record<string, React.ReactNode>
   noinline?: boolean
+  viewMode?: ViewMode
 }
 
 export const CodeBlock = React.forwardRef<HTMLDivElement, CodeProps>(
@@ -29,10 +30,11 @@ export const CodeBlock = React.forwardRef<HTMLDivElement, CodeProps>(
     {
       children,
       className,
+      hideEditor,
       live,
       liveCodeScope,
-      viewMode = "light",
       noinline,
+      viewMode = "light",
       ...props
     }: CodeProps,
     ref,
@@ -57,6 +59,7 @@ export const CodeBlock = React.forwardRef<HTMLDivElement, CodeProps>(
       return (
         <LiveCode
           code={code}
+          hideEditor={hideEditor}
           language={language}
           liveCodeScope={liveCodeScope}
           noinline={noinline}

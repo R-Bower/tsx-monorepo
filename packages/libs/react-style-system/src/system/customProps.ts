@@ -34,7 +34,6 @@ export const layoutProps: SystemPropsConfig = {
 
 export const sizingProps: SystemPropsConfig = {
   height: {
-    properties: ["height"],
     property: "height",
     scale: "sizes",
     transform: pixelSizeTransformer,
@@ -53,6 +52,10 @@ export const sizingProps: SystemPropsConfig = {
   },
   minWidth: {
     property: "minWidth",
+    transform: pixelSizeTransformer,
+  },
+  size: {
+    properties: ["height", "width"],
     transform: pixelSizeTransformer,
   },
   width: {

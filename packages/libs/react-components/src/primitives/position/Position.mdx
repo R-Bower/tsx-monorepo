@@ -5,4 +5,12 @@ id: position
 ---
 # Position
 
-TODO: implement.
+The Position component is a superset of the [Box](/doc/components/primitives/box) component with the following additional attributes:
+- It has access to the `LAYOUT` category of system props.
+
+In previous versions of this library, the `LAYOUT` component was part of the `COMMON` category of system props, which are given to almost every component.  This led to every component being able to manipulate its `position` attribute, which presented with the following issues:
+- it permitted widespread — and ultimately unnecessary — usage of the `z-index` property.
+  - Definitely read [stop (ab)using z-index](https://www.codegram.com/blog/stop-ab-using-z-index/) if this applies to you.
+- every component could modify its position attribute.  In hindsight, this was rarely necessary.
+
+

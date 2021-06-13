@@ -6,7 +6,9 @@ id: flex
 
 # Flex
 
-The `Flex` component behaves the same as the [Box](/doc/components/primitives/box) component except that it has `display: flex` set by default.
+The `Flex` component is a superset of the [Box](/doc/components/primitives/box) component with the following additional traits:
+- it has `display: flex` set by default.
+- it has access to the `FLEX` category of system props.
 
 ```jsx live
 <Flex
@@ -30,11 +32,11 @@ The `Flex` component behaves the same as the [Box](/doc/components/primitives/bo
 </Flex>
 ```
 
-## Component props
+## Default props
 
 | Prop name | Type   | Default | Description                         |
 | :-------- | :----- | :-----: | :---------------------------------- |
-| as        | String |  `div`  | sets the HTML tag for the component |
+| display   | [CSS display property](https://www.w3schools.com/cssref/pr_class_display.asp) |  `flex`  | sets the `display` property for this component |
 
 ## System props
 

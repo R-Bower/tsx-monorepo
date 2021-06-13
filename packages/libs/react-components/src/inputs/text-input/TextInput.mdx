@@ -1,0 +1,41 @@
+---
+group: components
+subgroup: inputs
+id: text-input
+---
+
+# TextInput
+
+TextInput is a form component that provides default styling to the browser's native text input.
+
+#### Sizes
+
+```jsx live hideEditor
+<Flex
+  alignItems={"center"}
+  flexDirection={"column"}
+  mb={8}
+  p={4}
+>
+  <TextInput
+    defaultValue={"Large"}
+    mb={3}
+    placeholder={"Search..."}
+    size={"large"}
+  />
+  <TextInput
+    defaultValue={"Medium"}
+    mb={3}
+    placeholder={"Search..."}
+    size={"medium"}
+  />
+  <TextInput
+    defaultValue={"Small"}
+    placeholder={"Search..."}
+    size={"small"}
+  />
+</Flex>
+```
+
+#### Form Props
+

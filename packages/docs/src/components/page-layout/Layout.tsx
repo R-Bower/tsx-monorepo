@@ -11,7 +11,7 @@ interface LayoutProps {
 }
 
 const headerHeight = 56
-const sidebarWidth = 232
+const sidebarWidth = 252
 
 export default function Layout({children}: LayoutProps): JSX.Element {
   const {onScroll, ref} = usePersistentScroll("app-content")
@@ -41,7 +41,7 @@ export default function Layout({children}: LayoutProps): JSX.Element {
               "minmax(0px, 960px)",
               "minmax(0px, 960px) 220px",
             ]}
-            maxWidth={960}
+            maxWidth={1324}
             mx={"auto"}
             width={1}
           >

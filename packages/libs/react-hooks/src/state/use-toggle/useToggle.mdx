@@ -1,0 +1,18 @@
+---
+group: hooks
+subgroup: state
+id: use-toggle
+---
+
+# useToggle
+
+A simple hook for toggling a boolean value.
+
+```jsx
+const [toggled, toggle] = useToggle(false)
+
+// calling toggle() will invert the value of toggled
+<Button onClick={toggle}>
+  {toggled ? "On" : "Off"}
+</Button>
+```

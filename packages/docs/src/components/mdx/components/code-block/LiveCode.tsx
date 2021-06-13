@@ -1,12 +1,22 @@
 import React, {useState} from "react"
 
+import {BsCode} from "@react-icons/all-files/bs/BsCode"
+import {BsCodeSlash} from "@react-icons/all-files/bs/BsCodeSlash"
 import htmlReactParser from "html-react-parser"
 import {Language} from "prism-react-renderer"
 import reactElementToJsxString from "react-element-to-jsx-string"
 import {LiveEditor, LiveError, LivePreview, LiveProvider} from "react-live"
 import {ThemeContext} from "styled-components"
 
-import {Box, Flex, Position, Text} from "@rb/react-components"
+import {
+  Box,
+  Button,
+  Flex,
+  Position,
+  ReactIcon,
+  Text,
+} from "@rb/react-components"
+import useToggle from "@rb/react-hooks/dist/state/use-toggle/useToggle"
 
 import {CodeClipboardCopy} from "../code-clipboard-copy/CodeClipboardCopy"
 import darkTheme from "./themes/darkTheme"
@@ -39,6 +49,7 @@ function wrapWithFragment(jsx) {
 
 interface LiveCodeProps {
   code: string
+  hideEditor?: boolean
   language: Language
   liveCodeScope: Record<string, React.ReactNode>
   noinline?: boolean
@@ -47,15 +58,18 @@ interface LiveCodeProps {
 
 export default function LiveCode({
   code,
+  hideEditor = false,
   language,
   liveCodeScope,
   noinline,
   viewMode,
-}: LiveCodeProps) {
+}: LiveCodeProps): JSX.Element {
   const theme = React.useContext(ThemeContext)
   const [liveCode, setLiveCode] = useState(code)
   const handleChange = (updatedLiveCode) => setLiveCode(updatedLiveCode)
   const prismTheme = viewMode === "dark" ? darkTheme : lightTheme
+  // if editor is toggleable, hide by default
+  const [showingEditor, toggleShowingEditor] = useToggle(!hideEditor)
 
   return (
     <Flex flexDirection={"column"} mb={3}>
@@ -72,34 +86,57 @@ export default function LiveCode({
           borderTopRightRadius={5}
         >
           <Box p={3}>
-            <LivePreview />
+            <LivePreview
+              style={{
+                fontFamily: theme.fonts.regular,
+              }}
+            />
           </Box>
         </Flex>
+
         <Position position={"relative"}>
-          <LiveEditor
-            // these variables actually work - the compiler just doesn't
-            // want to resolve the types.
-            // @ts-ignore
-            ignoreTabKey={true}
-            onChange={handleChange}
-            // @ts-ignore
-            padding={16}
-            style={{
-              borderBottomLeftRadius: 2,
-              borderBottomRightRadius: 2,
-              fontFamily: theme.fonts.mono,
-              fontSize: "85%",
-            }}
-            theme={prismTheme}
-          />
-          <Position p={2} position={"absolute"} right={0} top={0}>
-            <CodeClipboardCopy value={liveCode} />
+          {showingEditor && (
+            <>
+              <LiveEditor
+                // these variables actually work - the compiler just doesn't
+                // want to resolve the types.
+                // @ts-ignore
+                ignoreTabKey={true}
+                onChange={handleChange}
+                // @ts-ignore
+                padding={16}
+                style={{
+                  borderBottomLeftRadius: 2,
+                  borderBottomRightRadius: 2,
+                  fontFamily: theme.fonts.mono,
+                  fontSize: "85%",
+                }}
+                theme={prismTheme}
+              />
+              <Position p={2} position={"absolute"} right={0} top={0}>
+                <CodeClipboardCopy value={liveCode} />
+              </Position>
+            </>
+          )}
+          {/*Code toggle button*/}
+          <Position bottom={0} p={2} position={"absolute"} right={0}>
+            <Flex justifyContent={"flex-end"}>
+              <Button onClick={toggleShowingEditor} p={2} variant={"icon"}>
+                <ReactIcon
+                  color={"icon.primary"}
+                  icon={showingEditor ? BsCodeSlash : BsCode}
+                  size={18}
+                  title={showingEditor ? "Hide code" : "Show code"}
+                />
+              </Button>
+            </Flex>
           </Position>
         </Position>
+
         <Text
           as={LiveError}
           bg={"text.danger"}
-          color={"white"}
+          color={"#fff"}
           fontFamily={"mono"}
           fontSize={14}
           m={0}
