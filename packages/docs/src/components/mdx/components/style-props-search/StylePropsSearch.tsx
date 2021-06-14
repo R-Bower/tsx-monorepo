@@ -10,6 +10,8 @@ import {filterEntries} from "./utils"
 
 interface StylePropsSearchProps {
   propGroups: PropsListProps["id"][]
+  searchable?: boolean
+  showTitle?: boolean
 }
 
 const getFilteredPropsList = (propGroups: PropsListProps["id"][]) => {
@@ -29,6 +31,8 @@ const getFilteredPropsList = (propGroups: PropsListProps["id"][]) => {
  */
 export default function StylePropsSearch({
   propGroups,
+  searchable = true,
+  showTitle = true,
 }: StylePropsSearchProps): JSX.Element {
   const [input, setInput] = useState<string>("")
 
@@ -51,17 +55,20 @@ export default function StylePropsSearch({
 
   return (
     <Flex flexDirection={"column"}>
-      <TextInput
-        mb={2}
-        onChange={onInputChange}
-        placeholder={"Props search..."}
-        value={input}
-      />
+      {searchable ? (
+        <TextInput
+          mb={2}
+          onChange={onInputChange}
+          placeholder={"Props search..."}
+          value={input}
+        />
+      ) : null}
       {filteredState.map((entry) => (
         <PropGroup
           key={entry.id}
           id={entry.id.toUpperCase()}
           props={entry.props}
+          showTitle={showTitle}
         />
       ))}
     </Flex>

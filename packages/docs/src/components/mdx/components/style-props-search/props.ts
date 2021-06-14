@@ -134,6 +134,7 @@ export const propsList: PropsListProps[] = [
     props: [
       ["height", "height", "sizes"],
       ["width", "width", "sizes"],
+      ["size", "height + width", "sizes"],
       ["maxHeight", "max-height"],
       ["minHeight", "min-height"],
       ["maxWidth", "max-width"],

@@ -6,23 +6,23 @@
       "url": "/"
     },
     {
-      "id": "System props",
-      "url": "/system-props"
+      "id": "Core concepts",
+      "url": "/core-concepts"
+    },
+    {
+      "id": "Props API",
+      "url": "/props-api"
     },
     {
       "id": "Why styled-system?",
       "url": "/why-styled-system"
     },
     {
-      "id": "Core concepts",
-      "url": "/core-concepts"
-    },
-    {
       "id": "Theme",
       "url": "/theme"
     },
     {
-      "id": "Sx prop",
+      "id": "Sx Prop",
       "url": "/sx-prop"
     }
   ]

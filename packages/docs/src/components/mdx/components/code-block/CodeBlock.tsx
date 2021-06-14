@@ -4,7 +4,7 @@ import loadable from "@loadable/component"
 import Highlight, {defaultProps, Language} from "prism-react-renderer"
 import textContent from "react-addons-text-content"
 
-import {Position, PositionProps} from "@rb/react-components"
+import {Position, PositionProps, Text} from "@rb/react-components"
 
 import {ViewMode} from "~redux/reducers/ui/uiSlice"
 
@@ -22,6 +22,7 @@ export interface CodeProps extends PositionProps {
   live?: boolean
   liveCodeScope?: Record<string, React.ReactNode>
   noinline?: boolean
+  noToggle?: boolean
   viewMode?: ViewMode
 }
 
@@ -33,6 +34,7 @@ export const CodeBlock = React.forwardRef<HTMLDivElement, CodeProps>(
       hideEditor,
       live,
       liveCodeScope,
+      noToggle = false,
       noinline,
       viewMode = "light",
       ...props
@@ -62,6 +64,7 @@ export const CodeBlock = React.forwardRef<HTMLDivElement, CodeProps>(
           hideEditor={hideEditor}
           language={language}
           liveCodeScope={liveCodeScope}
+          noToggle={noToggle}
           noinline={noinline}
           viewMode={viewMode}
         />
@@ -102,10 +105,11 @@ export const CodeBlock = React.forwardRef<HTMLDivElement, CodeProps>(
                       {line.map((token, key) => {
                         // eslint-disable-next-line react/no-array-index-key
                         return (
-                          <code
+                          <Text
                             /* eslint-disable-next-line react/no-array-index-key */
                             key={key}
-                            className={"test"}
+                            fontSize={14}
+                            variant={"code"}
                             {...getTokenProps({key, token})}
                           />
                         )

@@ -22,14 +22,21 @@ export interface PropsListProps {
     | "typography"
     | string
   props: [string, string, string?][]
+  showTitle?: boolean
 }
 
-const PropGroup = ({props, id}: PropsListProps): React.ReactElement => {
+const PropGroup = ({
+  props,
+  id,
+  showTitle,
+}: PropsListProps): React.ReactElement => {
   return (
     <Flex flexDirection={"column"}>
-      <MarkdownHeadingLink mb={2} mt={2} variant={"h3"}>
-        {id.toUpperCase()}
-      </MarkdownHeadingLink>
+      {showTitle ? (
+        <MarkdownHeadingLink mb={2} mt={2} variant={"h3"}>
+          {id.toUpperCase()}
+        </MarkdownHeadingLink>
+      ) : null}
       <Box as={"table"} mb={4}>
         <Box as={"thead"}>
           <Box

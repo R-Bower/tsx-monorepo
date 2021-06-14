@@ -3,18 +3,41 @@ export default ({children}) => <MDXPageWrapper>{children}</MDXPageWrapper>
 
 # Core Concepts
 
-This page lays out the fundamentals of building with our components.
+## System Props
 
-## Responsive props
-Instead of manually managing media queries and adding nested style objects throughout the codebase, we take advantage of [styled-system](https://github.com/styled-system/styled-system)'s responsive props API.  Styled System offers a convenient shorthand syntax for adding responsive styles with a mobile-first approach.
+Our React components use [styled-system](https://github.com/jxnblk/styled-system) to accept CSS variables as props.  Applicable props are transformed based on theme fields.
 
-### Fundamentals
-Each array value generates a min-width media query.
+### Basics
 
-The first value of the array is the default value than spans from `0px` to the first breakpoint of the breakpoints theme field.
-Each subsequent value corresponds to the breakpoints theme field, starting with the first breakpoint.
+Consider the following `<Box />` component which is enhanced with the `bg` style prop. This prop corresponds to the CSS `background-color` property.
 
-The following examples are based on our theme's default breakpoints configuration.  All values are in pixels.
+```jsx live noToggle
+<Box bg={"#CCAC67"}>
+  Hello!
+</Box>
+```
+
+This is equivalent to the following JSX/CSS:
+```jsx
+<Box className={"box"}>
+  Hello!
+</Box>
+```
+```css
+.box {
+  background-color: #CCAC67;
+}
+```
+
+Many components get the `COMMON` set of props which give the component access to [BORDER](#border), [COLOR](#color), [DISPLAY](#display) [SIZING](#sizing), and [SPACE](#space) style props.  Refer to the [Props API](/props-api) page for each group.
+
+## Responsive Props
+
+Instead of manually managing media queries and adding nested style objects throughout the codebase, we take advantage of [styled-system](https://github.com/styled-system/styled-system)'s responsive props API.
+
+Each system prop supports a convenient shorthand syntax for adding responsive styles with a mobile-first approach.
+
+Array values generate min-width media queries which map to the `theme.breakpoints` configuration:
 
 `const breakpoints = [360, 550, 768, 1024, 1400, 1800]`
 
@@ -32,15 +55,15 @@ This translates to the following css:
 ```scss
 .exampleClass {
   height: 28px;
+
   @media screen and (min-width: 360px) {
     height: 32px;
   }
+
   @media screen and (min-width: 550px) {
     height: 36px;
   }
 }
-
-
 ```
 
 To skip a breakpoint, supply null for that breakpoint's array index.
@@ -55,18 +78,6 @@ To skip a breakpoint, supply null for that breakpoint's array index.
   ]}
 />
 ```
-
-## Types of components
-
-### Primitive Components
-
- Primitive components (referred to as Primitives) are basic building blocks that can be used together to create more complex components.  Each primitive contains a tailored set of [system-props](/system-props) which provide CSS properties as props on the component.  Some examples of our primitives include `Box`, `Flex`, `Grid`, and `Text`.
-
-### Complex Components
-
- Complex components are components that are made up of one or more building block components to represent a commonly used pattern or utility in our UI.  Each complex component belongs to a sub-group like `data-display`, `layout`, or `feedback`. Some examples of complex components are `TruncatedText` and `Card`.
-
-Complex components are organized based on their category.  Some examples of this organization include `data display`, `inputs`, and `layout`.
 
 
 ## The `as` prop

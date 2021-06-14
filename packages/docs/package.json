@@ -6,7 +6,7 @@
     "benchmark": "jest --config benchmarks/jest.config.benchmark.js --runInBand && ts-node --project tsconfig.scripts.json scripts/format-benchmark-results.ts",
     "build": "next build",
     "build:analyze": "ANALYZE=true yarn run build",
-    "dev": "FORCE_COLOR=1 next-remote-watch ./src/components/page-layout/sidebar/search/components.json",
+    "dev": "FORCE_COLOR=1 next-remote-watch ./src/components/page-layout/sidebar/search/components.json ./src/**/*.mdx",
     "docs": "yarn watch-docs & yarn dev",
     "docs:build": "yarn run build",
     "docs:build:profiler": "next build --profile",

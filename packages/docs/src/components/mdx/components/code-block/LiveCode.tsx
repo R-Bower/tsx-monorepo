@@ -52,6 +52,7 @@ interface LiveCodeProps {
   hideEditor?: boolean
   language: Language
   liveCodeScope: Record<string, React.ReactNode>
+  noToggle?: boolean
   noinline?: boolean
   viewMode?: "light" | "dark"
 }
@@ -61,6 +62,7 @@ export default function LiveCode({
   hideEditor = false,
   language,
   liveCodeScope,
+  noToggle = false,
   noinline,
   viewMode,
 }: LiveCodeProps): JSX.Element {
@@ -89,6 +91,7 @@ export default function LiveCode({
             <LivePreview
               style={{
                 fontFamily: theme.fonts.regular,
+                fontSize: "16px",
               }}
             />
           </Box>
@@ -109,7 +112,7 @@ export default function LiveCode({
                   borderBottomLeftRadius: 2,
                   borderBottomRightRadius: 2,
                   fontFamily: theme.fonts.mono,
-                  fontSize: "85%",
+                  fontSize: 14,
                 }}
                 theme={prismTheme}
               />
@@ -119,18 +122,20 @@ export default function LiveCode({
             </>
           )}
           {/*Code toggle button*/}
-          <Position bottom={0} p={2} position={"absolute"} right={0}>
-            <Flex justifyContent={"flex-end"}>
-              <Button onClick={toggleShowingEditor} p={2} variant={"icon"}>
-                <ReactIcon
-                  color={"icon.primary"}
-                  icon={showingEditor ? BsCodeSlash : BsCode}
-                  size={18}
-                  title={showingEditor ? "Hide code" : "Show code"}
-                />
-              </Button>
-            </Flex>
-          </Position>
+          {!noToggle ? (
+            <Position bottom={0} p={2} position={"absolute"} right={0}>
+              <Flex justifyContent={"flex-end"}>
+                <Button onClick={toggleShowingEditor} p={2} variant={"icon"}>
+                  <ReactIcon
+                    color={"icon.primary"}
+                    icon={showingEditor ? BsCodeSlash : BsCode}
+                    size={18}
+                    title={showingEditor ? "Hide code" : "Show code"}
+                  />
+                </Button>
+              </Flex>
+            </Position>
+          ) : null}
         </Position>
 
         <Text
