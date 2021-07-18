@@ -7,6 +7,8 @@ This project is an opinionated collection of tools, apps, and libraries intended
 
 </div>
 
+Note: This library is no longer under active development.  It was a fun project while it lasted, but I've taken it internal for use within Qualcomm. 
+
 ----
 Live build here: https://tsx-monorepo.com/
 
